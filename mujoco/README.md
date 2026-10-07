@@ -72,12 +72,12 @@ To start a new rollout from the same model, I call `mujoco.mj_resetData(model, d
 | **`qvel`** | Generalized velocities, size `model.nv`. | Angular velocity in **rad/s**. |
 | **`ctrl`** | Actuator inputs, size `model.nu`. I write it; the actuators read it. | One motor: `data.ctrl[0]`. |
 | **`timestep`** | Integration step, set in `<option timestep="...">` (MuJoCo's default is 0.002 s). | 0.002 s (500 Hz). |
-| **actuator** | Maps `ctrl` to a generalized force on a joint. | `<motor gear="1" ctrlrange="-5 5">`. |
+| **actuator** | Maps `ctrl` to a generalized force on a joint. | `<motor gear="1" ctrlrange="-50 50">`. |
 
 Notes:
 
 - **`nq` vs `nv`:** for hinge and slide joints, one position matches one velocity, so `nq == nv`. A free joint stores its orientation as a quaternion (4 numbers) but its angular velocity as 3 numbers, so it has 7 `qpos` and 6 `qvel` entries and `nq != nv`. So `qpos` and `qvel` can't always be matched up index by index.
-- **`ctrl` → torque:** for a `<motor>`, joint torque = `gear * ctrl`. With `ctrlrange="-5 5"` (and `ctrllimited`), any value outside the range is clamped, so writing `ctrl = 100` still gives only 5 N·m.
+- **`ctrl` → torque:** for a `<motor>`, joint torque = `gear * ctrl`. With `ctrlrange="-50 50"` (and `ctrllimited`), any value outside the range is clamped, so writing `ctrl = 100` still gives only 50 N·m. (It was ±5 on Thursday; I widened it on Friday because holding the link at 90° needs about 21 N·m against gravity.)
 - **`timestep`:** one `mj_step` advances `data.time` by exactly one `timestep`, so `steps = seconds / timestep` (2 s / 0.002 s = 1000 steps). A smaller step is more accurate and stable but costs more steps per simulated second. A step that is too large can make stiff or fast systems blow up. My model uses the `RK4` integrator; MuJoCo's default is semi-implicit `Euler`.
 - **Actuator types:**
   - `motor`: `ctrl` is a direct force or torque (scaled by `gear`).
@@ -102,6 +102,16 @@ The script compares the final states and confirms that each rollout ends somewhe
 
 The final-qpos gap for `const_torque` looks small (0.07 rad) only because t = 2 s lands near a swing peak. The mean qpos (0.23 vs 0.05 rad) and the largest gap along the trajectory (0.39 rad) show the torque effect clearly.
 
+## Friday: PD control
+
+`mujoco/pd_control.py` closes the loop: every step it reads `qpos`/`qvel`, computes `error = q_target - q` and `u = Kp*error - Kd*qvel`, writes `data.ctrl[0] = u` and steps the physics. It steps the target from 0 to 1 rad, compares open loop, two deliberately poor gain settings and a tuned one, kicks the link at t = 1.5 s, and saves `mujoco/logs/pd_<name>.csv` plus `mujoco/media/pd_control.png`. What I observed is in [PD_NOTES.md](PD_NOTES.md).
+
+```bash
+.venv/bin/python mujoco/pd_control.py                    # 4 runs, metrics table, plot
+.venv/bin/python mujoco/pd_control.py --no-disturbance   # clean step responses
+.venv/bin/mjpython mujoco/pd_control.py --viewer         # tuned PD live: Space pause, D kick, Backspace reset
+```
+
 ## Media
 
 Generated with `python mujoco/simulate.py --render`.
@@ -116,6 +126,7 @@ Generated with `python mujoco/simulate.py --render`.
 
 - `mujoco/one_joint.xml`: MJCF model (one hinge, one motor, ground plane, light, explicit timestep).
 - `mujoco/simulate.py`: loads the model, runs the three rollouts, logs state, with optional `--viewer` and `--render`.
+- `mujoco/pd_control.py`: PD controller, gain comparison, disturbance test and plot (Friday). Notes in `mujoco/PD_NOTES.md`.
 - `requirements.txt`: Python dependencies.
 - `mujoco/logs/rollout_<name>.csv`: per-step `time, qpos, qvel, ctrl` for each rollout.
 - `mujoco/media/`: screenshot, GIF and plot for this README.

@@ -50,9 +50,13 @@
   </worldbody>
 
   <!-- Actuator: a <motor> applies torque = gear * ctrl directly to the joint.
-       ctrlrange clamps what you write to data.ctrl. -->
+       ctrlrange clamps what you write to data.ctrl.
+       Widened from +-5 to +-50 N*m for Friday's PD controller (pd_control.py):
+       holding the link at 90 deg needs ~21 N*m against gravity, so +-5 could
+       never hold it away from vertical. +-50 leaves headroom but still
+       saturates during a fast step, like a real motor's torque limit. -->
   <actuator>
-    <motor name="torque" joint="hinge" gear="1" ctrlrange="-5 5" ctrllimited="true"/>
+    <motor name="torque" joint="hinge" gear="1" ctrlrange="-50 50" ctrllimited="true"/>
   </actuator>
 
 </mujoco>

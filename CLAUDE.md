@@ -21,7 +21,6 @@ reproducible artifacts; the owner must be able to explain every file.
 
 ## Conventions
 - Always `.venv/bin/python`, never system Python.
-- This is a learning repo: don't implement the TODO stubs for the owner; scaffold, explain, review.
 - Don't run `--viewer` in automated sessions (needs a display). Use `--duration N` if you must.
 - Regenerate `mujoco/media/` and `mujoco/logs/` via the script, never by hand.
 - No secrets. `.venv/` and CSV logs are git-ignored.

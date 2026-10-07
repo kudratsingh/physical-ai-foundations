@@ -88,7 +88,7 @@ def reset(model: mujoco.MjModel, data: mujoco.MjData, qpos0: float, ctrl: float)
     # qvel = generalized velocities; for the hinge, angular velocity [rad/s].
     data.qvel[0] = 0.0
     # ctrl = actuator inputs. Our <motor> applies torque = gear * ctrl to the
-    # hinge (gear=1, clamped to ctrlrange [-5, 5]).
+    # hinge (gear=1, clamped to ctrlrange [-50, 50]).
     data.ctrl[0] = ctrl
     # mj_forward computes derived quantities (positions of bodies, etc.)
     # without advancing time - handy before rendering the very first frame.
