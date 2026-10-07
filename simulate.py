@@ -236,27 +236,49 @@ def render(model: mujoco.MjModel, data: mujoco.MjData, fps: int = 30) -> None:
         renderer.close()
 
 
-def run_viewer(model: mujoco.MjModel, data: mujoco.MjData, duration: float = 30.0) -> None:
+def run_viewer(model: mujoco.MjModel, data: mujoco.MjData, duration: float | None = None) -> None:
     """Interactive passive viewer running in (approximately) real time.
 
-    Applies a small sinusoidal torque so you can see the actuator at work.
+    The pendulum starts at 0.5 rad and the motor applies a slow sinusoidal
+    torque (amplitude 4 N*m, 0.5 Hz), so you can watch the actuator fight and
+    then help gravity.  Runs until you close the window (or `duration` seconds).
     On macOS this requires launching with ``mjpython``.
     """
     import mujoco.viewer
 
     reset(model, data, qpos0=0.5, ctrl=0.0)
+    print(
+        "\n[viewer] window open. What you should see:\n"
+        "  - an orange ball on a red rod, hinged at the top of the grey post\n"
+        "  - it starts tilted 0.5 rad, swings, and the motor pumps it with a\n"
+        "    4 N*m sine torque, so the swing grows / shifts instead of damping out\n"
+        "  - the terminal prints time, qpos, qvel, ctrl twice a second\n"
+        "How to interact:\n"
+        "  - left-drag: rotate camera   right-drag: pan   scroll: zoom\n"
+        "  - double-click the ball to select it, then Ctrl + right-drag to\n"
+        "    apply a force and knock it around; watch qpos/qvel react\n"
+        "  - close the window (or Ctrl+C here) to quit\n"
+    )
     with mujoco.viewer.launch_passive(model, data) as viewer:
         start = time.time()
-        while viewer.is_running() and time.time() - start < duration:
+        next_print = 0.0
+        while viewer.is_running() and (duration is None or time.time() - start < duration):
             step_start = time.time()
-            # Small control input: 1 N*m sinusoidal torque at 0.5 Hz.
-            data.ctrl[0] = 1.0 * np.sin(2 * np.pi * 0.5 * data.time)
-            mujoco.mj_step(model, data)
-            viewer.sync()
+            # Control input: 4 N*m sinusoidal torque at 0.5 Hz, fed through the
+            # motor actuator (gear=1, so ctrl is directly a joint torque).
+            data.ctrl[0] = 4.0 * np.sin(2 * np.pi * 0.5 * data.time)
+            mujoco.mj_step(model, data)      # one physics step: new qpos/qvel
+            viewer.sync()                    # push the new state to the window
+            if data.time >= next_print:
+                print(f"  t={data.time:6.2f}s  qpos={data.qpos[0]:+7.3f} rad  "
+                      f"qvel={data.qvel[0]:+7.3f} rad/s  ctrl={data.ctrl[0]:+5.2f}",
+                      flush=True)
+                next_print += 0.5
             # Sleep so one timestep of sim time ~= one timestep of wall time.
             dt = model.opt.timestep - (time.time() - step_start)
             if dt > 0:
                 time.sleep(dt)
+    print("[viewer] window closed.")
 
 
 def main() -> None:
@@ -267,11 +289,22 @@ def main() -> None:
                         help="save media/one_joint.png and media/one_joint.gif offscreen")
     parser.add_argument("--print-every", type=int, default=100,
                         help="print a table row every N steps (default 100 = 0.2 s)")
+    parser.add_argument("--duration", type=float, default=None,
+                        help="with --viewer: auto-close after this many seconds (default: run until closed)")
     args = parser.parse_args()
 
     model, data = load_model()
     print(f"loaded {MODEL_PATH.relative_to(ROOT)}: nq={model.nq} nv={model.nv} "
           f"nu={model.nu} timestep={model.opt.timestep}s")
+
+    if args.viewer:
+        # Interactive mode only: skip the logged rollouts and go straight to the window.
+        try:
+            run_viewer(model, data, duration=args.duration)
+        except Exception as e:
+            print(f"[viewer] could not launch: {e!r}\n"
+                  "  on macOS run: .venv/bin/mjpython simulate.py --viewer")
+        return
 
     for ro in ROLLOUTS:
         run_rollout(model, data, ro, print_every=args.print_every)
@@ -284,13 +317,6 @@ def main() -> None:
         except Exception as e:  # e.g. no OpenGL context available
             print(f"[render] failed: {e!r}\n"
                   "  try: MUJOCO_GL=egl or MUJOCO_GL=osmesa (Linux), default cgl on macOS")
-
-    if args.viewer:
-        try:
-            run_viewer(model, data)
-        except Exception as e:
-            print(f"[viewer] could not launch: {e!r}\n"
-                  "  on macOS run: .venv/bin/mjpython simulate.py --viewer")
 
 
 if __name__ == "__main__":

@@ -19,6 +19,8 @@ python simulate.py --render           # also writes media/one_joint.png, media/o
 python simulate.py --viewer           # Linux: plain python works
 ```
 
+**What the viewer shows:** `--viewer` skips the logged rollouts and opens a window with the pendulum starting at 0.5 rad. The motor pumps it with a 4 N·m sine torque at 0.5 Hz, close to the pendulum's natural frequency, so the swing keeps going instead of damping out. The terminal prints `time`, `qpos`, `qvel` and `ctrl` twice a second so I can match what I see to the numbers. Left-drag rotates the camera, right-drag pans, scroll zooms. Double-click the ball and Ctrl + right-drag to push it, then watch `qpos`/`qvel` react. The window stays open until I close it (`--duration 10` auto-closes after 10 s).
+
 **Why `mjpython` on macOS:** the passive viewer (`mujoco.viewer.launch_passive`) has to render on the process's main thread, because macOS only lets the main thread drive the Cocoa event loop and windowing. A plain `python` script owns the main thread itself, so the viewer can't start. `mjpython` is installed with the `mujoco` package and works as a drop-in replacement for `python`: it keeps the main thread for the viewer and runs my script on another thread. On Linux this restriction doesn't exist.
 
 ## What I learned
