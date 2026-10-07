@@ -1,0 +1,58 @@
+<!--
+  one_joint.xml : the smallest useful MuJoCo model for learning.
+
+  A single rigid link (a "pendulum") hangs from a fixed pivot.
+  It has exactly ONE degree of freedom (a hinge joint), so:
+    data.qpos[0] = joint angle      [rad]   (0 = hanging straight down)
+    data.qvel[0] = joint velocity   [rad/s]
+    data.ctrl[0] = motor command    [N*m after gear scaling]
+-->
+<mujoco model="one_joint">
+
+  <!-- timestep: the size of one physics step (seconds). Each call to
+       mj_step advances data.time by exactly this amount. 2 ms = 500 Hz. -->
+  <option timestep="0.002" gravity="0 0 -9.81" integrator="RK4"/>
+
+  <!-- Purely cosmetic: a checker texture for the floor and a skybox. -->
+  <asset>
+    <texture name="grid" type="2d" builtin="checker" width="512" height="512"
+             rgb1="0.2 0.3 0.4" rgb2="0.1 0.2 0.3"/>
+    <material name="grid" texture="grid" texrepeat="4 4" reflectance="0.1"/>
+    <texture name="sky" type="skybox" builtin="gradient" rgb1="0.6 0.8 1" rgb2="0 0 0"
+             width="256" height="256"/>
+  </asset>
+
+  <worldbody>
+    <!-- A directional light from above so offscreen renders are not dark. -->
+    <light name="sun" pos="0 0 3" dir="0 0 -1" directional="true"/>
+
+    <!-- Ground plane (size: half-x, half-y, grid spacing). -->
+    <geom name="floor" type="plane" size="2 2 0.1" material="grid"/>
+
+    <!-- Fixed base: a static post the pendulum hangs from (attached to world).
+         It sits slightly behind the swing plane (y=0.1) and contype/conaffinity=0
+         makes it visual-only, so the swinging link never collides with it. -->
+    <geom name="post" type="cylinder" fromto="0 0.1 0  0 0.1 1.5" size="0.03"
+          rgba="0.5 0.5 0.5 1" contype="0" conaffinity="0"/>
+
+    <!-- The moving body. Its frame sits at the pivot, 1.5 m above the floor. -->
+    <body name="link" pos="0 0 1.5">
+      <!-- The ONE hinge joint: rotates about the y-axis, so the link swings
+           in the x-z plane. damping adds a small viscous torque (-damping*qvel)
+           so motion slowly decays. -->
+      <joint name="hinge" type="hinge" axis="0 1 0" damping="0.05"/>
+
+      <!-- The link: a 0.8 m capsule pointing straight down, plus a heavy bob.
+           Mass/inertia are computed automatically from geometry and density. -->
+      <geom name="rod" type="capsule" fromto="0 0 0  0 0 -0.8" size="0.02" rgba="0.8 0.3 0.2 1"/>
+      <geom name="bob" type="sphere" pos="0 0 -0.8" size="0.08" rgba="0.9 0.6 0.1 1"/>
+    </body>
+  </worldbody>
+
+  <!-- Actuator: a <motor> applies torque = gear * ctrl directly to the joint.
+       ctrlrange clamps what you write to data.ctrl. -->
+  <actuator>
+    <motor name="torque" joint="hinge" gear="1" ctrlrange="-5 5" ctrllimited="true"/>
+  </actuator>
+
+</mujoco>
