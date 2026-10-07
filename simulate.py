@@ -239,41 +239,62 @@ def render(model: mujoco.MjModel, data: mujoco.MjData, fps: int = 30) -> None:
 def run_viewer(model: mujoco.MjModel, data: mujoco.MjData, duration: float | None = None) -> None:
     """Interactive passive viewer running in (approximately) real time.
 
-    The pendulum starts at 0.5 rad and the motor applies a slow sinusoidal
-    torque (amplitude 4 N*m, 0.5 Hz), so you can watch the actuator fight and
-    then help gravity.  Runs until you close the window (or `duration` seconds).
+    Keys (with the viewer window focused):
+      Space      pause / resume the physics (pause to click the ball easily)
+      M          toggle the motor torque (4 N*m sine at 0.5 Hz) on / off
+      Backspace  reset to the initial state (0.5 rad, at rest)
+    Runs until you close the window (or `duration` seconds).
     On macOS this requires launching with ``mjpython``.
     """
     import mujoco.viewer
+
+    state = {"paused": False, "motor": True}
+
+    def on_key(keycode: int) -> None:
+        # Called by the viewer on its own thread for every key press.
+        if keycode == 32:                       # Space
+            state["paused"] = not state["paused"]
+            print(f"[viewer] {'PAUSED' if state['paused'] else 'running'}", flush=True)
+        elif keycode in (ord("M"), ord("m")):   # M
+            state["motor"] = not state["motor"]
+            print(f"[viewer] motor {'ON' if state['motor'] else 'OFF'}", flush=True)
+        elif keycode == 259:                    # Backspace
+            reset(model, data, qpos0=0.5, ctrl=0.0)
+            print("[viewer] reset to qpos=0.5 rad, qvel=0", flush=True)
 
     reset(model, data, qpos0=0.5, ctrl=0.0)
     print(
         "\n[viewer] window open. What you should see:\n"
         "  - an orange ball on a red rod, hinged at the top of the grey post\n"
-        "  - it starts tilted 0.5 rad, swings, and the motor pumps it with a\n"
-        "    4 N*m sine torque, so the swing grows / shifts instead of damping out\n"
+        "  - it starts tilted 0.5 rad and the motor pumps it with a 4 N*m sine\n"
+        "    torque, so the swing keeps going instead of damping out\n"
         "  - the terminal prints time, qpos, qvel, ctrl twice a second\n"
-        "How to interact:\n"
-        "  - left-drag: rotate camera   right-drag: pan   scroll: zoom\n"
-        "  - double-click the ball to select it, then Ctrl + right-drag to\n"
-        "    apply a force and knock it around; watch qpos/qvel react\n"
-        "  - close the window (or Ctrl+C here) to quit\n"
+        "Keys (click the window first so it has focus):\n"
+        "  Space      pause / resume   <- pause, then it is easy to click the ball\n"
+        "  M          motor on / off   <- off: plain damped pendulum\n"
+        "  Backspace  reset to the start\n"
+        "Mouse:\n"
+        "  left-drag rotate   right-drag pan   scroll zoom\n"
+        "  double-click the ball to select it, then Ctrl + right-drag to push it\n"
+        "  (push while paused, press Space, and watch qpos/qvel react)\n"
+        "  close the window (or Ctrl+C here) to quit\n"
     )
-    with mujoco.viewer.launch_passive(model, data) as viewer:
+    with mujoco.viewer.launch_passive(model, data, key_callback=on_key) as viewer:
         start = time.time()
         next_print = 0.0
         while viewer.is_running() and (duration is None or time.time() - start < duration):
             step_start = time.time()
-            # Control input: 4 N*m sinusoidal torque at 0.5 Hz, fed through the
-            # motor actuator (gear=1, so ctrl is directly a joint torque).
-            data.ctrl[0] = 4.0 * np.sin(2 * np.pi * 0.5 * data.time)
-            mujoco.mj_step(model, data)      # one physics step: new qpos/qvel
-            viewer.sync()                    # push the new state to the window
-            if data.time >= next_print:
-                print(f"  t={data.time:6.2f}s  qpos={data.qpos[0]:+7.3f} rad  "
-                      f"qvel={data.qvel[0]:+7.3f} rad/s  ctrl={data.ctrl[0]:+5.2f}",
-                      flush=True)
-                next_print += 0.5
+            if not state["paused"]:
+                # Control input: 4 N*m sinusoidal torque at 0.5 Hz, fed through the
+                # motor actuator (gear=1, so ctrl is directly a joint torque).
+                data.ctrl[0] = 4.0 * np.sin(2 * np.pi * 0.5 * data.time) if state["motor"] else 0.0
+                mujoco.mj_step(model, data)  # one physics step: new qpos/qvel
+                if data.time >= next_print:
+                    print(f"  t={data.time:6.2f}s  qpos={data.qpos[0]:+7.3f} rad  "
+                          f"qvel={data.qvel[0]:+7.3f} rad/s  ctrl={data.ctrl[0]:+5.2f}",
+                          flush=True)
+                    next_print = data.time + 0.5
+            viewer.sync()                    # push state (and mouse pushes) to the window
             # Sleep so one timestep of sim time ~= one timestep of wall time.
             dt = model.opt.timestep - (time.time() - step_start)
             if dt > 0:
