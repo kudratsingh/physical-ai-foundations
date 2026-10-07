@@ -11,7 +11,7 @@ without notes.
 | day | track | artifact | status |
 |---|---|---|---|
 | Mon | configuration space | `notes/configuration_space.md` | done |
-| Tue–Wed | frames, SO(3), SE(3) | `math/transforms.py`, `math/test_transforms.py`, `notes/frames_se3.md` | done |
+| Tue–Wed | frames, SO(3), SE(3) | `math/transforms.py`, `tests/test_transforms.py`, `notes/frames_se3.md` | done |
 | Thu | first MuJoCo physics loop | `mujoco/one_joint.xml`, `mujoco/simulate.py`, [`mujoco/README.md`](mujoco/README.md) | done |
 | Fri | PD controller | `mujoco/pd_control.py`, [`mujoco/PD_NOTES.md`](mujoco/PD_NOTES.md) + plot | done |
 | Sat | ROS 2 graph | `ros2_ws/src/stage0_basics/` | todo |
@@ -26,7 +26,7 @@ python3 -m venv .venv
 .venv/bin/python mujoco/simulate.py --render     # screenshot, GIF, plot
 .venv/bin/python mujoco/pd_control.py           # PD gain comparison + plot
 .venv/bin/mjpython mujoco/simulate.py --viewer   # interactive (macOS needs mjpython)
-.venv/bin/python math/test_transforms.py         # once transforms.py is implemented
+.venv/bin/python tests/test_transforms.py        # transforms tests, no pytest needed
 ```
 
 ROS 2 work runs in Ubuntu 24.04 (Jazzy), not in this venv.

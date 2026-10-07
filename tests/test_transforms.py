@@ -1,11 +1,13 @@
-"""Run with: .venv/bin/python -m pytest math/  (or python math/test_transforms.py)."""
+"""Run with: .venv/bin/python -m pytest  (or .venv/bin/python tests/test_transforms.py)."""
 import os
 import sys
 
 import numpy as np
 
-# Make `from transforms import ...` work from any cwd (plain python or pytest).
-sys.path.insert(0, os.path.dirname(os.path.abspath(__file__)))
+# Make `from transforms import ...` work from any cwd. Under pytest,
+# tests/conftest.py already does this; the line below covers the plain-python
+# runner at the bottom of this file. transforms.py lives in ../math/.
+sys.path.insert(0, os.path.join(os.path.dirname(os.path.abspath(__file__)), "..", "math"))
 
 from transforms import (rot_x, rot_z, compose_rotations, inverse_rotation,  # noqa: E402
                         make_transform, inverse_transform, compose_transforms,
