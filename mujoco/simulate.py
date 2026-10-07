@@ -19,7 +19,7 @@ Usage
 -----
     .venv/bin/python simulate.py              # headless: 3 rollouts + CSVs + plot
     .venv/bin/python simulate.py --render     # also save media/one_joint.png + .gif
-    .venv/bin/mjpython simulate.py --viewer   # interactive viewer (macOS needs mjpython)
+    .venv/bin/mjpython mujoco/simulate.py --viewer   # interactive viewer (macOS needs mjpython)
 
 On macOS the passive viewer must be started with ``mjpython`` (shipped with the
 mujoco pip package, at ``.venv/bin/mjpython``); plain ``python`` will raise an
@@ -39,8 +39,8 @@ from pathlib import Path
 import numpy as np
 import mujoco
 
-ROOT = Path(__file__).resolve().parent
-MODEL_PATH = ROOT / "mujoco" / "one_joint.xml"
+ROOT = Path(__file__).resolve().parent          # the mujoco/ folder
+MODEL_PATH = ROOT / "one_joint.xml"
 LOG_DIR = ROOT / "logs"
 MEDIA_DIR = ROOT / "media"
 
@@ -315,7 +315,7 @@ def main() -> None:
     args = parser.parse_args()
 
     model, data = load_model()
-    print(f"loaded {MODEL_PATH.relative_to(ROOT)}: nq={model.nq} nv={model.nv} "
+    print(f"loaded mujoco/{MODEL_PATH.name}: nq={model.nq} nv={model.nv} "
           f"nu={model.nu} timestep={model.opt.timestep}s")
 
     if args.viewer:
@@ -324,7 +324,7 @@ def main() -> None:
             run_viewer(model, data, duration=args.duration)
         except Exception as e:
             print(f"[viewer] could not launch: {e!r}\n"
-                  "  on macOS run: .venv/bin/mjpython simulate.py --viewer")
+                  "  on macOS run: .venv/bin/mjpython mujoco/simulate.py --viewer")
         return
 
     for ro in ROLLOUTS:

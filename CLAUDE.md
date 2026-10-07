@@ -1,25 +1,27 @@
-# mujoco-simulation
+# physical-ai-foundations
 
-Learning project: a one-joint MuJoCo pendulum, stepped from Python, with logged joint state.
+Stage 0, Week 1 of a physical-AI learning roadmap. Small, heavily commented,
+reproducible artifacts; the owner must be able to explain every file.
 
 ## Layout
-- `mujoco/one_joint.xml` — minimal MJCF model (one hinge joint, one motor actuator)
-- `simulate.py` — loads the model, steps it, logs time/qpos/qvel/ctrl, runs three rollouts
-- `logs/` — CSV rollouts (generated)
-- `media/` — screenshot, GIF, plots for the README (generated with `--render`)
-- `README.md` — setup, what I learned, experiment results
+- `notes/` — written-in-own-words theory notes (C-space, frames, SE(3))
+- `math/` — NumPy rotation/transform functions + tests (no library wrappers)
+- `mujoco/` — one-joint MJCF model, `simulate.py` (Thu), `pd_control.py` (Fri), generated `logs/` and `media/`
+- `ros2_ws/` — ROS 2 Jazzy package, Ubuntu only
+- `architecture/` — Week-1 system map and review
 
 ## Commands
 ```bash
-python3 -m venv .venv && .venv/bin/pip install -r requirements.txt
-.venv/bin/python simulate.py            # headless run, prints + saves logs
-.venv/bin/python simulate.py --render   # saves media/*.png and media/*.gif
-.venv/bin/mjpython simulate.py --viewer # interactive viewer (macOS needs mjpython)
+.venv/bin/pip install -r requirements.txt
+.venv/bin/python mujoco/simulate.py            # headless, prints + saves logs
+.venv/bin/python mujoco/simulate.py --render   # saves mujoco/media/*
+.venv/bin/mjpython mujoco/simulate.py --viewer # interactive, macOS needs mjpython
+.venv/bin/python math/test_transforms.py
 ```
 
 ## Conventions
-- Always use `.venv/bin/python`; never the system Python.
-- Keep the model and script small and heavily commented; this is a teaching repo.
-- Don't run `--viewer` in automated sessions; it needs a display.
-- Regenerate `media/` and `logs/` via the script rather than editing them by hand.
-- No secrets or credentials in this repo. `.venv/` is git-ignored.
+- Always `.venv/bin/python`, never system Python.
+- This is a learning repo: don't implement the TODO stubs for the owner; scaffold, explain, review.
+- Don't run `--viewer` in automated sessions (needs a display). Use `--duration N` if you must.
+- Regenerate `mujoco/media/` and `mujoco/logs/` via the script, never by hand.
+- No secrets. `.venv/` and CSV logs are git-ignored.
