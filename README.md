@@ -1,5 +1,7 @@
 # physical-ai-foundations
 
+[![tests](https://github.com/kudratsingh/physical-ai-foundations/actions/workflows/tests.yml/badge.svg)](https://github.com/kudratsingh/physical-ai-foundations/actions/workflows/tests.yml)
+
 Stage 0 of my Physical AI roadmap: build the physical-world mental model that
 robot learning, VLAs and hardware all assume. Week 1 covers configuration
 space, coordinate frames and SE(3), a closed-loop MuJoCo simulation, and ROS 2
@@ -30,6 +32,31 @@ python3 -m venv .venv
 ```
 
 ROS 2 work runs in Ubuntu 24.04 (Jazzy), not in this venv.
+
+## Tests
+
+```bash
+.venv/bin/pip install -r requirements-dev.txt    # pytest
+.venv/bin/python -m pytest                       # whole suite, well under a second
+.venv/bin/python -m pytest -m "not slow"         # skip anything marked slow
+```
+
+What `tests/` covers (no rendering, no viewer; CSV logs go to a temp dir):
+
+- `test_transforms.py` - rotations and SE(3) transforms: orthonormality,
+  inverses, composition, the worked world/base/camera example.
+- `test_model.py` - `one_joint.xml`: 1 DoF hinge, 2 ms timestep, motor with
+  gear 1 and ctrlrange ±50 N·m, joint damping 0.05, gravity on.
+- `test_simulate.py` - `reset()` initial state, a free swing stays bounded
+  and loses energy, rest at the bottom stays at rest, the three rollouts end
+  at different angles.
+- `test_pd_control.py` - tuned gains (Kp=500, Kd=40) settle within 5% before
+  0.5 s and recover from the kick within 0.5 s; Kd=0 overshoots >30%; low Kp
+  sags >0.2 rad; applied torque is clamped to ±50 N·m.
+
+GitHub Actions (`.github/workflows/tests.yml`) runs the suite plus headless
+smoke runs of `simulate.py` and `pd_control.py` on Python 3.12 for every push
+and pull request to `main`.
 
 ## Week-1 gate
 
