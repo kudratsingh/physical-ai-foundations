@@ -1,7 +1,7 @@
 # Frames, SO(3) and SE(3) (Week 1, Tuesday–Wednesday)
 
 Source: Modern Robotics Ch. 3 (intro, rotation matrices, 3.3.1).
-Code: `math/transforms.py`, tests: `math/test_transforms.py`.
+Code: `math/transforms.py`, tests: `tests/test_transforms.py`.
 
 ## Frames I care about
 
