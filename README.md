@@ -17,7 +17,7 @@ without notes.
 | Thu | first MuJoCo physics loop | `mujoco/one_joint.xml`, `mujoco/simulate.py`, [`mujoco/README.md`](mujoco/README.md) | done |
 | Fri | PD controller | `mujoco/pd_control.py`, [`mujoco/PD_NOTES.md`](mujoco/PD_NOTES.md) + plot | done |
 | Sat | ROS 2 graph | `ros2_ws/src/stage0_basics/` | todo |
-| Sun | system map + oral gate | `architecture/week1_system_map.md` | todo |
+| Sun | system map + oral gate | `architecture/week1_system_map.md` | done |
 
 ## Setup (MuJoCo track, macOS or Linux)
 
