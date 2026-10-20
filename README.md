@@ -16,8 +16,8 @@ without notes.
 | Tue–Wed | frames, SO(3), SE(3) | `math/transforms.py`, `tests/test_transforms.py`, `notes/frames_se3.md` | done |
 | Thu | first MuJoCo physics loop | `mujoco/one_joint.xml`, `mujoco/simulate.py`, [`mujoco/README.md`](mujoco/README.md) | done |
 | Fri | PD controller | `mujoco/pd_control.py`, [`mujoco/PD_NOTES.md`](mujoco/PD_NOTES.md) + plot | done |
-| Sat | ROS 2 graph | `ros2_ws/src/stage0_basics/` | todo |
-| Sun | system map + oral gate | `architecture/week1_system_map.md` | done |
+| Sat | ROS 2 graph | [`ros2_ws/README.md`](ros2_ws/README.md), `ros2_ws/src/stage0_basics/` | built and verified; hands-on review next |
+| Sun | system map + oral gate | `architecture/week1_system_map.md` | map written; oral gate pending |
 
 ## Setup (MuJoCo track, macOS or Linux)
 
@@ -31,7 +31,9 @@ python3 -m venv .venv
 .venv/bin/python tests/test_transforms.py        # transforms tests, no pytest needed
 ```
 
-ROS 2 work runs in Ubuntu 24.04 (Jazzy), not in this venv.
+ROS 2 runs in Ubuntu 24.04 (Jazzy) through Docker Desktop on the Mac, separately
+from this venv. See [the ROS workspace](ros2_ws/README.md) for setup, a verified
+publisher/subscriber + service + rosbag exercise, and a hands-on walkthrough.
 
 ## Tests
 
@@ -57,6 +59,11 @@ What `tests/` covers (no rendering, no viewer; CSV logs go to a temp dir):
 GitHub Actions (`.github/workflows/tests.yml`) runs the suite plus headless
 smoke runs of `simulate.py` and `pd_control.py` on Python 3.12 for every push
 and pull request to `main`.
+
+The separate `ROS 2` workflow builds the Ubuntu/Jazzy container and runs the ROS
+package tests, including real node communication, service calls, and rosbag
+recording/replay. Run those tests inside the container as described in
+[`ros2_ws/README.md`](ros2_ws/README.md).
 
 ## Week-1 gate
 

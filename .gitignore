@@ -3,3 +3,10 @@ __pycache__/
 *.pyc
 .DS_Store
 mujoco/logs/*.csv
+ros2_ws/build/
+ros2_ws/install/
+ros2_ws/log/
+ros2_ws/bags/
+ros2_ws/evidence/
+*.egg-info/
+.pytest_cache/

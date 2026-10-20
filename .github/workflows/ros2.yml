@@ -1,0 +1,24 @@
+name: ROS 2
+
+on:
+  push:
+    branches: [main]
+  pull_request:
+    branches: [main]
+
+jobs:
+  ros2:
+    runs-on: ubuntu-24.04
+    timeout-minutes: 15
+    steps:
+      - uses: actions/checkout@v4
+      - name: Build Jazzy image
+        run: docker compose -f ros2_ws/compose.yaml build
+      - name: Build package and test real ROS graph and bag replay
+        run: |
+          docker compose -f ros2_ws/compose.yaml run --rm ros2 bash -c '
+            source /opt/ros/jazzy/setup.bash &&
+            colcon build --symlink-install --packages-select stage0_basics &&
+            source install/setup.bash &&
+            python3 -m pytest -v src/stage0_basics/test
+          '
