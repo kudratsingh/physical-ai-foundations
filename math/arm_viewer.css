@@ -1,0 +1,962 @@
+:root {
+  color-scheme: light dark;
+  --bg: #f2f5f8;
+  --paper: #fff;
+  --ink: #192c3e;
+  --muted: #657789;
+  --line: #dce4ec;
+  --grid: #e9eff5;
+  --blue: #2868cf;
+  --orange: #c96b2b;
+  --soft: #edf3fc;
+  --reach: #d5e6f8;
+  --red: #ce4e57;
+  --green: #238674;
+  --warn: #b23b35;
+  --shadow: #90a5bb;
+}
+@media (prefers-color-scheme: dark) {
+  :root {
+    --bg: #101922;
+    --paper: #172432;
+    --ink: #e0eaf5;
+    --muted: #a0b3c7;
+    --line: #334657;
+    --grid: #263646;
+    --blue: #7aabff;
+    --orange: #ffae78;
+    --soft: #253950;
+    --reach: #395675;
+    --red: #ff929c;
+    --green: #65c9ac;
+    --warn: #ffaaa3;
+    --shadow: #0d1620;
+  }
+}
+* {
+  box-sizing: border-box;
+}
+body {
+  margin: 0;
+  background: var(--bg);
+  color: var(--ink);
+  font:
+    15px/1.5 -apple-system,
+    BlinkMacSystemFont,
+    "Segoe UI",
+    sans-serif;
+}
+main {
+  max-width: 1440px;
+  margin: auto;
+  padding: 30px 28px 24px;
+}
+header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 24px;
+  margin-bottom: 24px;
+}
+.eyebrow {
+  color: var(--muted);
+  font-size: 11px;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  font-weight: 650;
+}
+h1 {
+  font-size: 32px;
+  line-height: 1.15;
+  letter-spacing: -0.035em;
+  margin: 6px 0 8px;
+}
+h2 {
+  font-size: 14px;
+  font-weight: 650;
+  margin: 0;
+}
+p {
+  margin: 0;
+}
+.subtitle {
+  color: var(--muted);
+  font-size: 14px;
+}
+.mode-label {
+  display: flex;
+  gap: 9px;
+  align-items: center;
+  color: var(--muted);
+  font-size: 12px;
+  white-space: nowrap;
+}
+.status-dot {
+  width: 7px;
+  height: 7px;
+  background: var(--green);
+  border-radius: 50%;
+}
+.separator {
+  opacity: 0.4;
+  margin: 0 3px;
+}
+.lab {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) 320px;
+  gap: 20px;
+  align-items: start;
+}
+.workspace-stack {
+  min-width: 0;
+}
+.panel {
+  background: var(--paper);
+  border: 1px solid var(--line);
+  border-radius: 12px;
+  overflow: hidden;
+}
+.panel-heading {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 14px;
+  padding: 18px 20px 0;
+}
+.panel-heading p {
+  font-size: 12px;
+  color: var(--muted);
+  margin-top: 3px;
+}
+.segmented {
+  display: flex;
+  padding: 3px;
+  background: var(--bg);
+  border: 1px solid var(--line);
+  border-radius: 7px;
+  gap: 2px;
+}
+.segmented button {
+  border: 0;
+  background: transparent;
+  padding: 6px 10px;
+  font-size: 12px;
+}
+.segmented button[aria-pressed="true"] {
+  background: var(--paper);
+  color: var(--blue);
+  box-shadow: 0 1px 3px #00000012;
+}
+button,
+input,
+select {
+  font: inherit;
+  color: var(--ink);
+}
+button {
+  cursor: pointer;
+  background: var(--paper);
+  border: 1px solid var(--line);
+  border-radius: 6px;
+  font-size: 12px;
+  padding: 8px 10px;
+}
+button:hover {
+  background: var(--soft);
+}
+button[aria-pressed="true"] {
+  border-color: var(--blue);
+  background: var(--soft);
+}
+button:disabled {
+  opacity: 0.5;
+  cursor: default;
+}
+:focus-visible {
+  outline: 3px solid var(--blue);
+  outline-offset: 3px;
+}
+#plot {
+  width: 100%;
+  height: 480px;
+  display: block;
+  touch-action: none;
+  user-select: none;
+  cursor: grab;
+}
+#plot:active {
+  cursor: grabbing;
+}
+#plot[data-view="plan"] {
+  cursor: default;
+}
+.scene-tools {
+  padding: 0 20px 12px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 16px;
+}
+.legend {
+  display: flex;
+  gap: 16px;
+  flex-wrap: wrap;
+  color: var(--muted);
+  font-size: 11px;
+}
+.legend span {
+  display: inline-flex;
+  align-items: center;
+  gap: 5px;
+}
+.legend b {
+  font-weight: 500;
+}
+.swatch {
+  display: inline-block;
+  width: 17px;
+  height: 3px;
+  border-radius: 2px;
+}
+.first {
+  background: var(--blue);
+}
+.second {
+  background: var(--orange);
+}
+.trail {
+  background: var(--green);
+}
+.text-button {
+  border: 0;
+  background: transparent;
+  color: var(--muted);
+  padding: 4px;
+  font-size: 11px;
+  white-space: nowrap;
+}
+.overlays {
+  padding: 12px 20px;
+  border-top: 1px solid var(--line);
+  display: flex;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 10px 16px;
+  background: color-mix(in srgb, var(--bg) 50%, var(--paper));
+}
+.overlays label {
+  display: flex;
+  align-items: center;
+  gap: 5px;
+  font-size: 11px;
+  color: var(--muted);
+}
+input[type="checkbox"] {
+  accent-color: var(--blue);
+  margin: 0;
+  width: 13px;
+  height: 13px;
+  cursor: pointer;
+}
+.linked-views {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 16px;
+  margin-top: 16px;
+}
+.linked-views .panel-heading {
+  padding: 16px 16px 0;
+  gap: 8px;
+}
+.linked-views .panel-heading p {
+  font-size: 11px;
+}
+.mini-tag {
+  font-size: 10px;
+  letter-spacing: 0.01em;
+  color: var(--muted);
+  white-space: nowrap;
+}
+.compact {
+  gap: 10px;
+}
+.compact .swatch {
+  width: 11px;
+}
+#cspace,
+#history {
+  width: 100%;
+  height: 200px;
+  display: block;
+}
+#cspace {
+  touch-action: none;
+  user-select: none;
+  cursor: crosshair;
+}
+.chart-caption {
+  font-size: 10px;
+  color: var(--muted);
+  padding: 0 16px 12px;
+}
+.controls {
+  padding: 20px;
+}
+.controls-heading {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 12px;
+}
+.control {
+  margin-top: 19px;
+}
+.control-title {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 12px;
+}
+.control-title label {
+  font-size: 13px;
+  font-weight: 600;
+}
+.angle-number {
+  display: flex;
+  align-items: center;
+  gap: 3px;
+  font-size: 16px;
+  font-weight: 600;
+}
+.angle-number input {
+  width: 68px;
+  text-align: right;
+  padding: 4px 3px;
+  border: 1px solid var(--line);
+  border-radius: 5px;
+  background: var(--paper);
+  font-size: 15px;
+  font-weight: 600;
+}
+.help {
+  color: var(--muted);
+  font-size: 11px;
+}
+.control .help {
+  margin: 3px 0 7px;
+}
+input[type="range"] {
+  width: 100%;
+  height: 26px;
+  margin: 0;
+  accent-color: var(--blue);
+  cursor: pointer;
+}
+#q2 {
+  accent-color: var(--orange);
+}
+.range-ends {
+  display: flex;
+  justify-content: space-between;
+  gap: 6px;
+  color: var(--muted);
+  font-size: 10px;
+  align-items: center;
+}
+.range-ends output {
+  color: var(--ink);
+  font-weight: 550;
+}
+.presets {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 5px;
+  margin-top: 17px;
+}
+.presets button {
+  font-size: 10px;
+  padding: 7px 4px;
+}
+.section-divider {
+  height: 1px;
+  background: var(--line);
+  margin: 19px 0;
+}
+#motion-status {
+  font-size: 10px;
+  color: var(--muted);
+}
+select {
+  background: var(--paper);
+  border: 1px solid var(--line);
+  border-radius: 5px;
+  padding: 7px;
+  font-size: 11px;
+  max-width: 100%;
+}
+#pattern {
+  width: 100%;
+  margin-top: 12px;
+}
+.play-row {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  margin: 10px 0 7px;
+}
+.play-row label {
+  display: flex;
+  gap: 5px;
+  align-items: center;
+  font-size: 11px;
+  color: var(--muted);
+}
+.play-row .primary {
+  flex: 1;
+  background: var(--ink);
+  border-color: var(--ink);
+  color: var(--paper);
+  font-weight: 600;
+}
+.speed-label {
+  flex-direction: column !important;
+  gap: 1px !important;
+  font-size: 9px !important;
+}
+#speed {
+  padding: 2px 3px;
+  font-size: 10px;
+}
+.lengths {
+  display: flex;
+  gap: 12px;
+  margin-top: 11px;
+}
+.lengths label {
+  flex: 1;
+  min-width: 0;
+  font-size: 11px;
+  color: var(--muted);
+}
+.lengths input {
+  display: block;
+  width: 100%;
+  margin-top: 4px;
+  background: var(--paper);
+  border: 1px solid var(--line);
+  border-radius: 5px;
+  padding: 7px;
+  font-size: 13px;
+}
+.result {
+  border-top: 1px solid var(--line);
+  margin-top: 18px;
+  padding-top: 17px;
+}
+.result-label {
+  font-size: 11px;
+  color: var(--muted);
+}
+#hand-position {
+  font-size: 26px;
+  font-weight: 650;
+  font-variant-numeric: tabular-nums;
+  letter-spacing: -0.03em;
+  margin: 4px 0 12px;
+}
+.readout {
+  display: flex;
+  justify-content: space-between;
+  gap: 9px;
+  font-size: 11px;
+  margin-top: 9px;
+  color: var(--muted);
+}
+.readout strong {
+  color: var(--ink);
+  font-weight: 550;
+  font-variant-numeric: tabular-nums;
+}
+.math-panel {
+  margin-top: 20px;
+}
+.equations {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 24px;
+  padding: 16px 20px 20px;
+}
+.equation {
+  font:
+    13px/1.8 ui-monospace,
+    SFMono-Regular,
+    Consolas,
+    monospace;
+  overflow-wrap: anywhere;
+}
+.substitution {
+  font:
+    11px/1.7 ui-monospace,
+    SFMono-Regular,
+    Consolas,
+    monospace;
+  color: var(--muted);
+  overflow-wrap: anywhere;
+}
+details {
+  border-top: 1px solid var(--line);
+  padding: 14px 20px;
+}
+summary {
+  font-size: 12px;
+  cursor: pointer;
+}
+.matrices {
+  display: grid;
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+  gap: 18px;
+  margin-top: 18px;
+}
+.matrix-label {
+  font-size: 11px;
+  color: var(--muted);
+  margin-bottom: 8px;
+}
+.matrix {
+  font:
+    12px/1.7 ui-monospace,
+    SFMono-Regular,
+    Consolas,
+    monospace;
+  white-space: pre;
+  margin: 0;
+}
+.chain {
+  font-size: 11px;
+  color: var(--muted);
+  margin-top: 14px;
+}
+footer {
+  color: var(--muted);
+  font-size: 12px;
+  line-height: 1.7;
+  margin-top: 17px;
+}
+footer strong {
+  color: var(--ink);
+  font-weight: 600;
+}
+#connection-error {
+  color: var(--warn);
+  font-size: 13px;
+  margin-bottom: 15px;
+}
+.sr-only {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  overflow: hidden;
+  clip-path: inset(50%);
+}
+[hidden] {
+  display: none !important;
+}
+@media (max-width: 1050px) {
+  main {
+    padding: 24px 18px;
+  }
+  .lab {
+    grid-template-columns: minmax(0, 1fr) 290px;
+    gap: 14px;
+  }
+  .controls {
+    padding: 17px;
+  }
+  .linked-views {
+    grid-template-columns: 1fr;
+  }
+  .mode-label {
+    display: none;
+  }
+  #plot {
+    height: 440px;
+  }
+  .matrices {
+    grid-template-columns: 1fr 1fr;
+  }
+}
+@media (max-width: 760px) {
+  main {
+    padding: 20px 12px;
+  }
+  .lab {
+    grid-template-columns: 1fr;
+  }
+  .controls {
+    grid-row: 2;
+  }
+  .linked-views {
+    grid-template-columns: 1fr 1fr;
+  }
+  .panel-heading {
+    padding: 15px 15px 0;
+  }
+  .controls {
+    padding: 20px;
+  }
+  .presets button {
+    font-size: 12px;
+  }
+  .control {
+    margin-top: 16px;
+  }
+  #plot {
+    height: 400px;
+  }
+  .control-title label {
+    font-size: 14px;
+  }
+  .range-ends,
+  .help,
+  .readout,
+  .result-label,
+  .play-row label {
+    font-size: 12px;
+  }
+  .presets {
+    gap: 8px;
+  }
+  .scene-tools {
+    padding: 0 15px 12px;
+  }
+  .overlays {
+    padding: 11px 15px;
+  }
+  .overlays label {
+    font-size: 12px;
+  }
+  .overlays input {
+    width: 15px;
+    height: 15px;
+  }
+  .section-divider {
+    margin: 18px 0;
+  }
+}
+@media (max-width: 480px) {
+  h1 {
+    font-size: 29px;
+  }
+  .subtitle {
+    font-size: 13px;
+  }
+  .panel-heading h2 {
+    font-size: 13px;
+  }
+  .segmented button {
+    padding: 6px 8px;
+    font-size: 11px;
+  }
+  .panel-heading p {
+    font-size: 11px;
+  }
+  .linked-views {
+    grid-template-columns: 1fr;
+  }
+  .scene-tools {
+    align-items: flex-start;
+  }
+  .legend {
+    gap: 9px;
+    font-size: 10px;
+  }
+  .legend b {
+    display: none;
+  }
+  .overlays {
+    gap: 10px 13px;
+  }
+  .equations {
+    grid-template-columns: 1fr;
+    padding: 16px;
+    gap: 13px;
+  }
+  .matrix {
+    font-size: 11px;
+  }
+  .matrices {
+    grid-template-columns: 1fr;
+  }
+  .math-panel .mini-tag {
+    display: none;
+  }
+  #plot {
+    height: 340px;
+  }
+  .chain {
+    overflow-wrap: anywhere;
+  }
+  .angle-number input {
+    font-size: 16px;
+  }
+  .mini-tag {
+    font-size: 10px;
+  }
+}
+@media (max-width: 760px) {
+  .workspace-stack {
+    display: contents;
+  }
+  .scene-panel {
+    grid-row: 1;
+  }
+  .controls {
+    grid-row: 2;
+  }
+  .linked-views {
+    grid-row: 3;
+    margin-top: 0;
+  }
+}
+fieldset {
+  border: 0;
+  padding: 0;
+  margin: 0;
+  min-width: 0;
+}
+fieldset:disabled input {
+  opacity: 0.6;
+  cursor: default;
+}
+.control-mode {
+  margin-top: 15px;
+}
+.control-mode button {
+  flex: 1;
+  font-size: 11px;
+}
+.ik-panel {
+  margin-top: 17px;
+  padding-top: 16px;
+  border-top: 1px solid var(--line);
+}
+.ik-panel > .help {
+  margin-top: 6px;
+  line-height: 1.6;
+}
+.target-examples {
+  display: flex;
+  gap: 6px;
+  margin-top: 10px;
+}
+.target-examples button {
+  flex: 1;
+  padding: 6px;
+  font-size: 10px;
+}
+.reach-status {
+  margin-top: 15px;
+  font-size: 12px;
+  font-weight: 650;
+  color: var(--green);
+}
+.reach-status[data-state="unreachable"] {
+  color: var(--warn);
+}
+.reach-status[data-state="singular"] {
+  color: var(--orange);
+}
+.reach-status[data-state="pending"] {
+  color: var(--muted);
+}
+.branch-buttons {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 7px;
+  margin-top: 13px;
+}
+.branch-buttons button {
+  font-size: 12px;
+  font-weight: 550;
+}
+.branch-buttons span {
+  display: block;
+  margin-top: 4px;
+  font-size: 10px;
+  font-weight: 400;
+  color: var(--muted);
+}
+.alternate-toggle {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  color: var(--muted);
+  font-size: 11px;
+  margin-top: 12px;
+}
+#plot[data-view="plan"][data-control="ik"] {
+  cursor: crosshair;
+}
+#motion-controls:disabled {
+  opacity: 0.45;
+}
+
+.differential-panel {
+  margin-top: 20px;
+}
+.differential-grid {
+  display: grid;
+  grid-template-columns: minmax(220px, 1fr) minmax(280px, 1.3fr) minmax(
+      200px,
+      0.9fr
+    );
+  gap: 28px;
+  padding: 0 22px 22px;
+}
+.velocity-controls .control-title {
+  margin-top: 12px;
+}
+.velocity-controls output {
+  font-size: 12px;
+  color: var(--muted);
+  font-variant-numeric: tabular-nums;
+}
+.velocity-controls input[type="range"] {
+  width: 100%;
+}
+.velocity-readout {
+  margin: 16px 0 10px;
+  font-size: 18px;
+  font-weight: 600;
+  font-variant-numeric: tabular-nums;
+}
+.velocity-chart {
+  min-width: 0;
+}
+#velocity-plot {
+  width: 100%;
+  height: 310px;
+  display: block;
+}
+.velocity-chart .legend {
+  flex-wrap: wrap;
+  row-gap: 6px;
+}
+.jacobian-metrics {
+  font-size: 12px;
+  min-width: 0;
+}
+.jacobian-metrics .matrix {
+  font-size: 14px;
+}
+.jacobian-metrics .readout {
+  gap: 12px;
+  margin-top: 12px;
+}
+.jacobian-metrics strong {
+  text-align: right;
+  white-space: nowrap;
+}
+@media (max-width: 1100px) {
+  .differential-grid {
+    grid-template-columns: 1fr 1.2fr;
+  }
+  .jacobian-metrics {
+    grid-column: 1/-1;
+    max-width: 600px;
+  }
+}
+@media (max-width: 650px) {
+  .differential-grid {
+    grid-template-columns: 1fr;
+  }
+  .differential-panel .panel-heading {
+    align-items: flex-start;
+  }
+  .differential-panel .mini-tag {
+    display: none;
+  }
+}
+.controller-grid {
+  display: grid;
+  grid-template-columns: minmax(210px, 1fr) minmax(260px, 1.3fr) minmax(
+      210px,
+      1fr
+    );
+  gap: 24px;
+  padding: 0 22px 22px;
+}
+.controller-grid input[type="range"] {
+  width: 100%;
+}
+.controller-grid .control-title {
+  margin-top: 14px;
+}
+.controller-grid label,
+.controller-grid output {
+  font-size: 12px;
+}
+#control-history {
+  width: 100%;
+  height: 260px;
+  display: block;
+}
+#control-buttons .play-row {
+  flex-wrap: wrap;
+}
+.control-mode button {
+  padding: 8px 6px;
+}
+#plot[data-control="control"][data-view="plan"] {
+  cursor: crosshair;
+}
+@media (max-width: 1100px) {
+  .controller-grid {
+    grid-template-columns: 1fr 1.2fr;
+  }
+  .controller-grid .jacobian-metrics {
+    grid-column: 1/-1;
+  }
+}
+@media (max-width: 650px) {
+  .controller-grid {
+    grid-template-columns: 1fr;
+  }
+}
+.control-mode {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+}
+.dynamics-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr 0.9fr;
+  gap: 24px;
+  padding: 0 22px 22px;
+}
+#torque-history,
+#joint-error-history {
+  display: block;
+  width: 100%;
+  height: 280px;
+}
+#physics-settings {
+  border-bottom: 1px solid var(--line);
+  padding-bottom: 16px;
+  margin-bottom: 16px;
+}
+#physics-kick {
+  margin: 10px 0;
+}
+@media (max-width: 1100px) {
+  .dynamics-grid {
+    grid-template-columns: 1fr 1fr;
+  }
+  .dynamics-grid .jacobian-metrics {
+    grid-column: 1/-1;
+  }
+}
+@media (max-width: 650px) {
+  .dynamics-grid {
+    grid-template-columns: 1fr;
+  }
+}

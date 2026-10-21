@@ -1,5 +1,7 @@
-.venv/
+.venv
 __pycache__/
 *.pyc
 .DS_Store
 mujoco/logs/*.csv
+.worktrees/
+.pytest_cache/

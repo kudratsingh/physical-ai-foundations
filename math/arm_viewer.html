@@ -1,0 +1,879 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Two-link arm · Kinematics lab</title>
+    <link rel="stylesheet" href="/arm_viewer.css" />
+  </head>
+  <body>
+    <main>
+      <header>
+        <div>
+          <div class="eyebrow">Physical AI foundations · Week 2</div>
+          <h1>Two-link arm</h1>
+          <p class="subtitle">
+            Explore joint angles → hand position, then reverse the question with
+            IK.
+          </p>
+        </div>
+        <div class="mode-label" id="mode-label">
+          <span class="status-dot"></span>Forward kinematics<span
+            class="separator"
+            >/</span
+          >Angles set directly
+        </div>
+      </header>
+      <p id="connection-error" role="alert" hidden>
+        Connection lost. Keep the arm viewer running, then
+        <button id="retry" type="button">Retry</button>
+      </p>
+      <div class="lab">
+        <div class="workspace-stack">
+          <section class="panel scene-panel" aria-label="Arm visualization">
+            <div class="panel-heading">
+              <div>
+                <h2>Arm workspace</h2>
+                <p id="scene-caption">Drag to orbit · scroll to zoom</p>
+              </div>
+              <div class="segmented" aria-label="Camera view">
+                <button id="view3d" type="button" aria-pressed="true">
+                  3D view
+                </button>
+                <button id="view2d" type="button" aria-pressed="false">
+                  Plan view
+                </button>
+              </div>
+            </div>
+            <svg
+              id="plot"
+              role="img"
+              aria-labelledby="plot-title plot-description"
+            >
+              <title id="plot-title">Planar two-joint arm</title>
+              <desc id="plot-description">
+                Two links connect a fixed shoulder, an elbow, and a hand.
+              </desc>
+            </svg>
+            <div class="scene-tools">
+              <div class="legend">
+                <span
+                  ><i class="swatch first"></i>Link 1
+                  <b id="legend-l1">1.00 m</b></span
+                ><span
+                  ><i class="swatch second"></i>Link 2
+                  <b id="legend-l2">0.75 m</b></span
+                ><span><i class="swatch trail"></i>Hand trail</span>
+              </div>
+              <button type="button" class="text-button" id="camera-reset">
+                Reset camera
+              </button>
+            </div>
+            <div class="overlays" aria-label="Visualization overlays">
+              <label
+                ><input type="checkbox" id="show-workspace" checked />Reachable
+                area</label
+              >
+              <label
+                ><input type="checkbox" id="show-frames" checked />Coordinate
+                frames</label
+              >
+              <label
+                ><input type="checkbox" id="show-angles" checked />Joint
+                angles</label
+              >
+              <label
+                ><input type="checkbox" id="show-trail" checked />Hand
+                trail</label
+              >
+              <a class="text-button" href="#velocity-lab"
+                >Velocity &amp; singularities ↓</a
+              >
+              <button type="button" class="text-button" id="clear-trail">
+                Clear history
+              </button>
+            </div>
+          </section>
+          <div class="linked-views">
+            <section class="panel" aria-label="Configuration space">
+              <div class="panel-heading">
+                <div>
+                  <h2>Configuration space</h2>
+                  <p>Click or drag to choose (q₁, q₂)</p>
+                </div>
+                <span class="mini-tag">Joint angles</span>
+              </div>
+              <svg
+                id="cspace"
+                role="img"
+                tabindex="0"
+                aria-label="Joint-angle map. Use the sliders for keyboard control."
+              ></svg>
+              <p class="chart-caption">
+                Opposite edges represent the same angle.
+              </p>
+            </section>
+            <section class="panel" aria-label="Hand position history">
+              <div class="panel-heading">
+                <div>
+                  <h2>Hand position history</h2>
+                  <p>Last 15 seconds of sampled motion</p>
+                </div>
+                <div class="legend compact">
+                  <span><i class="swatch first"></i>x</span
+                  ><span><i class="swatch second"></i>y</span>
+                </div>
+              </div>
+              <svg
+                id="history"
+                role="img"
+                aria-label="Hand x and y coordinates versus elapsed time"
+              ></svg>
+              <p class="chart-caption" id="sample-count">
+                Move a joint or play a motion to record samples.
+              </p>
+            </section>
+          </div>
+        </div>
+        <aside class="panel controls" aria-label="Arm controls">
+          <div class="controls-heading">
+            <h2>Arm control</h2>
+            <span class="mini-tag">2 DoF</span>
+          </div>
+          <div class="segmented control-mode" aria-label="Kinematics direction">
+            <button id="mode-fk" type="button" aria-pressed="true">
+              Joint angles · FK
+            </button>
+            <button id="mode-ik" type="button" aria-pressed="false">
+              Hand target · IK
+            </button>
+            <button id="mode-control" type="button" aria-pressed="false">
+              Track target
+            </button>
+            <button id="mode-physics" type="button" aria-pressed="false">
+              MuJoCo physics
+            </button>
+          </div>
+          <section
+            id="ik-controls"
+            class="ik-panel"
+            aria-label="Inverse kinematics target"
+            hidden
+          >
+            <div class="controls-heading">
+              <h2>Target position</h2>
+              <span class="help">metres</span>
+            </div>
+            <p class="help">Click or drag a target in Plan view.</p>
+            <div class="lengths target-inputs">
+              <label for="target-x"
+                >x<input
+                  id="target-x"
+                  type="number"
+                  step="any"
+                  value="1"
+                  required
+              /></label>
+              <label for="target-y"
+                >y<input
+                  id="target-y"
+                  type="number"
+                  step="any"
+                  value="0.75"
+                  required
+              /></label>
+            </div>
+            <div class="target-examples" aria-label="Target examples">
+              <button type="button" data-target="example">Example</button>
+              <button type="button" data-target="origin">Origin</button>
+              <button type="button" data-target="beyond">Beyond reach</button>
+            </div>
+            <div
+              id="ik-status"
+              class="reach-status"
+              role="status"
+              data-state="pending"
+            >
+              Choose a target
+            </div>
+            <p id="ik-message" class="help">
+              Position IK calculates the joint angles.
+            </p>
+            <div id="analytic-controls">
+              <div class="branch-buttons" aria-label="IK solution branch">
+                <button
+                  id="branch-up"
+                  type="button"
+                  aria-pressed="false"
+                  disabled
+                >
+                  Elbow-up<span id="branch-up-angles">—</span>
+                </button>
+                <button
+                  id="branch-down"
+                  type="button"
+                  aria-pressed="false"
+                  disabled
+                >
+                  Elbow-down<span id="branch-down-angles">—</span>
+                </button>
+              </div>
+              <p id="ik-branch-note" class="help">
+                Up/down name the sides of the base-to-target line.
+              </p>
+              <label class="alternate-toggle"
+                ><input id="show-alternate" type="checkbox" checked />Show
+                alternate solution</label
+              >
+            </div>
+            <div id="control-buttons" hidden>
+              <div class="play-row">
+                <button id="control-run" type="button" class="primary">
+                  Run controller
+                </button>
+                <button id="control-step" type="button">One step</button>
+                <button id="control-reset" type="button">Reset start</button>
+              </div>
+              <p class="help" id="control-loop-description">
+                Kinematic feedback at 0.04 s/step · joint limit ±1.5 rad/s · no
+                torque dynamics.
+              </p>
+              <div class="readout">
+                <span>Simulated control time</span
+                ><strong id="control-time">0.00 s</strong>
+              </div>
+              <a class="text-button" href="#controller-lab"
+                >Controller settings &amp; error chart ↓</a
+              >
+            </div>
+            <button id="physics-kick" type="button" hidden>
+              Kick elbow · +2 rad/s
+            </button>
+            <div class="readout">
+              <span id="target-error-label">FK position error</span
+              ><strong id="ik-error">—</strong>
+            </div>
+          </section>
+          <fieldset id="joint-controls">
+            <div class="control">
+              <div class="control-title">
+                <label for="q1">Shoulder · q₁</label>
+                <div class="angle-number">
+                  <input
+                    id="q1-number"
+                    type="number"
+                    min="-180"
+                    max="180"
+                    step="0.1"
+                    value="30"
+                    aria-label="Shoulder angle in degrees"
+                  /><span>°</span>
+                </div>
+              </div>
+              <p class="help">
+                From world +x · <span id="q1-radians">0.524 rad</span>
+              </p>
+              <input
+                type="range"
+                id="q1"
+                min="-180"
+                max="180"
+                step="any"
+                value="30"
+                aria-label="Shoulder angle"
+              />
+              <div class="range-ends">
+                <span>−180°</span><output id="q1-value" for="q1">30°</output
+                ><span>180°</span>
+              </div>
+            </div>
+            <div class="control">
+              <div class="control-title">
+                <label for="q2">Elbow · q₂</label>
+                <div class="angle-number">
+                  <input
+                    id="q2-number"
+                    type="number"
+                    min="-180"
+                    max="180"
+                    step="0.1"
+                    value="60"
+                    aria-label="Elbow angle in degrees"
+                  /><span>°</span>
+                </div>
+              </div>
+              <p class="help">
+                Relative to link 1 · <span id="q2-radians">1.047 rad</span>
+              </p>
+              <input
+                type="range"
+                id="q2"
+                min="-180"
+                max="180"
+                step="any"
+                value="60"
+                aria-label="Elbow angle"
+              />
+              <div class="range-ends">
+                <span>−180°</span><output id="q2-value" for="q2">60°</output
+                ><span>180°</span>
+              </div>
+            </div>
+            <div
+              class="presets"
+              id="fk-presets"
+              aria-label="Example configurations"
+            >
+              <button type="button" data-pose="0,0" aria-pressed="false">
+                Straight</button
+              ><button type="button" data-pose="0,90" aria-pressed="false">
+                Bent</button
+              ><button type="button" data-pose="0,180" aria-pressed="false">
+                Folded</button
+              ><button type="button" data-pose="90,0" aria-pressed="false">
+                Upright
+              </button>
+            </div>
+          </fieldset>
+          <div class="section-divider"></div>
+          <fieldset id="motion-controls">
+            <div class="controls-heading">
+              <h2>Kinematic motion</h2>
+              <span id="motion-status" role="status">Paused</span>
+            </div>
+            <label class="sr-only" for="pattern">Motion pattern</label>
+            <select id="pattern">
+              <option value="shoulder">Sweep shoulder · hold elbow</option>
+              <option value="elbow">Sweep elbow · hold shoulder</option>
+              <option value="both" selected>Move both joints</option>
+            </select>
+            <div class="play-row">
+              <button id="play" type="button" class="primary">
+                Play motion</button
+              ><label><input type="checkbox" id="loop" />Loop</label
+              ><label class="speed-label" for="speed"
+                >Speed<select id="speed">
+                  <option value="0.5">0.5×</option>
+                  <option value="1" selected>1×</option>
+                  <option value="2">2×</option>
+                </select></label
+              >
+            </div>
+            <input
+              type="range"
+              id="progress"
+              min="0"
+              max="100"
+              step="0.1"
+              value="0"
+              aria-label="Motion progress"
+            />
+            <div class="range-ends">
+              <span>One cycle · 8 seconds at 1×</span
+              ><output id="progress-value">0%</output>
+            </div>
+          </fieldset>
+          <div class="section-divider"></div>
+          <div class="controls-heading">
+            <h2>Link geometry</h2>
+            <span class="help">metres</span>
+          </div>
+          <div class="lengths">
+            <label for="l1"
+              >Link 1<input
+                id="l1"
+                type="number"
+                min="0.25"
+                max="1.5"
+                step="0.05"
+                value="1" /></label
+            ><label for="l2"
+              >Link 2<input
+                id="l2"
+                type="number"
+                min="0.25"
+                max="1.5"
+                step="0.05"
+                value="0.75"
+            /></label>
+          </div>
+          <div class="result">
+            <div class="result-label">Hand position · (x, y) metres</div>
+            <div id="hand-position">Loading…</div>
+            <div class="readout">
+              <span>Elbow (x, y)</span><strong id="elbow-position">—</strong>
+            </div>
+            <div class="readout">
+              <span>Hand heading · q₁ + q₂</span><strong id="heading">—</strong>
+            </div>
+            <div class="readout">
+              <span>Reach from base</span
+              ><strong id="reach">0.25–1.75 m</strong>
+            </div>
+          </div>
+        </aside>
+      </div>
+      <section
+        class="panel differential-panel"
+        id="controller-lab"
+        aria-label="Target tracking controller"
+      >
+        <div class="panel-heading">
+          <div>
+            <h2>Move the hand · closed-loop velocity control</h2>
+            <p>
+              Measure position → choose hand velocity → solve joint rates →
+              integrate → repeat.
+            </p>
+          </div>
+          <button id="enable-physics" type="button">Open MuJoCo physics</button>
+          <button id="enable-control" type="button">
+            Open target tracking
+          </button>
+        </div>
+        <div class="controller-grid">
+          <div>
+            <div id="physics-settings" hidden>
+              <div class="control-title">
+                <label for="physics-kp">Joint Kp · N·m/rad</label
+                ><output id="physics-kp-value">80</output>
+              </div>
+              <input
+                id="physics-kp"
+                type="range"
+                min="10"
+                max="200"
+                step="5"
+                value="80"
+                aria-label="Joint proportional gain"
+              />
+              <div class="control-title">
+                <label for="physics-kd">Joint Kd · N·m·s/rad</label
+                ><output id="physics-kd-value">12</output>
+              </div>
+              <input
+                id="physics-kd"
+                type="range"
+                min="0"
+                max="30"
+                step="1"
+                value="12"
+                aria-label="Joint derivative gain"
+              />
+              <div class="control-title">
+                <label for="physics-limit">Motor torque limit · N·m</label
+                ><output id="physics-limit-value">20</output>
+              </div>
+              <input
+                id="physics-limit"
+                type="range"
+                min="1"
+                max="30"
+                step="1"
+                value="20"
+                aria-label="Motor torque limit"
+              />
+              <label class="alternate-toggle"
+                ><input id="physics-gravity" type="checkbox" checked />Gravity
+                down the xy plane</label
+              >
+              <label class="alternate-toggle"
+                ><input
+                  id="physics-compensate"
+                  type="checkbox"
+                  checked
+                />Compensate gravity + Coriolis bias</label
+              >
+              <p class="help">
+                τ = Kp(q_ref − q) + Kd(q̇_ref − q̇) + optional bias. PD runs at
+                500 Hz; the Jacobian loop at 50 Hz. Dashed arm: joint reference.
+              </p>
+            </div>
+            <label for="control-method">Jacobian solver</label>
+            <select id="control-method">
+              <option value="dls">Damped least squares</option>
+              <option value="pinv">
+                Pseudoinverse · compare near singularity
+              </option>
+            </select>
+            <div class="control-title">
+              <label for="control-damping">Damping · λ</label
+              ><output id="control-damping-value">0.12</output>
+            </div>
+            <input
+              id="control-damping"
+              type="range"
+              min="0.01"
+              max="0.6"
+              step="0.01"
+              value="0.12"
+              aria-label="Controller damping"
+            />
+            <div class="control-title">
+              <label for="control-gain">Position gain · k</label
+              ><output id="control-gain-value">2.00 /s</output>
+            </div>
+            <input
+              id="control-gain"
+              type="range"
+              min="0.5"
+              max="5"
+              step="0.1"
+              value="2"
+              aria-label="Controller position gain"
+            />
+            <p class="help">
+              v_requested = k (target − hand), capped at 0.8 m/s. Joint rates
+              are limited to ±1.5 rad/s by scaling them together. Reached means
+              error ≤ 0.01 m.
+            </p>
+            <div class="target-examples" aria-label="Controller experiments">
+              <button type="button" data-control-example="reach">
+                Reach target
+              </button>
+              <button type="button" data-control-example="near">
+                Near singular
+              </button>
+              <button type="button" data-control-example="trap">
+                Singular trap
+              </button>
+            </div>
+            <p class="help">
+              Experiments set a start and a target, then wait for Run.
+              Outside-reach targets are rejected. An exact singular trap needs a
+              different starting pose.
+            </p>
+          </div>
+          <div>
+            <h2>Distance to target · metres</h2>
+            <svg
+              id="control-history"
+              role="img"
+              aria-labelledby="control-history-title control-history-description"
+            >
+              <title id="control-history-title">
+                Controller position error over simulated time
+              </title>
+              <desc id="control-history-description">
+                Run target tracking to record the position error.
+              </desc>
+            </svg>
+            <p id="control-history-caption" class="chart-caption">
+              Run or step the controller to record progress.
+            </p>
+          </div>
+          <div class="jacobian-metrics">
+            <div class="readout">
+              <span>Requested v · m/s</span
+              ><strong id="control-requested">—</strong>
+            </div>
+            <div class="readout">
+              <span>Achieved J q̇ · m/s</span
+              ><strong id="control-achieved">—</strong>
+            </div>
+            <div class="readout">
+              <span>Velocity mismatch · m/s</span
+              ><strong id="control-residual">—</strong>
+            </div>
+            <div class="readout">
+              <span>Joint rates · rad/s</span
+              ><strong id="control-rates">—</strong>
+            </div>
+            <div class="readout">
+              <span>Raw peak rate · before limit</span
+              ><strong id="control-raw-peak">—</strong>
+            </div>
+            <div class="readout">
+              <span>Rate limit active</span
+              ><strong id="control-limited">—</strong>
+            </div>
+            <p class="help">
+              Red: requested hand velocity. Green: achieved instantaneous
+              velocity at the displayed pose. Damping trades accuracy for
+              smaller joint rates; it cannot create a missing direction.
+            </p>
+            <p class="help" id="control-stop-description">
+              Each run stops when reached, stalled, unreachable, or after 15
+              simulated seconds. Changing target, geometry, settings or mode
+              pauses the run.
+            </p>
+          </div>
+        </div>
+      </section>
+      <section
+        class="panel differential-panel"
+        id="physics-lab"
+        aria-label="MuJoCo physics measurements"
+        hidden
+      >
+        <div class="panel-heading">
+          <div>
+            <h2>Physical response · motor torque and joint tracking</h2>
+            <p>
+              Actual MuJoCo state · 2 ms physics steps · link masses 1.00 / 0.75
+              kg · collisions disabled
+            </p>
+          </div>
+          <span id="physics-state" class="mini-tag">Paused</span>
+        </div>
+        <div class="dynamics-grid">
+          <div>
+            <h2>Applied torque · N·m</h2>
+            <svg
+              id="torque-history"
+              role="img"
+              aria-label="Shoulder and elbow applied motor torque versus simulated time"
+            ></svg>
+            <p class="chart-caption">
+              Dashed lines: motor limits. Red dots mark frames with saturation
+              in any 2 ms substep.
+            </p>
+          </div>
+          <div>
+            <h2>Joint reference − measured angle · rad</h2>
+            <svg
+              id="joint-error-history"
+              role="img"
+              aria-label="Joint tracking error versus simulated time"
+            ></svg>
+            <p class="chart-caption">
+              Blue: shoulder · orange: elbow. These errors produce the PD
+              correction.
+            </p>
+          </div>
+          <div class="jacobian-metrics">
+            <div class="readout">
+              <span>Requested torque · N·m</span
+              ><strong id="physics-requested">—</strong>
+            </div>
+            <div class="readout">
+              <span>Applied torque · N·m</span
+              ><strong id="physics-applied">—</strong>
+            </div>
+            <div class="readout">
+              <span>Peak applied this frame · N·m</span
+              ><strong id="physics-peak">—</strong>
+            </div>
+            <div class="readout">
+              <span>Joint tracking error · rad</span
+              ><strong id="physics-error">—</strong>
+            </div>
+            <div class="readout">
+              <span>Measured joint speed · rad/s</span
+              ><strong id="physics-speed">—</strong>
+            </div>
+            <div class="readout">
+              <span>Torque saturation</span
+              ><strong id="physics-saturated">—</strong>
+            </div>
+            <div class="readout">
+              <span>Reference leash active</span
+              ><strong id="physics-leash">—</strong>
+            </div>
+            <p class="help">
+              The 0.35 rad reference leash prevents runaway joint targets under
+              saturation. The 1.5 rad/s bound limits reference rates; actual
+              speeds can exceed it after a kick.
+            </p>
+            <p class="help">
+              Physics keeps running while holding the target, until paused or
+              the 15 s experiment limit. Kick applies an explicit +2 rad/s
+              change to elbow velocity.
+            </p>
+          </div>
+        </div>
+      </section>
+      <section
+        class="panel differential-panel"
+        id="velocity-lab"
+        aria-label="Jacobian velocity lab"
+      >
+        <div class="panel-heading">
+          <div>
+            <h2>Jacobian · from joint speed to hand velocity</h2>
+            <p id="velocity-explanation">
+              Preview instantaneous velocity at the current pose. These rates do
+              not move the arm.
+            </p>
+          </div>
+          <span class="mini-tag">q̇ → v = J q̇</span>
+        </div>
+        <div class="differential-grid">
+          <div class="velocity-controls">
+            <fieldset id="preview-rates">
+              <div class="control-title">
+                <label for="dq1">Shoulder speed · q̇₁</label
+                ><output id="dq1-value">0.60 rad/s</output>
+              </div>
+              <input
+                id="dq1"
+                type="range"
+                min="-1.5"
+                max="1.5"
+                step="0.01"
+                value="0.6"
+                aria-label="Shoulder speed in radians per second"
+              />
+              <div class="control-title">
+                <label for="dq2">Elbow speed · q̇₂</label
+                ><output id="dq2-value">0.00 rad/s</output>
+              </div>
+              <input
+                id="dq2"
+                type="range"
+                min="-1.5"
+                max="1.5"
+                step="0.01"
+                value="0"
+                aria-label="Elbow speed in radians per second"
+              />
+              <div class="presets" aria-label="Velocity examples">
+                <button type="button" data-rate="1,0">Shoulder only</button>
+                <button type="button" data-rate="0,1">Elbow only</button>
+                <button type="button" data-rate="1,-1">Oppose joints</button>
+                <button type="button" data-rate="0,0">Zero speeds</button>
+              </div>
+            </fieldset>
+            <label class="alternate-toggle"
+              ><input id="show-velocity" type="checkbox" checked />Show
+              hand-velocity arrows on arm</label
+            >
+            <p class="help">
+              Arm arrows use a 0.20 s scale: 1 m/s draws 0.20 m. They show
+              velocity, not a predicted path.
+            </p>
+            <div class="velocity-readout" id="velocity-result" role="status">
+              Loading velocity…
+            </div>
+            <div
+              id="jacobian-status"
+              class="reach-status"
+              data-state="pending"
+              role="status"
+            >
+              Loading Jacobian…
+            </div>
+            <p id="jacobian-explanation" class="help"></p>
+            <div class="target-examples" aria-label="Singularity examples">
+              <button type="button" data-jacobian-pose="0,90">Bent</button>
+              <button type="button" data-jacobian-pose="0,5">
+                Near straight
+              </button>
+              <button type="button" data-jacobian-pose="0,0">Straight</button>
+              <button type="button" data-jacobian-pose="0,180">Folded</button>
+            </div>
+            <p class="help">
+              Pose examples switch to FK mode and pause playback.
+            </p>
+          </div>
+          <div class="velocity-chart">
+            <h2>Hand-velocity space · m/s</h2>
+            <svg
+              id="velocity-plot"
+              role="img"
+              aria-labelledby="velocity-title velocity-description"
+            >
+              <title id="velocity-title">
+                Manipulability ellipse and selected hand velocity
+              </title>
+              <desc id="velocity-description">
+                Joint rates map to hand velocity through the Jacobian.
+              </desc>
+            </svg>
+            <div class="legend compact">
+              <span><i class="swatch first"></i>Shoulder contribution</span
+              ><span><i class="swatch second"></i>Elbow contribution</span
+              ><span><i class="swatch trail"></i>Total velocity</span>
+            </div>
+            <p class="chart-caption">
+              Ellipse: all J q̇ with ‖q̇‖ = 1 rad/s. Selected speeds may exceed
+              this combined norm.
+            </p>
+          </div>
+          <div class="jacobian-metrics">
+            <div class="matrix-label">J(q) · world xy · metres/radian</div>
+            <pre class="matrix" id="jacobian-matrix"></pre>
+            <p class="help">
+              Rows: x, y. Columns: shoulder, elbow. A column gives hand velocity
+              from 1 rad/s at that joint.
+            </p>
+            <div class="readout">
+              <span>det(J)</span><strong id="jacobian-det">—</strong>
+            </div>
+            <div class="readout">
+              <span>Singular values σ₁ / σ₂</span
+              ><strong id="jacobian-sigma">—</strong>
+            </div>
+            <div class="readout">
+              <span>Condition number σ₁ / σ₂</span
+              ><strong id="jacobian-condition">—</strong>
+            </div>
+            <div class="readout">
+              <span>Manipulability |det(J)|</span
+              ><strong id="jacobian-manipulability">—</strong>
+            </div>
+            <div class="readout">
+              <span>Selected ‖q̇‖</span><strong id="joint-speed-norm">—</strong>
+            </div>
+            <p class="help">
+              The condition number becomes infinite at rank loss. The “near
+              singular” warning starts above 30; it is a teaching threshold.
+            </p>
+          </div>
+        </div>
+      </section>
+      <section
+        class="panel math-panel"
+        aria-label="Forward kinematics calculation"
+      >
+        <div class="panel-heading">
+          <div>
+            <h2>From configuration to hand pose</h2>
+            <p>Each link contributes a displacement in the world frame.</p>
+          </div>
+          <span class="mini-tag">q → T_world_hand</span>
+        </div>
+        <div class="equations">
+          <div>
+            <div class="equation">x = L₁ cos(q₁) + L₂ cos(q₁ + q₂)</div>
+            <div class="substitution" id="x-equation">—</div>
+          </div>
+          <div>
+            <div class="equation">y = L₁ sin(q₁) + L₂ sin(q₁ + q₂)</div>
+            <div class="substitution" id="y-equation">—</div>
+          </div>
+        </div>
+        <details>
+          <summary>Inspect the homogeneous transform chain</summary>
+          <div class="matrices">
+            <div>
+              <div class="matrix-label">T_world_shoulder</div>
+              <pre class="matrix" id="matrix-0"></pre>
+            </div>
+            <div>
+              <div class="matrix-label">T_shoulder_elbow</div>
+              <pre class="matrix" id="matrix-1"></pre>
+            </div>
+            <div>
+              <div class="matrix-label">T_elbow_hand</div>
+              <pre class="matrix" id="matrix-2"></pre>
+            </div>
+            <div>
+              <div class="matrix-label">T_world_hand</div>
+              <pre class="matrix" id="matrix-result"></pre>
+            </div>
+          </div>
+          <p class="chain">
+            T_world_hand = T_world_shoulder × T_shoulder_elbow × T_elbow_hand
+          </p>
+        </details>
+      </section>
+      <footer>
+        <strong>Try an experiment:</strong> choose Hand target · IK, then switch
+        elbow branches. The hand stays in place while both joint angles change.
+        Try Origin with unequal links, then set both links to 1 m and try again.
+      </footer>
+    </main>
+    <script type="module" src="/arm_viewer.js"></script>
+  </body>
+</html>

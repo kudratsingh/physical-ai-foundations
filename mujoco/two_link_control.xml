@@ -1,0 +1,27 @@
+<!-- Dynamic planar arm. World gravity points down the xy plane (-y), so
+     gravity loads both z-axis hinge motors. Contacts are disabled. -->
+<mujoco model="planar_two_link_control">
+  <compiler angle="radian"/>
+  <option timestep="0.002" integrator="implicitfast" gravity="0 -9.81 0"/>
+  <default>
+    <joint type="hinge" axis="0 0 1" damping="0.1"/>
+    <geom type="capsule" size="0.035" contype="0" conaffinity="0"/>
+  </default>
+  <worldbody>
+    <body name="shoulder" pos="0 0 0.2">
+      <joint name="shoulder_joint"/>
+      <site name="base" size="0.045"/>
+      <geom name="link1" fromto="0 0 0 1 0 0" mass="1" rgba="0.15 0.4 0.85 1"/>
+      <body name="elbow" pos="1 0 0">
+        <joint name="elbow_joint"/>
+        <site name="elbow_site" size="0.045"/>
+        <geom name="link2" fromto="0 0 0 0.75 0 0" mass="0.75" rgba="0.9 0.4 0.1 1"/>
+        <site name="hand" pos="0.75 0 0" size="0.05"/>
+      </body>
+    </body>
+  </worldbody>
+  <actuator>
+    <motor name="shoulder_motor" joint="shoulder_joint" gear="1" ctrllimited="true" ctrlrange="-20 20"/>
+    <motor name="elbow_motor" joint="elbow_joint" gear="1" ctrllimited="true" ctrlrange="-20 20"/>
+  </actuator>
+</mujoco>

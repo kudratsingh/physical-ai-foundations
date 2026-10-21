@@ -28,6 +28,13 @@ jobs:
       - name: pytest
         run: python -m pytest
 
+      - uses: actions/setup-node@v4
+        with:
+          node-version: "22"
+
+      - name: Browser motion helpers
+        run: node --test tests/js/*.mjs
+
       # Smoke runs of the two scripts, headless (plots use the Agg backend,
       # no --render / --viewer, so no OpenGL is needed).
       - name: Smoke - simulate.py
