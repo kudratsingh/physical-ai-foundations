@@ -1,4 +1,4 @@
-mujoco>=3.14.0
+mujoco>=3.16.0
 numpy
 matplotlib
 pillow
