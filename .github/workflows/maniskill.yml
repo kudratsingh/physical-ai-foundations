@@ -2,7 +2,7 @@ name: ManiSkill
 
 on:
   pull_request:
-    branches: [main, feat/ros2-arm-integration, feat/week3-maniskill, feat/week4-behavior-cloning, feat/stage1-pickcube]
+    branches: [main, feat/ros2-arm-integration, feat/week3-maniskill, feat/week4-behavior-cloning, feat/stage1-pickcube, feat/pickcube-ppo-debug]
   push:
     branches: [main]
 
