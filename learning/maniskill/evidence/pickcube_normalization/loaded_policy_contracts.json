@@ -1,0 +1,22 @@
+{
+  "raw_final": {
+    "timesteps": 1048576,
+    "observation_shape": [
+      42
+    ],
+    "action_shape": [
+      8
+    ],
+    "checkpoint_sha256": "e13bea63f63222333d1738fafdb88f3b55b1f34a7ffc3b5feaed2adf9ea29a2d"
+  },
+  "normalized_final": {
+    "timesteps": 1048576,
+    "observation_shape": [
+      42
+    ],
+    "action_shape": [
+      8
+    ],
+    "checkpoint_sha256": "0796500d9a83a5b5728ab34f0072536ad499d458e7ece19cefbe2ee38c8cb4c2"
+  }
+}

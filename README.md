@@ -65,6 +65,10 @@ compares two learning rates from identical saved weights and optimizer state,
 then deliberately corrupts and restores the clone's goal observations. It keeps
 optimization failures separate from observation-contract bugs.
 
+The [observation-normalization experiment](learning/maniskill/NORMALIZATION_README.md)
+compares raw and standardized PPO inputs at the same training budget, with
+frozen evaluation statistics, paired native videos and complete success checks.
+
 ## Week 1 tracks
 
 | day | track | artifact | status |

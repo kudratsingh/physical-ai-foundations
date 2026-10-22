@@ -1,0 +1,51 @@
+{
+  "checkpoint_sha256": "e13bea63f63222333d1738fafdb88f3b55b1f34a7ffc3b5feaed2adf9ea29a2d",
+  "config": {
+    "env_id": "PickCube-v1",
+    "obs_mode": "state",
+    "control_mode": "pd_joint_delta_pos",
+    "reward_mode": "normalized_dense",
+    "seed": 42,
+    "total_timesteps": 1048576,
+    "num_envs": 4,
+    "rollout_steps": 256,
+    "batch_size": 256,
+    "epochs": 8,
+    "validation_interval": 131072,
+    "validation_seed_start": 40000,
+    "validation_episodes": 10,
+    "test_episodes": 50,
+    "test_seed_start": 50000,
+    "versions": {
+      "python": "3.11.15",
+      "platform": "macOS-26.5.2-arm64-arm-64bit",
+      "mani-skill-nightly": "2026.8.2.400",
+      "sapien": "3.0.3",
+      "torch": "2.14.1",
+      "stable-baselines3": "2.9.0",
+      "gymnasium": "1.4.0",
+      "numpy": "2.4.6"
+    },
+    "created_utc": "2026-10-22T15:13:40.393051+00:00",
+    "source_sha256": "1ea0c352529fece216c5319d8c8b0dc6e53bb67ee82c1658cb289056cb3125b9",
+    "algorithm": "Stable-Baselines3 PPO",
+    "device": "cpu"
+  },
+  "training": {
+    "actual_timesteps": 1048576,
+    "elapsed_seconds": 830.4391106669791,
+    "complete": true
+  },
+  "primary_checkpoint": "final.zip",
+  "never_selected_on_new_test_seeds": true,
+  "loaded_contract": {
+    "timesteps": 1048576,
+    "observation_shape": [
+      42
+    ],
+    "action_shape": [
+      8
+    ],
+    "checkpoint_sha256": "e13bea63f63222333d1738fafdb88f3b55b1f34a7ffc3b5feaed2adf9ea29a2d"
+  }
+}
