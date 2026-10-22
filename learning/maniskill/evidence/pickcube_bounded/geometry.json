@@ -1,0 +1,20 @@
+{
+  "raw_final": {
+    "median_goal_distance": 0.09586330398013247,
+    "median_max_arm_speed": 0.621483713388443,
+    "final_static_count": 0,
+    "final_success_count": 0
+  },
+  "bounded_final": {
+    "median_goal_distance": 0.19424255429721243,
+    "median_max_arm_speed": 0.6161869466304779,
+    "final_static_count": 0,
+    "final_success_count": 0
+  },
+  "bounded_selected_secondary": {
+    "median_goal_distance": 0.392756272645735,
+    "median_max_arm_speed": 0.6254697442054749,
+    "final_static_count": 0,
+    "final_success_count": 0
+  }
+}

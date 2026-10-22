@@ -15,6 +15,7 @@ from pathlib import Path
 import time
 
 from .experiment import Config, env_thunk, evaluate, save_json, versions
+from .selection import holding_score
 
 TASK = Config(
     env_id="PickCube-v1",
@@ -154,6 +155,7 @@ def train(config, output):
             versions=versions(),
             created_utc=datetime.now(timezone.utc).isoformat(),
             source_sha256=sha256(__file__),
+            selection_order=["success_at_end_rate", "success_once_rate", "return_mean"],
             treatment=dict(
                 norm_obs=True,
                 norm_reward=False,
@@ -217,11 +219,7 @@ def train(config, output):
                 stats_count=float(env.obs_rms.count),
             )
             self.points.append(point)
-            score = (
-                point["success_once_rate"],
-                point["success_at_end_rate"],
-                point["return_mean"],
-            )
+            score = holding_score(point)
             if self.best_score is None or score > self.best_score:
                 self.best_score = score
                 save_json(

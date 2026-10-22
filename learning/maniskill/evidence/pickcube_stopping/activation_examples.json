@@ -1,0 +1,65 @@
+{
+  "protocol": {
+    "scope": "Illustrative activation videos selected after the declared diagnostic.\n\nThe aggregate comparison is unchanged. These examples show the first activation\nper policy, not a success-rate sample or predeclared performance evaluation.\n",
+    "selection": {
+      "selection": "First naturally activated validation seed per policy, or first seed if none; illustrative traces, not performance subset",
+      "seeds": {
+        "raw_final": 80002,
+        "normalized_final": 80008
+      }
+    },
+    "raw_checkpoint_sha256": "e13bea63f63222333d1738fafdb88f3b55b1f34a7ffc3b5feaed2adf9ea29a2d",
+    "normalized_snapshot": {
+      "timesteps": 1048576,
+      "model_sha256": "0796500d9a83a5b5728ab34f0072536ad499d458e7ece19cefbe2ee38c8cb4c2",
+      "statistics_sha256": "36612dfeee23082c2e098ab3f4ba1d23ef40fd40bec02fb5d2288d109732e759"
+    },
+    "source_sha256": "e27f66de6412b0c527df86fa909ac19ef55a278221246813bf8b1f728a6520ae"
+  },
+  "videos": [
+    {
+      "policy": "raw_final",
+      "seed": 80002,
+      "mode": "normal",
+      "video": "activation_raw_final_normal_seed80002.mp4",
+      "video_sha256": "0ffe2f20c5eb8dbf8212a3fea752ec7e13a3321b6d1863e11657b92632bc043a",
+      "all_recorded_fields_match": true,
+      "reference": "raw_final_normal.json",
+      "active_steps": 0,
+      "success_at_end": false
+    },
+    {
+      "policy": "raw_final",
+      "seed": 80002,
+      "mode": "override",
+      "video": "activation_raw_final_override_seed80002.mp4",
+      "video_sha256": "1a8d92b9cc33b632859ce45edf7dd8666b96a14c02e1b5beec9b3996554a3163",
+      "all_recorded_fields_match": true,
+      "reference": "raw_final_override.json",
+      "active_steps": 22,
+      "success_at_end": true
+    },
+    {
+      "policy": "normalized_final",
+      "seed": 80008,
+      "mode": "normal",
+      "video": "activation_normalized_final_normal_seed80008.mp4",
+      "video_sha256": "84e7759b71e7751579e77bd388f094c3c0ccd5b89173f8ea3ebfd9663c63212d",
+      "all_recorded_fields_match": true,
+      "reference": "normalized_final_normal.json",
+      "active_steps": 0,
+      "success_at_end": false
+    },
+    {
+      "policy": "normalized_final",
+      "seed": 80008,
+      "mode": "override",
+      "video": "activation_normalized_final_override_seed80008.mp4",
+      "video_sha256": "088192d155934721f24d8ff024e10256e48c6361ab81f5c91a11790bb2ea6f6d",
+      "all_recorded_fields_match": true,
+      "reference": "normalized_final_override.json",
+      "active_steps": 34,
+      "success_at_end": true
+    }
+  ]
+}

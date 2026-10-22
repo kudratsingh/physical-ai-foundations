@@ -1,0 +1,26 @@
+{
+  "raw_final": {
+    "final_success": 0,
+    "reached_then_lost": 0,
+    "placed_but_moving": 4,
+    "lifted_without_success": 44,
+    "grasped_without_lift": 0,
+    "never_grasped": 2
+  },
+  "bounded_final": {
+    "final_success": 0,
+    "reached_then_lost": 0,
+    "placed_but_moving": 2,
+    "lifted_without_success": 44,
+    "grasped_without_lift": 4,
+    "never_grasped": 0
+  },
+  "bounded_selected_secondary": {
+    "final_success": 0,
+    "reached_then_lost": 0,
+    "placed_but_moving": 1,
+    "lifted_without_success": 46,
+    "grasped_without_lift": 3,
+    "never_grasped": 0
+  }
+}

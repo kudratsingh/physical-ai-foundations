@@ -1,0 +1,70 @@
+{
+  "created_utc": "2026-10-22T18:58:43.112250+00:00",
+  "validation_seeds": [
+    80000,
+    80001,
+    80002,
+    80003,
+    80004,
+    80005,
+    80006,
+    80007,
+    80008,
+    80009
+  ],
+  "video_seeds": [
+    80000,
+    80001
+  ],
+  "conditions": [
+    "raw_final_normal",
+    "raw_final_override",
+    "normalized_final_normal",
+    "normalized_final_override"
+  ],
+  "task": {
+    "env_id": "PickCube-v1",
+    "obs_mode": "state",
+    "control_mode": "pd_joint_delta_pos",
+    "reward_mode": "normalized_dense",
+    "seed": 42,
+    "total_timesteps": 65536,
+    "num_envs": 4,
+    "rollout_steps": 256,
+    "batch_size": 256,
+    "epochs": 8,
+    "validation_interval": 16384,
+    "validation_seed_start": 1000,
+    "validation_episodes": 5,
+    "test_episodes": 20,
+    "test_seed_start": 10000
+  },
+  "horizon": 50,
+  "training": false,
+  "final_test_seeds_used": false,
+  "trigger": "First placed state at reset0 or after controlstep t latches zero seven-arm increments from next action t+1 through episode end; recompute original policy gripper command every step",
+  "semantics": "Zero delta recomputes target=current measured qpos each step, NOT a guaranteed fixed hold. No added damping, fixed pose target, reward or physics modification",
+  "success": "Official3D cube-goal distance<=0.025m AND max absolute seven-arm speeds<=0.2rad/s; privileged override outcomes reported separately from normal policy",
+  "source_sha256": "c9fb277cea2340fde655fde4eb525ba04699d13371a912ce3cd8247802b8d5f6",
+  "raw_checkpoint_sha256": "e13bea63f63222333d1738fafdb88f3b55b1f34a7ffc3b5feaed2adf9ea29a2d",
+  "normalized_model_sha256": "0796500d9a83a5b5728ab34f0072536ad499d458e7ece19cefbe2ee38c8cb4c2",
+  "normalized_statistics_sha256": "36612dfeee23082c2e098ab3f4ba1d23ef40fd40bec02fb5d2288d109732e759",
+  "normalized_snapshot": {
+    "timesteps": 1048576,
+    "model_sha256": "0796500d9a83a5b5728ab34f0072536ad499d458e7ece19cefbe2ee38c8cb4c2",
+    "statistics_sha256": "36612dfeee23082c2e098ab3f4ba1d23ef40fd40bec02fb5d2288d109732e759"
+  },
+  "controller_source_sha256": "2e5b65586b98b6ce128d91fca9ceff7154f7e912287cb0e101332e3bbd772e02",
+  "panda_source_sha256": "bf85577be75b7513802e676decb5543e3e65f2a3dfbc26175dd8b77ae57691f3",
+  "versions": {
+    "python": "3.11.15",
+    "platform": "macOS-26.5.2-arm64-arm-64bit",
+    "mani-skill-nightly": "2026.8.2.400",
+    "sapien": "3.0.3",
+    "torch": "2.14.1",
+    "stable-baselines3": "2.9.0",
+    "gymnasium": "1.4.0",
+    "numpy": "2.4.6"
+  },
+  "interpretation": "Post-training validation-only privileged diagnostic, not repaired PPO. No tuning or final test evaluation. If no activation, report zero activations without forced resets."
+}

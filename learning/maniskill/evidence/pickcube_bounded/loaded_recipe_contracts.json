@@ -1,0 +1,83 @@
+{
+  "contracts": {
+    "raw_final": {
+      "timesteps": 1048576,
+      "observation_shape": [
+        42
+      ],
+      "action_shape": [
+        8
+      ]
+    },
+    "bounded_final": {
+      "timesteps": 1048576,
+      "observation_shape": [
+        42
+      ],
+      "action_shape": [
+        8
+      ]
+    }
+  },
+  "recipes": {
+    "raw_final": {
+      "rollout_steps": 256,
+      "batch_size": 256,
+      "epochs": 8,
+      "learning_rate": 0.0003,
+      "gamma": 0.99,
+      "gae_lambda": 0.95,
+      "clip_range": 0.2,
+      "entropy_coefficient": 0.0,
+      "value_coefficient": 0.5,
+      "max_grad_norm": 0.5,
+      "normalize_advantage": true,
+      "use_sde": false,
+      "net_arch": {
+        "pi": [
+          256,
+          256
+        ],
+        "vf": [
+          256,
+          256
+        ]
+      },
+      "activation": "Tanh",
+      "optimizer": "Adam",
+      "optimizer_epsilon": 1e-05
+    },
+    "bounded_final": {
+      "rollout_steps": 256,
+      "batch_size": 256,
+      "epochs": 8,
+      "learning_rate": 0.0003,
+      "gamma": 0.99,
+      "gae_lambda": 0.95,
+      "clip_range": 0.2,
+      "entropy_coefficient": 0.0,
+      "value_coefficient": 0.5,
+      "max_grad_norm": 0.5,
+      "normalize_advantage": true,
+      "use_sde": false,
+      "net_arch": {
+        "pi": [
+          256,
+          256
+        ],
+        "vf": [
+          256,
+          256
+        ]
+      },
+      "activation": "Tanh",
+      "optimizer": "Adam",
+      "optimizer_epsilon": 1e-05
+    }
+  },
+  "checkpoint_sha256": {
+    "raw_final": "e13bea63f63222333d1738fafdb88f3b55b1f34a7ffc3b5feaed2adf9ea29a2d",
+    "bounded_final": "ac1b1366c7255f6038145e450e513b688d9d9f0d153742b37ee2c71977c3df5a"
+  },
+  "source_sha256": "ca390d6dc8a7aa7b23c883ae662190ec2a717d6400120124ac590bfb62d86f9a"
+}

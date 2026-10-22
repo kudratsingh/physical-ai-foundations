@@ -16,6 +16,7 @@ import platform
 import time
 
 from .metrics import summarize
+from .selection import holding_score
 
 
 @dataclass(frozen=True)
@@ -241,6 +242,11 @@ def train(config, directory):
             "created_utc": datetime.now(timezone.utc).isoformat(),
             "source_sha256": hashlib.sha256(Path(__file__).read_bytes()).hexdigest(),
             "algorithm": "Stable-Baselines3 PPO",
+            "selection_order": [
+                "success_at_end_rate",
+                "success_once_rate",
+                "return_mean",
+            ],
             "device": "cpu",
         },
     )
@@ -275,11 +281,7 @@ def train(config, directory):
                 self.points.append(
                     {"timesteps": self.num_timesteps, **result["summary"]}
                 )
-                score = (
-                    result["summary"]["success_once_rate"],
-                    result["summary"]["success_at_end_rate"],
-                    result["summary"]["return_mean"],
-                )
+                score = holding_score(result["summary"])
                 if self.best_score is None or score > self.best_score:
                     self.best_score = score
                     self.model.save(directory / "best")

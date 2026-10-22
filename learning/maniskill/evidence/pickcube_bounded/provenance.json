@@ -1,0 +1,24 @@
+{
+  "raw_checkpoint_sha256": "e13bea63f63222333d1738fafdb88f3b55b1f34a7ffc3b5feaed2adf9ea29a2d",
+  "bounded_checkpoint_sha256": "ac1b1366c7255f6038145e450e513b688d9d9f0d153742b37ee2c71977c3df5a",
+  "loaded_policy_contracts": {
+    "raw_final": {
+      "timesteps": 1048576,
+      "observation_shape": [
+        42
+      ],
+      "action_shape": [
+        8
+      ]
+    },
+    "bounded_final": {
+      "timesteps": 1048576,
+      "observation_shape": [
+        42
+      ],
+      "action_shape": [
+        8
+      ]
+    }
+  }
+}

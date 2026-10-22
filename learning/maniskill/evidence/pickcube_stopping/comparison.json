@@ -1,0 +1,86 @@
+{
+  "raw_final_normal": {
+    "summary": {
+      "episodes": 10,
+      "successes": 0,
+      "success_once_rate": 0.0,
+      "success_at_end_rate": 0.0,
+      "success_once_95pct_wilson": [
+        0,
+        0.2775401687666166
+      ],
+      "return_mean": 21.06230654157698,
+      "return_std": 2.4569478394443793,
+      "steps_mean": 50
+    },
+    "activation": {
+      "episodes": 0,
+      "total_active_steps": 0,
+      "post_activation_any_success": 0,
+      "activated_final_success": 0
+    }
+  },
+  "raw_final_override": {
+    "summary": {
+      "episodes": 10,
+      "successes": 2,
+      "success_once_rate": 0.2,
+      "success_at_end_rate": 0.2,
+      "success_once_95pct_wilson": [
+        0.056680947980693314,
+        0.5098431532792765
+      ],
+      "return_mean": 22.956447410956024,
+      "return_std": 5.349270029038439,
+      "steps_mean": 50
+    },
+    "activation": {
+      "episodes": 2,
+      "total_active_steps": 49,
+      "post_activation_any_success": 2,
+      "activated_final_success": 2
+    }
+  },
+  "normalized_final_normal": {
+    "summary": {
+      "episodes": 10,
+      "successes": 0,
+      "success_once_rate": 0.0,
+      "success_at_end_rate": 0.0,
+      "success_once_95pct_wilson": [
+        0,
+        0.2775401687666166
+      ],
+      "return_mean": 20.532848769053818,
+      "return_std": 2.693512583188493,
+      "steps_mean": 50
+    },
+    "activation": {
+      "episodes": 0,
+      "total_active_steps": 0,
+      "post_activation_any_success": 0,
+      "activated_final_success": 0
+    }
+  },
+  "normalized_final_override": {
+    "summary": {
+      "episodes": 10,
+      "successes": 1,
+      "success_once_rate": 0.1,
+      "success_at_end_rate": 0.1,
+      "success_once_95pct_wilson": [
+        0.01787574951572113,
+        0.4041563854975721
+      ],
+      "return_mean": 22.006082713231443,
+      "return_std": 6.334507874594866,
+      "steps_mean": 50
+    },
+    "activation": {
+      "episodes": 1,
+      "total_active_steps": 34,
+      "post_activation_any_success": 1,
+      "activated_final_success": 1
+    }
+  }
+}

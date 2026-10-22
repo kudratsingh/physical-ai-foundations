@@ -1,0 +1,47 @@
+{
+  "scope": "Post-training validation-only diagnostic, not a causal result",
+  "validation_seeds": [
+    100000,
+    100001,
+    100002,
+    100003,
+    100004,
+    100005,
+    100006,
+    100007,
+    100008,
+    100009
+  ],
+  "near_goal_threshold_m": 0.05,
+  "near_boundary_threshold": 0.99,
+  "raw_checkpoint_sha256": "e13bea63f63222333d1738fafdb88f3b55b1f34a7ffc3b5feaed2adf9ea29a2d",
+  "bounded_checkpoint_sha256": "ac1b1366c7255f6038145e450e513b688d9d9f0d153742b37ee2c71977c3df5a",
+  "source_sha256": "2ecbf918a22c10e7f750d6a7d1f8b56a6b746cbcb13d87819d9aca45ebe3ed5d",
+  "results": {
+    "raw_final": {
+      "all_steps": {
+        "control_steps": 500,
+        "executed_arm_any_near_boundary_fraction": 0.94,
+        "median_max_abs_arm_command": 1.0,
+        "median_latent_arm_std": 0.5238415598869324
+      },
+      "pre_action_goal_distance_within_5cm": {
+        "control_steps": 32,
+        "executed_arm_any_near_boundary_fraction": 1.0,
+        "median_max_abs_arm_command": 1.0,
+        "median_latent_arm_std": 0.5238415598869324
+      }
+    },
+    "bounded_final": {
+      "all_steps": {
+        "control_steps": 500,
+        "executed_arm_any_near_boundary_fraction": 0.544,
+        "median_max_abs_arm_command": 0.9921737611293793,
+        "median_latent_arm_std": 0.5696902871131897
+      },
+      "pre_action_goal_distance_within_5cm": {
+        "control_steps": 0
+      }
+    }
+  }
+}

@@ -1,0 +1,7 @@
+{
+  "selection": "First naturally activated validation seed per policy, or first seed if none; illustrative traces, not performance subset",
+  "seeds": {
+    "raw_final": 80002,
+    "normalized_final": 80008
+  }
+}

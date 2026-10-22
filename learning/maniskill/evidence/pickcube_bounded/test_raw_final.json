@@ -1,0 +1,1845 @@
+{
+  "policy": "PPO deterministic",
+  "summary": {
+    "episodes": 50,
+    "successes": 0,
+    "success_once_rate": 0.0,
+    "success_at_end_rate": 0.0,
+    "success_once_95pct_wilson": [
+      0,
+      0.07135003417431873
+    ],
+    "return_mean": 19.72214503787458,
+    "return_std": 4.029966145986647,
+    "steps_mean": 50
+  },
+  "episodes": [
+    {
+      "seed": 110000,
+      "steps": 50,
+      "success_once": false,
+      "success_at_end": false,
+      "first_success_step": null,
+      "trajectory": [],
+      "final_cube_position": [
+        -0.10457012057304382,
+        0.034674324095249176,
+        0.06559184938669205
+      ],
+      "final_goal_position": [
+        -0.045665349811315536,
+        -0.011457622051239014,
+        0.04731261357665062
+      ],
+      "final_arm_qvel": [
+        0.10974638164043427,
+        0.0048735737800598145,
+        -0.6332522034645081,
+        0.08354610949754715,
+        -0.18085534870624542,
+        -0.19595783948898315,
+        -0.3360259532928467
+      ],
+      "grasped_once": true,
+      "placed_once": false,
+      "initial_cube_height": 0.019999999552965164,
+      "maximum_cube_height": 0.08672734349966049,
+      "lifted_5cm": true,
+      "final_goal_distance": 0.0770198606565433,
+      "final_is_obj_placed": false,
+      "final_is_robot_static": false,
+      "return": 13.727599285542965
+    },
+    {
+      "seed": 110001,
+      "steps": 50,
+      "success_once": false,
+      "success_at_end": false,
+      "first_success_step": null,
+      "trajectory": [],
+      "final_cube_position": [
+        -0.04965560510754585,
+        -0.023663721978664398,
+        0.15589402616024017
+      ],
+      "final_goal_position": [
+        -0.050115037709474564,
+        -0.06972388923168182,
+        0.1692347675561905
+      ],
+      "final_arm_qvel": [
+        0.5793840289115906,
+        0.207224041223526,
+        -0.3421199917793274,
+        0.351674348115921,
+        0.5660305023193359,
+        -0.6408894658088684,
+        -0.4786902368068695
+      ],
+      "grasped_once": true,
+      "placed_once": false,
+      "initial_cube_height": 0.019999999552965164,
+      "maximum_cube_height": 0.1825972944498062,
+      "lifted_5cm": true,
+      "final_goal_distance": 0.04795545294004923,
+      "final_is_obj_placed": false,
+      "final_is_robot_static": false,
+      "return": 23.482761442661285
+    },
+    {
+      "seed": 110002,
+      "steps": 50,
+      "success_once": false,
+      "success_at_end": false,
+      "first_success_step": null,
+      "trajectory": [],
+      "final_cube_position": [
+        -0.015123882330954075,
+        -0.011468070559203625,
+        0.13245230913162231
+      ],
+      "final_goal_position": [
+        0.011331357061862946,
+        -0.04565078020095825,
+        0.09522894024848938
+      ],
+      "final_arm_qvel": [
+        0.5712807774543762,
+        0.33555370569229126,
+        -0.36084726452827454,
+        0.47746747732162476,
+        0.6229372620582581,
+        -0.6213524341583252,
+        -0.32079657912254333
+      ],
+      "grasped_once": true,
+      "placed_once": false,
+      "initial_cube_height": 0.019999999552965164,
+      "maximum_cube_height": 0.17979955673217773,
+      "lifted_5cm": true,
+      "final_goal_distance": 0.057043111072184266,
+      "final_is_obj_placed": false,
+      "final_is_robot_static": false,
+      "return": 21.20388140529394
+    },
+    {
+      "seed": 110003,
+      "steps": 50,
+      "success_once": false,
+      "success_at_end": false,
+      "first_success_step": null,
+      "trajectory": [],
+      "final_cube_position": [
+        0.03054056689143181,
+        0.025083204731345177,
+        0.3215099275112152
+      ],
+      "final_goal_position": [
+        -0.019835010170936584,
+        0.07494891434907913,
+        0.31148314476013184
+      ],
+      "final_arm_qvel": [
+        0.5813802480697632,
+        0.2178449183702469,
+        -0.6005226373672485,
+        0.5282760858535767,
+        0.38126227259635925,
+        -0.6121461987495422,
+        -0.6412971019744873
+      ],
+      "grasped_once": true,
+      "placed_once": false,
+      "initial_cube_height": 0.019999999552965164,
+      "maximum_cube_height": 0.3215099275112152,
+      "lifted_5cm": true,
+      "final_goal_distance": 0.07158787699313483,
+      "final_is_obj_placed": false,
+      "final_is_robot_static": false,
+      "return": 21.974944427609444
+    },
+    {
+      "seed": 110004,
+      "steps": 50,
+      "success_once": false,
+      "success_at_end": false,
+      "first_success_step": null,
+      "trajectory": [],
+      "final_cube_position": [
+        -0.05605435371398926,
+        0.11766832321882248,
+        0.15202383697032928
+      ],
+      "final_goal_position": [
+        -0.0303519144654274,
+        0.08629400283098221,
+        0.08886919915676117
+      ],
+      "final_arm_qvel": [
+        0.5916945338249207,
+        0.4281749427318573,
+        -0.6294013857841492,
+        0.6327097415924072,
+        0.6201997399330139,
+        -0.6267722249031067,
+        -0.21886223554611206
+      ],
+      "grasped_once": true,
+      "placed_once": false,
+      "initial_cube_height": 0.019999999552965164,
+      "maximum_cube_height": 0.2138994187116623,
+      "lifted_5cm": true,
+      "final_goal_distance": 0.07505645635445249,
+      "final_is_obj_placed": false,
+      "final_is_robot_static": false,
+      "return": 20.342151138931513
+    },
+    {
+      "seed": 110005,
+      "steps": 50,
+      "success_once": false,
+      "success_at_end": false,
+      "first_success_step": null,
+      "trajectory": [],
+      "final_cube_position": [
+        0.06842891871929169,
+        -0.006850637029856443,
+        0.2706792652606964
+      ],
+      "final_goal_position": [
+        0.015962660312652588,
+        -0.029825903475284576,
+        0.23468412458896637
+      ],
+      "final_arm_qvel": [
+        -0.5663057565689087,
+        -0.09903375059366226,
+        0.5348126888275146,
+        -0.09181622415781021,
+        -0.25485363602638245,
+        0.2431260049343109,
+        0.16704021394252777
+      ],
+      "grasped_once": true,
+      "placed_once": false,
+      "initial_cube_height": 0.019999999552965164,
+      "maximum_cube_height": 0.27434030175209045,
+      "lifted_5cm": true,
+      "final_goal_distance": 0.06764777373578733,
+      "final_is_obj_placed": false,
+      "final_is_robot_static": false,
+      "return": 22.05527477711439
+    },
+    {
+      "seed": 110006,
+      "steps": 50,
+      "success_once": false,
+      "success_at_end": false,
+      "first_success_step": null,
+      "trajectory": [],
+      "final_cube_position": [
+        0.035581205040216446,
+        -0.06311245262622833,
+        0.19844357669353485
+      ],
+      "final_goal_position": [
+        0.02129967510700226,
+        -0.09450212866067886,
+        0.19528375566005707
+      ],
+      "final_arm_qvel": [
+        -0.5459023714065552,
+        -0.1129600778222084,
+        0.3024275600910187,
+        -0.0597580224275589,
+        -0.5083068609237671,
+        0.22545284032821655,
+        0.1744023561477661
+      ],
+      "grasped_once": true,
+      "placed_once": true,
+      "initial_cube_height": 0.019999999552965164,
+      "maximum_cube_height": 0.19987519085407257,
+      "lifted_5cm": true,
+      "final_goal_distance": 0.03463030937985769,
+      "final_is_obj_placed": false,
+      "final_is_robot_static": false,
+      "return": 23.203295156359673
+    },
+    {
+      "seed": 110007,
+      "steps": 50,
+      "success_once": false,
+      "success_at_end": false,
+      "first_success_step": null,
+      "trajectory": [],
+      "final_cube_position": [
+        0.01263729389756918,
+        0.02258567325770855,
+        0.18783679604530334
+      ],
+      "final_goal_position": [
+        -0.07732029259204865,
+        0.04281330853700638,
+        0.04607198387384415
+      ],
+      "final_arm_qvel": [
+        0.5728245377540588,
+        0.25547608733177185,
+        -0.5607126355171204,
+        0.4813620448112488,
+        0.5860572457313538,
+        -0.5982086062431335,
+        -0.5535926818847656
+      ],
+      "grasped_once": true,
+      "placed_once": false,
+      "initial_cube_height": 0.019999999552965164,
+      "maximum_cube_height": 0.18783679604530334,
+      "lifted_5cm": true,
+      "final_goal_distance": 0.16911175762210762,
+      "final_is_obj_placed": false,
+      "final_is_robot_static": false,
+      "return": 21.719317853450775
+    },
+    {
+      "seed": 110008,
+      "steps": 50,
+      "success_once": false,
+      "success_at_end": false,
+      "first_success_step": null,
+      "trajectory": [],
+      "final_cube_position": [
+        0.0263463594019413,
+        0.0663902685046196,
+        0.21295668184757233
+      ],
+      "final_goal_position": [
+        -0.020744942128658295,
+        0.05736137181520462,
+        0.2387612760066986
+      ],
+      "final_arm_qvel": [
+        -0.5872030854225159,
+        -0.12255801260471344,
+        0.4935942590236664,
+        -0.1293088048696518,
+        -0.4831079840660095,
+        0.19852225482463837,
+        0.2582080066204071
+      ],
+      "grasped_once": true,
+      "placed_once": false,
+      "initial_cube_height": 0.019999999552965164,
+      "maximum_cube_height": 0.21691472828388214,
+      "lifted_5cm": true,
+      "final_goal_distance": 0.054451710119987916,
+      "final_is_obj_placed": false,
+      "final_is_robot_static": false,
+      "return": 21.170407757163048
+    },
+    {
+      "seed": 110009,
+      "steps": 50,
+      "success_once": false,
+      "success_at_end": false,
+      "first_success_step": null,
+      "trajectory": [],
+      "final_cube_position": [
+        0.049716319888830185,
+        0.003686620621010661,
+        0.1410888135433197
+      ],
+      "final_goal_position": [
+        -0.0030516237020492554,
+        -0.026566945016384125,
+        0.2490815967321396
+      ],
+      "final_arm_qvel": [
+        0.5747755169868469,
+        0.2646965980529785,
+        -0.6386957764625549,
+        0.40555837750434875,
+        0.6105268597602844,
+        -0.5361136198043823,
+        -0.45522865653038025
+      ],
+      "grasped_once": true,
+      "placed_once": false,
+      "initial_cube_height": 0.019999999552965164,
+      "maximum_cube_height": 0.15742173790931702,
+      "lifted_5cm": true,
+      "final_goal_distance": 0.12394424280882856,
+      "final_is_obj_placed": false,
+      "final_is_robot_static": false,
+      "return": 21.176992788910866
+    },
+    {
+      "seed": 110010,
+      "steps": 50,
+      "success_once": false,
+      "success_at_end": false,
+      "first_success_step": null,
+      "trajectory": [],
+      "final_cube_position": [
+        -0.047357216477394104,
+        -0.02750103734433651,
+        0.12567104399204254
+      ],
+      "final_goal_position": [
+        -0.06294846534729004,
+        -0.07075007259845734,
+        0.10668209195137024
+      ],
+      "final_arm_qvel": [
+        -0.5683216452598572,
+        -0.1837845742702484,
+        0.08051728457212448,
+        -0.21522220969200134,
+        -0.5989072322845459,
+        0.28780925273895264,
+        0.006770521402359009
+      ],
+      "grasped_once": true,
+      "placed_once": false,
+      "initial_cube_height": 0.019999999552965164,
+      "maximum_cube_height": 0.18849845230579376,
+      "lifted_5cm": true,
+      "final_goal_distance": 0.049740792025641994,
+      "final_is_obj_placed": false,
+      "final_is_robot_static": false,
+      "return": 20.12572432309389
+    },
+    {
+      "seed": 110011,
+      "steps": 50,
+      "success_once": false,
+      "success_at_end": false,
+      "first_success_step": null,
+      "trajectory": [],
+      "final_cube_position": [
+        0.004604362417012453,
+        -0.017493536695837975,
+        0.16167305409908295
+      ],
+      "final_goal_position": [
+        -0.057693254202604294,
+        0.05830397456884384,
+        0.03365500271320343
+      ],
+      "final_arm_qvel": [
+        0.5919231176376343,
+        0.20736970007419586,
+        -0.3816847801208496,
+        0.3021356761455536,
+        0.5696913599967957,
+        -0.6032311320304871,
+        -0.6012699007987976
+      ],
+      "grasped_once": true,
+      "placed_once": false,
+      "initial_cube_height": 0.019999999552965164,
+      "maximum_cube_height": 0.17485709488391876,
+      "lifted_5cm": true,
+      "final_goal_distance": 0.161291280703707,
+      "final_is_obj_placed": false,
+      "final_is_robot_static": false,
+      "return": 19.859031572937965
+    },
+    {
+      "seed": 110012,
+      "steps": 50,
+      "success_once": false,
+      "success_at_end": false,
+      "first_success_step": null,
+      "trajectory": [],
+      "final_cube_position": [
+        0.015990525484085083,
+        0.0050229462794959545,
+        0.2306937873363495
+      ],
+      "final_goal_position": [
+        -0.008376993238925934,
+        0.09765856713056564,
+        0.14750416576862335
+      ],
+      "final_arm_qvel": [
+        -0.5859388113021851,
+        -0.13444744050502777,
+        0.4226025938987732,
+        -0.22234736382961273,
+        -0.43727925419807434,
+        0.22115817666053772,
+        0.2563917338848114
+      ],
+      "grasped_once": true,
+      "placed_once": false,
+      "initial_cube_height": 0.019999999552965164,
+      "maximum_cube_height": 0.25497931241989136,
+      "lifted_5cm": true,
+      "final_goal_distance": 0.1268686224239899,
+      "final_is_obj_placed": false,
+      "final_is_robot_static": false,
+      "return": 19.49472400546074
+    },
+    {
+      "seed": 110013,
+      "steps": 50,
+      "success_once": false,
+      "success_at_end": false,
+      "first_success_step": null,
+      "trajectory": [],
+      "final_cube_position": [
+        0.054862916469573975,
+        -0.011990256607532501,
+        0.29235532879829407
+      ],
+      "final_goal_position": [
+        0.06475957483053207,
+        -0.05179328843951225,
+        0.28460508584976196
+      ],
+      "final_arm_qvel": [
+        0.5929250717163086,
+        0.277222216129303,
+        -0.6504791378974915,
+        0.5815423727035522,
+        0.4684480130672455,
+        -0.6112770438194275,
+        -0.5871313810348511
+      ],
+      "grasped_once": true,
+      "placed_once": false,
+      "initial_cube_height": 0.019999999552965164,
+      "maximum_cube_height": 0.29235532879829407,
+      "lifted_5cm": true,
+      "final_goal_distance": 0.041740764912641296,
+      "final_is_obj_placed": false,
+      "final_is_robot_static": false,
+      "return": 20.81172301620245
+    },
+    {
+      "seed": 110014,
+      "steps": 50,
+      "success_once": false,
+      "success_at_end": false,
+      "first_success_step": null,
+      "trajectory": [],
+      "final_cube_position": [
+        0.043539032340049744,
+        0.03014341928064823,
+        0.2192365825176239
+      ],
+      "final_goal_position": [
+        0.09735704213380814,
+        -0.037738408893346786,
+        0.3012118339538574
+      ],
+      "final_arm_qvel": [
+        0.5516181588172913,
+        0.30374670028686523,
+        -0.41657546162605286,
+        0.42644813656806946,
+        0.5474739670753479,
+        -0.6771330237388611,
+        -0.6556600332260132
+      ],
+      "grasped_once": true,
+      "placed_once": false,
+      "initial_cube_height": 0.019999999552965164,
+      "maximum_cube_height": 0.2192365825176239,
+      "lifted_5cm": true,
+      "final_goal_distance": 0.1192655131311586,
+      "final_is_obj_placed": false,
+      "final_is_robot_static": false,
+      "return": 19.98733213543892
+    },
+    {
+      "seed": 110015,
+      "steps": 50,
+      "success_once": false,
+      "success_at_end": false,
+      "first_success_step": null,
+      "trajectory": [],
+      "final_cube_position": [
+        0.05554656311869621,
+        0.03513781726360321,
+        0.15430624783039093
+      ],
+      "final_goal_position": [
+        0.07774067670106888,
+        -0.024553000926971436,
+        0.0868714302778244
+      ],
+      "final_arm_qvel": [
+        -0.5614094138145447,
+        -0.1870184987783432,
+        0.4408743679523468,
+        -0.12719739973545074,
+        -0.43631988763809204,
+        0.19661742448806763,
+        0.20585139095783234
+      ],
+      "grasped_once": true,
+      "placed_once": false,
+      "initial_cube_height": 0.019999999552965164,
+      "maximum_cube_height": 0.15661434829235077,
+      "lifted_5cm": true,
+      "final_goal_distance": 0.09275250439915587,
+      "final_is_obj_placed": false,
+      "final_is_robot_static": false,
+      "return": 21.852107226848602
+    },
+    {
+      "seed": 110016,
+      "steps": 50,
+      "success_once": false,
+      "success_at_end": false,
+      "first_success_step": null,
+      "trajectory": [],
+      "final_cube_position": [
+        0.21006375551223755,
+        -0.3216371536254883,
+        0.019999917596578598
+      ],
+      "final_goal_position": [
+        -0.05243345722556114,
+        0.0298268124461174,
+        0.25495201349258423
+      ],
+      "final_arm_qvel": [
+        -0.5577585101127625,
+        0.6594350337982178,
+        -0.036315061151981354,
+        0.1502540409564972,
+        -0.1900394856929779,
+        0.6095826625823975,
+        0.6082002520561218
+      ],
+      "grasped_once": true,
+      "placed_once": false,
+      "initial_cube_height": 0.019999999552965164,
+      "maximum_cube_height": 0.07438908517360687,
+      "lifted_5cm": true,
+      "final_goal_distance": 0.49762856982675513,
+      "final_is_obj_placed": false,
+      "final_is_robot_static": false,
+      "return": 6.131794471293688
+    },
+    {
+      "seed": 110017,
+      "steps": 50,
+      "success_once": false,
+      "success_at_end": false,
+      "first_success_step": null,
+      "trajectory": [],
+      "final_cube_position": [
+        0.029692236334085464,
+        -0.05979041010141373,
+        0.15933601558208466
+      ],
+      "final_goal_position": [
+        0.08051780611276627,
+        -0.07363753020763397,
+        0.08742921054363251
+      ],
+      "final_arm_qvel": [
+        -0.5845184326171875,
+        -0.09531404823064804,
+        0.6534228324890137,
+        -0.3032500445842743,
+        -0.27806368470191956,
+        0.5985498428344727,
+        0.6246213316917419
+      ],
+      "grasped_once": true,
+      "placed_once": false,
+      "initial_cube_height": 0.019999999552965164,
+      "maximum_cube_height": 0.16678841412067413,
+      "lifted_5cm": true,
+      "final_goal_distance": 0.08913792621214388,
+      "final_is_obj_placed": false,
+      "final_is_robot_static": false,
+      "return": 22.53885032981634
+    },
+    {
+      "seed": 110018,
+      "steps": 50,
+      "success_once": false,
+      "success_at_end": false,
+      "first_success_step": null,
+      "trajectory": [],
+      "final_cube_position": [
+        -0.034735165536403656,
+        -0.029947364702820778,
+        0.16331641376018524
+      ],
+      "final_goal_position": [
+        -0.06487021595239639,
+        -0.042025793343782425,
+        0.19006411731243134
+      ],
+      "final_arm_qvel": [
+        -0.6062172055244446,
+        -0.141732856631279,
+        0.5262640714645386,
+        -0.24360789358615875,
+        -0.2423858940601349,
+        0.3434690237045288,
+        0.6312943696975708
+      ],
+      "grasped_once": true,
+      "placed_once": false,
+      "initial_cube_height": 0.019999999552965164,
+      "maximum_cube_height": 0.2241867333650589,
+      "lifted_5cm": true,
+      "final_goal_distance": 0.0420648231581694,
+      "final_is_obj_placed": false,
+      "final_is_robot_static": false,
+      "return": 21.77817816659808
+    },
+    {
+      "seed": 110019,
+      "steps": 50,
+      "success_once": false,
+      "success_at_end": false,
+      "first_success_step": null,
+      "trajectory": [],
+      "final_cube_position": [
+        0.048597194254398346,
+        -0.03462091088294983,
+        0.18823687732219696
+      ],
+      "final_goal_position": [
+        0.08289908617734909,
+        -0.05234252288937569,
+        0.23498854041099548
+      ],
+      "final_arm_qvel": [
+        -0.5945296883583069,
+        -0.1627349555492401,
+        0.5184161067008972,
+        -0.15237754583358765,
+        -0.22668574750423431,
+        0.2158026248216629,
+        0.6392247676849365
+      ],
+      "grasped_once": true,
+      "placed_once": false,
+      "initial_cube_height": 0.019999999552965164,
+      "maximum_cube_height": 0.19408871233463287,
+      "lifted_5cm": true,
+      "final_goal_distance": 0.06063326911167348,
+      "final_is_obj_placed": false,
+      "final_is_robot_static": false,
+      "return": 20.62566936761141
+    },
+    {
+      "seed": 110020,
+      "steps": 50,
+      "success_once": false,
+      "success_at_end": false,
+      "first_success_step": null,
+      "trajectory": [],
+      "final_cube_position": [
+        0.027845242992043495,
+        -0.08024518936872482,
+        0.23632197082042694
+      ],
+      "final_goal_position": [
+        -0.05934713035821915,
+        -0.03732956945896149,
+        0.2390146702528
+      ],
+      "final_arm_qvel": [
+        -0.5803332924842834,
+        -0.08055908977985382,
+        0.454029381275177,
+        -0.10766493529081345,
+        -0.3183721899986267,
+        0.2541764974594116,
+        0.2617185413837433
+      ],
+      "grasped_once": true,
+      "placed_once": false,
+      "initial_cube_height": 0.019999999552965164,
+      "maximum_cube_height": 0.24003390967845917,
+      "lifted_5cm": true,
+      "final_goal_distance": 0.0972188820802007,
+      "final_is_obj_placed": false,
+      "final_is_robot_static": false,
+      "return": 22.24787999689579
+    },
+    {
+      "seed": 110021,
+      "steps": 50,
+      "success_once": false,
+      "success_at_end": false,
+      "first_success_step": null,
+      "trajectory": [],
+      "final_cube_position": [
+        -0.002191345440223813,
+        -0.05738682672381401,
+        0.14906595647335052
+      ],
+      "final_goal_position": [
+        -0.03345664590597153,
+        -0.03960684686899185,
+        0.20411768555641174
+      ],
+      "final_arm_qvel": [
+        0.5730786323547363,
+        0.22977793216705322,
+        -0.2746691405773163,
+        0.38108229637145996,
+        0.5651545524597168,
+        -0.6457230448722839,
+        -0.419899582862854
+      ],
+      "grasped_once": true,
+      "placed_once": false,
+      "initial_cube_height": 0.019999999552965164,
+      "maximum_cube_height": 0.19554315507411957,
+      "lifted_5cm": true,
+      "final_goal_distance": 0.06575971085616279,
+      "final_is_obj_placed": false,
+      "final_is_robot_static": false,
+      "return": 19.930705167353153
+    },
+    {
+      "seed": 110022,
+      "steps": 50,
+      "success_once": false,
+      "success_at_end": false,
+      "first_success_step": null,
+      "trajectory": [],
+      "final_cube_position": [
+        0.034227050840854645,
+        -0.07420232892036438,
+        0.15903548896312714
+      ],
+      "final_goal_position": [
+        0.08453278988599777,
+        -0.06316341459751129,
+        0.15779274702072144
+      ],
+      "final_arm_qvel": [
+        0.556892454624176,
+        0.4376307725906372,
+        -0.6495718359947205,
+        0.44783273339271545,
+        0.601335883140564,
+        -0.6081994771957397,
+        -0.23518969118595123
+      ],
+      "grasped_once": true,
+      "placed_once": false,
+      "initial_cube_height": 0.019999999552965164,
+      "maximum_cube_height": 0.21452833712100983,
+      "lifted_5cm": true,
+      "final_goal_distance": 0.051517661222543316,
+      "final_is_obj_placed": false,
+      "final_is_robot_static": false,
+      "return": 22.076378993690014
+    },
+    {
+      "seed": 110023,
+      "steps": 50,
+      "success_once": false,
+      "success_at_end": false,
+      "first_success_step": null,
+      "trajectory": [],
+      "final_cube_position": [
+        -0.04248069226741791,
+        0.11779465526342392,
+        0.2515420913696289
+      ],
+      "final_goal_position": [
+        0.06093060225248337,
+        0.07338785380125046,
+        0.30909714102745056
+      ],
+      "final_arm_qvel": [
+        -0.5581222176551819,
+        -0.007253746036440134,
+        0.6261756420135498,
+        -0.07879643142223358,
+        -0.28918740153312683,
+        0.23903590440750122,
+        0.5773510932922363
+      ],
+      "grasped_once": true,
+      "placed_once": false,
+      "initial_cube_height": 0.019999999552965164,
+      "maximum_cube_height": 0.3193965554237366,
+      "lifted_5cm": true,
+      "final_goal_distance": 0.12640586850101926,
+      "final_is_obj_placed": false,
+      "final_is_robot_static": false,
+      "return": 20.281456142663956
+    },
+    {
+      "seed": 110024,
+      "steps": 50,
+      "success_once": false,
+      "success_at_end": false,
+      "first_success_step": null,
+      "trajectory": [],
+      "final_cube_position": [
+        -0.004006063565611839,
+        -0.0027193203568458557,
+        0.23659475147724152
+      ],
+      "final_goal_position": [
+        0.057393066585063934,
+        0.047507144510746,
+        0.2656799554824829
+      ],
+      "final_arm_qvel": [
+        0.40107446908950806,
+        0.14255332946777344,
+        -0.2457273006439209,
+        0.3034253716468811,
+        0.4340045154094696,
+        -0.6232486367225647,
+        -0.5923764705657959
+      ],
+      "grasped_once": true,
+      "placed_once": false,
+      "initial_cube_height": 0.019999999552965164,
+      "maximum_cube_height": 0.23880286514759064,
+      "lifted_5cm": true,
+      "final_goal_distance": 0.08448964462217587,
+      "final_is_obj_placed": false,
+      "final_is_robot_static": false,
+      "return": 21.29649516195059
+    },
+    {
+      "seed": 110025,
+      "steps": 50,
+      "success_once": false,
+      "success_at_end": false,
+      "first_success_step": null,
+      "trajectory": [],
+      "final_cube_position": [
+        0.016653569415211678,
+        -0.6429036855697632,
+        0.019999897107481956
+      ],
+      "final_goal_position": [
+        -0.06736324727535248,
+        -0.03659167140722275,
+        0.2728103995323181
+      ],
+      "final_arm_qvel": [
+        -0.49104273319244385,
+        -0.6782739758491516,
+        -0.18793073296546936,
+        -0.28832608461380005,
+        -0.21880705654621124,
+        0.6225630044937134,
+        0.4699666202068329
+      ],
+      "grasped_once": false,
+      "placed_once": false,
+      "initial_cube_height": 0.019999999552965164,
+      "maximum_cube_height": 0.025500306859612465,
+      "lifted_5cm": false,
+      "final_goal_distance": 0.6622584345562921,
+      "final_is_obj_placed": false,
+      "final_is_robot_static": false,
+      "return": 4.450546812266111
+    },
+    {
+      "seed": 110026,
+      "steps": 50,
+      "success_once": false,
+      "success_at_end": false,
+      "first_success_step": null,
+      "trajectory": [],
+      "final_cube_position": [
+        -0.002335600322112441,
+        -0.05988370627164841,
+        0.08737004548311234
+      ],
+      "final_goal_position": [
+        -0.04985988140106201,
+        -0.08438358455896378,
+        0.09552012383937836
+      ],
+      "final_arm_qvel": [
+        -0.5782188773155212,
+        -0.18296833336353302,
+        0.33235272765159607,
+        -0.1243588998913765,
+        -0.31075677275657654,
+        0.3555920720100403,
+        0.5445044636726379
+      ],
+      "grasped_once": true,
+      "placed_once": false,
+      "initial_cube_height": 0.019999999552965164,
+      "maximum_cube_height": 0.1303885579109192,
+      "lifted_5cm": true,
+      "final_goal_distance": 0.0540853501918731,
+      "final_is_obj_placed": false,
+      "final_is_robot_static": false,
+      "return": 23.496885873377323
+    },
+    {
+      "seed": 110027,
+      "steps": 50,
+      "success_once": false,
+      "success_at_end": false,
+      "first_success_step": null,
+      "trajectory": [],
+      "final_cube_position": [
+        -0.04610211402177811,
+        0.08460913598537445,
+        0.1773412525653839
+      ],
+      "final_goal_position": [
+        0.0022526010870933533,
+        -0.029580794274806976,
+        0.18810760974884033
+      ],
+      "final_arm_qvel": [
+        0.5466378927230835,
+        0.4857562482357025,
+        -0.3016294836997986,
+        0.6433405876159668,
+        0.6080805659294128,
+        -0.6256306767463684,
+        -0.4608692228794098
+      ],
+      "grasped_once": true,
+      "placed_once": true,
+      "initial_cube_height": 0.019999999552965164,
+      "maximum_cube_height": 0.20074225962162018,
+      "lifted_5cm": true,
+      "final_goal_distance": 0.12447261985307043,
+      "final_is_obj_placed": false,
+      "final_is_robot_static": false,
+      "return": 19.6956949532032
+    },
+    {
+      "seed": 110028,
+      "steps": 50,
+      "success_once": false,
+      "success_at_end": false,
+      "first_success_step": null,
+      "trajectory": [],
+      "final_cube_position": [
+        0.05233233794569969,
+        -0.08009471744298935,
+        0.244939386844635
+      ],
+      "final_goal_position": [
+        0.015795156359672546,
+        -0.08237598836421967,
+        0.3157939016819
+      ],
+      "final_arm_qvel": [
+        0.5744929909706116,
+        0.23876997828483582,
+        -0.6247302889823914,
+        0.43941813707351685,
+        0.49800392985343933,
+        -0.6092047095298767,
+        -0.6478305459022522
+      ],
+      "grasped_once": true,
+      "placed_once": false,
+      "initial_cube_height": 0.019999999552965164,
+      "maximum_cube_height": 0.244939386844635,
+      "lifted_5cm": true,
+      "final_goal_distance": 0.07975294419700492,
+      "final_is_obj_placed": false,
+      "final_is_robot_static": false,
+      "return": 19.97327111661434
+    },
+    {
+      "seed": 110029,
+      "steps": 50,
+      "success_once": false,
+      "success_at_end": false,
+      "first_success_step": null,
+      "trajectory": [],
+      "final_cube_position": [
+        -0.014618602581322193,
+        -0.08176028728485107,
+        0.08868905901908875
+      ],
+      "final_goal_position": [
+        0.005849398672580719,
+        -0.009599998593330383,
+        0.027294732630252838
+      ],
+      "final_arm_qvel": [
+        -0.5879048705101013,
+        -0.020411770790815353,
+        0.286334753036499,
+        -0.22096331417560577,
+        -0.3123707175254822,
+        0.4306425452232361,
+        0.525399923324585
+      ],
+      "grasped_once": true,
+      "placed_once": false,
+      "initial_cube_height": 0.019999999552965164,
+      "maximum_cube_height": 0.15447752177715302,
+      "lifted_5cm": true,
+      "final_goal_distance": 0.09692940550788647,
+      "final_is_obj_placed": false,
+      "final_is_robot_static": false,
+      "return": 20.77241527289152
+    },
+    {
+      "seed": 110030,
+      "steps": 50,
+      "success_once": false,
+      "success_at_end": false,
+      "first_success_step": null,
+      "trajectory": [],
+      "final_cube_position": [
+        0.05615854263305664,
+        0.0389350987970829,
+        0.22805412113666534
+      ],
+      "final_goal_position": [
+        0.09781325608491898,
+        -0.035048581659793854,
+        0.21824562549591064
+      ],
+      "final_arm_qvel": [
+        -0.5756292939186096,
+        -0.06104258820414543,
+        0.5336368680000305,
+        -0.11378506571054459,
+        -0.3062145709991455,
+        0.239457905292511,
+        0.22118674218654633
+      ],
+      "grasped_once": true,
+      "placed_once": false,
+      "initial_cube_height": 0.019999999552965164,
+      "maximum_cube_height": 0.23224928975105286,
+      "lifted_5cm": true,
+      "final_goal_distance": 0.08546874699816719,
+      "final_is_obj_placed": false,
+      "final_is_robot_static": false,
+      "return": 19.076911635696888
+    },
+    {
+      "seed": 110031,
+      "steps": 50,
+      "success_once": false,
+      "success_at_end": false,
+      "first_success_step": null,
+      "trajectory": [],
+      "final_cube_position": [
+        -0.03221658617258072,
+        -0.09815285354852676,
+        0.18200446665287018
+      ],
+      "final_goal_position": [
+        -0.09928003698587418,
+        -0.005611062049865723,
+        0.07576044648885727
+      ],
+      "final_arm_qvel": [
+        -0.6053431630134583,
+        -0.10330755263566971,
+        0.5063015222549438,
+        -0.20951908826828003,
+        -0.3667966425418854,
+        0.30590417981147766,
+        0.30783194303512573
+      ],
+      "grasped_once": true,
+      "placed_once": false,
+      "initial_cube_height": 0.019999999552965164,
+      "maximum_cube_height": 0.18676425516605377,
+      "lifted_5cm": true,
+      "final_goal_distance": 0.15604256287750423,
+      "final_is_obj_placed": false,
+      "final_is_robot_static": false,
+      "return": 21.532225988805294
+    },
+    {
+      "seed": 110032,
+      "steps": 50,
+      "success_once": false,
+      "success_at_end": false,
+      "first_success_step": null,
+      "trajectory": [],
+      "final_cube_position": [
+        0.01136775966733694,
+        -0.08353222161531448,
+        0.1512777954339981
+      ],
+      "final_goal_position": [
+        0.06861645728349686,
+        -0.058577585965394974,
+        0.09820675849914551
+      ],
+      "final_arm_qvel": [
+        -0.5753553509712219,
+        -0.02045380510389805,
+        0.3425496816635132,
+        -0.2571485638618469,
+        -0.43641397356987,
+        0.5221146941184998,
+        0.39075106382369995
+      ],
+      "grasped_once": true,
+      "placed_once": false,
+      "initial_cube_height": 0.019999999552965164,
+      "maximum_cube_height": 0.21106567978858948,
+      "lifted_5cm": true,
+      "final_goal_distance": 0.0819553670024559,
+      "final_is_obj_placed": false,
+      "final_is_robot_static": false,
+      "return": 20.970745503902435
+    },
+    {
+      "seed": 110033,
+      "steps": 50,
+      "success_once": false,
+      "success_at_end": false,
+      "first_success_step": null,
+      "trajectory": [],
+      "final_cube_position": [
+        0.01791541278362274,
+        -0.022917652502655983,
+        0.2026192992925644
+      ],
+      "final_goal_position": [
+        0.058875031769275665,
+        0.05480363219976425,
+        0.0545203872025013
+      ],
+      "final_arm_qvel": [
+        0.5654754638671875,
+        0.31909504532814026,
+        -0.36567163467407227,
+        0.4373435974121094,
+        0.5823174715042114,
+        -0.6167580485343933,
+        -0.5849266648292542
+      ],
+      "grasped_once": true,
+      "placed_once": false,
+      "initial_cube_height": 0.019999999552965164,
+      "maximum_cube_height": 0.2026192992925644,
+      "lifted_5cm": true,
+      "final_goal_distance": 0.17219633052276334,
+      "final_is_obj_placed": false,
+      "final_is_robot_static": false,
+      "return": 20.202206172049046
+    },
+    {
+      "seed": 110034,
+      "steps": 50,
+      "success_once": false,
+      "success_at_end": false,
+      "first_success_step": null,
+      "trajectory": [],
+      "final_cube_position": [
+        -0.009425993077456951,
+        0.07571566849946976,
+        0.2239599972963333
+      ],
+      "final_goal_position": [
+        -0.0984610915184021,
+        0.061332471668720245,
+        0.132337749004364
+      ],
+      "final_arm_qvel": [
+        -0.5689678192138672,
+        -0.20247319340705872,
+        0.4685603678226471,
+        -0.17600803077220917,
+        -0.5658169984817505,
+        0.2294764220714569,
+        0.353591650724411
+      ],
+      "grasped_once": true,
+      "placed_once": false,
+      "initial_cube_height": 0.019999999552965164,
+      "maximum_cube_height": 0.2255532294511795,
+      "lifted_5cm": true,
+      "final_goal_distance": 0.12856423098022307,
+      "final_is_obj_placed": false,
+      "final_is_robot_static": false,
+      "return": 21.167153880000114
+    },
+    {
+      "seed": 110035,
+      "steps": 50,
+      "success_once": false,
+      "success_at_end": false,
+      "first_success_step": null,
+      "trajectory": [],
+      "final_cube_position": [
+        -0.04775765910744667,
+        -0.030419884249567986,
+        0.10096638649702072
+      ],
+      "final_goal_position": [
+        -0.05479300022125244,
+        0.008706234395503998,
+        0.09948413074016571
+      ],
+      "final_arm_qvel": [
+        0.6041269302368164,
+        0.18596699833869934,
+        -0.2894715368747711,
+        0.2746712863445282,
+        0.559952974319458,
+        -0.677753210067749,
+        -0.5688287019729614
+      ],
+      "grasped_once": true,
+      "placed_once": true,
+      "initial_cube_height": 0.019999999552965164,
+      "maximum_cube_height": 0.12633506953716278,
+      "lifted_5cm": true,
+      "final_goal_distance": 0.03978123008335194,
+      "final_is_obj_placed": false,
+      "final_is_robot_static": false,
+      "return": 22.19230654090643
+    },
+    {
+      "seed": 110036,
+      "steps": 50,
+      "success_once": false,
+      "success_at_end": false,
+      "first_success_step": null,
+      "trajectory": [],
+      "final_cube_position": [
+        0.018092380836606026,
+        0.038634806871414185,
+        0.22021819651126862
+      ],
+      "final_goal_position": [
+        -0.07194707542657852,
+        0.01755388081073761,
+        0.23409558832645416
+      ],
+      "final_arm_qvel": [
+        -0.5709125399589539,
+        -0.18782362341880798,
+        0.45228248834609985,
+        -0.18471825122833252,
+        -0.5352497100830078,
+        0.22213205695152283,
+        0.25032952427864075
+      ],
+      "grasped_once": true,
+      "placed_once": false,
+      "initial_cube_height": 0.019999999552965164,
+      "maximum_cube_height": 0.2225775569677353,
+      "lifted_5cm": true,
+      "final_goal_distance": 0.09350984510380612,
+      "final_is_obj_placed": false,
+      "final_is_robot_static": false,
+      "return": 19.90318165719509
+    },
+    {
+      "seed": 110037,
+      "steps": 50,
+      "success_once": false,
+      "success_at_end": false,
+      "first_success_step": null,
+      "trajectory": [],
+      "final_cube_position": [
+        0.017632298171520233,
+        -0.09718642383813858,
+        0.21910931169986725
+      ],
+      "final_goal_position": [
+        0.07250157743692398,
+        -0.08952205628156662,
+        0.296032190322876
+      ],
+      "final_arm_qvel": [
+        0.5731444954872131,
+        0.47676780819892883,
+        -0.656279981136322,
+        0.6310598850250244,
+        0.5844647288322449,
+        -0.6051790714263916,
+        -0.5784330368041992
+      ],
+      "grasped_once": true,
+      "placed_once": false,
+      "initial_cube_height": 0.019999999552965164,
+      "maximum_cube_height": 0.21910931169986725,
+      "lifted_5cm": true,
+      "final_goal_distance": 0.09479720245237848,
+      "final_is_obj_placed": false,
+      "final_is_robot_static": false,
+      "return": 13.319141283631325
+    },
+    {
+      "seed": 110038,
+      "steps": 50,
+      "success_once": false,
+      "success_at_end": false,
+      "first_success_step": null,
+      "trajectory": [],
+      "final_cube_position": [
+        0.03353899344801903,
+        -0.046703092753887177,
+        0.319667249917984
+      ],
+      "final_goal_position": [
+        -0.01716601848602295,
+        0.09402503818273544,
+        0.2535950541496277
+      ],
+      "final_arm_qvel": [
+        -0.5873609781265259,
+        -0.04657959192991257,
+        0.5425437688827515,
+        -0.08552280068397522,
+        -0.3236553966999054,
+        0.27516642212867737,
+        0.22542192041873932
+      ],
+      "grasped_once": true,
+      "placed_once": false,
+      "initial_cube_height": 0.019999999552965164,
+      "maximum_cube_height": 0.32382574677467346,
+      "lifted_5cm": true,
+      "final_goal_distance": 0.16352657314882663,
+      "final_is_obj_placed": false,
+      "final_is_robot_static": false,
+      "return": 18.240663662552834
+    },
+    {
+      "seed": 110039,
+      "steps": 50,
+      "success_once": false,
+      "success_at_end": false,
+      "first_success_step": null,
+      "trajectory": [],
+      "final_cube_position": [
+        0.0141818942502141,
+        -0.06856701523065567,
+        0.1735355705022812
+      ],
+      "final_goal_position": [
+        0.03191385418176651,
+        -0.05414706468582153,
+        0.0715237557888031
+      ],
+      "final_arm_qvel": [
+        0.5902380347251892,
+        0.2293185442686081,
+        -0.6081966757774353,
+        0.4573371410369873,
+        0.5789235830307007,
+        -0.6244418621063232,
+        -0.6378669738769531
+      ],
+      "grasped_once": true,
+      "placed_once": false,
+      "initial_cube_height": 0.019999999552965164,
+      "maximum_cube_height": 0.1771041601896286,
+      "lifted_5cm": true,
+      "final_goal_distance": 0.10454074668695755,
+      "final_is_obj_placed": false,
+      "final_is_robot_static": false,
+      "return": 18.368671283125877
+    },
+    {
+      "seed": 110040,
+      "steps": 50,
+      "success_once": false,
+      "success_at_end": false,
+      "first_success_step": null,
+      "trajectory": [],
+      "final_cube_position": [
+        -0.01461382769048214,
+        -0.03289610147476196,
+        0.20412904024124146
+      ],
+      "final_goal_position": [
+        -0.06847313046455383,
+        0.09406847506761551,
+        0.19774019718170166
+      ],
+      "final_arm_qvel": [
+        -0.609747588634491,
+        -0.10610438138246536,
+        0.6452616453170776,
+        -0.3528631627559662,
+        -0.2575817406177521,
+        0.5419284105300903,
+        0.6184654235839844
+      ],
+      "grasped_once": true,
+      "placed_once": false,
+      "initial_cube_height": 0.019999999552965164,
+      "maximum_cube_height": 0.23263195157051086,
+      "lifted_5cm": true,
+      "final_goal_distance": 0.13806391819564512,
+      "final_is_obj_placed": false,
+      "final_is_robot_static": false,
+      "return": 19.3893875554204
+    },
+    {
+      "seed": 110041,
+      "steps": 50,
+      "success_once": false,
+      "success_at_end": false,
+      "first_success_step": null,
+      "trajectory": [],
+      "final_cube_position": [
+        0.03508584946393967,
+        0.06394094973802567,
+        0.21868737041950226
+      ],
+      "final_goal_position": [
+        0.09819000214338303,
+        0.06277412921190262,
+        0.11349096894264221
+      ],
+      "final_arm_qvel": [
+        0.5564099550247192,
+        0.32656407356262207,
+        -0.3281688690185547,
+        0.45998144149780273,
+        0.6153374314308167,
+        -0.5970170497894287,
+        -0.6200301647186279
+      ],
+      "grasped_once": true,
+      "placed_once": false,
+      "initial_cube_height": 0.019999999552965164,
+      "maximum_cube_height": 0.21868737041950226,
+      "lifted_5cm": true,
+      "final_goal_distance": 0.12267753844616953,
+      "final_is_obj_placed": false,
+      "final_is_robot_static": false,
+      "return": 20.92798648774624
+    },
+    {
+      "seed": 110042,
+      "steps": 50,
+      "success_once": false,
+      "success_at_end": false,
+      "first_success_step": null,
+      "trajectory": [],
+      "final_cube_position": [
+        -0.0478227473795414,
+        -0.03282978758215904,
+        0.12402238696813583
+      ],
+      "final_goal_position": [
+        -0.07600034773349762,
+        -0.03189931809902191,
+        0.11105270683765411
+      ],
+      "final_arm_qvel": [
+        -0.5823808908462524,
+        -0.07603692263364792,
+        0.23032620549201965,
+        -0.23352310061454773,
+        -0.5444321632385254,
+        0.4026838541030884,
+        0.32011353969573975
+      ],
+      "grasped_once": true,
+      "placed_once": true,
+      "initial_cube_height": 0.019999999552965164,
+      "maximum_cube_height": 0.187419131398201,
+      "lifted_5cm": true,
+      "final_goal_distance": 0.031033136126620134,
+      "final_is_obj_placed": false,
+      "final_is_robot_static": false,
+      "return": 21.978017918765545
+    },
+    {
+      "seed": 110043,
+      "steps": 50,
+      "success_once": false,
+      "success_at_end": false,
+      "first_success_step": null,
+      "trajectory": [],
+      "final_cube_position": [
+        0.04968845844268799,
+        -0.06707838922739029,
+        0.019999967887997627
+      ],
+      "final_goal_position": [
+        0.021680042147636414,
+        -0.05593356117606163,
+        0.154978409409523
+      ],
+      "final_arm_qvel": [
+        -0.6001715064048767,
+        -0.6846259236335754,
+        0.623760461807251,
+        -0.6201090812683105,
+        -0.6103126406669617,
+        0.6091905832290649,
+        0.6076399683952332
+      ],
+      "grasped_once": false,
+      "placed_once": false,
+      "initial_cube_height": 0.019999999552965164,
+      "maximum_cube_height": 0.03447233512997627,
+      "lifted_5cm": false,
+      "final_goal_distance": 0.1383035005024473,
+      "final_is_obj_placed": false,
+      "final_is_robot_static": false,
+      "return": 6.883616529405117
+    },
+    {
+      "seed": 110044,
+      "steps": 50,
+      "success_once": false,
+      "success_at_end": false,
+      "first_success_step": null,
+      "trajectory": [],
+      "final_cube_position": [
+        0.026153773069381714,
+        0.013752488419413567,
+        0.23917007446289062
+      ],
+      "final_goal_position": [
+        -0.08611782640218735,
+        0.01613961160182953,
+        0.27467596530914307
+      ],
+      "final_arm_qvel": [
+        -0.5706440806388855,
+        -0.14247524738311768,
+        0.46220219135284424,
+        -0.12671823799610138,
+        -0.4976111352443695,
+        0.21052931249141693,
+        0.26376670598983765
+      ],
+      "grasped_once": true,
+      "placed_once": false,
+      "initial_cube_height": 0.019999999552965164,
+      "maximum_cube_height": 0.2418806105852127,
+      "lifted_5cm": true,
+      "final_goal_distance": 0.11777639275244614,
+      "final_is_obj_placed": false,
+      "final_is_robot_static": false,
+      "return": 20.51801986247301
+    },
+    {
+      "seed": 110045,
+      "steps": 50,
+      "success_once": false,
+      "success_at_end": false,
+      "first_success_step": null,
+      "trajectory": [],
+      "final_cube_position": [
+        -0.01176123134791851,
+        0.03788559138774872,
+        0.23105816543102264
+      ],
+      "final_goal_position": [
+        0.06669219583272934,
+        0.0914473608136177,
+        0.18028338253498077
+      ],
+      "final_arm_qvel": [
+        -0.5749289989471436,
+        -0.08027640730142593,
+        0.5655421018600464,
+        -0.16531720757484436,
+        -0.2767876386642456,
+        0.37431904673576355,
+        0.6159147024154663
+      ],
+      "grasped_once": true,
+      "placed_once": false,
+      "initial_cube_height": 0.019999999552965164,
+      "maximum_cube_height": 0.23952032625675201,
+      "lifted_5cm": true,
+      "final_goal_distance": 0.10771203256163796,
+      "final_is_obj_placed": false,
+      "final_is_robot_static": false,
+      "return": 21.05077038705349
+    },
+    {
+      "seed": 110046,
+      "steps": 50,
+      "success_once": false,
+      "success_at_end": false,
+      "first_success_step": null,
+      "trajectory": [],
+      "final_cube_position": [
+        0.024984370917081833,
+        0.09684570133686066,
+        0.20162616670131683
+      ],
+      "final_goal_position": [
+        0.04510410875082016,
+        0.05242752283811569,
+        0.11104461550712585
+      ],
+      "final_arm_qvel": [
+        -0.5395346879959106,
+        -0.1717747151851654,
+        0.3778107762336731,
+        -0.0003596358001232147,
+        -0.5313996076583862,
+        0.05869612097740173,
+        0.24726691842079163
+      ],
+      "grasped_once": true,
+      "placed_once": false,
+      "initial_cube_height": 0.019999999552965164,
+      "maximum_cube_height": 0.20162616670131683,
+      "lifted_5cm": true,
+      "final_goal_distance": 0.10287271673476195,
+      "final_is_obj_placed": false,
+      "final_is_robot_static": false,
+      "return": 22.527497239410877
+    },
+    {
+      "seed": 110047,
+      "steps": 50,
+      "success_once": false,
+      "success_at_end": false,
+      "first_success_step": null,
+      "trajectory": [],
+      "final_cube_position": [
+        0.010049433447420597,
+        -0.0210507083684206,
+        0.2000167965888977
+      ],
+      "final_goal_position": [
+        -0.09783314913511276,
+        -0.043523967266082764,
+        0.0742204487323761
+      ],
+      "final_arm_qvel": [
+        0.5967523455619812,
+        0.2770578861236572,
+        -0.5785259008407593,
+        0.5081233382225037,
+        0.5076979398727417,
+        -0.6025687456130981,
+        -0.6062460541725159
+      ],
+      "grasped_once": true,
+      "placed_once": false,
+      "initial_cube_height": 0.019999999552965164,
+      "maximum_cube_height": 0.2000167965888977,
+      "lifted_5cm": true,
+      "final_goal_distance": 0.16723761575733334,
+      "final_is_obj_placed": false,
+      "final_is_robot_static": false,
+      "return": 18.665361631661654
+    },
+    {
+      "seed": 110048,
+      "steps": 50,
+      "success_once": false,
+      "success_at_end": false,
+      "first_success_step": null,
+      "trajectory": [],
+      "final_cube_position": [
+        -0.0010946678230538964,
+        -0.03089825250208378,
+        0.1866767704486847
+      ],
+      "final_goal_position": [
+        0.06817930191755295,
+        -0.0520993135869503,
+        0.12044543027877808
+      ],
+      "final_arm_qvel": [
+        0.5544784069061279,
+        0.37483489513397217,
+        -0.6657679677009583,
+        0.5909613370895386,
+        0.5845020413398743,
+        -0.6466074585914612,
+        -0.24466568231582642
+      ],
+      "grasped_once": true,
+      "placed_once": false,
+      "initial_cube_height": 0.019999999552965164,
+      "maximum_cube_height": 0.1866767704486847,
+      "lifted_5cm": true,
+      "final_goal_distance": 0.09815782340419249,
+      "final_is_obj_placed": false,
+      "final_is_robot_static": false,
+      "return": 21.574093952775
+    },
+    {
+      "seed": 110049,
+      "steps": 50,
+      "success_once": false,
+      "success_at_end": false,
+      "first_success_step": null,
+      "trajectory": [],
+      "final_cube_position": [
+        -0.055253613740205765,
+        0.007655189372599125,
+        0.11416587233543396
+      ],
+      "final_goal_position": [
+        -0.05717835575342178,
+        -0.094623863697052,
+        0.11429192125797272
+      ],
+      "final_arm_qvel": [
+        -0.5825650691986084,
+        -0.3866584599018097,
+        0.517583429813385,
+        -0.2252553105354309,
+        -0.1968330442905426,
+        0.18986935913562775,
+        0.5605897903442383
+      ],
+      "grasped_once": true,
+      "placed_once": false,
+      "initial_cube_height": 0.019999999552965164,
+      "maximum_cube_height": 0.18483087420463562,
+      "lifted_5cm": true,
+      "final_goal_distance": 0.10229723953740308,
+      "final_is_obj_placed": false,
+      "final_is_robot_static": false,
+      "return": 20.13580258190632
+    }
+  ],
+  "config": {
+    "env_id": "PickCube-v1",
+    "obs_mode": "state",
+    "control_mode": "pd_joint_delta_pos",
+    "reward_mode": "normalized_dense",
+    "seed": 42,
+    "total_timesteps": 1048576,
+    "num_envs": 4,
+    "rollout_steps": 256,
+    "batch_size": 256,
+    "epochs": 8,
+    "validation_interval": 131072,
+    "validation_seed_start": 100000,
+    "validation_episodes": 10,
+    "test_episodes": 50,
+    "test_seed_start": 110000
+  },
+  "versions": {
+    "python": "3.11.15",
+    "platform": "macOS-26.5.2-arm64-arm-64bit",
+    "mani-skill-nightly": "2026.8.2.400",
+    "sapien": "3.0.3",
+    "torch": "2.14.1",
+    "stable-baselines3": "2.9.0",
+    "gymnasium": "1.4.0",
+    "numpy": "2.4.6"
+  }
+}
