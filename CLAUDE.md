@@ -1,6 +1,6 @@
 # physical-ai-foundations
 
-Stage 0, Weeks 1–2 of a physical-AI learning roadmap. Small, heavily commented,
+Stage 0, Weeks 1–3 of a physical-AI learning roadmap. Small, heavily commented,
 reproducible artifacts; the owner must be able to explain every file.
 
 ## Layout
@@ -11,6 +11,7 @@ reproducible artifacts; the owner must be able to explain every file.
 - `ros2_ws/` — ROS 2 Jazzy packages, Ubuntu 24.04 via Docker Desktop; see README and ARM_README
   for the separate Week-1 exercise and Week-2 MuJoCo/ROS arm systems lab.
 - `architecture/` — Week-1 system map and review
+- `learning/maniskill/` — Week-3 ManiSkill/PPO experiment; separate worktree `.venv` uses Python 3.11 and its own pinned requirements. Keep these dependencies out of root requirements.
 
 ## Commands
 ```bash

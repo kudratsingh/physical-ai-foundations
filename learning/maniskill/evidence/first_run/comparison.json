@@ -1,0 +1,41 @@
+{
+  "ppo": {
+    "episodes": 20,
+    "successes": 17,
+    "success_once_rate": 0.85,
+    "success_at_end_rate": 0.35,
+    "success_once_95pct_wilson": [
+      0.6395767041130426,
+      0.9476322080405041
+    ],
+    "return_mean": 25.645842115581036,
+    "return_std": 10.346458921783558,
+    "steps_mean": 50
+  },
+  "random": {
+    "episodes": 20,
+    "successes": 0,
+    "success_once_rate": 0.0,
+    "success_at_end_rate": 0.0,
+    "success_once_95pct_wilson": [
+      0,
+      0.16113012549493322
+    ],
+    "return_mean": 2.9152166709303855,
+    "return_std": 1.433325269643931,
+    "steps_mean": 50
+  },
+  "zero": {
+    "episodes": 20,
+    "successes": 0,
+    "success_once_rate": 0.0,
+    "success_at_end_rate": 0.0,
+    "success_once_95pct_wilson": [
+      0,
+      0.16113012549493322
+    ],
+    "return_mean": 3.673492697626352,
+    "return_std": 0.5945827185160734,
+    "steps_mean": 50
+  }
+}

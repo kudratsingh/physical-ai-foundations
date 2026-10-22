@@ -1,0 +1,30 @@
+{
+  "env_id": "PushCube-v1",
+  "obs_mode": "state",
+  "control_mode": "pd_joint_delta_pos",
+  "reward_mode": "normalized_dense",
+  "seed": 42,
+  "total_timesteps": 262144,
+  "num_envs": 4,
+  "rollout_steps": 256,
+  "batch_size": 256,
+  "epochs": 8,
+  "validation_interval": 16384,
+  "validation_episodes": 5,
+  "test_episodes": 20,
+  "test_seed_start": 10000,
+  "versions": {
+    "python": "3.11.15",
+    "platform": "macOS-26.5.2-arm64-arm-64bit",
+    "mani-skill-nightly": "2026.8.2.400",
+    "sapien": "3.0.3",
+    "torch": "2.14.1",
+    "stable-baselines3": "2.9.0",
+    "gymnasium": "1.4.0",
+    "numpy": "2.4.6"
+  },
+  "created_utc": "2026-10-22T01:24:25.572240+00:00",
+  "source_sha256": "bbbfb1324be9c7ad65fcabb0d0fc7d06e741b28a0a95f1cd899619c2cd72740b",
+  "algorithm": "Stable-Baselines3 PPO",
+  "device": "cpu"
+}

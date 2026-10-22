@@ -1,0 +1,7 @@
+# Separate Python 3.11 environment; do not add these to foundations requirements.
+mani-skill-nightly==2026.8.2.400
+stable-baselines3==2.9.0
+torch==2.14.1
+tensorboard==2.21.0
+imageio-ffmpeg==0.6.0
+pytest==9.1.1

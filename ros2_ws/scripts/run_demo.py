@@ -52,11 +52,22 @@ def main():
                 os.killpg(process.pid, signal.SIGKILL)
                 process.wait(timeout=5)
 
-    def command(*argv):
-        result = subprocess.run(argv, text=True, stdout=subprocess.PIPE,
-                                stderr=subprocess.STDOUT, timeout=20)
+    def command(*argv, contains=None):
+        # Only read-only graph inspections opt into retries. Discovery of a
+        # newly started participant may lag behind a different observer's graph.
+        deadline = time.monotonic() + 10
+        while True:
+            result = subprocess.run(argv, text=True, stdout=subprocess.PIPE,
+                                    stderr=subprocess.STDOUT, timeout=20)
+            if contains is None or (result.returncode == 0 and contains in result.stdout):
+                break
+            if time.monotonic() >= deadline:
+                break
+            rclpy.spin_once(probe, timeout_sec=0.1)
         report("$ " + " ".join(argv) + "\n" + result.stdout.strip())
         result.check_returncode()
+        if contains is not None and contains not in result.stdout:
+            raise RuntimeError(f"Graph inspection did not discover {contains!r}: {argv}")
         return result.stdout
 
     rclpy.init()
@@ -98,13 +109,16 @@ def main():
         report("PASS: own publisher and subscriber exchanged JointState messages")
 
         # Save actual graph inspection output as evidence, not expected output.
-        command("ros2", "node", "list")
-        command("ros2", "node", "info", "/joint_publisher")
-        command("ros2", "topic", "list", "-t")
-        command("ros2", "topic", "info", "/joint_states", "--verbose")
-        command("ros2", "topic", "echo", "/joint_states", "--once")
-        command("ros2", "service", "list", "-t")
-        command("ros2", "service", "type", "/reset_joint")
+        # Inspect a fresh graph directly; a newly spawned CLI daemon can lag
+        # behind the probe even after messages are already flowing.
+        direct = ("--no-daemon", "--spin-time", "2")
+        command("ros2", "node", "list", *direct, contains="/joint_publisher")
+        command("ros2", "node", "info", "/joint_publisher", *direct, contains="/joint_states")
+        command("ros2", "topic", "list", "-t", *direct, contains="/joint_states")
+        command("ros2", "topic", "info", "/joint_states", "--verbose", *direct, contains="joint_publisher")
+        command("ros2", "topic", "echo", "/joint_states", "sensor_msgs/msg/JointState", "--once")
+        command("ros2", "service", "list", "-t", contains="/reset_joint")
+        command("ros2", "service", "type", "/reset_joint", contains="std_srvs/srv/Trigger")
         result = command("ros2", "run", "stage0_basics", "reset_client")
         if "Joint motion restarted" not in result:
             raise RuntimeError("Reset client did not report success")

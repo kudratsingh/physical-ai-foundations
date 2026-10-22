@@ -1,0 +1,6 @@
+{
+  "file": "learning/runs/pushcube_ppo_seed42/final.zip",
+  "sha256": "6dd7eaf00937280b3b81f87586cf5be20fc6692cbf06070eeb8c9938af66b5ac",
+  "bytes": 1863476,
+  "note": "Checkpoint and full measured trajectories are kept locally in ignored runs. Committed per-episode JSON omits trajectories only. Videos replay the first three test seeds with exactly matching returns and success flags."
+}

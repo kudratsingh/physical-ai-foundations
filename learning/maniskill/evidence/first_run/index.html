@@ -1,0 +1,27 @@
+<!doctype html>
+<html lang="en"><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Week 3 · First learned manipulation policy</title>
+<style>
+body{font:16px/1.6 system-ui,sans-serif;color:#17283b;background:#f3f6fa;margin:0}main{max-width:1100px;margin:48px auto;padding:0 24px}h1{font-size:clamp(28px,4vw,44px);line-height:1.15;margin:8px 0 18px}small{color:#52647a}section{background:white;border:1px solid #dce3eb;border-radius:14px;padding:24px;margin:22px 0}img{width:100%;height:auto}table{width:100%;border-collapse:collapse}td,th{text-align:left;padding:12px 8px;border-bottom:1px solid #dce3eb}.videos{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:20px}.videos section{margin:0}video{width:100%;border-radius:8px;background:#111}h2{font-size:21px}a{color:#1554ac}@media(max-width:650px){.videos{grid-template-columns:1fr}main{padding:0 12px}section{padding:16px}table{font-size:13px}}
+</style>
+<main>
+<small>PHYSICAL AI FOUNDATIONS · WEEK 3 · MANISKILL PUSH CUBE</small>
+<h1>The first learned policy.<br>Measured across complete episodes.</h1>
+<p>PPO trained for 262,144 transitions on the existing ManiSkill task. CPU physics, state observations, joint PD actions. One trained model; 20 fixed test seeds.</p>
+<section><h2>Learned to push. Still learning to hold.</h2>
+<table><thead><tr><th>Policy</th><th>Reached goal</th><th>Inside goal at end</th><th>Mean return</th></tr></thead><tbody>
+<tr><td>PPO</td><td>17 / 20 · 85%</td><td>7 / 20 · 35%</td><td>25.646</td></tr>
+<tr><td>Random actions</td><td>0 / 20</td><td>0 / 20</td><td>2.915</td></tr>
+<tr><td>Zero actions</td><td>0 / 20</td><td>0 / 20</td><td>3.673</td></tr></tbody></table>
+<p>Nine temporary successes ended outside the goal radius; one ended inside in xy but lifted the cube too high. Temporary success is different from meeting the full final-state criteria. The episode-sampling 95% interval for reaching success is 64.0%–94.8%; this does not measure training-seed variability.</p>
+</section>
+<section><h2>Learning curve and baseline comparison</h2><img src="results.png" alt="Validation return varies across checkpoints. PPO reaches success in 85% of episodes but ends successful in 35%; both baselines have zero successes."></section>
+<h2>Native simulator rollouts</h2><p>The first three test seeds, including temporary successes. Videos play at the simulator's control rate. Use the controls to pause or scrub.</p>
+<div class="videos">
+<section><h2>Seed 10000 · leaves the goal</h2><video controls muted preload="metadata" src="ppo_seed10000.mp4"></video><p>Reached during the episode; outside at the end.</p></section>
+<section><h2>Seed 10001 · lifts the cube</h2><video controls muted preload="metadata" src="ppo_seed10001.mp4"></video><p>Inside the xy goal radius, but lifted above the allowed table height.</p></section>
+<section><h2>Seed 10002 · finishes inside</h2><video controls muted preload="metadata" src="ppo_seed10002.mp4"></video><p>Reached and remained inside at the final step.</p></section>
+<section><h2>Same seed 10000 · zero actions</h2><video controls muted preload="metadata" src="zero_seed10000.mp4"></video><p>Zero joint increments and neutral gripper, with built-in PD still active.</p></section>
+</div>
+<section><h2>Evidence</h2><p><a href="config.json">Configuration and versions</a> · <a href="validation.json">Validation data</a> · <a href="comparison.json">Aggregate metrics</a> · <a href="test_ppo.json">All PPO episodes</a> · <a href="test_random.json">All random episodes</a> · <a href="test_zero.json">All zero-action episodes</a></p><small>October 21, 2026 · Apple M3 Pro · This is an introductory state-based experiment, not a claim of robust deployment.</small></section>
+</main></html>

@@ -38,6 +38,14 @@ shows measured motion, target commands, latency, stale-command rejection and iso
 bag replay at [localhost:8766](http://localhost:8766). Start it with Docker using
 [the ROS arm walkthrough](ros2_ws/ARM_README.md).
 
+## Week 3: first robot-learning experiment
+
+[ManiSkill PushCube + PPO](learning/maniskill/README.md) uses an existing
+manipulation benchmark, a separate Python 3.11 environment, and CPU physics.
+It records training configuration, validation curves, fixed-seed evaluation
+against random/zero-action baselines, native simulator videos and failure cases.
+See the walkthrough for the exact commands and the first measured results.
+
 ## Week 1 tracks
 
 | day | track | artifact | status |
