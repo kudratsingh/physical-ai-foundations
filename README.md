@@ -60,6 +60,11 @@ learning harness to grasping, lifting and holding at a 3D goal. The experiment
 compares 32/256-demo behavior cloning with fresh PPO training, records grasp/lift
 failure diagnostics, and includes paired native simulator videos.
 
+The [PPO continuation and fault exercise](learning/maniskill/PPO_DEBUG_README.md)
+compares two learning rates from identical saved weights and optimizer state,
+then deliberately corrupts and restores the clone's goal observations. It keeps
+optimization failures separate from observation-contract bugs.
+
 ## Week 1 tracks
 
 | day | track | artifact | status |

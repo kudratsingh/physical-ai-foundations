@@ -1,0 +1,115 @@
+{
+  "policy": "BC-256 reference",
+  "summary": {
+    "episodes": 2,
+    "successes": 2,
+    "success_once_rate": 1.0,
+    "success_at_end_rate": 0.5,
+    "success_once_95pct_wilson": [
+      0.34237195288961925,
+      1
+    ],
+    "return_mean": 30.276028718799353,
+    "return_std": 7.9857710817601975,
+    "steps_mean": 50
+  },
+  "episodes": [
+    {
+      "seed": 70000,
+      "steps": 50,
+      "success_once": true,
+      "success_at_end": true,
+      "first_success_step": 45,
+      "final_cube_position": [
+        0.026217009872198105,
+        0.07522954046726227,
+        0.32734179496765137
+      ],
+      "final_goal_position": [
+        0.006282970309257507,
+        0.07622028142213821,
+        0.3129483461380005
+      ],
+      "final_arm_qvel": [
+        0.03447514399886131,
+        -0.030515337362885475,
+        -0.038353413343429565,
+        -0.026728974655270576,
+        -0.013623673468828201,
+        0.02779058739542961,
+        0.01391676627099514
+      ],
+      "grasped_once": true,
+      "placed_once": true,
+      "initial_cube_height": 0.019999999552965164,
+      "maximum_cube_height": 0.32734179496765137,
+      "lifted_5cm": true,
+      "final_goal_distance": 0.02460729302764381,
+      "final_is_obj_placed": true,
+      "final_is_robot_static": true,
+      "return": 24.629235833883286
+    },
+    {
+      "seed": 70001,
+      "steps": 50,
+      "success_once": true,
+      "success_at_end": false,
+      "first_success_step": 10,
+      "final_cube_position": [
+        0.0006504786433652043,
+        0.053835801780223846,
+        0.17999519407749176
+      ],
+      "final_goal_position": [
+        -0.0088333860039711,
+        0.019528433680534363,
+        0.1686432808637619
+      ],
+      "final_arm_qvel": [
+        0.021424775943160057,
+        0.008129906840622425,
+        -0.004418429918587208,
+        0.007378114387392998,
+        -0.0016901162452995777,
+        0.044952392578125,
+        -0.08450876921415329
+      ],
+      "grasped_once": true,
+      "placed_once": true,
+      "initial_cube_height": 0.019999999552965164,
+      "maximum_cube_height": 0.17999890446662903,
+      "lifted_5cm": true,
+      "final_goal_distance": 0.03736047548129763,
+      "final_is_obj_placed": false,
+      "final_is_robot_static": true,
+      "return": 35.92282160371542
+    }
+  ],
+  "config": {
+    "env_id": "PickCube-v1",
+    "obs_mode": "state",
+    "control_mode": "pd_joint_delta_pos",
+    "reward_mode": "normalized_dense",
+    "seed": 42,
+    "total_timesteps": 524288,
+    "num_envs": 4,
+    "rollout_steps": 256,
+    "batch_size": 256,
+    "epochs": 8,
+    "validation_interval": 131072,
+    "validation_seed_start": 60000,
+    "validation_episodes": 10,
+    "test_episodes": 50,
+    "test_seed_start": 70000
+  },
+  "versions": {
+    "python": "3.11.15",
+    "platform": "macOS-26.5.2-arm64-arm-64bit",
+    "mani-skill-nightly": "2026.8.2.400",
+    "sapien": "3.0.3",
+    "torch": "2.14.1",
+    "stable-baselines3": "2.9.0",
+    "gymnasium": "1.4.0",
+    "numpy": "2.4.6"
+  }
+}

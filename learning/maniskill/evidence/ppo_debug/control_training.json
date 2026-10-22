@@ -1,0 +1,7 @@
+{
+  "actual_additional_timesteps": 524288,
+  "total_timesteps": 1572864,
+  "complete": true,
+  "elapsed_seconds": 563.6043869168498,
+  "final_learning_rate": 0.0003
+}

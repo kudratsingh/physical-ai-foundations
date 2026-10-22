@@ -1,0 +1,177 @@
+<!doctype html>
+<html lang="en">
+  <meta charset="utf-8" /><meta
+    name="viewport"
+    content="width=device-width,initial-scale=1"
+  /><title>PickCube · Smaller updates, same task</title>
+  <style>
+    body {
+      font: 16px/1.6 system-ui;
+      color: #17283b;
+      background: #f2f5fa;
+      margin: 0;
+    }
+    main {
+      max-width: 1200px;
+      margin: 40px auto;
+      padding: 0 24px;
+    }
+    h1 {
+      font-size: clamp(30px, 5vw, 50px);
+      line-height: 1.12;
+    }
+    section,
+    article {
+      background: white;
+      border: 1px solid #d7e1ed;
+      border-radius: 14px;
+      padding: 24px;
+      margin: 24px 0;
+    }
+    img,
+    video {
+      width: 100%;
+      border-radius: 8px;
+    }
+    .videos {
+      display: grid;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: 16px;
+    }
+    .videos article {
+      margin: 0;
+      padding: 16px;
+    }
+    .table {
+      overflow-x: auto;
+    }
+    table {
+      width: 100%;
+      border-collapse: collapse;
+    }
+    td,
+    th {
+      text-align: left;
+      border-bottom: 1px solid #d7e1ed;
+      padding: 10px;
+    }
+    small {
+      color: #586c83;
+    }
+    a {
+      color: #1554ac;
+    }
+    h3 {
+      font-size: 17px;
+    }
+    @media (max-width: 800px) {
+      .videos {
+        grid-template-columns: 1fr;
+      }
+      main {
+        padding: 0 12px;
+      }
+      section {
+        padding: 16px;
+      }
+    }
+  </style>
+  <main>
+    <small
+      >PHYSICAL AI FOUNDATIONS · STAGE 1 · CONTROLLED PPO CONTINUATION</small
+    >
+    <h1>Smaller updates.<br />The same placement test.</h1>
+    <p>
+      Two PPO runs start from identical policy, critic and Adam state. The sole
+      treatment is learning rate: 3e-4 versus 1e-4, each with 524,288 additional
+      environment transitions.
+    </p>
+    <section>
+      <h2>Keep the task fixed. Test complete behavior.</h2>
+      <p>
+        PickCube still requires <strong>3D goal error ≤2.5 cm</strong> and
+        <strong>all seven arm speeds ≤0.2 rad/s</strong>. Episodes run all 50
+        steps. Training uses fresh validation seeds 60000–60009; the table uses
+        reserved test seeds 70000–70049.
+      </p>
+      <div class="table">
+        <table>
+          <thead>
+            <tr>
+              <th>Policy</th>
+              <th>Success at any step</th>
+              <th>Success at end</th>
+              <th>Final 95% interval</th>
+              <th>Mean return</th>
+            </tr>
+          </thead>
+          <tbody>
+            {{ROWS}}
+          </tbody>
+        </table>
+      </div>
+      <p>
+        “Final” means the fixed-budget model. “Selected” means the best
+        validation model, including the starting checkpoint at zero added steps.
+        A selected starting model is not evidence of improvement from
+        continuation. The BC reference uses expert data and sits outside the
+        learning-rate comparison.
+      </p>
+    </section>
+    <section>
+      <h2>Update size, position error and stillness</h2>
+      <a href="results.png"
+        ><img
+          src="results.png"
+          alt="Validation success and return, policy KL divergence, fresh test success, final goal error versus joint velocity, and failure categories"
+      /></a>
+      <p>
+        The scatter plot uses log scales. Task success requires being left of
+        the vertical distance threshold and below the horizontal speed threshold
+        at the same time. Smaller KL describes optimization; success still
+        depends on physical behavior.
+      </p>
+    </section>
+    <h2>Predeclared paired native rollouts</h2>
+    <p>
+      The first two test seeds, shown for both final-budget PPO models and the
+      expert-data reference and the deliberate goal-input fault. Native simulation at 20 frames per second, with
+      failures retained.
+    </p>
+    <div class="videos">{{CARDS}}</div>
+    <section>
+      <h2>Deliberately break and restore the observation contract</h2>
+      <p>
+        The goal-fault run replaces both goal encodings with “the goal is at the
+        current cube position.” The simulator's actual goal, reward and scoring
+        stay intact. The restored run disables that fault on the same clone
+        without retraining. Every restored episode must exactly reproduce the
+        clean reference, so this separates an input bug from a change to
+        physical dynamics.
+      </p>
+    </section>
+    <section>
+      <h2>Audit the experiment</h2>
+      <p>
+        <a href="protocol.json">Protocol and initial-state fingerprints</a> ·
+        <a href="comparison.json">Metrics</a> ·
+        <a href="optimization.json">Optimizer traces</a> ·
+        <a href="failures.json">Failure categories</a> ·
+        <a href="control_selected.json">Control checkpoint selection</a> ·
+        <a href="slow_selected.json">Lower-rate selection</a>
+      </p>
+      <p>
+        One shared trained checkpoint and one continuation seed. Confidence
+        intervals quantify episode sampling, not variation across training
+        seeds. Both forks restore model and Adam state, then start new
+        environments with the same seed; simulator and RNG state are not
+        restored from the original process.
+      </p>
+      <small
+        >October 22, 2026 · Apple M3 Pro · PhysX CPU · Ground-truth state
+        observations · Unchanged task reward, dynamics and episode
+        horizon.</small
+      >
+    </section>
+  </main>
+</html>

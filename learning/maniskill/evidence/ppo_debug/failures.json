@@ -1,0 +1,66 @@
+{
+  "baseline": {
+    "final_success": 0,
+    "reached_then_lost": 0,
+    "placed_but_moving": 4,
+    "lifted_without_success": 46,
+    "grasped_without_lift": 0,
+    "never_grasped": 0
+  },
+  "control_final": {
+    "final_success": 0,
+    "reached_then_lost": 0,
+    "placed_but_moving": 6,
+    "lifted_without_success": 44,
+    "grasped_without_lift": 0,
+    "never_grasped": 0
+  },
+  "slow_final": {
+    "final_success": 0,
+    "reached_then_lost": 0,
+    "placed_but_moving": 4,
+    "lifted_without_success": 46,
+    "grasped_without_lift": 0,
+    "never_grasped": 0
+  },
+  "control_selected": {
+    "final_success": 0,
+    "reached_then_lost": 0,
+    "placed_but_moving": 7,
+    "lifted_without_success": 43,
+    "grasped_without_lift": 0,
+    "never_grasped": 0
+  },
+  "slow_selected": {
+    "final_success": 0,
+    "reached_then_lost": 0,
+    "placed_but_moving": 5,
+    "lifted_without_success": 45,
+    "grasped_without_lift": 0,
+    "never_grasped": 0
+  },
+  "bc_reference": {
+    "final_success": 34,
+    "reached_then_lost": 13,
+    "placed_but_moving": 0,
+    "lifted_without_success": 3,
+    "grasped_without_lift": 0,
+    "never_grasped": 0
+  },
+  "bc_goal_fault": {
+    "final_success": 0,
+    "reached_then_lost": 1,
+    "placed_but_moving": 0,
+    "lifted_without_success": 18,
+    "grasped_without_lift": 31,
+    "never_grasped": 0
+  },
+  "bc_restored": {
+    "final_success": 34,
+    "reached_then_lost": 13,
+    "placed_but_moving": 0,
+    "lifted_without_success": 3,
+    "grasped_without_lift": 0,
+    "never_grasped": 0
+  }
+}
