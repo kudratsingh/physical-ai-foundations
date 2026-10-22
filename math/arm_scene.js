@@ -140,9 +140,10 @@ export function drawArm(svg, data, options, samples, camera, ik = null) {
       opacity: 0.65,
     });
     const hand = points[2];
-    label(svg, hand[0] + 10, hand[1] - 18, "Joint reference", {
-      "font-size": 10,
-    });
+    if (options.referenceLabel !== false)
+      label(svg, hand[0] + 10, hand[1] - 18, "Joint reference", {
+        "font-size": 10,
+      });
   }
   if (ik?.reachable && options.alternate) {
     for (const solution of ik.solutions.filter(

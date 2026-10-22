@@ -1,0 +1,9 @@
+.git
+.venv
+.worktrees
+**/__pycache__
+ros2_ws/build
+ros2_ws/install
+ros2_ws/log
+ros2_ws/evidence
+ros2_ws/bags

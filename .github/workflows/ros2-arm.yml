@@ -1,0 +1,32 @@
+name: ROS arm
+
+on:
+  push:
+    branches: [main]
+  pull_request:
+    branches: [main, feat/planar-arm-fk]
+
+jobs:
+  ros2-arm:
+    runs-on: ubuntu-24.04
+    timeout-minutes: 20
+    steps:
+      - uses: actions/checkout@v4
+      - name: Build Jazzy and MuJoCo image
+        run: docker compose -p foundations-arm -f ros2_ws/arm.compose.yaml build
+      - name: Build interfaces and test separate processes and bag replay
+        run: |
+          docker compose -p foundations-arm -f ros2_ws/arm.compose.yaml run --rm -e ROS_DOMAIN_ID=44 arm bash -c '
+            source /opt/ros/jazzy/setup.bash &&
+            python3 /usr/bin/colcon build --symlink-install --packages-select arm_interfaces arm_bridge --cmake-args -DPython3_EXECUTABLE=/usr/bin/python3 &&
+            source install/setup.bash &&
+            python3 -m pytest -v src/arm_bridge/test
+          '
+      - name: Save ROS evidence on failure
+        if: failure()
+        uses: actions/upload-artifact@v4
+        with:
+          name: ros-arm-evidence
+          path: |
+            ros2_ws/evidence/
+            ros2_ws/log/

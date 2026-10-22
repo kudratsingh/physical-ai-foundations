@@ -1,0 +1,12 @@
+FROM ros:jazzy-ros-base
+RUN apt-get update && apt-get install -y --no-install-recommends \
+    python3-colcon-common-extensions python3-pytest python3-venv python3-pip \
+    ros-jazzy-rosidl-default-generators ros-jazzy-sensor-msgs ros-jazzy-geometry-msgs \
+    ros-jazzy-diagnostic-msgs ros-jazzy-std-srvs ros-jazzy-rosbag2 ros-jazzy-demo-nodes-cpp \
+    libgl1 libegl1 libglfw3 \
+    && rm -rf /var/lib/apt/lists/*
+RUN python3 -m venv --system-site-packages /opt/arm-venv && \
+    /opt/arm-venv/bin/pip install --no-cache-dir 'mujoco>=3.14.0,<4' numpy
+ENV PATH="/opt/arm-venv/bin:${PATH}" FOUNDATIONS_ROOT=/workspaces/foundations
+WORKDIR /workspaces/foundations/ros2_ws
+CMD ["bash", "scripts/start_arm.sh"]

@@ -1,0 +1,319 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width,initial-scale=1" />
+    <title>ROS 2 arm · Systems lab</title>
+    <link rel="stylesheet" href="/arm_viewer.css" />
+    <style>
+      .ros-grid {
+        display: grid;
+        grid-template-columns: minmax(0, 1fr) 320px;
+        gap: 20px;
+      }
+      .metrics {
+        display: grid;
+        grid-template-columns: repeat(4, 1fr);
+        gap: 12px;
+        margin-bottom: 20px;
+      }
+      .metric {
+        padding: 14px 18px;
+      }
+      .metric strong {
+        display: block;
+        font-size: 24px;
+      }
+      .metric span {
+        color: var(--muted);
+        font-size: 12px;
+      }
+      .ros-controls {
+        padding: 22px;
+      }
+      .ros-controls h2 {
+        margin: 14px 0 8px;
+      }
+      .ros-controls .help {
+        margin: 8px 0;
+      }
+      .ros-row {
+        display: flex;
+        gap: 8px;
+        flex-wrap: wrap;
+        margin: 12px 0;
+      }
+      .ros-charts {
+        display: grid;
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+        gap: 20px;
+        margin-top: 20px;
+      }
+      .ros-charts svg {
+        height: 250px;
+        width: 100%;
+        display: block;
+      }
+      .ros-charts .panel {
+        padding: 20px;
+      }
+      .ros-connections {
+        padding: 20px;
+        margin-top: 20px;
+      }
+      .ros-connections pre {
+        white-space: pre-wrap;
+        font-size: 12px;
+      }
+      .node-line {
+        display: flex;
+        justify-content: space-between;
+        padding: 6px 0;
+        border-bottom: 1px solid var(--line);
+      }
+      #message {
+        min-height: 24px;
+        margin: 12px 0;
+        font-size: 13px;
+      }
+      #bag-path {
+        overflow-wrap: anywhere;
+      }
+      .ros-legend {
+        padding: 10px 20px;
+        color: var(--muted);
+        font-size: 12px;
+      }
+      #pose-result {
+        font-size: 23px;
+        font-weight: 600;
+        margin: 12px 0;
+      }
+      .mode-label {
+        white-space: normal;
+      }
+      @media (max-width: 850px) {
+        .ros-grid {
+          grid-template-columns: 1fr;
+        }
+        .metrics {
+          grid-template-columns: repeat(2, 1fr);
+        }
+        .ros-charts {
+          grid-template-columns: 1fr;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <main>
+      <header>
+        <div>
+          <div class="eyebrow">
+            Physical AI foundations · ROS 2 Jazzy + MuJoCo
+          </div>
+          <h1>One arm. Separate processes.</h1>
+          <p class="subtitle">
+            Target → ROS controller → torque topic → physics → measured joint
+            state
+          </p>
+        </div>
+        <a href="/lab">Open the standalone kinematics lab ↗</a>
+      </header>
+      <div class="metrics" aria-label="Communication metrics">
+        <div class="panel metric">
+          <span>Measured state rate</span><strong id="rate">—</strong>
+        </div>
+        <div class="panel metric">
+          <span>State receive freshness</span><strong id="freshness">—</strong>
+        </div>
+        <div class="panel metric">
+          <span id="latency-label">State → command arrival</span
+          ><strong id="latency">—</strong>
+        </div>
+        <div class="panel metric">
+          <span>Torque watchdog</span><strong id="watchdog">—</strong>
+        </div>
+      </div>
+      <div class="ros-grid">
+        <div class="workspace-stack">
+          <section class="panel scene-panel">
+            <div class="panel-heading">
+              <div>
+                <h2>Live measured arm</h2>
+                <p id="scene-caption">
+                  Click Plan view to send a target through ROS.
+                </p>
+              </div>
+              <div class="segmented">
+                <button id="plan" aria-pressed="true">Plan view</button
+                ><button id="three" aria-pressed="false">3D view</button>
+              </div>
+            </div>
+            <svg
+              id="plot"
+              role="img"
+              aria-labelledby="plot-title plot-description"
+            >
+              <title id="plot-title">ROS-connected two-link arm</title>
+              <desc id="plot-description">
+                Waiting for measured joint states.
+              </desc>
+            </svg>
+            <div class="ros-legend">
+              Solid: measured state · dashed: latest joint reference ·
+              crosshair: controller-confirmed target · green: measured hand
+              velocity
+            </div>
+          </section>
+          <section class="panel ros-connections">
+            <h2>ROS graph and transport</h2>
+            <div id="nodes"></div>
+            <pre>
+/arm/target → arm_controller
+/arm/state → arm_controller → /arm/torque_command → arm_simulator
+arm_simulator → /arm/joint_states → consumers + recorder
+/arm/reset · /arm/kick · /arm/pause → simulator services</pre>
+            <p class="help">
+              Physics steps at 500 Hz. State and torque exchange target 100 Hz;
+              the outer Jacobian loop updates at 50 Hz. Rates and latency below
+              are observed, not assumed.
+            </p>
+            <div class="readout">
+              <span>Command transport + injected delay</span
+              ><strong id="command-delay">—</strong>
+            </div>
+            <div class="readout">
+              <span>Original message age</span
+              ><strong id="original-age">—</strong>
+            </div>
+            <div class="readout">
+              <span>Rejected stale commands</span
+              ><strong id="stale-count">—</strong>
+            </div>
+          </section>
+        </div>
+        <aside class="panel ros-controls">
+          <h2>Observation source</h2>
+          <div class="segmented">
+            <button id="live" aria-pressed="true">Live ROS</button
+            ><button id="replay" aria-pressed="false">Bag replay</button>
+          </div>
+          <p id="source-help" class="help">
+            Browser commands go through ROS topics and services.
+          </p>
+          <fieldset id="live-controls">
+            <h2>Hand target · metres</h2>
+            <div class="lengths">
+              <label
+                >x<input
+                  id="target-x"
+                  type="number"
+                  min="-5"
+                  max="5"
+                  step="any"
+                  value="0.9230769231"
+                  required /></label
+              ><label
+                >y<input
+                  id="target-y"
+                  type="number"
+                  min="-5"
+                  max="5"
+                  step="any"
+                  value="0.3846153846"
+                  required
+              /></label>
+            </div>
+            <div class="ros-row">
+              <button id="send-target" class="primary">Send target</button
+              ><button id="other-target">Other target</button>
+            </div>
+            <div class="ros-row">
+              <button id="pause">Pause physics</button
+              ><button id="reset">Reset arm</button
+              ><button id="kick">Kick elbow +2 rad/s</button>
+            </div>
+            <h2>Command-delay experiment</h2>
+            <label for="delay">Injected delay · milliseconds</label
+            ><input
+              id="delay"
+              type="range"
+              min="0"
+              max="300"
+              step="10"
+              value="0"
+            />
+            <div class="ros-row">
+              <output id="delay-value">0 ms</output
+              ><button id="set-delay">Apply delay</button>
+            </div>
+            <p class="help">
+              At delays beyond 150 ms, the simulator rejects stale commands and
+              applies zero motor torque. Gravity still acts. Set delay to zero
+              and Reset to restart.
+            </p>
+          </fieldset>
+          <div id="message" role="status">Connecting to ROS…</div>
+          <div id="pose-result">Waiting for state…</div>
+          <div class="readout">
+            <span>Distance to target</span><strong id="error">—</strong>
+          </div>
+          <div class="readout">
+            <span>Applied motor torque · N·m</span
+            ><strong id="torque">—</strong>
+          </div>
+          <div class="readout">
+            <span>Simulation time / reset epoch</span
+            ><strong id="sim-time">—</strong>
+          </div>
+          <h2>Record and inspect</h2>
+          <div class="ros-row">
+            <button id="record">Record bag</button
+            ><button id="stop-record">Stop recording</button>
+          </div>
+          <div class="ros-row">
+            <button id="play-bag">Replay last bag</button
+            ><button id="stop-replay">Stop replay</button>
+          </div>
+          <p id="bag-status" class="help">No recording yet.</p>
+          <p id="bag-path" class="help"></p>
+          <p class="help">
+            Replay is read-only and uses /replay/arm/*; the live controller and
+            simulator remain isolated from recorded messages.
+          </p>
+        </aside>
+      </div>
+      <div class="ros-charts">
+        <section class="panel">
+          <h2>Distance to target · metres</h2>
+          <svg
+            id="error-chart"
+            role="img"
+            aria-labelledby="error-title error-desc"
+          >
+            <title id="error-title">ROS arm position error</title>
+            <desc id="error-desc">Waiting for samples.</desc>
+          </svg>
+        </section>
+        <section class="panel">
+          <h2>Measured motor torque · N·m</h2>
+          <svg
+            id="torque-chart"
+            role="img"
+            aria-label="Shoulder and elbow applied torque versus simulation time"
+          ></svg>
+          <p class="chart-caption">
+            Blue: shoulder · orange: elbow · dashed red: ±20 N·m
+          </p>
+        </section>
+      </div>
+      <footer>
+        ROS system timestamps measure transport age within one container.
+        Simulation time is separate. A live/replay switch or reset begins a new
+        chart trace. Refreshing this page does not reset the running simulator.
+      </footer>
+    </main>
+    <script type="module" src="/arm_ros.js"></script>
+  </body>
+</html>

@@ -1,0 +1,14 @@
+services:
+  arm:
+    build:
+      context: ..
+      dockerfile: ros2_ws/Dockerfile.arm
+    environment:
+      ROS_DOMAIN_ID: "43"
+      ROS_AUTOMATIC_DISCOVERY_RANGE: LOCALHOST
+      PYTHONUNBUFFERED: "1"
+    volumes:
+      - ..:/workspaces/foundations
+    ports:
+      - "127.0.0.1:8766:8766"
+    init: true

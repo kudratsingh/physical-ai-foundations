@@ -210,8 +210,12 @@ new `q` and `qvel`, and the loop starts again from that new observation.
 - **What I can now explain:** compose and invert transforms by hand, trace
   qpos/qvel → controller → ctrl → physics, explain good vs bad PD gains with
   my own numbers, and say where policy, controller, ROS and physics each sit.
-  Honest gap: the ROS 2 track (Saturday) is still a stub because it needs
-  Ubuntu 24.04 + Jazzy, so my node/topic/service/action answers are from
-  reading, not from inspecting a live graph yet.
+  The ROS 2 track now has a runnable Ubuntu 24.04/Jazzy container, our own
+  joint-state publisher/subscriber and reset service/client, graph inspection,
+  and a recorded/replayed bag. `ros2_ws/scripts/run_demo.py` checks this with
+  real nodes and verifies every replayed message field. The publisher currently
+  generates synthetic motion; it is not connected to MuJoCo. The personal
+  hands-on ROS review and answering all ten oral questions without notes remain
+  the final Week-1 checks; generated notes alone do not establish that gate.
 - **What Week 2 adds:** forward and inverse kinematics, Jacobians, and a more
   deliberate controller for a simulated manipulator instead of one hinge.
