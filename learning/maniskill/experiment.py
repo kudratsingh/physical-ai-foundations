@@ -182,7 +182,9 @@ def evaluate(config, policy, seeds, output=None, traces=False, video=False):
     finally:
         env.close()
     result = {
-        "policy": policy if isinstance(policy, str) else "PPO deterministic",
+        "policy": policy
+        if isinstance(policy, str)
+        else getattr(policy, "policy_label", "PPO deterministic"),
         "summary": summarize(episodes),
         "episodes": episodes,
         "config": asdict(config),

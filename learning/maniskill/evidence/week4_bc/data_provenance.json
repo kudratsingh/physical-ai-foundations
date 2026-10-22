@@ -1,0 +1,11 @@
+{
+  "archive_url": "https://huggingface.co/datasets/haosulab/ManiSkill_Demonstrations/resolve/main/demos/PushCube-v1.zip?download=true",
+  "archive_sha256": "1ce24408bf93658501faaa0ef164a0cdc29539cc412612a413fac746697eeab2",
+  "raw_hdf5_sha256": "10a9c7f311a86f85ff34d507dc3031fc11149ff715b67011cc5b947eecf059b9",
+  "raw_metadata_sha256": "8f7f7918e6e015f590b193ee5502f89a511569df5415e11adaa62dd4cb60ad50",
+  "attempted": 512,
+  "retained": 392,
+  "retention_rate": 0.765625,
+  "training_implementation_commit": "61728c7",
+  "note": "Official joint-delta RL demonstrations; initial source state restored, actual actions replayed in PhysX CPU; only successful CPU replays retained."
+}

@@ -2,7 +2,7 @@ name: ManiSkill
 
 on:
   pull_request:
-    branches: [main, feat/ros2-arm-integration]
+    branches: [main, feat/ros2-arm-integration, feat/week3-maniskill]
   push:
     branches: [main]
 

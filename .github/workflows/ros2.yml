@@ -4,7 +4,7 @@ on:
   push:
     branches: [main]
   pull_request:
-    branches: [main, feat/planar-arm-fk, feat/ros2-arm-integration]
+    branches: [main, feat/planar-arm-fk, feat/ros2-arm-integration, feat/week3-maniskill]
 
 jobs:
   ros2:

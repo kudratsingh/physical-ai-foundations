@@ -1,0 +1,110 @@
+[
+  {
+    "update": 1,
+    "train_mse": 0.4047243893146515,
+    "validation_mse": 0.40666526556015015,
+    "rollout": {
+      "episodes": 10,
+      "successes": 0,
+      "success_once_rate": 0.0,
+      "success_at_end_rate": 0.0,
+      "success_once_95pct_wilson": [
+        0,
+        0.2775401687666166
+      ],
+      "return_mean": 3.5701594024896623,
+      "return_std": 2.249918103196686,
+      "steps_mean": 50
+    }
+  },
+  {
+    "update": 1000,
+    "train_mse": 0.007101436611264944,
+    "validation_mse": 0.059299688786268234,
+    "rollout": {
+      "episodes": 10,
+      "successes": 10,
+      "success_once_rate": 1.0,
+      "success_at_end_rate": 0.6,
+      "success_once_95pct_wilson": [
+        0.7224598312333834,
+        1
+      ],
+      "return_mean": 32.162005642056464,
+      "return_std": 12.062040456527415,
+      "steps_mean": 50
+    }
+  },
+  {
+    "update": 2000,
+    "train_mse": 0.001962089678272605,
+    "validation_mse": 0.0669436827301979,
+    "rollout": {
+      "episodes": 10,
+      "successes": 10,
+      "success_once_rate": 1.0,
+      "success_at_end_rate": 0.4,
+      "success_once_95pct_wilson": [
+        0.7224598312333834,
+        1
+      ],
+      "return_mean": 31.1145637139678,
+      "return_std": 10.426180027762323,
+      "steps_mean": 50
+    }
+  },
+  {
+    "update": 3000,
+    "train_mse": 0.0008988833869807422,
+    "validation_mse": 0.07019411772489548,
+    "rollout": {
+      "episodes": 10,
+      "successes": 10,
+      "success_once_rate": 1.0,
+      "success_at_end_rate": 0.3,
+      "success_once_95pct_wilson": [
+        0.7224598312333834,
+        1
+      ],
+      "return_mean": 26.312480886280536,
+      "return_std": 10.946637256384049,
+      "steps_mean": 50
+    }
+  },
+  {
+    "update": 4000,
+    "train_mse": 0.0005468163872137666,
+    "validation_mse": 0.07267288863658905,
+    "rollout": {
+      "episodes": 10,
+      "successes": 10,
+      "success_once_rate": 1.0,
+      "success_at_end_rate": 0.4,
+      "success_once_95pct_wilson": [
+        0.7224598312333834,
+        1
+      ],
+      "return_mean": 29.978649742901325,
+      "return_std": 11.892617589205269,
+      "steps_mean": 50
+    }
+  },
+  {
+    "update": 5000,
+    "train_mse": 0.00038152182241901755,
+    "validation_mse": 0.07448762655258179,
+    "rollout": {
+      "episodes": 10,
+      "successes": 10,
+      "success_once_rate": 1.0,
+      "success_at_end_rate": 0.5,
+      "success_once_95pct_wilson": [
+        0.7224598312333834,
+        1
+      ],
+      "return_mean": 30.915543475747107,
+      "return_std": 11.595258303316328,
+      "steps_mean": 50
+    }
+  }
+]

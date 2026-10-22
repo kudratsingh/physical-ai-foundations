@@ -1,0 +1,10 @@
+{
+  "bc_32": {
+    "file": "learning/runs/pushcube_bc_comparison/bc_32/best.pt",
+    "sha256": "335d23e96e9a91b38adec678d158a8a5caa6fb1709d688ed0ce25a9721140f0d"
+  },
+  "bc_256": {
+    "file": "learning/runs/pushcube_bc_comparison/bc_256/best.pt",
+    "sha256": "64d82db9b277bf7d2beee79d66fb8989ccc5da0d466fbfb8769de907e3c344bb"
+  }
+}

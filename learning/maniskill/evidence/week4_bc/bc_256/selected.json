@@ -1,0 +1,18 @@
+{
+  "update": 1000,
+  "train_mse": 0.026148341596126556,
+  "validation_mse": 0.03858566656708717,
+  "rollout": {
+    "episodes": 10,
+    "successes": 10,
+    "success_once_rate": 1.0,
+    "success_at_end_rate": 0.9,
+    "success_once_95pct_wilson": [
+      0.7224598312333834,
+      1
+    ],
+    "return_mean": 37.39524871706963,
+    "return_std": 6.774294416509566,
+    "steps_mean": 50
+  }
+}

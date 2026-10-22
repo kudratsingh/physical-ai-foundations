@@ -46,6 +46,14 @@ It records training configuration, validation curves, fixed-seed evaluation
 against random/zero-action baselines, native simulator videos and failure cases.
 See the walkthrough for the exact commands and the first measured results.
 
+## Week 4: imitation learning and comparison
+
+[Behavior cloning on PushCube](learning/maniskill/BC_README.md) trains on official
+expert demonstrations replayed in CPU physics. It compares 32 versus 256 demos
+with the unchanged PPO checkpoint on fresh fixed test seeds, keeping task,
+observations, actions and horizon consistent. See the measured report and videos
+linked from the walkthrough.
+
 ## Week 1 tracks
 
 | day | track | artifact | status |

@@ -42,16 +42,23 @@ def test_rejects_empty_duplicate_or_nonfinite_evaluation():
         summarize([{**e, "return": float("nan")}])
 
 
-def test_committed_results_agree_with_episode_evidence():
+@pytest.mark.parametrize(
+    "folder,names",
+    [
+        ("first_run", ["ppo", "random", "zero"]),
+        ("week4_bc", ["bc_32", "bc_256", "ppo", "random", "zero"]),
+    ],
+)
+def test_committed_results_agree_with_episode_evidence(folder, names):
     import json
     import math
     from pathlib import Path
 
     evidence = (
-        Path(__file__).resolve().parents[2] / "learning/maniskill/evidence/first_run"
+        Path(__file__).resolve().parents[2] / "learning/maniskill/evidence" / folder
     )
     comparison = json.loads((evidence / "comparison.json").read_text())
-    for name in ["ppo", "random", "zero"]:
+    for name in names:
         result = json.loads((evidence / f"test_{name}.json").read_text())
         assert summarize(result["episodes"]) == comparison[name]
         for episode in result["episodes"]:
