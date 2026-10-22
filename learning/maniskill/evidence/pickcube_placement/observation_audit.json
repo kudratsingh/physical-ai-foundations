@@ -1,0 +1,14 @@
+{
+  "raw_final": {
+    "complete_episode_equality": true,
+    "states_audited": 510,
+    "episodes": 10,
+    "source_sha256": "f06c56c3cfb0be5c7beeb3abf1b2a18b8c89f92f9e3db7b5d37ebb03ad5a181b"
+  },
+  "normalized_final": {
+    "complete_episode_equality": true,
+    "states_audited": 510,
+    "episodes": 10,
+    "source_sha256": "69edf0b152b7520c586adeedab6e577d17e680b844552769413c23d10308282e"
+  }
+}

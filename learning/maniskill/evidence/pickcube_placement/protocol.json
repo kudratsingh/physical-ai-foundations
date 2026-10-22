@@ -1,0 +1,126 @@
+{
+  "created_utc": "2026-10-22T20:00:55.206784+00:00",
+  "source_sha256": "e20df1f995d42e40a49beb7396565e8a445c3660a1adbe182ba4ac4b9ab744a7",
+  "gate_source_sha256": "182b32130540ee2919dce92a0579ed45b6e28b8dfeb2d6116cc92cc6499ac6fe",
+  "raw_checkpoint_sha256": "e13bea63f63222333d1738fafdb88f3b55b1f34a7ffc3b5feaed2adf9ea29a2d",
+  "normalized_model_sha256": "0796500d9a83a5b5728ab34f0072536ad499d458e7ece19cefbe2ee38c8cb4c2",
+  "normalized_statistics_sha256": "36612dfeee23082c2e098ab3f4ba1d23ef40fd40bec02fb5d2288d109732e759",
+  "teacher_sha256": "dc62b7c1ab5c26463d5a439c3d273cdb295a37920791da16985bba9f39bc6323",
+  "task": {
+    "env_id": "PickCube-v1",
+    "obs_mode": "state",
+    "control_mode": "pd_joint_delta_pos",
+    "reward_mode": "normalized_dense",
+    "seed": 42,
+    "total_timesteps": 65536,
+    "num_envs": 4,
+    "rollout_steps": 256,
+    "batch_size": 256,
+    "epochs": 8,
+    "validation_interval": 16384,
+    "validation_seed_start": 1000,
+    "validation_episodes": 5,
+    "test_episodes": 20,
+    "test_seed_start": 10000
+  },
+  "schema": {
+    "qpos": [
+      0,
+      9
+    ],
+    "qvel": [
+      9,
+      18
+    ],
+    "is_grasped": [
+      18,
+      19
+    ],
+    "tcp_pose": [
+      19,
+      26
+    ],
+    "goal": [
+      26,
+      29
+    ],
+    "cube_pose": [
+      29,
+      36
+    ],
+    "tcp_to_cube": [
+      36,
+      39
+    ],
+    "cube_to_goal": [
+      39,
+      42
+    ]
+  },
+  "installed_schema_source_sha256": {
+    "PickCubeEnv": "53bfed0229cd4de2c7e363e7f3c531d5c5c84803c28e1345a2aea1a4972f3168",
+    "BaseEnv": "bb9ab4983182a1c6d96c6bfe8bd7af5a2c5abe5b4fd4a8457c41cbb7e55b0017",
+    "BaseAgent": "1f5696f20a6bf4a10f4309315794b4a70bd418c9cc339e9aad118104d0f662ec"
+  },
+  "versions": {
+    "python": "3.11.15",
+    "platform": "macOS-26.5.2-arm64-arm-64bit",
+    "mani-skill-nightly": "2026.8.2.400",
+    "sapien": "3.0.3",
+    "torch": "2.14.1",
+    "stable-baselines3": "2.9.0",
+    "gymnasium": "1.4.0",
+    "numpy": "2.4.6"
+  },
+  "observation_stop_seeds": [
+    80000,
+    80001,
+    80002,
+    80003,
+    80004,
+    80005,
+    80006,
+    80007,
+    80008,
+    80009
+  ],
+  "placement_seeds": [
+    130000,
+    130001,
+    130002,
+    130003,
+    130004,
+    130005,
+    130006,
+    130007,
+    130008,
+    130009
+  ],
+  "video_seeds": {
+    "observation_stop": [
+      80000,
+      80001
+    ],
+    "placement": [
+      130000,
+      130001
+    ]
+  },
+  "horizon": 50,
+  "training": false,
+  "final_test_seeds_used": false,
+  "scope": "Validation-only diagnostics. Observation-stop is a hand-coded hybrid, not PPO alone. BC final-success subset is post-hoc conditional inspection, not a performance comparison.",
+  "gate": "Only raw ordinary42 observation, cube_to_goal39:42 norm<=float32(0.025), latched from first observed placed state; zero seven-arm increments and preserve current policy gripper.",
+  "audit": "Privileged placement checked at reset and every post-step state only; never used to choose command. Compare entire hybrid episode dictionaries with prior privileged override, plus preclip baselines already verified there.",
+  "prior_privileged_hashes": {
+    "raw_final_override.json": "f06c56c3cfb0be5c7beeb3abf1b2a18b8c89f92f9e3db7b5d37ebb03ad5a181b",
+    "normalized_final_override.json": "69edf0b152b7520c586adeedab6e577d17e680b844552769413c23d10308282e"
+  },
+  "placement_conditions": [
+    "bc_256",
+    "raw_final",
+    "normalized_final"
+  ],
+  "placement_measurements": "All50 post-action states: is_grasped, 10/5/2.5cm grasp-conditioned occupancy, distance changes, speed, arm command magnitude, remainingsteps. All10 episodes per policy; separately labeled BC final-success subset.",
+  "video_policy": "First2 placement seeds rendered per policy and full episodes digest-checked. Observation-stop videos reused only after complete trajectory equality with prior privileged native videos; no duplicated video trajectoryJSON."
+}

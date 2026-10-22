@@ -17,6 +17,7 @@ import time
 
 from .metrics import summarize
 from .selection import holding_score
+from .rng import isolated_rng
 
 
 @dataclass(frozen=True)
@@ -122,6 +123,7 @@ def trajectory_sample(env, step):
     }
 
 
+@isolated_rng
 def evaluate(config, policy, seeds, output=None, traces=False, video=False):
     import numpy as np
     import torch
@@ -250,7 +252,13 @@ def train(config, directory):
             "device": "cpu",
         },
     )
-    environments = [env_thunk(config) for _ in range(config.num_envs)]
+    from .training_metrics import TrainingMetrics, training_env
+    from stable_baselines3.common.callbacks import CallbackList
+
+    environments = [
+        training_env(config) if config.env_id == "PickCube-v1" else env_thunk(config)
+        for _ in range(config.num_envs)
+    ]
     env = (
         DummyVecEnv(environments)
         if config.num_envs == 1
@@ -311,7 +319,11 @@ def train(config, directory):
         start = time.monotonic()
         model.learn(
             total_timesteps=config.total_timesteps,
-            callback=Validation(),
+            callback=CallbackList(
+                [TrainingMetrics(directory / "training_metrics.json"), Validation()]
+            )
+            if config.env_id == "PickCube-v1"
+            else Validation(),
             log_interval=4,
         )
         model.save(directory / "final")

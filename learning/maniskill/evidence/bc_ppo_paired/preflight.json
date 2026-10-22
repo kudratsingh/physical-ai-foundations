@@ -1,0 +1,36 @@
+{
+  "action_agreement": {
+    "observations": 500,
+    "max_absolute_action_error": 0.0
+  },
+  "max_rollout_field_error": 0.0,
+  "teacher_summary": {
+    "episodes": 10,
+    "successes": 9,
+    "success_once_rate": 0.9,
+    "success_at_end_rate": 0.8,
+    "success_once_95pct_wilson": [
+      0.5958436145024278,
+      0.9821242504842788
+    ],
+    "return_mean": 35.70489295683801,
+    "return_std": 6.561604963603087,
+    "steps_mean": 50
+  },
+  "initialized_summary": {
+    "episodes": 10,
+    "successes": 9,
+    "success_once_rate": 0.9,
+    "success_at_end_rate": 0.8,
+    "success_once_95pct_wilson": [
+      0.5958436145024278,
+      0.9821242504842788
+    ],
+    "return_mean": 35.70489295683801,
+    "return_std": 6.561604963603087,
+    "steps_mean": 50
+  },
+  "non_actor_fingerprint": "73ea742d1b20fcc587df7afc03743443398d9ef4f5ff6d5e8c4667e92778198d",
+  "random_actor_fingerprint": "5709eff157dd5cff2effcea1bf60b3cd418765449212949a452b03c0ba80cce2",
+  "warm_actor_fingerprint": "658bf0560dd574dd64a84af59a21da1f0e35b1c32499831d74515e088c520680"
+}

@@ -1,0 +1,7 @@
+{
+  "actor_fingerprint": "5709eff157dd5cff2effcea1bf60b3cd418765449212949a452b03c0ba80cce2",
+  "non_actor_fingerprint": "73ea742d1b20fcc587df7afc03743443398d9ef4f5ff6d5e8c4667e92778198d",
+  "rng_fingerprint": "bcf948eb4b2d731fc35efcaeb391320efaba99d2e6172470e7e32eb07e0e39a9",
+  "optimizer_empty": true,
+  "checkpoint_sha256": "bcef559983168ae465b070fa92b02471ee43d3bb4ea04a708a737bdbaf80e170"
+}

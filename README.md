@@ -7,7 +7,16 @@ covers configuration space, frames, control, ROS and the first learned policies.
 Stage 1 develops one manipulation benchmark with imitation and reinforcement
 learning. Experiments include reproducible settings, tests and measured evidence.
 
-## Week 2 in progress
+## Current focus
+
+Stage 1 PickCube: investigating precision placement and stopping. Observation-only
+hybrid and BC/PPO placement diagnostics are complete. A paired BC-initialized PPO
+experiment is complete: selected warm PPO reached 31/50 final test successes,
+but fixed-budget fine-tuning regressed to 0/50 versus the teacher’s 23/50.
+See the [results and native visualization](learning/maniskill/BC_PPO_README.md).
+Track headings describe implemented artifacts; owner oral gates remain separate.
+
+## Week 2: arm kinematics, control, and ROS
 
 The first artifact is a two-link planar arm: tested forward and inverse kinematics and an
 interactive browser lab. Orbit its 3D schematic or use Plan view, play joint
@@ -32,7 +41,7 @@ experiments. See [the control walkthrough](notes/resolved_rate_control.md).
 with gravity, kick recovery and torque/tracking plots. See [the physics walkthrough](notes/arm_physics.md).
 Use the Mac venv for this viewer.
 
-The next experiment connects real ROS processes to this arm. The **ROS arm systems lab**
+The ROS integration connects real ROS processes to this arm. The **ROS arm systems lab**
 shows measured motion, target commands, latency, stale-command rejection and isolated
 bag replay at [localhost:8766](http://localhost:8766). Start it with Docker using
 [the ROS arm walkthrough](ros2_ws/ARM_README.md).

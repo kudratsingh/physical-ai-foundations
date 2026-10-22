@@ -67,3 +67,15 @@ behavior remain unresolved.
 [Visual comparison](evidence/pickcube_bounded/index.html) ·
 [Run instructions](BOUNDED_ACTION_README.md) ·
 [Predeclared protocol](BOUNDED_ACTION_PROTOCOL.md)
+
+## Later reproducibility review
+
+The archived raw trainer did not explicitly preserve global RNG state during
+validation, and its initial policy fingerprint was not saved. Matching newly
+constructed initial policies is not independent proof of the archived initial
+state. The negative task outcomes remain valid, but a perfectly controlled
+single-change causal interpretation is not warranted. Future evaluation now
+uses a common RNG-isolation guard; a real-simulator regression shows identical
+learner weights with and without intervening evaluation. The new paired
+[BC-initialized experiment](BC_PPO_PROTOCOL.md) saves both actual initial models
+and RNG fingerprints.

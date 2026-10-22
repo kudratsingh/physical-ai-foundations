@@ -139,3 +139,10 @@ a pipeline check, not a policy-quality benchmark.
 - [Upstream PushCube task/reward](https://github.com/mani-skill/ManiSkill/blob/main/mani_skill/envs/tasks/tabletop/push_cube.py)
 - [Upstream PPO baseline](https://github.com/mani-skill/ManiSkill/tree/main/examples/baselines/ppo)
 - [SB3 PPO documentation](https://stable-baselines3.readthedocs.io/en/master/modules/ppo.html)
+
+## PickCube failure investigation
+
+The [placement and BC-initialized PPO investigation](BC_PPO_README.md) adds
+observation-only stop diagnostics, matched actor initialization, isolated
+evaluation RNG, stochastic training metrics and paired native videos. It reports
+the early selected improvement separately from fixed-budget regression.

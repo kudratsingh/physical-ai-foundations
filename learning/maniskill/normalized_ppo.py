@@ -6,7 +6,6 @@ observations (rewards remain in original task units). No extra warmup samples.
 """
 
 import argparse
-from contextlib import contextmanager
 from dataclasses import asdict
 from datetime import datetime, timezone
 import hashlib
@@ -16,6 +15,7 @@ import time
 
 from .experiment import Config, env_thunk, evaluate, save_json, versions
 from .selection import holding_score
+from .rng import preserve_rng
 
 TASK = Config(
     env_id="PickCube-v1",
@@ -29,36 +29,23 @@ TASK = Config(
 )
 
 
-@contextmanager
-def preserve_rng():
-    """Checkpoint reconstruction/evaluation cannot alter PPO's sampling stream."""
-    import random
-    import numpy as np
-    import torch
-
-    python_state = random.getstate()
-    numpy_state = np.random.get_state()
-    torch_state = torch.random.get_rng_state()
-    try:
-        yield
-    finally:
-        random.setstate(python_state)
-        np.random.set_state(numpy_state)
-        torch.random.set_rng_state(torch_state)
-
-
 def sha256(path):
     return hashlib.sha256(Path(path).read_bytes()).hexdigest()
 
 
-def make_normalized_env(config):
+def make_normalized_env(config, instrument=False):
     from stable_baselines3.common.vec_env import (
         DummyVecEnv,
         SubprocVecEnv,
         VecNormalize,
     )
 
-    constructors = [env_thunk(config) for _ in range(config.num_envs)]
+    from .training_metrics import training_env
+
+    constructors = [
+        training_env(config) if instrument else env_thunk(config)
+        for _ in range(config.num_envs)
+    ]
     raw = (
         DummyVecEnv(constructors)
         if config.num_envs == 1
@@ -141,7 +128,8 @@ class FrozenPolicy:
 def train(config, output):
     import torch
     from stable_baselines3 import PPO
-    from stable_baselines3.common.callbacks import BaseCallback
+    from stable_baselines3.common.callbacks import BaseCallback, CallbackList
+    from .training_metrics import TrainingMetrics
 
     torch.set_num_threads(1)
     output = Path(output)
@@ -179,7 +167,7 @@ def train(config, output):
             secondary="Normalized validation-selected snapshot; not a matched selection comparison",
         ),
     )
-    env = make_normalized_env(config)
+    env = make_normalized_env(config, instrument=True)
 
     class Validation(BaseCallback):
         def __init__(self):
@@ -250,7 +238,9 @@ def train(config, output):
         started = time.monotonic()
         model.learn(
             total_timesteps=config.total_timesteps,
-            callback=Validation(),
+            callback=CallbackList(
+                [TrainingMetrics(output / "training_metrics.json"), Validation()]
+            ),
             log_interval=16,
         )
         save_snapshot(model, env, output / "final")

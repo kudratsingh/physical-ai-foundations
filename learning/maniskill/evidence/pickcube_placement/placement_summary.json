@@ -1,0 +1,680 @@
+{
+  "bc_256": {
+    "episodes": 10,
+    "steps": 500,
+    "grasped_steps": 437,
+    "official": {
+      "episodes": 10,
+      "successes": 10,
+      "success_once_rate": 1.0,
+      "success_at_end_rate": 0.8,
+      "success_once_95pct_wilson": [
+        0.7224598312333834,
+        1
+      ],
+      "return_mean": 38.07110419943929,
+      "return_std": 3.7062629469090225,
+      "steps_mean": 50
+    },
+    "stages": {
+      "10cm": {
+        "grasped_steps_within": 422,
+        "grasped_step_denominator": 437,
+        "conditional_occupancy": 0.965675057208238,
+        "mean_max_arm_speed": 0.09253523150741419,
+        "mean_arm_command_l2": 0.20476279773206507,
+        "mean_distance_change": -0.0014947041630815555,
+        "episode_first_hits": [
+          {
+            "seed": 130000,
+            "step": 8,
+            "remaining_steps": 42
+          },
+          {
+            "seed": 130001,
+            "step": 7,
+            "remaining_steps": 43
+          },
+          {
+            "seed": 130002,
+            "step": 5,
+            "remaining_steps": 45
+          },
+          {
+            "seed": 130003,
+            "step": 7,
+            "remaining_steps": 43
+          },
+          {
+            "seed": 130004,
+            "step": 11,
+            "remaining_steps": 39
+          },
+          {
+            "seed": 130005,
+            "step": 13,
+            "remaining_steps": 37
+          },
+          {
+            "seed": 130006,
+            "step": 9,
+            "remaining_steps": 41
+          },
+          {
+            "seed": 130007,
+            "step": 10,
+            "remaining_steps": 40
+          },
+          {
+            "seed": 130008,
+            "step": 12,
+            "remaining_steps": 38
+          },
+          {
+            "seed": 130009,
+            "step": 6,
+            "remaining_steps": 44
+          }
+        ]
+      },
+      "5cm": {
+        "grasped_steps_within": 399,
+        "grasped_step_denominator": 437,
+        "conditional_occupancy": 0.9130434782608695,
+        "mean_max_arm_speed": 0.07047839384096533,
+        "mean_arm_command_l2": 0.143517248407193,
+        "mean_distance_change": -0.0008123406631531273,
+        "episode_first_hits": [
+          {
+            "seed": 130000,
+            "step": 13,
+            "remaining_steps": 37
+          },
+          {
+            "seed": 130001,
+            "step": 10,
+            "remaining_steps": 40
+          },
+          {
+            "seed": 130002,
+            "step": 5,
+            "remaining_steps": 45
+          },
+          {
+            "seed": 130003,
+            "step": 7,
+            "remaining_steps": 43
+          },
+          {
+            "seed": 130004,
+            "step": 14,
+            "remaining_steps": 36
+          },
+          {
+            "seed": 130005,
+            "step": 17,
+            "remaining_steps": 33
+          },
+          {
+            "seed": 130006,
+            "step": 12,
+            "remaining_steps": 38
+          },
+          {
+            "seed": 130007,
+            "step": 11,
+            "remaining_steps": 39
+          },
+          {
+            "seed": 130008,
+            "step": 14,
+            "remaining_steps": 36
+          },
+          {
+            "seed": 130009,
+            "step": 8,
+            "remaining_steps": 42
+          }
+        ]
+      },
+      "2_5cm": {
+        "grasped_steps_within": 299,
+        "grasped_step_denominator": 437,
+        "conditional_occupancy": 0.6842105263157895,
+        "mean_max_arm_speed": 0.04984597649649533,
+        "mean_arm_command_l2": 0.09614631647001141,
+        "mean_distance_change": -0.00020940661629705525,
+        "episode_first_hits": [
+          {
+            "seed": 130000,
+            "step": 24,
+            "remaining_steps": 26
+          },
+          {
+            "seed": 130001,
+            "step": 19,
+            "remaining_steps": 31
+          },
+          {
+            "seed": 130002,
+            "step": 7,
+            "remaining_steps": 43
+          },
+          {
+            "seed": 130003,
+            "step": 10,
+            "remaining_steps": 40
+          },
+          {
+            "seed": 130004,
+            "step": 19,
+            "remaining_steps": 31
+          },
+          {
+            "seed": 130005,
+            "step": 21,
+            "remaining_steps": 29
+          },
+          {
+            "seed": 130006,
+            "step": 18,
+            "remaining_steps": 32
+          },
+          {
+            "seed": 130007,
+            "step": 13,
+            "remaining_steps": 37
+          },
+          {
+            "seed": 130008,
+            "step": 17,
+            "remaining_steps": 33
+          },
+          {
+            "seed": 130009,
+            "step": 9,
+            "remaining_steps": 41
+          }
+        ]
+      }
+    }
+  },
+  "raw_final": {
+    "episodes": 10,
+    "steps": 500,
+    "grasped_steps": 356,
+    "official": {
+      "episodes": 10,
+      "successes": 0,
+      "success_once_rate": 0.0,
+      "success_at_end_rate": 0.0,
+      "success_once_95pct_wilson": [
+        0,
+        0.2775401687666166
+      ],
+      "return_mean": 20.245579366758466,
+      "return_std": 5.113197523081862,
+      "steps_mean": 50
+    },
+    "stages": {
+      "10cm": {
+        "grasped_steps_within": 260,
+        "grasped_step_denominator": 356,
+        "conditional_occupancy": 0.7303370786516854,
+        "mean_max_arm_speed": 0.6221720373401275,
+        "mean_arm_command_l2": 1.9093369224896797,
+        "mean_distance_change": -0.0005029940118010227,
+        "episode_first_hits": [
+          {
+            "seed": 130000,
+            "step": 28,
+            "remaining_steps": 22
+          },
+          {
+            "seed": 130001,
+            "step": 14,
+            "remaining_steps": 36
+          },
+          {
+            "seed": 130002,
+            "step": 9,
+            "remaining_steps": 41
+          },
+          {
+            "seed": 130003,
+            "step": 9,
+            "remaining_steps": 41
+          },
+          {
+            "seed": 130005,
+            "step": 31,
+            "remaining_steps": 19
+          },
+          {
+            "seed": 130006,
+            "step": 14,
+            "remaining_steps": 36
+          },
+          {
+            "seed": 130007,
+            "step": 26,
+            "remaining_steps": 24
+          },
+          {
+            "seed": 130008,
+            "step": 14,
+            "remaining_steps": 36
+          },
+          {
+            "seed": 130009,
+            "step": 9,
+            "remaining_steps": 41
+          }
+        ]
+      },
+      "5cm": {
+        "grasped_steps_within": 92,
+        "grasped_step_denominator": 356,
+        "conditional_occupancy": 0.25842696629213485,
+        "mean_max_arm_speed": 0.6290997496765592,
+        "mean_arm_command_l2": 1.9672462966131128,
+        "mean_distance_change": -0.0009198230488792709,
+        "episode_first_hits": [
+          {
+            "seed": 130001,
+            "step": 20,
+            "remaining_steps": 30
+          },
+          {
+            "seed": 130002,
+            "step": 9,
+            "remaining_steps": 41
+          },
+          {
+            "seed": 130003,
+            "step": 36,
+            "remaining_steps": 14
+          },
+          {
+            "seed": 130005,
+            "step": 35,
+            "remaining_steps": 15
+          },
+          {
+            "seed": 130006,
+            "step": 17,
+            "remaining_steps": 33
+          },
+          {
+            "seed": 130007,
+            "step": 32,
+            "remaining_steps": 18
+          },
+          {
+            "seed": 130008,
+            "step": 14,
+            "remaining_steps": 36
+          }
+        ]
+      },
+      "2_5cm": {
+        "grasped_steps_within": 4,
+        "grasped_step_denominator": 356,
+        "conditional_occupancy": 0.011235955056179775,
+        "mean_max_arm_speed": 0.6197895705699921,
+        "mean_arm_command_l2": 1.9893453419208527,
+        "mean_distance_change": -0.0021008960902690887,
+        "episode_first_hits": [
+          {
+            "seed": 130007,
+            "step": 41,
+            "remaining_steps": 9
+          },
+          {
+            "seed": 130008,
+            "step": 16,
+            "remaining_steps": 34
+          }
+        ]
+      }
+    }
+  },
+  "normalized_final": {
+    "episodes": 10,
+    "steps": 500,
+    "grasped_steps": 416,
+    "official": {
+      "episodes": 10,
+      "successes": 0,
+      "success_once_rate": 0.0,
+      "success_at_end_rate": 0.0,
+      "success_once_95pct_wilson": [
+        0,
+        0.2775401687666166
+      ],
+      "return_mean": 22.802944422513246,
+      "return_std": 1.392583398442,
+      "steps_mean": 50
+    },
+    "stages": {
+      "10cm": {
+        "grasped_steps_within": 355,
+        "grasped_step_denominator": 416,
+        "conditional_occupancy": 0.8533653846153846,
+        "mean_max_arm_speed": 0.6436591049315225,
+        "mean_arm_command_l2": 2.31871064515181,
+        "mean_distance_change": -0.001287816905639541,
+        "episode_first_hits": [
+          {
+            "seed": 130000,
+            "step": 12,
+            "remaining_steps": 38
+          },
+          {
+            "seed": 130001,
+            "step": 8,
+            "remaining_steps": 42
+          },
+          {
+            "seed": 130002,
+            "step": 6,
+            "remaining_steps": 44
+          },
+          {
+            "seed": 130003,
+            "step": 8,
+            "remaining_steps": 42
+          },
+          {
+            "seed": 130004,
+            "step": 13,
+            "remaining_steps": 37
+          },
+          {
+            "seed": 130005,
+            "step": 14,
+            "remaining_steps": 36
+          },
+          {
+            "seed": 130006,
+            "step": 12,
+            "remaining_steps": 38
+          },
+          {
+            "seed": 130007,
+            "step": 24,
+            "remaining_steps": 26
+          },
+          {
+            "seed": 130008,
+            "step": 12,
+            "remaining_steps": 38
+          },
+          {
+            "seed": 130009,
+            "step": 8,
+            "remaining_steps": 42
+          }
+        ]
+      },
+      "5cm": {
+        "grasped_steps_within": 107,
+        "grasped_step_denominator": 416,
+        "conditional_occupancy": 0.25721153846153844,
+        "mean_max_arm_speed": 0.6477221685035206,
+        "mean_arm_command_l2": 2.3055157260360004,
+        "mean_distance_change": -0.002015603654016958,
+        "episode_first_hits": [
+          {
+            "seed": 130000,
+            "step": 31,
+            "remaining_steps": 19
+          },
+          {
+            "seed": 130001,
+            "step": 35,
+            "remaining_steps": 15
+          },
+          {
+            "seed": 130002,
+            "step": 39,
+            "remaining_steps": 11
+          },
+          {
+            "seed": 130003,
+            "step": 8,
+            "remaining_steps": 42
+          },
+          {
+            "seed": 130004,
+            "step": 16,
+            "remaining_steps": 34
+          },
+          {
+            "seed": 130008,
+            "step": 13,
+            "remaining_steps": 37
+          },
+          {
+            "seed": 130009,
+            "step": 19,
+            "remaining_steps": 31
+          }
+        ]
+      },
+      "2_5cm": {
+        "grasped_steps_within": 19,
+        "grasped_step_denominator": 416,
+        "conditional_occupancy": 0.04567307692307692,
+        "mean_max_arm_speed": 0.6476438014130843,
+        "mean_arm_command_l2": 2.2895419221175346,
+        "mean_distance_change": -0.002782508436786501,
+        "episode_first_hits": [
+          {
+            "seed": 130000,
+            "step": 45,
+            "remaining_steps": 5
+          },
+          {
+            "seed": 130002,
+            "step": 45,
+            "remaining_steps": 5
+          },
+          {
+            "seed": 130004,
+            "step": 38,
+            "remaining_steps": 12
+          },
+          {
+            "seed": 130008,
+            "step": 41,
+            "remaining_steps": 9
+          }
+        ]
+      }
+    }
+  },
+  "bc_final_success_subset": {
+    "scope": "Post-hoc BC final-success conditional subset, not a performance comparison",
+    "selected_seeds": [
+      130000,
+      130001,
+      130002,
+      130003,
+      130004,
+      130005,
+      130006,
+      130008
+    ],
+    "data": {
+      "episodes": 8,
+      "steps": 400,
+      "grasped_steps": 347,
+      "official": {
+        "episodes": 8,
+        "successes": 8,
+        "success_once_rate": 1.0,
+        "success_at_end_rate": 1.0,
+        "success_once_95pct_wilson": [
+          0.6755843804891231,
+          1
+        ],
+        "return_mean": 39.267389964312315,
+        "return_std": 2.7437411758678563,
+        "steps_mean": 50
+      },
+      "stages": {
+        "10cm": {
+          "grasped_steps_within": 336,
+          "grasped_step_denominator": 347,
+          "conditional_occupancy": 0.968299711815562,
+          "mean_max_arm_speed": 0.08864772326168827,
+          "mean_arm_command_l2": 0.21300709107890725,
+          "mean_distance_change": -0.001470713299654779,
+          "episode_first_hits": [
+            {
+              "seed": 130000,
+              "step": 8,
+              "remaining_steps": 42
+            },
+            {
+              "seed": 130001,
+              "step": 7,
+              "remaining_steps": 43
+            },
+            {
+              "seed": 130002,
+              "step": 5,
+              "remaining_steps": 45
+            },
+            {
+              "seed": 130003,
+              "step": 7,
+              "remaining_steps": 43
+            },
+            {
+              "seed": 130004,
+              "step": 11,
+              "remaining_steps": 39
+            },
+            {
+              "seed": 130005,
+              "step": 13,
+              "remaining_steps": 37
+            },
+            {
+              "seed": 130006,
+              "step": 9,
+              "remaining_steps": 41
+            },
+            {
+              "seed": 130008,
+              "step": 12,
+              "remaining_steps": 38
+            }
+          ]
+        },
+        "5cm": {
+          "grasped_steps_within": 316,
+          "grasped_step_denominator": 347,
+          "conditional_occupancy": 0.9106628242074928,
+          "mean_max_arm_speed": 0.06520684133873239,
+          "mean_arm_command_l2": 0.148203601023253,
+          "mean_distance_change": -0.0008450624403319782,
+          "episode_first_hits": [
+            {
+              "seed": 130000,
+              "step": 13,
+              "remaining_steps": 37
+            },
+            {
+              "seed": 130001,
+              "step": 10,
+              "remaining_steps": 40
+            },
+            {
+              "seed": 130002,
+              "step": 5,
+              "remaining_steps": 45
+            },
+            {
+              "seed": 130003,
+              "step": 7,
+              "remaining_steps": 43
+            },
+            {
+              "seed": 130004,
+              "step": 14,
+              "remaining_steps": 36
+            },
+            {
+              "seed": 130005,
+              "step": 17,
+              "remaining_steps": 33
+            },
+            {
+              "seed": 130006,
+              "step": 12,
+              "remaining_steps": 38
+            },
+            {
+              "seed": 130008,
+              "step": 14,
+              "remaining_steps": 36
+            }
+          ]
+        },
+        "2_5cm": {
+          "grasped_steps_within": 262,
+          "grasped_step_denominator": 347,
+          "conditional_occupancy": 0.7550432276657061,
+          "mean_max_arm_speed": 0.04570762081896417,
+          "mean_arm_command_l2": 0.09252195053143811,
+          "mean_distance_change": -0.00019515389647647624,
+          "episode_first_hits": [
+            {
+              "seed": 130000,
+              "step": 24,
+              "remaining_steps": 26
+            },
+            {
+              "seed": 130001,
+              "step": 19,
+              "remaining_steps": 31
+            },
+            {
+              "seed": 130002,
+              "step": 7,
+              "remaining_steps": 43
+            },
+            {
+              "seed": 130003,
+              "step": 10,
+              "remaining_steps": 40
+            },
+            {
+              "seed": 130004,
+              "step": 19,
+              "remaining_steps": 31
+            },
+            {
+              "seed": 130005,
+              "step": 21,
+              "remaining_steps": 29
+            },
+            {
+              "seed": 130006,
+              "step": 18,
+              "remaining_steps": 32
+            },
+            {
+              "seed": 130008,
+              "step": 17,
+              "remaining_steps": 33
+            }
+          ]
+        }
+      }
+    }
+  }
+}

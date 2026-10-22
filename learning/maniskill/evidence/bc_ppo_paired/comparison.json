@@ -1,0 +1,67 @@
+{
+  "teacher": {
+    "episodes": 50,
+    "successes": 42,
+    "success_once_rate": 0.84,
+    "success_at_end_rate": 0.46,
+    "success_once_95pct_wilson": [
+      0.7148551903823401,
+      0.9166267863791231
+    ],
+    "return_mean": 31.370957159101962,
+    "return_std": 8.301957854378273,
+    "steps_mean": 50
+  },
+  "warm_initialized": {
+    "episodes": 50,
+    "successes": 42,
+    "success_once_rate": 0.84,
+    "success_at_end_rate": 0.46,
+    "success_once_95pct_wilson": [
+      0.7148551903823401,
+      0.9166267863791231
+    ],
+    "return_mean": 31.370957159101962,
+    "return_std": 8.301957854378273,
+    "steps_mean": 50
+  },
+  "warm_final": {
+    "episodes": 50,
+    "successes": 12,
+    "success_once_rate": 0.24,
+    "success_at_end_rate": 0.0,
+    "success_once_95pct_wilson": [
+      0.14297252401872207,
+      0.3741294937519236
+    ],
+    "return_mean": 21.780918933823706,
+    "return_std": 6.843060418204104,
+    "steps_mean": 50
+  },
+  "control_final": {
+    "episodes": 50,
+    "successes": 0,
+    "success_once_rate": 0.0,
+    "success_at_end_rate": 0.0,
+    "success_once_95pct_wilson": [
+      0,
+      0.07135003417431873
+    ],
+    "return_mean": 2.2688918356149226,
+    "return_std": 1.2301209517868459,
+    "steps_mean": 50
+  },
+  "warm_selected_secondary": {
+    "episodes": 50,
+    "successes": 40,
+    "success_once_rate": 0.8,
+    "success_at_end_rate": 0.62,
+    "success_once_95pct_wilson": [
+      0.6696262789551477,
+      0.8875637005402612
+    ],
+    "return_mean": 30.876823188439012,
+    "return_std": 13.026004653640404,
+    "steps_mean": 50
+  }
+}

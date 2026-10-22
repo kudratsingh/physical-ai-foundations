@@ -1,0 +1,52 @@
+{
+  "hybrid_raw_final_seed80000.mp4": {
+    "scope": "Prior native privileged video reused after exact complete observation-only trajectory equality",
+    "source_sha256": "08254135c4c1536fda37da0c227ec48da368a897a76ac8c5cf715585473de86d",
+    "episode_sha256": "0f63880b50ec354f08b87d7a42ed1cf191dc64d75eeb73d431a13d4f67c31ad0"
+  },
+  "hybrid_raw_final_seed80001.mp4": {
+    "scope": "Prior native privileged video reused after exact complete observation-only trajectory equality",
+    "source_sha256": "e6d9d7e4d0f8a90615006104d492ad95bf35d15fa0c67807ad2239ca59d8f8f2",
+    "episode_sha256": "a92d157d56b05fd9e10fe56ab7c275484bf23550382f71a219245b4441e6ba99"
+  },
+  "hybrid_normalized_final_seed80000.mp4": {
+    "scope": "Prior native privileged video reused after exact complete observation-only trajectory equality",
+    "source_sha256": "74653264dc58217815e1084c251de4a2e54410061d4a4242642c2856babaa66e",
+    "episode_sha256": "6f5d5078e693ed94795c81f4f93f2c99f039096dc68785cf65bc3ed6c2cae732"
+  },
+  "hybrid_normalized_final_seed80001.mp4": {
+    "scope": "Prior native privileged video reused after exact complete observation-only trajectory equality",
+    "source_sha256": "9f4dd9e15da3b6305896fb388ac548e3ee79740fc5add96a076b55603de72682",
+    "episode_sha256": "395ce4a404328ff43b3691f8c0f154723ccb57ed89d69d584e154d5e69fb2a39"
+  },
+  "placement_bc_256_seed130000.mp4": {
+    "scope": "Predeclared native placement validation video; full episode reproduced",
+    "video_sha256": "985620f773e00ec5f9477162890403db410d8ab3a645e9ff6b2d72f4d79295bd",
+    "episode_sha256": "aad6b41ae30809c3ebddb05c642b0b807fba0e29e1c1b82337767ed3dec283a5"
+  },
+  "placement_bc_256_seed130001.mp4": {
+    "scope": "Predeclared native placement validation video; full episode reproduced",
+    "video_sha256": "8e33fc427cbf6a19468226b4871918d5040679427fa23a48742a07a0ec3a5de4",
+    "episode_sha256": "f67ab64bfaddc3c8c518027d080230816bd1ae4e1aea318a1caeb730de26a718"
+  },
+  "placement_raw_final_seed130000.mp4": {
+    "scope": "Predeclared native placement validation video; full episode reproduced",
+    "video_sha256": "a2fa7038b0c1f2337ac378d4adabc9f778052ae16336167f2ee9f97c6bbcc892",
+    "episode_sha256": "461903c13a36ce9e60296f9286754870a455ccc12cde8b32a449d1a867aee77b"
+  },
+  "placement_raw_final_seed130001.mp4": {
+    "scope": "Predeclared native placement validation video; full episode reproduced",
+    "video_sha256": "6d2caec5833bff524e7f540adc9d72fcc766147c75fac70d3a379fed0f387edf",
+    "episode_sha256": "eacc8a587866fd8e5efc1a7bdbba599d4973de250e4f980ae93c1d5d64a7e707"
+  },
+  "placement_normalized_final_seed130000.mp4": {
+    "scope": "Predeclared native placement validation video; full episode reproduced",
+    "video_sha256": "e7ede8ae44f001d5021881a459a6fb45916d76b9c818e780be9c74b0fda5128d",
+    "episode_sha256": "2ac9aef31008552821ec014a7061814d652badf8590b4aa8a0f2269f27f2ecc0"
+  },
+  "placement_normalized_final_seed130001.mp4": {
+    "scope": "Predeclared native placement validation video; full episode reproduced",
+    "video_sha256": "4a3b4a24ced0397352952af1555b31e0e3f5ec8e57b700dad8bc40c70472d802",
+    "episode_sha256": "8abdbae56746e65b6f45c9b5dd69395a29d86a13db017ca0fd8d297149063404"
+  }
+}

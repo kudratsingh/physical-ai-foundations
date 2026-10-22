@@ -1,0 +1,67 @@
+{
+  "teacher": {
+    "final_successes": 23,
+    "median_goal_distance": 0.025813247522658254,
+    "median_max_arm_speed": 0.052839403972029686,
+    "failures": {
+      "final_success": 23,
+      "reached_then_lost": 19,
+      "placed_but_moving": 0,
+      "lifted_without_success": 8,
+      "grasped_without_lift": 0,
+      "never_grasped": 0
+    }
+  },
+  "warm_initialized": {
+    "final_successes": 23,
+    "median_goal_distance": 0.025813247522658254,
+    "median_max_arm_speed": 0.052839403972029686,
+    "failures": {
+      "final_success": 23,
+      "reached_then_lost": 19,
+      "placed_but_moving": 0,
+      "lifted_without_success": 8,
+      "grasped_without_lift": 0,
+      "never_grasped": 0
+    }
+  },
+  "warm_final": {
+    "final_successes": 0,
+    "median_goal_distance": 0.08125079468584914,
+    "median_max_arm_speed": 0.28351086378097534,
+    "failures": {
+      "final_success": 0,
+      "reached_then_lost": 12,
+      "placed_but_moving": 4,
+      "lifted_without_success": 32,
+      "grasped_without_lift": 2,
+      "never_grasped": 0
+    }
+  },
+  "control_final": {
+    "final_successes": 0,
+    "median_goal_distance": 0.19966941186033046,
+    "median_max_arm_speed": 0.4246543049812317,
+    "failures": {
+      "final_success": 0,
+      "reached_then_lost": 0,
+      "placed_but_moving": 0,
+      "lifted_without_success": 0,
+      "grasped_without_lift": 0,
+      "never_grasped": 50
+    }
+  },
+  "warm_selected_secondary": {
+    "final_successes": 31,
+    "median_goal_distance": 0.019845769931698436,
+    "median_max_arm_speed": 0.06520313397049904,
+    "failures": {
+      "final_success": 31,
+      "reached_then_lost": 9,
+      "placed_but_moving": 0,
+      "lifted_without_success": 9,
+      "grasped_without_lift": 1,
+      "never_grasped": 0
+    }
+  }
+}

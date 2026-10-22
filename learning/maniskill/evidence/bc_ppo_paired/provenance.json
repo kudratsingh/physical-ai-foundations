@@ -1,0 +1,446 @@
+{
+  "verified_utc": "2026-10-22T23:26:56.300073+00:00",
+  "complete_required": true,
+  "finals_present": {
+    "warm": true,
+    "control": true
+  },
+  "all_final_budgets_verified": true,
+  "source_hashes": {
+    "bc_initialized_ppo.py": {
+      "archive_sha256": "69ed156f2efca248c9d2fdf069db167d4d06ae1750131ffeff8884b04963718f",
+      "current_sha256": "69ed156f2efca248c9d2fdf069db167d4d06ae1750131ffeff8884b04963718f"
+    },
+    "bc_ppo_policy.py": {
+      "archive_sha256": "f985a16f5113342c3445b1d85d7e689e80c9e5cfb7b72c785681df450086393f",
+      "current_sha256": "f985a16f5113342c3445b1d85d7e689e80c9e5cfb7b72c785681df450086393f"
+    },
+    "rng.py": {
+      "archive_sha256": "7b1178149af8612eb2481cdefa6c4a5f22dd2676edaebef2007c3e7c66c81c61",
+      "current_sha256": "7b1178149af8612eb2481cdefa6c4a5f22dd2676edaebef2007c3e7c66c81c61"
+    },
+    "training_metrics.py": {
+      "archive_sha256": "20eebdd6c51b4fe11eefb34a4dcea63e62e7f3fbdaac0d5436364c4130762b4c",
+      "current_sha256": "20eebdd6c51b4fe11eefb34a4dcea63e62e7f3fbdaac0d5436364c4130762b4c"
+    },
+    "experiment.py": {
+      "archive_sha256": "2bdbf9b000475b8bd76f6215febb19a0d1cc68b2cb337575bdc030cc3f7433e9",
+      "current_sha256": "2bdbf9b000475b8bd76f6215febb19a0d1cc68b2cb337575bdc030cc3f7433e9"
+    }
+  },
+  "launch_archive_present": true,
+  "protocol_sha256": "03de1e95745397e69ad944537f9baa17ca3220c7620bef142f7354d0da2e227a",
+  "teacher_sha256": "dc62b7c1ab5c26463d5a439c3d273cdb295a37920791da16985bba9f39bc6323",
+  "preflight_sha256": "fded7503edb18103817e209a4d7ad88c092820c129ffd20fc8ab275725214772",
+  "actual_checkpoints": {
+    "warm": {
+      "initial": {
+        "checkpoint_sha256": "34bf34ea4d86354af94f60ffe9d931fa09f56a56abd781c25453b979a6b0d88d",
+        "actor_fingerprint": "658bf0560dd574dd64a84af59a21da1f0e35b1c32499831d74515e088c520680",
+        "non_actor_fingerprint": "73ea742d1b20fcc587df7afc03743443398d9ef4f5ff6d5e8c4667e92778198d",
+        "recipe": {
+          "policy_class": "BCMeanGaussianPolicy",
+          "distribution_class": "DiagGaussianDistribution",
+          "timesteps": 0,
+          "observation_shape": [
+            42
+          ],
+          "action_shape": [
+            8
+          ],
+          "seed": 42,
+          "num_envs": 4,
+          "rollout_steps": 256,
+          "batch_size": 256,
+          "epochs": 8,
+          "learning_rate": 3e-05,
+          "gamma": 0.99,
+          "gae_lambda": 0.95,
+          "clip_range": 0.2,
+          "entropy_coefficient": 0.0,
+          "target_kl": 0.01,
+          "actor_feature_clip": null,
+          "critic_feature_clip": 10.0,
+          "shared_features": false,
+          "network_architecture": {
+            "pi": [
+              256,
+              256
+            ],
+            "vf": [
+              256,
+              256
+            ]
+          },
+          "activation": "ReLU",
+          "log_std": [
+            -3.0,
+            -3.0,
+            -3.0,
+            -3.0,
+            -3.0,
+            -3.0,
+            -3.0,
+            -3.0
+          ],
+          "optimizer_class": "Adam",
+          "optimizer_empty": true,
+          "optimizer_groups": [
+            {
+              "lr": 3e-05,
+              "betas": [
+                0.9,
+                0.999
+              ],
+              "eps": 1e-05,
+              "weight_decay": 0,
+              "amsgrad": false,
+              "maximize": false,
+              "foreach": null,
+              "capturable": false,
+              "differentiable": false,
+              "fused": null,
+              "decoupled_weight_decay": false
+            }
+          ],
+          "value_coefficient": 0.5,
+          "max_gradient_norm": 0.5,
+          "normalize_advantage": true
+        }
+      },
+      "final": {
+        "checkpoint_sha256": "6eb70d891f6823746b063161becb1e4831c5927033f3e10418b2b23f68f473df",
+        "recipe": {
+          "policy_class": "BCMeanGaussianPolicy",
+          "distribution_class": "DiagGaussianDistribution",
+          "timesteps": 1048576,
+          "observation_shape": [
+            42
+          ],
+          "action_shape": [
+            8
+          ],
+          "seed": 42,
+          "num_envs": 4,
+          "rollout_steps": 256,
+          "batch_size": 256,
+          "epochs": 8,
+          "learning_rate": 3e-05,
+          "gamma": 0.99,
+          "gae_lambda": 0.95,
+          "clip_range": 0.2,
+          "entropy_coefficient": 0.0,
+          "target_kl": 0.01,
+          "actor_feature_clip": null,
+          "critic_feature_clip": 10.0,
+          "shared_features": false,
+          "network_architecture": {
+            "pi": [
+              256,
+              256
+            ],
+            "vf": [
+              256,
+              256
+            ]
+          },
+          "activation": "ReLU",
+          "log_std": [
+            -2.998579740524292,
+            -3.000556707382202,
+            -3.000457525253296,
+            -2.9995789527893066,
+            -3.000133752822876,
+            -3.0000147819519043,
+            -3.0008742809295654,
+            -2.9996132850646973
+          ],
+          "optimizer_class": "Adam",
+          "optimizer_empty": false,
+          "optimizer_groups": [
+            {
+              "lr": 3e-05,
+              "betas": [
+                0.9,
+                0.999
+              ],
+              "eps": 1e-05,
+              "weight_decay": 0,
+              "amsgrad": false,
+              "maximize": false,
+              "foreach": null,
+              "capturable": false,
+              "differentiable": false,
+              "fused": null,
+              "decoupled_weight_decay": false
+            }
+          ],
+          "value_coefficient": 0.5,
+          "max_gradient_norm": 0.5,
+          "normalize_advantage": true
+        },
+        "training": {
+          "actual_timesteps": 1048576,
+          "elapsed_seconds": 1096.100103917066,
+          "complete": true
+        }
+      },
+      "selected_secondary": {
+        "checkpoint_sha256": "8305c448a0648e646681ba5fcc4d7d19af032b6bdeb8af162a154aaaecfc7add",
+        "recipe": {
+          "policy_class": "BCMeanGaussianPolicy",
+          "distribution_class": "DiagGaussianDistribution",
+          "timesteps": 65536,
+          "observation_shape": [
+            42
+          ],
+          "action_shape": [
+            8
+          ],
+          "seed": 42,
+          "num_envs": 4,
+          "rollout_steps": 256,
+          "batch_size": 256,
+          "epochs": 8,
+          "learning_rate": 3e-05,
+          "gamma": 0.99,
+          "gae_lambda": 0.95,
+          "clip_range": 0.2,
+          "entropy_coefficient": 0.0,
+          "target_kl": 0.01,
+          "actor_feature_clip": null,
+          "critic_feature_clip": 10.0,
+          "shared_features": false,
+          "network_architecture": {
+            "pi": [
+              256,
+              256
+            ],
+            "vf": [
+              256,
+              256
+            ]
+          },
+          "activation": "ReLU",
+          "log_std": [
+            -2.999722480773926,
+            -2.9997992515563965,
+            -3.000401496887207,
+            -2.999650716781616,
+            -2.9994328022003174,
+            -3.000258207321167,
+            -3.0002875328063965,
+            -3.0001060962677
+          ],
+          "optimizer_class": "Adam",
+          "optimizer_empty": false,
+          "optimizer_groups": [
+            {
+              "lr": 3e-05,
+              "betas": [
+                0.9,
+                0.999
+              ],
+              "eps": 1e-05,
+              "weight_decay": 0,
+              "amsgrad": false,
+              "maximize": false,
+              "foreach": null,
+              "capturable": false,
+              "differentiable": false,
+              "fused": null,
+              "decoupled_weight_decay": false
+            }
+          ],
+          "value_coefficient": 0.5,
+          "max_gradient_norm": 0.5,
+          "normalize_advantage": true
+        },
+        "selection": {
+          "timesteps": 65536,
+          "episodes": 10,
+          "successes": 10,
+          "success_once_rate": 1.0,
+          "success_at_end_rate": 1.0,
+          "success_once_95pct_wilson": [
+            0.7224598312333834,
+            1
+          ],
+          "return_mean": 38.13793339319527,
+          "return_std": 4.993243582164208,
+          "steps_mean": 50
+        }
+      }
+    },
+    "control": {
+      "initial": {
+        "checkpoint_sha256": "bcef559983168ae465b070fa92b02471ee43d3bb4ea04a708a737bdbaf80e170",
+        "actor_fingerprint": "5709eff157dd5cff2effcea1bf60b3cd418765449212949a452b03c0ba80cce2",
+        "non_actor_fingerprint": "73ea742d1b20fcc587df7afc03743443398d9ef4f5ff6d5e8c4667e92778198d",
+        "recipe": {
+          "policy_class": "BCMeanGaussianPolicy",
+          "distribution_class": "DiagGaussianDistribution",
+          "timesteps": 0,
+          "observation_shape": [
+            42
+          ],
+          "action_shape": [
+            8
+          ],
+          "seed": 42,
+          "num_envs": 4,
+          "rollout_steps": 256,
+          "batch_size": 256,
+          "epochs": 8,
+          "learning_rate": 3e-05,
+          "gamma": 0.99,
+          "gae_lambda": 0.95,
+          "clip_range": 0.2,
+          "entropy_coefficient": 0.0,
+          "target_kl": 0.01,
+          "actor_feature_clip": null,
+          "critic_feature_clip": 10.0,
+          "shared_features": false,
+          "network_architecture": {
+            "pi": [
+              256,
+              256
+            ],
+            "vf": [
+              256,
+              256
+            ]
+          },
+          "activation": "ReLU",
+          "log_std": [
+            -3.0,
+            -3.0,
+            -3.0,
+            -3.0,
+            -3.0,
+            -3.0,
+            -3.0,
+            -3.0
+          ],
+          "optimizer_class": "Adam",
+          "optimizer_empty": true,
+          "optimizer_groups": [
+            {
+              "lr": 3e-05,
+              "betas": [
+                0.9,
+                0.999
+              ],
+              "eps": 1e-05,
+              "weight_decay": 0,
+              "amsgrad": false,
+              "maximize": false,
+              "foreach": null,
+              "capturable": false,
+              "differentiable": false,
+              "fused": null,
+              "decoupled_weight_decay": false
+            }
+          ],
+          "value_coefficient": 0.5,
+          "max_gradient_norm": 0.5,
+          "normalize_advantage": true
+        }
+      },
+      "final": {
+        "checkpoint_sha256": "157fa0f1ae49a692a755faef8f015fb91e9008bf185103a1c62ff610b3332e46",
+        "recipe": {
+          "policy_class": "BCMeanGaussianPolicy",
+          "distribution_class": "DiagGaussianDistribution",
+          "timesteps": 1048576,
+          "observation_shape": [
+            42
+          ],
+          "action_shape": [
+            8
+          ],
+          "seed": 42,
+          "num_envs": 4,
+          "rollout_steps": 256,
+          "batch_size": 256,
+          "epochs": 8,
+          "learning_rate": 3e-05,
+          "gamma": 0.99,
+          "gae_lambda": 0.95,
+          "clip_range": 0.2,
+          "entropy_coefficient": 0.0,
+          "target_kl": 0.01,
+          "actor_feature_clip": null,
+          "critic_feature_clip": 10.0,
+          "shared_features": false,
+          "network_architecture": {
+            "pi": [
+              256,
+              256
+            ],
+            "vf": [
+              256,
+              256
+            ]
+          },
+          "activation": "ReLU",
+          "log_std": [
+            -2.999163866043091,
+            -3.000065565109253,
+            -3.002464771270752,
+            -3.000194787979126,
+            -3.0001730918884277,
+            -2.9993889331817627,
+            -3.0007402896881104,
+            -2.9991419315338135
+          ],
+          "optimizer_class": "Adam",
+          "optimizer_empty": false,
+          "optimizer_groups": [
+            {
+              "lr": 3e-05,
+              "betas": [
+                0.9,
+                0.999
+              ],
+              "eps": 1e-05,
+              "weight_decay": 0,
+              "amsgrad": false,
+              "maximize": false,
+              "foreach": null,
+              "capturable": false,
+              "differentiable": false,
+              "fused": null,
+              "decoupled_weight_decay": false
+            }
+          ],
+          "value_coefficient": 0.5,
+          "max_gradient_norm": 0.5,
+          "normalize_advantage": true
+        },
+        "training": {
+          "actual_timesteps": 1048576,
+          "elapsed_seconds": 1069.7940460001118,
+          "complete": true
+        }
+      }
+    }
+  },
+  "saved_prelearning_rng_fingerprint": "bcf948eb4b2d731fc35efcaeb391320efaba99d2e6172470e7e32eb07e0e39a9",
+  "rng_note": "Saved training-start fingerprints match; current RNG streams are preserved during verification. Historical RNG state is not reconstructed from checkpoints.",
+  "actual_initial_actor_equals_teacher": true,
+  "actual_initial_nonactor_pair_matches": true,
+  "actual_initial_optimizers_empty": true,
+  "teacher_initialized_test_identity": {
+    "episodes": 50,
+    "full_episode_identity": true,
+    "tolerance": 0
+  },
+  "result_sha256": {
+    "teacher": "0d28c8f6fa2df3c5cb2dd2dfcb5fe4cb459ecfb01531abcf22077fa557bc37a4",
+    "warm_initialized": "a9f7f40410d70757ebc8bc6a63741f4dd1f59d5bb6d523ce7431da4395f6068d",
+    "warm_final": "157b492a226e2afbd0f9c573e77cc19fa6e24c49b875c5a131e4d2878ef73bf0",
+    "control_final": "b93ae79a6c98567ca4ce55aba69c5289fcf735a369a915242ff4da11007b8a04",
+    "warm_selected_secondary": "2b5ad4ffe969c2e606e7e9a168e3679c11e11040b82a34d406325ea3b3eb59a8"
+  }
+}
