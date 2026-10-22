@@ -20,22 +20,23 @@ from .experiment import Config, evaluate, save_json, versions
 class BehaviorPolicy(nn.Module):
     policy_label = "Behavior cloning deterministic"
 
-    def __init__(self, mean=None, std=None):
+    def __init__(self, mean=None, std=None, obs_dim=35):
         super().__init__()
+        obs_dim = len(mean) if mean is not None else obs_dim
         self.register_buffer(
             "mean",
-            torch.zeros(35)
+            torch.zeros(obs_dim)
             if mean is None
             else torch.as_tensor(mean, dtype=torch.float32),
         )
         self.register_buffer(
             "std",
-            torch.ones(35)
+            torch.ones(obs_dim)
             if std is None
             else torch.as_tensor(std, dtype=torch.float32).clamp(min=1e-3),
         )
         self.net = nn.Sequential(
-            nn.Linear(35, 256),
+            nn.Linear(obs_dim, 256),
             nn.ReLU(),
             nn.Linear(256, 256),
             nn.ReLU(),
@@ -57,14 +58,17 @@ class BehaviorPolicy(nn.Module):
         return np.clip(action, -1, 1), None
 
     def save(self, path):
-        torch.save({"schema": 1, "state_dict": self.state_dict()}, path)
+        torch.save(
+            {"schema": 2, "obs_dim": len(self.mean), "state_dict": self.state_dict()},
+            path,
+        )
 
     @classmethod
     def load(cls, path):
         data = torch.load(path, map_location="cpu", weights_only=True)
-        if data["schema"] != 1:
+        if data["schema"] not in (1, 2):
             raise ValueError("Unsupported BC checkpoint schema")
-        model = cls()
+        model = cls(obs_dim=data.get("obs_dim", 35))
         model.load_state_dict(data["state_dict"])
         model.eval()
         return model
@@ -78,9 +82,17 @@ def fit(
     seed=42,
     interval=1000,
     rollout_validation=True,
+    task=None,
+    validation_seeds=None,
 ):
     if updates < 1 or interval < 1:
         raise ValueError("Positive update and validation intervals required")
+    task = task or Config()
+    validation_seeds = (
+        list(range(30000, 30010))
+        if validation_seeds is None
+        else list(validation_seeds)
+    )
     directory = Path(directory)
     directory.mkdir(parents=True, exist_ok=False)
     torch.set_num_threads(1)
@@ -95,7 +107,7 @@ def fit(
     history, best = [], None
     configuration = dict(
         algorithm="state-based behavior cloning",
-        architecture="35-256-256-8 ReLU/Tanh",
+        architecture=f"{observations.shape[1]}-256-256-8 ReLU/Tanh",
         seed=seed,
         updates=updates,
         batch_size=256,
@@ -106,13 +118,11 @@ def fit(
         validation_transitions=len(vx),
         action_label_preprocessing="clip recorded expert command to [-1,1], matching the controller",
         normalization="per-feature mean/std from training observations only, std floor 1e-3",
-        validation_rollout_seeds=list(range(30000, 30010))
-        if rollout_validation
-        else [],
+        validation_rollout_seeds=validation_seeds if rollout_validation else [],
         checkpoint_selection="validation success_once, then success_at_end, then negative demonstration validation MSE"
         if rollout_validation
         else "minimum demonstration validation MSE",
-        task=asdict(Config()),
+        task=asdict(task),
         versions=versions(),
     )
     save_json(directory / "config.json", configuration)
@@ -134,7 +144,7 @@ def fit(
                     update=update, train_mse=train_mse, validation_mse=validation_mse
                 )
                 if rollout_validation:
-                    result = evaluate(Config(), policy, list(range(30000, 30010)))
+                    result = evaluate(task, policy, validation_seeds)
                     point["rollout"] = result["summary"]
                     score = (
                         result["summary"]["success_once_rate"],

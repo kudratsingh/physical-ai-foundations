@@ -14,7 +14,11 @@ def sha256_file(path):
     return digest.hexdigest()
 
 
-def load_episodes(path):
+def load_episodes(path, env_id="PushCube-v1"):
+    dimensions = {"PushCube-v1": 35, "PickCube-v1": 42}
+    if env_id not in dimensions:
+        raise ValueError(f"Unsupported BC task: {env_id}")
+    obs_dim = dimensions[env_id]
     import h5py
 
     path = Path(path)
@@ -22,13 +26,13 @@ def load_episodes(path):
     info = metadata["env_info"]
     kwargs = info["env_kwargs"]
     if (
-        info["env_id"] != "PushCube-v1"
+        info["env_id"] != env_id
         or kwargs.get("control_mode") != "pd_joint_delta_pos"
         or kwargs.get("sim_backend") != "physx_cpu"
         or kwargs.get("obs_mode") != "state"
     ):
         raise ValueError(
-            "BC requires PushCube state observations, joint-delta actions and CPU replay"
+            f"BC requires {env_id} state observations, joint-delta actions and CPU replay"
         )
     episodes = []
     with h5py.File(path, "r") as data:
@@ -41,11 +45,11 @@ def load_episodes(path):
             if (
                 actions.ndim != 2
                 or actions.shape[1] != 8
-                or obs.shape != (len(actions) + 1, 35)
+                or obs.shape != (len(actions) + 1, obs_dim)
                 or not len(actions)
             ):
                 raise ValueError(
-                    f"{key}: expected T+1 observations and T actions, dimensions 35/8"
+                    f"{key}: expected T+1 observations and T actions, dimensions {obs_dim}/8"
                 )
             if not np.isfinite(obs).all() or not np.isfinite(actions).all():
                 raise ValueError(f"{key}: non-finite observation or action")

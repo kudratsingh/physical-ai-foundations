@@ -23,20 +23,30 @@ ROOT = Path(__file__).resolve().parents[1]
 
 def main():
     parser = argparse.ArgumentParser(description=__doc__)
+    parser.add_argument(
+        "--env-id", choices=["PushCube-v1", "PickCube-v1"], default="PushCube-v1"
+    )
     parser.add_argument("--count", type=int, default=512)
     parser.add_argument("--output", type=Path, default=ROOT / ".assets/bc_replay")
     args = parser.parse_args()
-    if not 1 <= args.count <= 1023:
-        parser.error("count must be 1 to 1023")
+    limit = 997 if args.env_id == "PickCube-v1" else 1023
+    url = URL.replace("PushCube-v1", args.env_id)
+    checksum = (
+        "b2d4afb30fa309755862b98c342e6ee18918253c93f3bbac16ed6670748f26d8"
+        if args.env_id == "PickCube-v1"
+        else ARCHIVE_SHA256
+    )
+    if not 1 <= args.count <= limit:
+        parser.error(f"count must be 1 to {limit}")
     raw = ROOT / ".assets/demos"
     raw.mkdir(parents=True, exist_ok=True)
-    archive = raw / "PushCube-v1.zip"
+    archive = raw / f"{args.env_id}.zip"
     if not archive.exists():
         temporary = archive.with_suffix(".zip.tmp")
-        with urlopen(URL, timeout=120) as response, temporary.open("wb") as destination:
+        with urlopen(url, timeout=120) as response, temporary.open("wb") as destination:
             shutil.copyfileobj(response, destination)
         temporary.replace(archive)
-    if sha256_file(archive) != ARCHIVE_SHA256:
+    if sha256_file(archive) != checksum:
         raise ValueError("Official demonstration archive checksum mismatch")
     with zipfile.ZipFile(archive) as package:
         for member in package.infolist():
@@ -44,7 +54,7 @@ def main():
             if not target.is_relative_to(raw.resolve()):
                 raise ValueError("Archive path escapes data directory")
         package.extractall(raw)
-    source = raw / "PushCube-v1/rl/trajectory.none.pd_joint_delta_pos.physx_cuda.h5"
+    source = raw / args.env_id / "rl/trajectory.none.pd_joint_delta_pos.physx_cuda.h5"
     metadata = source.with_suffix(".json")
     args.output.mkdir(parents=True, exist_ok=False)
     working = args.output / source.name
@@ -84,8 +94,8 @@ def main():
     save_json(
         args.output / "provenance.json",
         dict(
-            url=URL,
-            archive_sha256=ARCHIVE_SHA256,
+            url=url,
+            archive_sha256=checksum,
             source_hdf5_sha256=sha256_file(source),
             source_metadata_sha256=sha256_file(metadata),
             replayed_hdf5_sha256=sha256_file(result),

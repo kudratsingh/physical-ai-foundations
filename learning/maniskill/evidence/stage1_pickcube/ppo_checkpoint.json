@@ -1,0 +1,22 @@
+{
+  "sha256": "270b7236461ad1696a2337cda4dbbdfe3d03a3c3477c98f85916a0d0459d7530",
+  "selected": {
+    "timesteps": 1048576,
+    "episodes": 10,
+    "successes": 0,
+    "success_once_rate": 0.0,
+    "success_at_end_rate": 0.0,
+    "success_once_95pct_wilson": [
+      0,
+      0.2775401687666166
+    ],
+    "return_mean": 20.55517714135349,
+    "return_std": 1.0120304838200849,
+    "steps_mean": 50
+  },
+  "training": {
+    "actual_timesteps": 1048576,
+    "elapsed_seconds": 830.4391106669791,
+    "complete": true
+  }
+}

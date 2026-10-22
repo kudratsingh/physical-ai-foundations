@@ -65,3 +65,23 @@ def test_committed_results_agree_with_episode_evidence(folder, names):
             cube, goal = episode["final_cube_position"], episode["final_goal_position"]
             geometric_success = math.dist(cube[:2], goal[:2]) < 0.1 and cube[2] < 0.025
             assert geometric_success == episode["success_at_end"]
+
+
+@pytest.mark.parametrize(
+    "arguments",
+    [
+        ["--validation-interval", "0"],
+        ["--validation-episodes", "0"],
+        ["--validation-seed-start", "-1"],
+        ["--validation-seed-start", "10000", "--seed-start", "10000"],
+    ],
+)
+def test_invalid_validation_protocol_is_rejected_before_training(
+    monkeypatch, arguments
+):
+    from learning.maniskill.experiment import main
+
+    monkeypatch.setattr("sys.argv", ["experiment", "train", *arguments])
+    with pytest.raises(SystemExit) as exc:
+        main()
+    assert exc.value.code == 2

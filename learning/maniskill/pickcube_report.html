@@ -1,0 +1,143 @@
+<!doctype html>
+<html lang="en">
+  <meta charset="utf-8" /><meta
+    name="viewport"
+    content="width=device-width,initial-scale=1"
+  /><title>PickCube · Grasp, lift, hold</title
+  ><style>
+    body {
+      font: 16px/1.6 system-ui;
+      color: #17283b;
+      background: #f2f5fa;
+      margin: 0;
+    }
+    main {
+      max-width: 1160px;
+      margin: 40px auto;
+      padding: 0 24px;
+    }
+    h1 {
+      font-size: clamp(32px, 5vw, 52px);
+      line-height: 1.1;
+    }
+    section,
+    article {
+      background: white;
+      border: 1px solid #d7e1ed;
+      border-radius: 14px;
+      padding: 24px;
+      margin: 24px 0;
+    }
+    img,
+    video {
+      width: 100%;
+      border-radius: 8px;
+    }
+    .videos {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 20px;
+    }
+    .videos article {
+      margin: 0;
+    }
+    table {
+      width: 100%;
+      border-collapse: collapse;
+    }
+    td,
+    th {
+      text-align: left;
+      border-bottom: 1px solid #d7e1ed;
+      padding: 10px;
+    }
+    small {
+      color: #586c83;
+    }
+    a {
+      color: #1554ac;
+    }
+    @media (max-width: 680px) {
+      .videos {
+        grid-template-columns: 1fr;
+      }
+      main {
+        padding: 0 12px;
+      }
+      section,
+      article {
+        padding: 16px;
+      }
+    }
+  </style>
+  <main>
+    <small>PHYSICAL AI FOUNDATIONS · STAGE 1 · STATE BASELINES</small>
+    <h1>Grasp. Lift. Hold.</h1>
+    <p>
+      First Panda PickCube experiment: behavior cloning from 32 or 256
+      demonstrations versus PPO trained from scratch. Paired, full-length
+      evaluation on 50 reserved seeds.
+    </p>
+    <section>
+      <h2>The actual success test</h2>
+      <p>
+        The cube must be within <strong>2.5 cm in 3D</strong> of the green
+        target, and all seven arm-joint speeds must be at most
+        <strong>0.2 rad/s</strong>. A grasp or lift alone does not pass. Each
+        episode runs all 50 steps (2.5 seconds), even after temporary success.
+      </p>
+      <table>
+        <thead>
+          <tr>
+            <th>Policy</th>
+            <th>Success at any step</th>
+            <th>Success at end</th>
+            <th>Mean return</th>
+          </tr>
+        </thead>
+        <tbody>
+          {{ROWS}}
+        </tbody>
+      </table>
+      <p>
+        One training seed per condition. BC uses external expert data; PPO uses
+        1,048,576 environment transitions. Their data and compute costs are not
+        matched.
+      </p>
+    </section>
+    <section>
+      <h2>Learning curves and failure milestones</h2>
+      <a href="results.png"
+        ><img
+          src="results.png"
+          alt="PPO validation return, BC action error and validation success, test success, grasp/lift milestones, and exclusive failure categories"
+      /></a>
+      <p>
+        Checkpoint choices use validation only. Grasp and 5 cm lift are
+        diagnostics; the success table follows the unchanged upstream task.
+      </p>
+    </section>
+    <h2>Paired native simulator rollouts</h2>
+    <p>
+      The first three test seeds, declared before testing. These include
+      failures. The videos show the actual simulator, at 20 control steps per
+      second.
+    </p>
+    <div class="videos">{{CARDS}}</div>
+    <section>
+      <h2>Reproduce and inspect</h2>
+      <p>
+        <a href="protocol.json">Protocol and data split</a> ·
+        <a href="comparison.json">Metrics</a> ·
+        <a href="failures.json">Failure categories</a> ·
+        <a href="data_provenance.json">Demonstration provenance</a> ·
+        <a href="test_bc_256.json">All BC episodes</a> ·
+        <a href="test_ppo.json">All PPO episodes</a>
+      </p>
+      <small
+        >October 22, 2026 · Apple M3 Pro · PhysX CPU · State observations ·
+        Unchanged task reward and horizon.</small
+      >
+    </section>
+  </main>
+</html>

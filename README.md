@@ -2,11 +2,10 @@
 
 [![tests](https://github.com/kudratsingh/physical-ai-foundations/actions/workflows/tests.yml/badge.svg)](https://github.com/kudratsingh/physical-ai-foundations/actions/workflows/tests.yml)
 
-Stage 0 of my Physical AI roadmap: build the physical-world mental model that
-robot learning, VLAs and hardware all assume. Week 1 covers configuration
-space, coordinate frames and SE(3), a closed-loop MuJoCo simulation, and ROS 2
-basics. Everything here is meant to be small, reproducible and explainable
-without notes.
+Physical AI roadmap artifacts from foundations through robot learning. Stage 0
+covers configuration space, frames, control, ROS and the first learned policies.
+Stage 1 develops one manipulation benchmark with imitation and reinforcement
+learning. Experiments include reproducible settings, tests and measured evidence.
 
 ## Week 2 in progress
 
@@ -53,6 +52,13 @@ expert demonstrations replayed in CPU physics. It compares 32 versus 256 demos
 with the unchanged PPO checkpoint on fresh fixed test seeds, keeping task,
 observations, actions and horizon consistent. See the measured report and videos
 linked from the walkthrough.
+
+## Stage 1: Panda PickCube
+
+[PickCube state baselines](learning/maniskill/PICKCUBE_README.md) extend the same
+learning harness to grasping, lifting and holding at a 3D goal. The experiment
+compares 32/256-demo behavior cloning with fresh PPO training, records grasp/lift
+failure diagnostics, and includes paired native simulator videos.
 
 ## Week 1 tracks
 

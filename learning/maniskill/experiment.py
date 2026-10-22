@@ -1,6 +1,6 @@
 """ManiSkill CPU quickstart: smoke, train PPO, and evaluate fixed held-out episodes.
 
-Uses the upstream PushCube task and CPUGymWrapper, without changing task rewards,
+Uses the upstream PushCube/PickCube tasks and CPUGymWrapper, without changing task rewards,
 initialization, action semantics or success conditions. No ROS in the training loop.
 """
 
@@ -31,6 +31,7 @@ class Config:
     batch_size: int = 256
     epochs: int = 8
     validation_interval: int = 16384
+    validation_seed_start: int = 1000
     validation_episodes: int = 5
     test_episodes: int = 20
     test_seed_start: int = 10000
@@ -97,15 +98,26 @@ def env_thunk(config):
     return create
 
 
+def task_actors(base):
+    """Explicit task adapters keep geometry out of policy observations."""
+    if base.spec.id == "PushCube-v1":
+        return base.obj, base.goal_region
+    if base.spec.id == "PickCube-v1":
+        return base.cube, base.goal_site
+    raise ValueError(f"Unsupported trajectory task: {base.spec.id}")
+
+
 def trajectory_sample(env, step):
     """Privileged simulator state for rollout inspection, never extra policy input."""
     base = env.unwrapped
+    cube, goal = task_actors(base)
     return {
         "step": step,
         "tcp": base.agent.tcp.pose.p[0].cpu().tolist(),
-        "cube": base.obj.pose.p[0].cpu().tolist(),
-        "goal": base.goal_region.pose.p[0].cpu().tolist(),
+        "cube": cube.pose.p[0].cpu().tolist(),
+        "goal": goal.pose.p[0].cpu().tolist(),
         "qpos": base.agent.robot.get_qpos()[0].cpu().tolist(),
+        "qvel": base.agent.robot.get_qvel()[0].cpu().tolist(),
     }
 
 
@@ -125,7 +137,10 @@ def evaluate(config, policy, seeds, output=None, traces=False, video=False):
             obs, _ = env.reset(seed=seed)
             env.action_space.seed(seed + 1000000)
             total, success_once, first_success, step = 0.0, False, None, 0
-            trajectory = [trajectory_sample(env, 0)] if traces else []
+            initial = trajectory_sample(env, 0)
+            trajectory = [initial] if traces else []
+            grasped_once, placed_once = False, False
+            maximum_height = initial["cube"][2]
             writer = None
             if video:
                 import imageio.v2 as imageio
@@ -151,6 +166,10 @@ def evaluate(config, policy, seeds, output=None, traces=False, video=False):
                     if success and first_success is None:
                         first_success = step
                     success_once |= success
+                    grasped_once |= bool(info.get("is_grasped", False))
+                    placed_once |= bool(info.get("is_obj_placed", False))
+                    cube, _ = task_actors(env.unwrapped)
+                    maximum_height = max(maximum_height, float(cube.pose.p[0, 2]))
                     if traces:
                         trajectory.append(trajectory_sample(env, step))
                     if writer:
@@ -172,6 +191,17 @@ def evaluate(config, policy, seeds, output=None, traces=False, video=False):
                     trajectory=trajectory,
                     final_cube_position=terminal["cube"],
                     final_goal_position=terminal["goal"],
+                    final_arm_qvel=terminal["qvel"][:-2],
+                    grasped_once=grasped_once,
+                    placed_once=placed_once,
+                    initial_cube_height=initial["cube"][2],
+                    maximum_cube_height=maximum_height,
+                    lifted_5cm=maximum_height >= initial["cube"][2] + 0.05,
+                    final_goal_distance=float(
+                        np.linalg.norm(np.array(terminal["cube"]) - terminal["goal"])
+                    ),
+                    final_is_obj_placed=bool(info.get("is_obj_placed", False)),
+                    final_is_robot_static=bool(info.get("is_robot_static", False)),
                 )
             )
             episodes[-1]["return"] = episodes[-1].pop("return_")
@@ -227,6 +257,7 @@ def train(config, directory):
             super().__init__()
             self.next_eval = config.validation_interval
             self.points = []
+            self.best_score = None
 
         def _on_step(self):
             if self.num_timesteps >= self.next_eval:
@@ -234,11 +265,25 @@ def train(config, directory):
                 result = evaluate(
                     config,
                     self.model,
-                    list(range(1000, 1000 + config.validation_episodes)),
+                    list(
+                        range(
+                            config.validation_seed_start,
+                            config.validation_seed_start + config.validation_episodes,
+                        )
+                    ),
                 )
                 self.points.append(
                     {"timesteps": self.num_timesteps, **result["summary"]}
                 )
+                score = (
+                    result["summary"]["success_once_rate"],
+                    result["summary"]["success_at_end_rate"],
+                    result["summary"]["return_mean"],
+                )
+                if self.best_score is None or score > self.best_score:
+                    self.best_score = score
+                    self.model.save(directory / "best")
+                    save_json(directory / "selected.json", self.points[-1])
                 save_json(directory / "validation.json", self.points)
                 self.next_eval += config.validation_interval
             return True
@@ -281,7 +326,12 @@ def train(config, directory):
     seeds = list(
         range(config.test_seed_start, config.test_seed_start + config.test_episodes)
     )
-    for name, policy in [("ppo", model), ("random", "random"), ("zero", "zero")]:
+    selected = (
+        PPO.load(directory / "best.zip", device="cpu")
+        if config.env_id == "PickCube-v1" and (directory / "best.zip").exists()
+        else model
+    )
+    for name, policy in [("ppo", selected), ("random", "random"), ("zero", "zero")]:
         evaluate(config, policy, seeds, directory / f"test_{name}.json", traces=True)
     report(directory)
 
@@ -307,7 +357,7 @@ def report(directory):
         marker="o",
     )
     axes[0].set(
-        title="Validation return · seeds 1000+",
+        title=f"Validation return · seeds {results['ppo']['config'].get('validation_seed_start', 1000)}+",
         xlabel="Training transitions",
         ylabel="Mean episode return",
     )
@@ -349,6 +399,12 @@ def report(directory):
 def main():
     parser = argparse.ArgumentParser(description=__doc__)
     parser.add_argument("command", choices=["smoke", "train", "evaluate", "report"])
+    parser.add_argument(
+        "--env-id", choices=["PushCube-v1", "PickCube-v1"], default="PushCube-v1"
+    )
+    parser.add_argument("--validation-seed-start", type=int, default=1000)
+    parser.add_argument("--validation-episodes", type=int, default=5)
+    parser.add_argument("--validation-interval", type=int, default=16384)
     parser.add_argument("--output", type=Path)
     parser.add_argument("--checkpoint", type=Path)
     parser.add_argument("--policy", choices=["ppo", "random", "zero"], default="ppo")
@@ -363,11 +419,25 @@ def main():
         or args.num_envs < 1
         or args.episodes < 1
         or args.seed_start < 2000
+        or args.validation_interval < 1
+        or args.validation_episodes < 1
+        or args.validation_seed_start < 0
     ):
         parser.error(
             "Positive budgets required; test seeds must start at 2000 or higher"
         )
+    if args.command == "train" and set(
+        range(
+            args.validation_seed_start,
+            args.validation_seed_start + args.validation_episodes,
+        )
+    ) & set(range(args.seed_start, args.seed_start + args.episodes)):
+        parser.error("Training validation and final-test seeds must be disjoint")
     config = Config(
+        env_id=args.env_id,
+        validation_seed_start=args.validation_seed_start,
+        validation_episodes=args.validation_episodes,
+        validation_interval=args.validation_interval,
         total_timesteps=args.timesteps,
         num_envs=args.num_envs,
         test_episodes=args.episodes,
@@ -419,7 +489,7 @@ def main():
             metadata = args.checkpoint.parent / "config.json"
             if metadata.exists():
                 saved = json.loads(metadata.read_text())
-                config = Config(**{k: saved[k] for k in asdict(Config())})
+                config = Config(**{k: saved[k] for k in asdict(Config()) if k in saved})
                 config = replace(
                     config, test_episodes=args.episodes, test_seed_start=args.seed_start
                 )

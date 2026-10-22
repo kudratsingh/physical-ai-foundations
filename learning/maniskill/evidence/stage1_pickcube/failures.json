@@ -1,0 +1,42 @@
+{
+  "bc_32": {
+    "final_success": 10,
+    "reached_then_lost": 14,
+    "placed_but_moving": 1,
+    "lifted_without_success": 18,
+    "grasped_without_lift": 2,
+    "never_grasped": 5
+  },
+  "bc_256": {
+    "final_success": 27,
+    "reached_then_lost": 17,
+    "placed_but_moving": 0,
+    "lifted_without_success": 5,
+    "grasped_without_lift": 1,
+    "never_grasped": 0
+  },
+  "ppo": {
+    "final_success": 0,
+    "reached_then_lost": 0,
+    "placed_but_moving": 3,
+    "lifted_without_success": 46,
+    "grasped_without_lift": 1,
+    "never_grasped": 0
+  },
+  "random": {
+    "final_success": 0,
+    "reached_then_lost": 0,
+    "placed_but_moving": 0,
+    "lifted_without_success": 0,
+    "grasped_without_lift": 0,
+    "never_grasped": 50
+  },
+  "zero": {
+    "final_success": 0,
+    "reached_then_lost": 0,
+    "placed_but_moving": 0,
+    "lifted_without_success": 0,
+    "grasped_without_lift": 0,
+    "never_grasped": 50
+  }
+}

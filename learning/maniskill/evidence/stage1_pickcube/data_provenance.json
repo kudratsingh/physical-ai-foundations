@@ -1,0 +1,32 @@
+{
+  "url": "https://huggingface.co/datasets/haosulab/ManiSkill_Demonstrations/resolve/main/demos/PickCube-v1.zip?download=true",
+  "archive_sha256": "b2d4afb30fa309755862b98c342e6ee18918253c93f3bbac16ed6670748f26d8",
+  "source_hdf5_sha256": "b05851319021c290ed5e5055c03c776b434af5c9af98e13db2ab9159752b89c8",
+  "source_metadata_sha256": "f6bb8a6a94ff165fdcb65e6a47cd8c3f6ac8fa01d0ae77bc05613b88e27916d1",
+  "replayed_hdf5_sha256": "2d8338c260392e538c7f6c596ee604af25014b1098f0c46b4dde3445a5e3f75c",
+  "replayed_metadata_sha256": "bd5386f57124ea9a83b57fa0575b3789cb35ba2a0be7f5995d039bc1a328d1da",
+  "attempted": 997,
+  "retained": 593,
+  "preparation": "working metadata copy sets render_backend=cpu; first source state restored; actual actions replayed; successful CPU replays retained",
+  "command": [
+    "/Users/kudratsingh/Robotics/physical-ai-foundations/.worktrees/stage1-pickcube/.venv/bin/python",
+    "-m",
+    "mani_skill.trajectory.replay_trajectory",
+    "--traj-path",
+    "learning/.assets/pickcube_cpu_full/trajectory.none.pd_joint_delta_pos.physx_cuda.h5",
+    "--sim-backend",
+    "physx_cpu",
+    "--obs-mode",
+    "state",
+    "--target-control-mode",
+    "pd_joint_delta_pos",
+    "--use-first-env-state",
+    "--save-traj",
+    "--count",
+    "997",
+    "--num-envs",
+    "1",
+    "--reward-mode",
+    "normalized_dense"
+  ]
+}

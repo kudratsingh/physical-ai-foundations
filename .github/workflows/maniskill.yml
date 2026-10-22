@@ -2,7 +2,7 @@ name: ManiSkill
 
 on:
   pull_request:
-    branches: [main, feat/ros2-arm-integration, feat/week3-maniskill]
+    branches: [main, feat/ros2-arm-integration, feat/week3-maniskill, feat/week4-behavior-cloning]
   push:
     branches: [main]
 
@@ -32,8 +32,14 @@ jobs:
         run: |
           python -m learning.maniskill.experiment train --timesteps 1024 --num-envs 1 --episodes 2 --output learning/runs/ci
           python -m learning.maniskill.experiment evaluate --checkpoint learning/runs/ci/final.zip --episodes 2 --output learning/runs/ci/reloaded.json
+      - name: PickCube PPO checkpoint and evaluation smoke
+        run: |
+          python -m learning.maniskill.experiment train --env-id PickCube-v1 --timesteps 1024 --num-envs 1 --validation-interval 512 --validation-episodes 2 --validation-seed-start 40000 --episodes 2 --seed-start 50000 --output learning/runs/ci_pickcube
+          python -m learning.maniskill.experiment evaluate --checkpoint learning/runs/ci_pickcube/best.zip --episodes 2 --seed-start 50000 --output learning/runs/ci_pickcube/reloaded.json
       - uses: actions/upload-artifact@v4
         if: always()
         with:
           name: maniskill-smoke-results
-          path: learning/runs/ci
+          path: |
+            learning/runs/ci
+            learning/runs/ci_pickcube

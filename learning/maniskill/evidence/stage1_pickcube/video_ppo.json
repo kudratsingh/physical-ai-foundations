@@ -1,0 +1,150 @@
+{
+  "policy": "PPO deterministic",
+  "summary": {
+    "episodes": 3,
+    "successes": 0,
+    "success_once_rate": 0.0,
+    "success_at_end_rate": 0.0,
+    "success_once_95pct_wilson": [
+      0,
+      0.5615060804490177
+    ],
+    "return_mean": 21.96247588098049,
+    "return_std": 0.8347742366824613,
+    "steps_mean": 50
+  },
+  "episodes": [
+    {
+      "seed": 50000,
+      "steps": 50,
+      "success_once": false,
+      "success_at_end": false,
+      "first_success_step": null,
+      "final_cube_position": [
+        0.016438983380794525,
+        -0.09440416842699051,
+        0.21994537115097046
+      ],
+      "final_goal_position": [
+        -0.05708819627761841,
+        -0.07409892976284027,
+        0.23223485052585602
+      ],
+      "final_arm_qvel": [
+        0.5719509720802307,
+        0.30049246549606323,
+        -0.3625160753726959,
+        0.40395116806030273,
+        0.6062397360801697,
+        -0.6021612882614136,
+        -0.5453628301620483
+      ],
+      "grasped_once": true,
+      "placed_once": false,
+      "initial_cube_height": 0.019999999552965164,
+      "maximum_cube_height": 0.21994537115097046,
+      "lifted_5cm": true,
+      "final_goal_distance": 0.07726305824282632,
+      "final_is_obj_placed": false,
+      "final_is_robot_static": false,
+      "return": 22.78604795783758
+    },
+    {
+      "seed": 50001,
+      "steps": 50,
+      "success_once": false,
+      "success_at_end": false,
+      "first_success_step": null,
+      "final_cube_position": [
+        -0.020053841173648834,
+        0.0007429744582623243,
+        0.14411623775959015
+      ],
+      "final_goal_position": [
+        -0.004681214690208435,
+        0.06745148450136185,
+        0.08384138345718384
+      ],
+      "final_arm_qvel": [
+        -0.5974105000495911,
+        -0.14030016958713531,
+        0.5505959391593933,
+        -0.2141103595495224,
+        -0.17434599995613098,
+        0.33579906821250916,
+        0.6081768274307251
+      ],
+      "grasped_once": true,
+      "placed_once": false,
+      "initial_cube_height": 0.019999999552965164,
+      "maximum_cube_height": 0.2111005187034607,
+      "lifted_5cm": true,
+      "final_goal_distance": 0.09121075056343957,
+      "final_is_obj_placed": false,
+      "final_is_robot_static": false,
+      "return": 21.116933226585388
+    },
+    {
+      "seed": 50002,
+      "steps": 50,
+      "success_once": false,
+      "success_at_end": false,
+      "first_success_step": null,
+      "final_cube_position": [
+        0.05404482036828995,
+        0.053120218217372894,
+        0.2088644653558731
+      ],
+      "final_goal_position": [
+        0.027308322489261627,
+        -0.0270828977227211,
+        0.20044289529323578
+      ],
+      "final_arm_qvel": [
+        0.5523731708526611,
+        0.2788940370082855,
+        -0.4686099588871002,
+        0.46770673990249634,
+        0.5376994609832764,
+        -0.6655654907226562,
+        -0.6570545434951782
+      ],
+      "grasped_once": true,
+      "placed_once": false,
+      "initial_cube_height": 0.019999999552965164,
+      "maximum_cube_height": 0.2088644653558731,
+      "lifted_5cm": true,
+      "final_goal_distance": 0.08496059655896582,
+      "final_is_obj_placed": false,
+      "final_is_robot_static": false,
+      "return": 21.984446458518505
+    }
+  ],
+  "config": {
+    "env_id": "PickCube-v1",
+    "obs_mode": "state",
+    "control_mode": "pd_joint_delta_pos",
+    "reward_mode": "normalized_dense",
+    "seed": 42,
+    "total_timesteps": 1048576,
+    "num_envs": 4,
+    "rollout_steps": 256,
+    "batch_size": 256,
+    "epochs": 8,
+    "validation_interval": 131072,
+    "validation_seed_start": 40000,
+    "validation_episodes": 10,
+    "test_episodes": 50,
+    "test_seed_start": 50000
+  },
+  "versions": {
+    "python": "3.11.15",
+    "platform": "macOS-26.5.2-arm64-arm-64bit",
+    "mani-skill-nightly": "2026.8.2.400",
+    "sapien": "3.0.3",
+    "torch": "2.14.1",
+    "stable-baselines3": "2.9.0",
+    "gymnasium": "1.4.0",
+    "numpy": "2.4.6"
+  }
+}

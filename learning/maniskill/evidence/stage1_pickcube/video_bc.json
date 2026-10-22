@@ -1,0 +1,150 @@
+{
+  "policy": "Behavior cloning deterministic",
+  "summary": {
+    "episodes": 3,
+    "successes": 3,
+    "success_once_rate": 1.0,
+    "success_at_end_rate": 0.3333333333333333,
+    "success_once_95pct_wilson": [
+      0.43849391955098227,
+      1
+    ],
+    "return_mean": 37.192280016839504,
+    "return_std": 3.9182975524545824,
+    "steps_mean": 50
+  },
+  "episodes": [
+    {
+      "seed": 50000,
+      "steps": 50,
+      "success_once": true,
+      "success_at_end": false,
+      "first_success_step": 20,
+      "final_cube_position": [
+        -0.050674255937337875,
+        -0.048515066504478455,
+        0.2291361689567566
+      ],
+      "final_goal_position": [
+        -0.05708819627761841,
+        -0.07409892976284027,
+        0.23223485052585602
+      ],
+      "final_arm_qvel": [
+        0.014324255287647247,
+        -0.0048043509013950825,
+        -0.004936500918120146,
+        -0.009620953351259232,
+        -0.005489131901413202,
+        0.06708011031150818,
+        -0.05475659668445587
+      ],
+      "grasped_once": true,
+      "placed_once": true,
+      "initial_cube_height": 0.019999999552965164,
+      "maximum_cube_height": 0.2291361689567566,
+      "lifted_5cm": true,
+      "final_goal_distance": 0.026557005052865245,
+      "final_is_obj_placed": false,
+      "final_is_robot_static": true,
+      "return": 36.82350421696901
+    },
+    {
+      "seed": 50001,
+      "steps": 50,
+      "success_once": true,
+      "success_at_end": false,
+      "first_success_step": 17,
+      "final_cube_position": [
+        0.004226740449666977,
+        0.09405312687158585,
+        0.0914749950170517
+      ],
+      "final_goal_position": [
+        -0.004681214690208435,
+        0.06745148450136185,
+        0.08384138345718384
+      ],
+      "final_arm_qvel": [
+        0.003754265606403351,
+        -0.004517721943557262,
+        0.00486518070101738,
+        0.0013401394244283438,
+        0.005101202055811882,
+        0.028422746807336807,
+        -0.04606962203979492
+      ],
+      "grasped_once": true,
+      "placed_once": true,
+      "initial_cube_height": 0.019999999552965164,
+      "maximum_cube_height": 0.0914749950170517,
+      "lifted_5cm": true,
+      "final_goal_distance": 0.029073545828025134,
+      "final_is_obj_placed": false,
+      "final_is_robot_static": true,
+      "return": 33.47140748798847
+    },
+    {
+      "seed": 50002,
+      "steps": 50,
+      "success_once": true,
+      "success_at_end": true,
+      "first_success_step": 15,
+      "final_cube_position": [
+        0.03463667631149292,
+        -0.0045259082689881325,
+        0.2078256607055664
+      ],
+      "final_goal_position": [
+        0.027308322489261627,
+        -0.0270828977227211,
+        0.20044289529323578
+      ],
+      "final_arm_qvel": [
+        0.01573210582137108,
+        -0.010156122036278248,
+        -0.008143885992467403,
+        -0.01860421523451805,
+        0.01314841490238905,
+        0.0625990778207779,
+        -0.03163916990160942
+      ],
+      "grasped_once": true,
+      "placed_once": true,
+      "initial_cube_height": 0.019999999552965164,
+      "maximum_cube_height": 0.2078256607055664,
+      "lifted_5cm": true,
+      "final_goal_distance": 0.024840043641127883,
+      "final_is_obj_placed": true,
+      "final_is_robot_static": true,
+      "return": 41.28192834556103
+    }
+  ],
+  "config": {
+    "env_id": "PickCube-v1",
+    "obs_mode": "state",
+    "control_mode": "pd_joint_delta_pos",
+    "reward_mode": "normalized_dense",
+    "seed": 42,
+    "total_timesteps": 1048576,
+    "num_envs": 4,
+    "rollout_steps": 256,
+    "batch_size": 256,
+    "epochs": 8,
+    "validation_interval": 131072,
+    "validation_seed_start": 40000,
+    "validation_episodes": 10,
+    "test_episodes": 50,
+    "test_seed_start": 50000
+  },
+  "versions": {
+    "python": "3.11.15",
+    "platform": "macOS-26.5.2-arm64-arm-64bit",
+    "mani-skill-nightly": "2026.8.2.400",
+    "sapien": "3.0.3",
+    "torch": "2.14.1",
+    "stable-baselines3": "2.9.0",
+    "gymnasium": "1.4.0",
+    "numpy": "2.4.6"
+  }
+}
