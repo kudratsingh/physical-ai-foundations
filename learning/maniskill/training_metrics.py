@@ -32,7 +32,7 @@ class InstrumentedTask(gym.Wrapper):
         return observation, reward, terminated, truncated, info
 
 
-def training_env(config):
+def training_env(config, *, enhanced_determinism=False):
     """Picklable worker constructor, with identical simulation and observations."""
 
     def create():
@@ -40,7 +40,9 @@ def training_env(config):
         from stable_baselines3.common.monitor import Monitor
 
         torch.set_num_threads(1)
-        return Monitor(InstrumentedTask(make_env(config)))
+        return Monitor(
+            InstrumentedTask(make_env(config, enhanced_determinism=enhanced_determinism))
+        )
 
     return create
 

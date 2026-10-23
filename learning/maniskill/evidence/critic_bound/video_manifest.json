@@ -1,0 +1,44 @@
+[
+  {
+    "policy": "teacher",
+    "seed": 190000,
+    "file": "video_teacher_seed190000.mp4",
+    "sha256": "40890e0aa65e9ccad4d9663022ee28465b022637f380672dabc817db136a572a",
+    "all_nontrajectory_fields_match": true
+  },
+  {
+    "policy": "teacher",
+    "seed": 190001,
+    "file": "video_teacher_seed190001.mp4",
+    "sha256": "6cde93e437a342658320d6e5adc6661a5c5aaaba832e66fc82c4573df385ad9e",
+    "all_nontrajectory_fields_match": true
+  },
+  {
+    "policy": "raw_final",
+    "seed": 190000,
+    "file": "video_raw_final_seed190000.mp4",
+    "sha256": "531f38c4fbbf0489c6d93e908826ffc91c18a26c44f129bf1709da1319e3327b",
+    "all_nontrajectory_fields_match": true
+  },
+  {
+    "policy": "raw_final",
+    "seed": 190001,
+    "file": "video_raw_final_seed190001.mp4",
+    "sha256": "0563090b7cf9a864cd071d6656ca5dcc9825c0dcd2dad5e9f0538cdf22744a0e",
+    "all_nontrajectory_fields_match": true
+  },
+  {
+    "policy": "bounded_final",
+    "seed": 190000,
+    "file": "video_bounded_final_seed190000.mp4",
+    "sha256": "546133e11ffeaec0b85f3021c8e85b7cf5885184db49ef430835cc08aba2e39a",
+    "all_nontrajectory_fields_match": true
+  },
+  {
+    "policy": "bounded_final",
+    "seed": 190001,
+    "file": "video_bounded_final_seed190001.mp4",
+    "sha256": "a9ae6b0c09c6e25c5de67b51b179c93652de4d2bc757be6d1f021efdb2763831",
+    "all_nontrajectory_fields_match": true
+  }
+]

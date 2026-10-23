@@ -1,0 +1,38 @@
+{
+  "raw": {
+    "static": 162952,
+    "grasped_within_5cm": 172463,
+    "grasped_within_2_5cm": 127024,
+    "grasped_within_10cm": 192229,
+    "executed_arm_near_boundary": 55483,
+    "arm_speed_sum": 74661.44485397823,
+    "success": 124702,
+    "episodes": 5240,
+    "transitions": 262144,
+    "episodes_final_success": 3239,
+    "reward_sum": 178617.63636804186,
+    "placed": 127218,
+    "sampled_arm_outside_bounds": 49922,
+    "episodes_any_success": 4731,
+    "grasped": 218216,
+    "distance_sum": 17946.242412259016
+  },
+  "bounded": {
+    "static": 160854,
+    "grasped_within_5cm": 171055,
+    "grasped_within_2_5cm": 126773,
+    "grasped_within_10cm": 189910,
+    "executed_arm_near_boundary": 54517,
+    "arm_speed_sum": 76092.05141874216,
+    "success": 122399,
+    "episodes": 5240,
+    "transitions": 262144,
+    "episodes_final_success": 2823,
+    "reward_sum": 176122.09008688945,
+    "placed": 126983,
+    "sampled_arm_outside_bounds": 48966,
+    "episodes_any_success": 4697,
+    "grasped": 214415,
+    "distance_sum": 18289.525716425676
+  }
+}

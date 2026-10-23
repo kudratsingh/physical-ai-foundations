@@ -1,0 +1,5 @@
+{
+  "transitions": 4096,
+  "finite": true,
+  "excluded_from_training": true
+}

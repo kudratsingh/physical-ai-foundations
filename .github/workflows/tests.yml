@@ -4,7 +4,7 @@ on:
   push:
     branches: [main]
   pull_request:
-    branches: [main, feat/planar-arm-fk, feat/ros2-arm-integration, feat/week3-maniskill, feat/week4-behavior-cloning, feat/stage1-pickcube, feat/pickcube-ppo-debug, feat/pickcube-normalization, feat/pickcube-holding-diagnostics]
+    branches: [main, feat/planar-arm-fk, feat/ros2-arm-integration, feat/week3-maniskill, feat/week4-behavior-cloning, feat/stage1-pickcube, feat/pickcube-ppo-debug, feat/pickcube-normalization, feat/pickcube-holding-diagnostics, feat/pickcube-bc-initialized-ppo]
 
 jobs:
   test:

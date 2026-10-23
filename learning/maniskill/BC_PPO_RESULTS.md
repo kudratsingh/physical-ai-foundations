@@ -101,3 +101,10 @@ improvement. Reward/curriculum changes remain later, separate conditions.
 
 [Protocol](BC_PPO_PROTOCOL.md) · [Commands](BC_PPO_README.md) ·
 [Observation-only stopping and placement findings](PLACEMENT_RESULTS.md)
+
+A later [critic investigation](CRITIC_RESULTS.md) identified a reset-seeding gap
+in this historical training factory: parent RNG isolation/fingerprints do not
+seed the subprocess workers' Torch streams on subsequent unseeded auto-resets.
+The reported outcomes and exact actor transfer remain valid, but training reset
+streams were not fully controlled between arms. Future seeded-worker runs must
+be declared separately; this result is not retroactively labeled deterministic.

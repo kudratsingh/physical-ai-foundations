@@ -65,7 +65,7 @@ def versions():
     }
 
 
-def make_env(config, render=False):
+def make_env(config, render=False, *, enhanced_determinism=False):
     root = Path(__file__).resolve().parents[1]
     os.environ.setdefault("MS_ASSET_DIR", str(root / ".assets"))
     local_icd = root / ".runtime/MoltenVK_icd.json"
@@ -85,6 +85,7 @@ def make_env(config, render=False):
         render_backend="cpu",
         render_mode="rgb_array" if render else None,
         reconfiguration_freq=1,
+        enhanced_determinism=enhanced_determinism,
     )
     return CPUGymWrapper(env, ignore_terminations=True, record_metrics=False)
 

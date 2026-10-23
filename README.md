@@ -13,7 +13,15 @@ Stage 1 PickCube: investigating precision placement and stopping. Observation-on
 hybrid and BC/PPO placement diagnostics are complete. A paired BC-initialized PPO
 experiment is complete: selected warm PPO reached 31/50 final test successes,
 but fixed-budget fine-tuning regressed to 0/50 versus the teacher’s 23/50.
-See the [results and native visualization](learning/maniskill/BC_PPO_README.md).
+See the [BC/PPO results](learning/maniskill/BC_PPO_README.md).
+
+The [critic investigation](learning/maniskill/CRITIC_README.md) found runaway
+values and measured actor-update suppression under shared gradient clipping.
+Bounding the critic controlled that growth, but final success remained below
+the teacher (10/50 bounded, 7/50 raw, 28/50 teacher). Its visual report separates
+selected checkpoints and records the worker-reset reproducibility caveat.
+Future critic runs use seeded workers and deterministic per-episode resets; a
+native regression checks repeatable trajectories with varied scenes.
 Track headings describe implemented artifacts; owner oral gates remain separate.
 
 ## Week 2: arm kinematics, control, and ROS

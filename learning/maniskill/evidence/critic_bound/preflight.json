@@ -1,0 +1,19 @@
+{
+  "passed": true,
+  "full_episode_identity": true,
+  "canonical_fingerprint": "252d0a72b57adb5577b78dbf2fdf3198c58fb921c06033446c0b320a9a7947cd",
+  "validation_episodes": 10,
+  "teacher_summary": {
+    "episodes": 10,
+    "successes": 5,
+    "success_once_rate": 0.5,
+    "success_at_end_rate": 0.3,
+    "success_once_95pct_wilson": [
+      0.23658959361548731,
+      0.7634104063845126
+    ],
+    "return_mean": 30.384551130607726,
+    "return_std": 10.316718532104737,
+    "steps_mean": 50
+  }
+}

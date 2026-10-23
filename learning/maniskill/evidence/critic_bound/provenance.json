@@ -1,0 +1,22 @@
+{
+  "teacher_sha256": "dc62b7c1ab5c26463d5a439c3d273cdb295a37920791da16985bba9f39bc6323",
+  "paired_initialization": true,
+  "checkpoints": {
+    "raw_final": {
+      "checkpoint_sha256": "a268b006b5aa9370eccd493ce65b5dbb726ee733f4000615bb9f71658d788a9a",
+      "timesteps": 262144
+    },
+    "raw_best": {
+      "checkpoint_sha256": "c40e6ab77ab67f31c73598081e2d0a3a9e54e3a7ef6198864a2e2b8dfd20c072",
+      "timesteps": 98304
+    },
+    "bounded_final": {
+      "checkpoint_sha256": "829a72911c0a19bf450da11a4d67401500cad4f909936eefcdabf35740608f37",
+      "timesteps": 262144
+    },
+    "bounded_best": {
+      "checkpoint_sha256": "b6bbaebaea110d3a43176c6d7013c6db0bb85b0bd418d119316c097a69a48c2a",
+      "timesteps": 65536
+    }
+  }
+}
