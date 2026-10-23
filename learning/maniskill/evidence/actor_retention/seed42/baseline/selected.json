@@ -1,0 +1,14 @@
+{
+  "timesteps": 65536,
+  "episodes": 40,
+  "successes": 36,
+  "success_once_rate": 0.9,
+  "success_at_end_rate": 0.85,
+  "success_once_95pct_wilson": [
+    0.7694792561952611,
+    0.9604211124044252
+  ],
+  "return_mean": 36.3349600981921,
+  "return_std": 7.228658520797293,
+  "steps_mean": 50
+}

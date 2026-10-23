@@ -22,6 +22,12 @@ the teacher (10/50 bounded, 7/50 raw, 28/50 teacher). Its visual report separate
 selected checkpoints and records the worker-reset reproducibility caveat.
 Future critic runs use seeded workers and deterministic per-episode resets; a
 native regression checks repeatable trajectories with varied scenes.
+The [seeded actor-retention study](learning/maniskill/RETENTION_README.md) adds a
+frozen-teacher loss across three training seeds. Fixed-budget anchored success
+is 40/50, 37/50 and 25/50 versus paired baselines 10/50, 4/50 and 5/50; teacher
+success is 26/50. The third seed still regresses, and the native dashboard keeps
+that exception visible alongside the predeclared promising criterion.
+
 Track headings describe implemented artifacts; owner oral gates remain separate.
 
 ## Week 2: arm kinematics, control, and ROS

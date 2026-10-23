@@ -1,0 +1,141 @@
+{
+  "coefficient": 10.0,
+  "method": {
+    "seed": 91042,
+    "transitions": 8192,
+    "target_gradient_ratio": 0.5,
+    "coefficient_clip": [
+      0.01,
+      10.0
+    ],
+    "procedure": "At final separate pilot weights, median(.5*PPOactor_grad_norm/teacher_actor_grad_norm) over4minibatches oflast1024state rollout; at least3finite nonzero ratios. Discard allpilotweights/optimizer."
+  },
+  "probes": [
+    {
+      "ppo_actor_gradient_norm": 33.965078607924035,
+      "teacher_actor_gradient_norm": 0.6406378740539057,
+      "scaled_teacher_gradient_norm": 0.0,
+      "gradient_cosine": -0.12677194129082428,
+      "teacher_action_loss": 0.003266045358031988,
+      "arm_teacher_drift_mse_sum": 0.003262116340920329,
+      "gripper_teacher_drift_mse": 3.928768364858115e-06,
+      "exploration_variance": [
+        0.0024788787122815847,
+        0.0024772905744612217,
+        0.002479981631040573,
+        0.002478000707924366,
+        0.0024787758011370897,
+        0.0024788598529994488,
+        0.0024787154980003834,
+        0.002478898735716939
+      ],
+      "deterministic_mean_action_variance": [
+        0.10074006021022797,
+        0.30215978622436523,
+        0.07944867759943008,
+        0.08859746903181076,
+        0.10568366944789886,
+        0.26654747128486633,
+        0.1459289938211441,
+        0.3991003930568695
+      ]
+    },
+    {
+      "ppo_actor_gradient_norm": 26.748709880089454,
+      "teacher_actor_gradient_norm": 0.6817188525549239,
+      "scaled_teacher_gradient_norm": 0.0,
+      "gradient_cosine": 0.06411031026794045,
+      "teacher_action_loss": 0.0034941777121275663,
+      "arm_teacher_drift_mse_sum": 0.0034849592484533787,
+      "gripper_teacher_drift_mse": 9.218223567586392e-06,
+      "exploration_variance": [
+        0.0024788787122815847,
+        0.0024772905744612217,
+        0.002479981631040573,
+        0.002478000707924366,
+        0.0024787758011370897,
+        0.0024788598529994488,
+        0.0024787154980003834,
+        0.002478898735716939
+      ],
+      "deterministic_mean_action_variance": [
+        0.0996820256114006,
+        0.3343587815761566,
+        0.11113708466291428,
+        0.09739533811807632,
+        0.10792464017868042,
+        0.3019241392612457,
+        0.18465599417686462,
+        0.47023582458496094
+      ]
+    },
+    {
+      "ppo_actor_gradient_norm": 31.811784097806598,
+      "teacher_actor_gradient_norm": 0.6155040848504197,
+      "scaled_teacher_gradient_norm": 0.0,
+      "gradient_cosine": 0.11865800861237606,
+      "teacher_action_loss": 0.0031192731112241745,
+      "arm_teacher_drift_mse_sum": 0.0031008105725049973,
+      "gripper_teacher_drift_mse": 1.846246959757991e-05,
+      "exploration_variance": [
+        0.0024788787122815847,
+        0.0024772905744612217,
+        0.002479981631040573,
+        0.002478000707924366,
+        0.0024787758011370897,
+        0.0024788598529994488,
+        0.0024787154980003834,
+        0.002478898735716939
+      ],
+      "deterministic_mean_action_variance": [
+        0.09248597919940948,
+        0.29453831911087036,
+        0.07041579484939575,
+        0.08999668061733246,
+        0.08346762508153915,
+        0.264823853969574,
+        0.14289958775043488,
+        0.407876193523407
+      ]
+    },
+    {
+      "ppo_actor_gradient_norm": 29.094170995450057,
+      "teacher_actor_gradient_norm": 0.7691993158402594,
+      "scaled_teacher_gradient_norm": 0.0,
+      "gradient_cosine": -0.03188968318063918,
+      "teacher_action_loss": 0.003992021549493074,
+      "arm_teacher_drift_mse_sum": 0.003977903630584478,
+      "gripper_teacher_drift_mse": 1.411817083862843e-05,
+      "exploration_variance": [
+        0.0024788787122815847,
+        0.0024772905744612217,
+        0.002479981631040573,
+        0.002478000707924366,
+        0.0024787758011370897,
+        0.0024788598529994488,
+        0.0024787154980003834,
+        0.002478898735716939
+      ],
+      "deterministic_mean_action_variance": [
+        0.08957468718290329,
+        0.339629203081131,
+        0.09390250593423843,
+        0.09686997532844543,
+        0.09677190333604813,
+        0.32044070959091187,
+        0.16060109436511993,
+        0.5489650368690491
+      ]
+    }
+  ],
+  "ratios": [
+    26.508796922195458,
+    19.618578670548352,
+    25.84205765712954,
+    18.911984446884297
+  ],
+  "actual_timesteps": 8192,
+  "teacher_fingerprint": "5d0069ea8c9b15093858f1b11b85ed88f0a0c1caa305526ec012681e3bcac160",
+  "supervision": "Calibration training rollout only; no validation/test",
+  "pilot_discarded": true
+}

@@ -1,0 +1,265 @@
+{
+  "all_six_final_budgets_verified_before_evaluation": true,
+  "all_three_first_performance_rollout_summaries_match": true,
+  "teacher_sha256": "dc62b7c1ab5c26463d5a439c3d273cdb295a37920791da16985bba9f39bc6323",
+  "teacher_fingerprint": "5d0069ea8c9b15093858f1b11b85ed88f0a0c1caa305526ec012681e3bcac160",
+  "protocol_sha256": "fe900924763104b260d69d5626246d2431caff19ea196a6bd57f1c75eb78f2a8",
+  "calibration_sha256": "64f5a4ed8ab78571547d708dee18f63dfa6360fb452ffbd012781a9d64f883e2",
+  "coefficient": 10.0,
+  "actual_checkpoints": {
+    "42": {
+      "baseline": {
+        "initial": {
+          "sha256": "2ec172d4f1220a58986c3c78255dc517eb14a4ed63af7f898125b482dba82a67",
+          "recipe": {
+            "num_timesteps": 0,
+            "seed": 42,
+            "coefficient": 0.0,
+            "teacher_fingerprint": "5d0069ea8c9b15093858f1b11b85ed88f0a0c1caa305526ec012681e3bcac160",
+            "teacher_frozen": true,
+            "optimizer_empty": true,
+            "policy_class": "BoundedCriticPolicy",
+            "critic_bound": 100
+          }
+        },
+        "final": {
+          "sha256": "901f6a67b1d4d7c1f876a45340876ac62b40fbf1db2c074f6b566fe4ac6f0d1d",
+          "recipe": {
+            "num_timesteps": 262144,
+            "seed": 42,
+            "coefficient": 0.0,
+            "teacher_fingerprint": "5d0069ea8c9b15093858f1b11b85ed88f0a0c1caa305526ec012681e3bcac160",
+            "teacher_frozen": true,
+            "optimizer_empty": false,
+            "policy_class": "BoundedCriticPolicy",
+            "critic_bound": 100
+          }
+        },
+        "best": {
+          "sha256": "dbdd9ab8a936d0f29a6311c25c6a3ea7a123c1974ea4a0c2bb2a69fb3d212a82",
+          "recipe": {
+            "num_timesteps": 65536,
+            "seed": 42,
+            "coefficient": 0.0,
+            "teacher_fingerprint": "5d0069ea8c9b15093858f1b11b85ed88f0a0c1caa305526ec012681e3bcac160",
+            "teacher_frozen": true,
+            "optimizer_empty": false,
+            "policy_class": "BoundedCriticPolicy",
+            "critic_bound": 100
+          }
+        }
+      },
+      "anchored": {
+        "initial": {
+          "sha256": "781a3c261fd4285084a73362d05b63777ff09147db21532bad9b146a038c04ee",
+          "recipe": {
+            "num_timesteps": 0,
+            "seed": 42,
+            "coefficient": 10.0,
+            "teacher_fingerprint": "5d0069ea8c9b15093858f1b11b85ed88f0a0c1caa305526ec012681e3bcac160",
+            "teacher_frozen": true,
+            "optimizer_empty": true,
+            "policy_class": "BoundedCriticPolicy",
+            "critic_bound": 100
+          }
+        },
+        "final": {
+          "sha256": "f062e3c0fbc75c63f501c24068e2c27b0e2e785f61f1006792b4a7ac67aefebb",
+          "recipe": {
+            "num_timesteps": 262144,
+            "seed": 42,
+            "coefficient": 10.0,
+            "teacher_fingerprint": "5d0069ea8c9b15093858f1b11b85ed88f0a0c1caa305526ec012681e3bcac160",
+            "teacher_frozen": true,
+            "optimizer_empty": false,
+            "policy_class": "BoundedCriticPolicy",
+            "critic_bound": 100
+          }
+        },
+        "best": {
+          "sha256": "c3c0c41ecbfdd8a66622a93ff87f48ba31533e2c5182a8cf48692ea5ce638d5c",
+          "recipe": {
+            "num_timesteps": 262144,
+            "seed": 42,
+            "coefficient": 10.0,
+            "teacher_fingerprint": "5d0069ea8c9b15093858f1b11b85ed88f0a0c1caa305526ec012681e3bcac160",
+            "teacher_frozen": true,
+            "optimizer_empty": false,
+            "policy_class": "BoundedCriticPolicy",
+            "critic_bound": 100
+          }
+        }
+      }
+    },
+    "1042": {
+      "baseline": {
+        "initial": {
+          "sha256": "6c632dea430ecd7e575e4d12d7d05ea483ee76512b490eba0573b25ee35e66ae",
+          "recipe": {
+            "num_timesteps": 0,
+            "seed": 1042,
+            "coefficient": 0.0,
+            "teacher_fingerprint": "5d0069ea8c9b15093858f1b11b85ed88f0a0c1caa305526ec012681e3bcac160",
+            "teacher_frozen": true,
+            "optimizer_empty": true,
+            "policy_class": "BoundedCriticPolicy",
+            "critic_bound": 100
+          }
+        },
+        "final": {
+          "sha256": "a01390c49341e804f1960d6486a98881fc751a2538f686e4ee606ce8440fba5b",
+          "recipe": {
+            "num_timesteps": 262144,
+            "seed": 1042,
+            "coefficient": 0.0,
+            "teacher_fingerprint": "5d0069ea8c9b15093858f1b11b85ed88f0a0c1caa305526ec012681e3bcac160",
+            "teacher_frozen": true,
+            "optimizer_empty": false,
+            "policy_class": "BoundedCriticPolicy",
+            "critic_bound": 100
+          }
+        },
+        "best": {
+          "sha256": "00ad033f9b545266705715e8803b41b1931bae08bd1326b30a458e8bfcb67c1a",
+          "recipe": {
+            "num_timesteps": 65536,
+            "seed": 1042,
+            "coefficient": 0.0,
+            "teacher_fingerprint": "5d0069ea8c9b15093858f1b11b85ed88f0a0c1caa305526ec012681e3bcac160",
+            "teacher_frozen": true,
+            "optimizer_empty": false,
+            "policy_class": "BoundedCriticPolicy",
+            "critic_bound": 100
+          }
+        }
+      },
+      "anchored": {
+        "initial": {
+          "sha256": "f438b4a44390015af1ba2d5fe9844db6c9a3b337ce6284c9ce6df5a7f7549141",
+          "recipe": {
+            "num_timesteps": 0,
+            "seed": 1042,
+            "coefficient": 10.0,
+            "teacher_fingerprint": "5d0069ea8c9b15093858f1b11b85ed88f0a0c1caa305526ec012681e3bcac160",
+            "teacher_frozen": true,
+            "optimizer_empty": true,
+            "policy_class": "BoundedCriticPolicy",
+            "critic_bound": 100
+          }
+        },
+        "final": {
+          "sha256": "e2d0a794915a3eed34111b68666bd00ba614c715e825a5c76e42ea75d22ed4b9",
+          "recipe": {
+            "num_timesteps": 262144,
+            "seed": 1042,
+            "coefficient": 10.0,
+            "teacher_fingerprint": "5d0069ea8c9b15093858f1b11b85ed88f0a0c1caa305526ec012681e3bcac160",
+            "teacher_frozen": true,
+            "optimizer_empty": false,
+            "policy_class": "BoundedCriticPolicy",
+            "critic_bound": 100
+          }
+        },
+        "best": {
+          "sha256": "c2813a0a72b4eb7153b5681420fd6aca18c966184086a094343f5f63dda76c64",
+          "recipe": {
+            "num_timesteps": 196608,
+            "seed": 1042,
+            "coefficient": 10.0,
+            "teacher_fingerprint": "5d0069ea8c9b15093858f1b11b85ed88f0a0c1caa305526ec012681e3bcac160",
+            "teacher_frozen": true,
+            "optimizer_empty": false,
+            "policy_class": "BoundedCriticPolicy",
+            "critic_bound": 100
+          }
+        }
+      }
+    },
+    "2042": {
+      "baseline": {
+        "initial": {
+          "sha256": "9edfed37e8613cce0e0954d2b435681e9781d36c34f67f4a7f75a58fc6fc008f",
+          "recipe": {
+            "num_timesteps": 0,
+            "seed": 2042,
+            "coefficient": 0.0,
+            "teacher_fingerprint": "5d0069ea8c9b15093858f1b11b85ed88f0a0c1caa305526ec012681e3bcac160",
+            "teacher_frozen": true,
+            "optimizer_empty": true,
+            "policy_class": "BoundedCriticPolicy",
+            "critic_bound": 100
+          }
+        },
+        "final": {
+          "sha256": "fc853ae1d2ebec3bbc5d980fef157390b8a253cebf81c10f3a3c7711bad73d02",
+          "recipe": {
+            "num_timesteps": 262144,
+            "seed": 2042,
+            "coefficient": 0.0,
+            "teacher_fingerprint": "5d0069ea8c9b15093858f1b11b85ed88f0a0c1caa305526ec012681e3bcac160",
+            "teacher_frozen": true,
+            "optimizer_empty": false,
+            "policy_class": "BoundedCriticPolicy",
+            "critic_bound": 100
+          }
+        },
+        "best": {
+          "sha256": "54f85be29a8d66553650c8d8b12e199dd22dafa15a9db69218ab924d3daa0233",
+          "recipe": {
+            "num_timesteps": 98304,
+            "seed": 2042,
+            "coefficient": 0.0,
+            "teacher_fingerprint": "5d0069ea8c9b15093858f1b11b85ed88f0a0c1caa305526ec012681e3bcac160",
+            "teacher_frozen": true,
+            "optimizer_empty": false,
+            "policy_class": "BoundedCriticPolicy",
+            "critic_bound": 100
+          }
+        }
+      },
+      "anchored": {
+        "initial": {
+          "sha256": "d856f2f182208bc35cc8ff42c6fabf8e7c9b868201b45f2c2f33b93aa98afadd",
+          "recipe": {
+            "num_timesteps": 0,
+            "seed": 2042,
+            "coefficient": 10.0,
+            "teacher_fingerprint": "5d0069ea8c9b15093858f1b11b85ed88f0a0c1caa305526ec012681e3bcac160",
+            "teacher_frozen": true,
+            "optimizer_empty": true,
+            "policy_class": "BoundedCriticPolicy",
+            "critic_bound": 100
+          }
+        },
+        "final": {
+          "sha256": "413329b0b2fa80d8422bcccef8d254166e31d1c952305b470f7c5ebcb2163fbb",
+          "recipe": {
+            "num_timesteps": 262144,
+            "seed": 2042,
+            "coefficient": 10.0,
+            "teacher_fingerprint": "5d0069ea8c9b15093858f1b11b85ed88f0a0c1caa305526ec012681e3bcac160",
+            "teacher_frozen": true,
+            "optimizer_empty": false,
+            "policy_class": "BoundedCriticPolicy",
+            "critic_bound": 100
+          }
+        },
+        "best": {
+          "sha256": "0c08372dca1bd467b87ae44199758797672cd706b3624a39d40b32aac05aa377",
+          "recipe": {
+            "num_timesteps": 196608,
+            "seed": 2042,
+            "coefficient": 10.0,
+            "teacher_fingerprint": "5d0069ea8c9b15093858f1b11b85ed88f0a0c1caa305526ec012681e3bcac160",
+            "teacher_frozen": true,
+            "optimizer_empty": false,
+            "policy_class": "BoundedCriticPolicy",
+            "critic_bound": 100
+          }
+        }
+      }
+    }
+  },
+  "first_rollout_records_sha256": "9f15d68b9754257d4eaf4ec9c67c7b2b4767b38fea860585bb1a0a5bf0f858a1",
+  "comparison_source_sha256": "95ae41ca383f62275eabf4646159a9fec33b849b8d1e3d8b340ba4c84feebbd1"
+}

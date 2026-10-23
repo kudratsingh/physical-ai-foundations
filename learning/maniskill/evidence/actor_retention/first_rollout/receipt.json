@@ -1,0 +1,48 @@
+{
+  "passed": true,
+  "scope": "Actual pre-update SB3 collection, no train()/learn() or optimizer step",
+  "excluded": "Value predictions, advantages, returns and timeout-corrected buffer rewards may differ by design and are not paired fields",
+  "teacher_sha256": "dc62b7c1ab5c26463d5a439c3d273cdb295a37920791da16985bba9f39bc6323",
+  "source_sha256": "8a0fa7fcf6e8aa699d229f7bf333b5b710d9df95ea65240dbdb545d61758f8a6",
+  "versions": {
+    "python": "3.11.15",
+    "platform": "macOS-26.5.2-arm64-arm-64bit",
+    "mani-skill-nightly": "2026.8.2.400",
+    "sapien": "3.0.3",
+    "torch": "2.14.1",
+    "stable-baselines3": "2.9.0",
+    "gymnasium": "1.4.0",
+    "numpy": "2.4.6"
+  },
+  "seed": 42,
+  "worker_seeds": [
+    42,
+    43,
+    44,
+    45
+  ],
+  "workers": 4,
+  "stochastic_steps_per_worker": 256,
+  "transitions_per_arm": 1024,
+  "timeouts_per_arm": {
+    "raw": 20,
+    "bounded": 20
+  },
+  "canonical_fingerprint": "252d0a72b57adb5577b78dbf2fdf3198c58fb921c06033446c0b320a9a7947cd",
+  "parent_rng_before_rollout": "bcf948eb4b2d731fc35efcaeb391320efaba99d2e6172470e7e32eb07e0e39a9",
+  "optimizer_empty_after": true,
+  "actual_records": "first_rollout.jsonl.gz",
+  "records_sha256": "9f15d68b9754257d4eaf4ec9c67c7b2b4767b38fea860585bb1a0a5bf0f858a1",
+  "uncompressed_records_sha256": "c6e2befeb214e2d56447454ae4a78e57f03325f5a60a027844938343548bd434",
+  "maximum_absolute_difference": {
+    "initial_observation": 0.0,
+    "pre_observation": 0.0,
+    "post_observation": 0.0,
+    "gaussian_sample": 0.0,
+    "executed_command": 0.0,
+    "raw_reward": 0.0,
+    "terminal_observation": 0.0
+  },
+  "all_arrays_exactly_equal": true,
+  "absolute_tolerance": 1e-07
+}

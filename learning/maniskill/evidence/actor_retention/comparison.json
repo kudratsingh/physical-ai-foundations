@@ -1,0 +1,171 @@
+{
+  "teacher": {
+    "episodes": 50,
+    "successes": 39,
+    "success_once_rate": 0.78,
+    "success_at_end_rate": 0.52,
+    "success_once_95pct_wilson": [
+      0.6475818431054045,
+      0.8724621377569771
+    ],
+    "return_mean": 31.973098250851034,
+    "return_std": 7.89304319196843,
+    "steps_mean": 50
+  },
+  "seed42_baseline_final": {
+    "episodes": 50,
+    "successes": 41,
+    "success_once_rate": 0.82,
+    "success_at_end_rate": 0.2,
+    "success_once_95pct_wilson": [
+      0.6920368054529739,
+      0.902299172675462
+    ],
+    "return_mean": 30.940113104879856,
+    "return_std": 6.055440027694474,
+    "steps_mean": 50
+  },
+  "seed42_baseline_best": {
+    "episodes": 50,
+    "successes": 49,
+    "success_once_rate": 0.98,
+    "success_at_end_rate": 0.84,
+    "success_once_95pct_wilson": [
+      0.8950431352816304,
+      0.9964608319110235
+    ],
+    "return_mean": 36.26291791290045,
+    "return_std": 5.85096287647595,
+    "steps_mean": 50
+  },
+  "seed42_anchored_final": {
+    "episodes": 50,
+    "successes": 45,
+    "success_once_rate": 0.9,
+    "success_at_end_rate": 0.8,
+    "success_once_95pct_wilson": [
+      0.7863950966521162,
+      0.956524876008429
+    ],
+    "return_mean": 34.487372802048924,
+    "return_std": 8.696228791144172,
+    "steps_mean": 50
+  },
+  "seed42_anchored_best": {
+    "episodes": 50,
+    "successes": 43,
+    "success_once_rate": 0.86,
+    "success_at_end_rate": 0.76,
+    "success_once_95pct_wilson": [
+      0.738135428014719,
+      0.9304925473797714
+    ],
+    "return_mean": 33.92520394511521,
+    "return_std": 8.40133344502507,
+    "steps_mean": 50
+  },
+  "seed1042_baseline_final": {
+    "episodes": 50,
+    "successes": 17,
+    "success_once_rate": 0.34,
+    "success_at_end_rate": 0.08,
+    "success_once_95pct_wilson": [
+      0.2243676963506106,
+      0.47846431458517147
+    ],
+    "return_mean": 20.248148883506655,
+    "return_std": 12.32138638925911,
+    "steps_mean": 50
+  },
+  "seed1042_baseline_best": {
+    "episodes": 50,
+    "successes": 43,
+    "success_once_rate": 0.86,
+    "success_at_end_rate": 0.66,
+    "success_once_95pct_wilson": [
+      0.738135428014719,
+      0.9304925473797714
+    ],
+    "return_mean": 32.49263202525675,
+    "return_std": 10.355997218798734,
+    "steps_mean": 50
+  },
+  "seed1042_anchored_final": {
+    "episodes": 50,
+    "successes": 43,
+    "success_once_rate": 0.86,
+    "success_at_end_rate": 0.74,
+    "success_once_95pct_wilson": [
+      0.738135428014719,
+      0.9304925473797714
+    ],
+    "return_mean": 32.80654747508466,
+    "return_std": 10.317310987817761,
+    "steps_mean": 50
+  },
+  "seed1042_anchored_best": {
+    "episodes": 50,
+    "successes": 46,
+    "success_once_rate": 0.92,
+    "success_at_end_rate": 0.82,
+    "success_once_95pct_wilson": [
+      0.8116149745493629,
+      0.9684509967442093
+    ],
+    "return_mean": 35.00537155151367,
+    "return_std": 8.17568496019185,
+    "steps_mean": 50
+  },
+  "seed2042_baseline_final": {
+    "episodes": 50,
+    "successes": 31,
+    "success_once_rate": 0.62,
+    "success_at_end_rate": 0.1,
+    "success_once_95pct_wilson": [
+      0.4815019502239357,
+      0.7413740415742278
+    ],
+    "return_mean": 25.495136097446085,
+    "return_std": 9.657166563594108,
+    "steps_mean": 50
+  },
+  "seed2042_baseline_best": {
+    "episodes": 50,
+    "successes": 46,
+    "success_once_rate": 0.92,
+    "success_at_end_rate": 0.72,
+    "success_once_95pct_wilson": [
+      0.8116149745493629,
+      0.9684509967442093
+    ],
+    "return_mean": 35.89689866550267,
+    "return_std": 6.17642935206729,
+    "steps_mean": 50
+  },
+  "seed2042_anchored_final": {
+    "episodes": 50,
+    "successes": 38,
+    "success_once_rate": 0.76,
+    "success_at_end_rate": 0.5,
+    "success_once_95pct_wilson": [
+      0.6258705062480763,
+      0.8570274759812779
+    ],
+    "return_mean": 32.02783946432173,
+    "return_std": 7.863716745329274,
+    "steps_mean": 50
+  },
+  "seed2042_anchored_best": {
+    "episodes": 50,
+    "successes": 43,
+    "success_once_rate": 0.86,
+    "success_at_end_rate": 0.8,
+    "success_once_95pct_wilson": [
+      0.738135428014719,
+      0.9304925473797714
+    ],
+    "return_mean": 34.050161960944536,
+    "return_std": 9.026762319434226,
+    "steps_mean": 50
+  }
+}

@@ -1,0 +1,163 @@
+{
+  "summary": {
+    "episodes": 2,
+    "successes": 1,
+    "success_once_rate": 0.5,
+    "success_at_end_rate": 0.0,
+    "success_once_95pct_wilson": [
+      0.09452865480086614,
+      0.9054713451991339
+    ],
+    "return_mean": 27.34001962468028,
+    "return_std": 6.916593042433037,
+    "steps_mean": 50
+  },
+  "retention": {
+    "scope": "Passive deterministic evaluation; no command override. After-first-success means steps strictly after the first post-step success; later lost states remain included.",
+    "episodes": 2,
+    "steps": 100,
+    "episodes_ever_successful": 1,
+    "episodes_with_post_success_actions": 1,
+    "post_first_success_steps": 32,
+    "post_first_success_arm_command_l2_mean": 0.26103685370786955,
+    "post_first_success_arm_command_max_abs_mean": 0.15111267287284136,
+    "post_first_success_gripper_command_abs_mean": 0.999595083296299,
+    "post_first_success_gripper_motion_l2_mean": 1.5286201248379767e-06,
+    "post_first_success_max_arm_speed_mean": 0.08514108741655946,
+    "post_first_success_success_occupancy": 0.53125,
+    "post_first_success_placement_occupancy": 0.53125,
+    "post_first_success_teacher_arm_drift_l2_mean": 0.2932744733989239,
+    "post_first_success_teacher_gripper_drift_abs_mean": 1.1002644896507263e-05,
+    "teacher_arm_drift_l2_mean": 0.3592784667015076,
+    "teacher_gripper_drift_abs_mean": 0.0023062479496002196,
+    "success_to_failure_transitions": 1,
+    "success_to_failure_while_post_static": 1,
+    "ever_successful_but_final_failure_and_static": 1,
+    "geometry_official_mismatches": 0
+  },
+  "episode_retention": {
+    "240000": {
+      "scope": "Passive deterministic evaluation; no command override. After-first-success means steps strictly after the first post-step success; later lost states remain included.",
+      "episodes": 1,
+      "steps": 50,
+      "episodes_ever_successful": 0,
+      "episodes_with_post_success_actions": 0,
+      "post_first_success_steps": 0,
+      "post_first_success_arm_command_l2_mean": null,
+      "post_first_success_arm_command_max_abs_mean": null,
+      "post_first_success_gripper_command_abs_mean": null,
+      "post_first_success_gripper_motion_l2_mean": null,
+      "post_first_success_max_arm_speed_mean": null,
+      "post_first_success_success_occupancy": null,
+      "post_first_success_placement_occupancy": null,
+      "post_first_success_teacher_arm_drift_l2_mean": null,
+      "post_first_success_teacher_gripper_drift_abs_mean": null,
+      "teacher_arm_drift_l2_mean": 0.43022523939609525,
+      "teacher_gripper_drift_abs_mean": 0.0005078423023223877,
+      "success_to_failure_transitions": 0,
+      "success_to_failure_while_post_static": 0,
+      "ever_successful_but_final_failure_and_static": 0,
+      "geometry_official_mismatches": 0
+    },
+    "240001": {
+      "scope": "Passive deterministic evaluation; no command override. After-first-success means steps strictly after the first post-step success; later lost states remain included.",
+      "episodes": 1,
+      "steps": 50,
+      "episodes_ever_successful": 1,
+      "episodes_with_post_success_actions": 1,
+      "post_first_success_steps": 32,
+      "post_first_success_arm_command_l2_mean": 0.26103685370786955,
+      "post_first_success_arm_command_max_abs_mean": 0.15111267287284136,
+      "post_first_success_gripper_command_abs_mean": 0.999595083296299,
+      "post_first_success_gripper_motion_l2_mean": 1.5286201248379767e-06,
+      "post_first_success_max_arm_speed_mean": 0.08514108741655946,
+      "post_first_success_success_occupancy": 0.53125,
+      "post_first_success_placement_occupancy": 0.53125,
+      "post_first_success_teacher_arm_drift_l2_mean": 0.2932744733989239,
+      "post_first_success_teacher_gripper_drift_abs_mean": 1.1002644896507263e-05,
+      "teacher_arm_drift_l2_mean": 0.2883316940069199,
+      "teacher_gripper_drift_abs_mean": 0.004104653596878052,
+      "success_to_failure_transitions": 1,
+      "success_to_failure_while_post_static": 1,
+      "ever_successful_but_final_failure_and_static": 1,
+      "geometry_official_mismatches": 0
+    }
+  },
+  "immediate_success_conditioned": {
+    "conditioned_steps": 18,
+    "episodes": 1,
+    "arm_command_l2_mean": 0.25708698202398267,
+    "gripper_command_abs_mean": 0.9993623892466227,
+    "post_max_arm_speed_mean": 0.08720251048604648,
+    "teacher_arm_drift_l2_mean": 0.27395539813571507,
+    "teacher_gripper_drift_abs_mean": 1.1844767464531793e-05,
+    "next_state_success_occupancy": 0.9444444444444444,
+    "pre_grasp_fraction": 1.0,
+    "post_grasp_fraction": 1.0,
+    "success_to_failure_transitions": 1,
+    "scope": "Only commands whose immediate pre-state is officially successful; not the larger after-first-success subset."
+  },
+  "trace_associations": {
+    "all_steps": {
+      "steps": 100,
+      "episodes": 2,
+      "gripper_command_delta_pairs": 98,
+      "gripper_command_delta_abs_mean": 0.04084171810928656,
+      "pre_grasp_fraction": 0.83,
+      "post_grasp_fraction": 0.85
+    },
+    "after_first_success": {
+      "steps": 32,
+      "episodes": 1,
+      "gripper_command_delta_pairs": 32,
+      "gripper_command_delta_abs_mean": 4.725717008113861e-05,
+      "pre_grasp_fraction": 1.0,
+      "post_grasp_fraction": 1.0
+    },
+    "immediate_pre_success": {
+      "steps": 18,
+      "episodes": 1,
+      "gripper_command_delta_pairs": 18,
+      "gripper_command_delta_abs_mean": 7.52111275990804e-05,
+      "pre_grasp_fraction": 1.0,
+      "post_grasp_fraction": 1.0
+    },
+    "success_loss_steps": {
+      "steps": 1,
+      "episodes": 1,
+      "gripper_command_delta_pairs": 1,
+      "gripper_command_delta_abs_mean": 2.3603439331054688e-05,
+      "pre_grasp_fraction": 1.0,
+      "post_grasp_fraction": 1.0
+    },
+    "grasp_loss_steps": {
+      "steps": 0,
+      "episodes": 0,
+      "gripper_command_delta_pairs": 0,
+      "gripper_command_delta_abs_mean": null,
+      "pre_grasp_fraction": null,
+      "post_grasp_fraction": null
+    },
+    "success_loss_and_grasp_loss_same_step": 0,
+    "success_loss_without_grasp_loss_same_step": 1,
+    "ever_successful_static_displaced_final_failures": 1,
+    "loss_events": [
+      {
+        "seed": 240001,
+        "step": 36,
+        "success_lost": true,
+        "grasp_lost": false,
+        "pre_grasped": true,
+        "post_grasped": true,
+        "gripper_command": -0.9997898936271667,
+        "gripper_command_delta": -2.3603439331054688e-05,
+        "finger_position_delta_l2": 9.365419819332144e-07,
+        "pre_cube_goal_distance": 0.023933244481678294,
+        "post_cube_goal_distance": 0.025091076260018726,
+        "post_max_arm_speed": 0.08320847898721695,
+        "post_static": true
+      }
+    ],
+    "scope": "Gripper COMMAND delta is change from the previous command in that episode; first command has no delta. Finger-position delta is measured motion in metres. Same-step associations do not establish contact or control causality. No thresholds are chosen from test outcomes."
+  }
+}

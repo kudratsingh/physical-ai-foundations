@@ -1,0 +1,15 @@
+{
+  "coefficient": 10.0,
+  "unclipped_median_coefficient": 22.730318163838945,
+  "coefficient_hit_lower_limit": false,
+  "coefficient_hit_upper_limit": true,
+  "chosen_scaled_teacher_over_ppo_ratios": [
+    0.1886166322325087,
+    0.25486046078893887,
+    0.193483044823273,
+    0.2643826201339615
+  ],
+  "chosen_ratio_median": 0.22417175280610593,
+  "target_ratio": 0.5,
+  "scope": "Recomputed chosen coefficient times teacher gradient norm / PPO actor gradient norm on four calibration minibatches. Pilot's stored scaled_teacher_gradient_norm uses its coefficient zero and is not the chosen ratio."
+}

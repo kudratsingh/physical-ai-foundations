@@ -1,0 +1,42 @@
+{
+  "teacher_final_successes": 26,
+  "rows": [
+    {
+      "training_seed": 42,
+      "baseline_final": 10,
+      "baseline_best": 42,
+      "anchored_final": 40,
+      "anchored_best": 38,
+      "anchored_meets_five_success_margin_against_both": true,
+      "baseline_selected_minus_final": 32,
+      "anchored_selected_minus_final": -2
+    },
+    {
+      "training_seed": 1042,
+      "baseline_final": 4,
+      "baseline_best": 33,
+      "anchored_final": 37,
+      "anchored_best": 41,
+      "anchored_meets_five_success_margin_against_both": true,
+      "baseline_selected_minus_final": 29,
+      "anchored_selected_minus_final": 4
+    },
+    {
+      "training_seed": 2042,
+      "baseline_final": 5,
+      "baseline_best": 36,
+      "anchored_final": 25,
+      "anchored_best": 40,
+      "anchored_meets_five_success_margin_against_both": false,
+      "baseline_selected_minus_final": 31,
+      "anchored_selected_minus_final": 15
+    }
+  ],
+  "training_seed_margin_passes": 2,
+  "mean_baseline_selected_minus_final_successes": 30.666666666666668,
+  "mean_anchored_selected_minus_final_successes": 5.666666666666667,
+  "mean_collapse_decreased": true,
+  "promising_rule_met": true,
+  "rule": "Anchored final exceeds both teacher and paired baseline final by at least 5/50 in at least two of three training seeds, AND mean(selected-final) collapse decreases.",
+  "scope": "Descriptive predeclared rule, not statistical significance. The same 50 reset seeds are reused across three training seeds."
+}
