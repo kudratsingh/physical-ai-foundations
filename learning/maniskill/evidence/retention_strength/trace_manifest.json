@@ -1,0 +1,119 @@
+[
+  {
+    "condition": "teacher",
+    "directory": ".",
+    "episodes": "teacher.jsonl",
+    "episodes_sha256": "a53ddf8e34c9003f925c612dffdf35041b502d2ade0fec7aeb38841df40e7629",
+    "steps": "teacher_steps.jsonl.gz",
+    "steps_sha256": "28343f8b1773e8c4cac7f3ac458de8521996892ec08fe77a9648ff845372e0e9",
+    "step_records": 2500
+  },
+  {
+    "condition": "seed42_lambda10_final",
+    "directory": ".",
+    "episodes": "seed42_lambda10_final.jsonl",
+    "episodes_sha256": "34f828301e702c7037b86ff434fc1ea12495b8b1a81ecdadf63c9d7ae99fbf71",
+    "steps": "seed42_lambda10_final_steps.jsonl.gz",
+    "steps_sha256": "e1093a18e648b5fb50d90109f280dbfaa33bd361f82c65cd03775c2f3ee12753",
+    "step_records": 2500
+  },
+  {
+    "condition": "seed42_lambda10_best",
+    "directory": ".",
+    "episodes": "seed42_lambda10_best.jsonl",
+    "episodes_sha256": "58532264864dba6a85e233d8f4d3f631228851c141383543b71234908cc49aea",
+    "steps": "seed42_lambda10_best_steps.jsonl.gz",
+    "steps_sha256": "e9be62f5a16f97447b5be6f6d39c3edc84cad85a6d745a110d2960f0ecbfcf1c",
+    "step_records": 2500
+  },
+  {
+    "condition": "seed42_lambda25_final",
+    "directory": ".",
+    "episodes": "seed42_lambda25_final.jsonl",
+    "episodes_sha256": "cf93339cd6982351aa2cd105638035dd6069c0178dfcfe309fc85d84dec20c77",
+    "steps": "seed42_lambda25_final_steps.jsonl.gz",
+    "steps_sha256": "0e721c9ca72fd3ead71943a7d7c80bd8cc917c01fb43cc1478f6759c0181e00b",
+    "step_records": 2500
+  },
+  {
+    "condition": "seed42_lambda25_best",
+    "directory": ".",
+    "episodes": "seed42_lambda25_best.jsonl",
+    "episodes_sha256": "66b04408a6763af7238274a57e787766d01dcb7bd9b5f88c450422e586dbe107",
+    "steps": "seed42_lambda25_best_steps.jsonl.gz",
+    "steps_sha256": "80fecca4f8d48617e41a826157538af99ae163da09e2b5442218905dfaea9881",
+    "step_records": 2500
+  },
+  {
+    "condition": "seed1042_lambda10_final",
+    "directory": ".",
+    "episodes": "seed1042_lambda10_final.jsonl",
+    "episodes_sha256": "fd7dce4906dcee9e331097a82a79c037183806405c8521d294f23ed0b2193e9c",
+    "steps": "seed1042_lambda10_final_steps.jsonl.gz",
+    "steps_sha256": "eb769a538d017211e1abaa3e9cae6356698cb78a83ef436ee25e664ff4f74e3c",
+    "step_records": 2500
+  },
+  {
+    "condition": "seed1042_lambda10_best",
+    "directory": ".",
+    "episodes": "seed1042_lambda10_best.jsonl",
+    "episodes_sha256": "8bffb660524f76b7531ad4a788e78bce6e612a2d11c61db24499d0717226732c",
+    "steps": "seed1042_lambda10_best_steps.jsonl.gz",
+    "steps_sha256": "ece338ae8553baa5f7ae5070aa0211ea8be8a13b0bc7c57546e332e8fe32fbc4",
+    "step_records": 2500
+  },
+  {
+    "condition": "seed1042_lambda25_final",
+    "directory": ".",
+    "episodes": "seed1042_lambda25_final.jsonl",
+    "episodes_sha256": "4043d43c42fa35b5004f5557f617576c8fe8d744f49c5b6c0494b579ca45f5d8",
+    "steps": "seed1042_lambda25_final_steps.jsonl.gz",
+    "steps_sha256": "03b5674dba4da7566c5f24c2388045d6640be44f5b7aac18b4abb41f674b0120",
+    "step_records": 2500
+  },
+  {
+    "condition": "seed1042_lambda25_best",
+    "directory": ".",
+    "episodes": "seed1042_lambda25_best.jsonl",
+    "episodes_sha256": "7cdba20d9b17398390b0d1ff6ebc49e91f055091f7dddd9e6e501534817c0ae6",
+    "steps": "seed1042_lambda25_best_steps.jsonl.gz",
+    "steps_sha256": "7288901f3f0475f0786727df0ee25896ebc74624fa8568f9c239aba6f6ba375d",
+    "step_records": 2500
+  },
+  {
+    "condition": "seed2042_lambda10_final",
+    "directory": ".",
+    "episodes": "seed2042_lambda10_final.jsonl",
+    "episodes_sha256": "2770954b465f90f8d3f8cc9c2b320ee460fc8b4803c94a4bef9d3dff4dc99a80",
+    "steps": "seed2042_lambda10_final_steps.jsonl.gz",
+    "steps_sha256": "8440e6b724dbb17d4a02e33a96b61f21a3295aed8387eff286c11a90d4290556",
+    "step_records": 2500
+  },
+  {
+    "condition": "seed2042_lambda10_best",
+    "directory": ".",
+    "episodes": "seed2042_lambda10_best.jsonl",
+    "episodes_sha256": "d4c945f5e4b40dca36b1b474cb3ad60c8fadbae7dbefc1fa0d4b1257f1d685e4",
+    "steps": "seed2042_lambda10_best_steps.jsonl.gz",
+    "steps_sha256": "90ef9429b24a68b752e142deb095adc2dedde552c0ad4efdc24eb48af600fb1a",
+    "step_records": 2500
+  },
+  {
+    "condition": "seed2042_lambda25_final",
+    "directory": ".",
+    "episodes": "seed2042_lambda25_final.jsonl",
+    "episodes_sha256": "2b5236aff4d4984add5385422049d1f50042fc43fe0f0f20e7522ca7c756a5a9",
+    "steps": "seed2042_lambda25_final_steps.jsonl.gz",
+    "steps_sha256": "95222fd06ae403da1c6c2beaab0b66965c78f0b51bc18d6b6c734a5c1c482bfb",
+    "step_records": 2500
+  },
+  {
+    "condition": "seed2042_lambda25_best",
+    "directory": ".",
+    "episodes": "seed2042_lambda25_best.jsonl",
+    "episodes_sha256": "d407cd8972923f0bc9b3cc3b102826b279ddf1e1f154310e659921ad446c55cc",
+    "steps": "seed2042_lambda25_best_steps.jsonl.gz",
+    "steps_sha256": "0804736be35b4e5e961e917a8b17c3b3a8fee569054e34d6a0d19f33e70199c1",
+    "step_records": 2500
+  }
+]

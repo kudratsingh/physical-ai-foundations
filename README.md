@@ -28,6 +28,12 @@ is 40/50, 37/50 and 25/50 versus paired baselines 10/50, 4/50 and 5/50; teacher
 success is 26/50. The third seed still regresses, and the native dashboard keeps
 that exception visible alongside the predeclared promising criterion.
 
+The [fixed-strength ablation](learning/maniskill/STRENGTH_README.md) compares λ10
+with λ25 on fresh paired tests. Final successes change 40→36, 40→37 and 32→37
+out of 50; the teacher scores 31/50 on this new reset list. Stronger anchoring
+helps the targeted seed but fails the predeclared criterion by sacrificing other
+gains. Its report preserves every successful-then-displaced final trajectory.
+
 Track headings describe implemented artifacts; owner oral gates remain separate.
 
 ## Week 2: arm kinematics, control, and ROS

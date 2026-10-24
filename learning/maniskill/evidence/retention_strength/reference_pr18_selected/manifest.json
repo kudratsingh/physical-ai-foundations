@@ -1,0 +1,60 @@
+{
+  "reference_commit": "e88cb5c",
+  "models": [
+    {
+      "training_seed": 42,
+      "selected": {
+        "timesteps": 262144,
+        "episodes": 40,
+        "successes": 36,
+        "success_once_rate": 0.9,
+        "success_at_end_rate": 0.775,
+        "success_once_95pct_wilson": [
+          0.7694792561952611,
+          0.9604211124044252
+        ],
+        "return_mean": 35.0680729907006,
+        "return_std": 7.218361243600805,
+        "steps_mean": 50
+      },
+      "checkpoint_sha256": "c3c0c41ecbfdd8a66622a93ff87f48ba31533e2c5182a8cf48692ea5ce638d5c"
+    },
+    {
+      "training_seed": 1042,
+      "selected": {
+        "timesteps": 196608,
+        "episodes": 40,
+        "successes": 37,
+        "success_once_rate": 0.925,
+        "success_at_end_rate": 0.8,
+        "success_once_95pct_wilson": [
+          0.8013546984090248,
+          0.9741644432281419
+        ],
+        "return_mean": 35.21038312641904,
+        "return_std": 7.816910234481316,
+        "steps_mean": 50
+      },
+      "checkpoint_sha256": "c2813a0a72b4eb7153b5681420fd6aca18c966184086a094343f5f63dda76c64"
+    },
+    {
+      "training_seed": 2042,
+      "selected": {
+        "timesteps": 196608,
+        "episodes": 40,
+        "successes": 36,
+        "success_once_rate": 0.9,
+        "success_at_end_rate": 0.775,
+        "success_once_95pct_wilson": [
+          0.7694792561952611,
+          0.9604211124044252
+        ],
+        "return_mean": 35.28283074907959,
+        "return_std": 8.001945417618618,
+        "steps_mean": 50
+      },
+      "checkpoint_sha256": "0c08372dca1bd467b87ae44199758797672cd706b3624a39d40b32aac05aa377"
+    }
+  ],
+  "evaluation_in_this_study": false
+}

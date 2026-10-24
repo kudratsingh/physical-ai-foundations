@@ -1,0 +1,317 @@
+{
+  "rows": [
+    {
+      "training_seed": 42,
+      "lambda25_vs_lambda10_final": {
+        "reference": "seed42_lambda10_final",
+        "candidate": "seed42_lambda25_final",
+        "new_successes": 2,
+        "reference_successes_lost": 6,
+        "new_success_reset_seeds": [
+          250010,
+          250048
+        ],
+        "lost_success_reset_seeds": [
+          250003,
+          250013,
+          250027,
+          250029,
+          250034,
+          250043
+        ],
+        "retained_successes": 34,
+        "paired_resets": 50
+      },
+      "lambda10_vs_teacher_final": {
+        "reference": "teacher",
+        "candidate": "seed42_lambda10_final",
+        "new_successes": 12,
+        "reference_successes_lost": 3,
+        "new_success_reset_seeds": [
+          250002,
+          250003,
+          250006,
+          250007,
+          250008,
+          250011,
+          250013,
+          250026,
+          250027,
+          250029,
+          250034,
+          250047
+        ],
+        "lost_success_reset_seeds": [
+          250010,
+          250046,
+          250048
+        ],
+        "retained_successes": 28,
+        "paired_resets": 50
+      },
+      "lambda10_final_vs_selected": {
+        "reference": "seed42_lambda10_best",
+        "candidate": "seed42_lambda10_final",
+        "new_successes": 1,
+        "reference_successes_lost": 1,
+        "new_success_reset_seeds": [
+          250027
+        ],
+        "lost_success_reset_seeds": [
+          250010
+        ],
+        "retained_successes": 39,
+        "paired_resets": 50
+      },
+      "lambda25_vs_teacher_final": {
+        "reference": "teacher",
+        "candidate": "seed42_lambda25_final",
+        "new_successes": 7,
+        "reference_successes_lost": 2,
+        "new_success_reset_seeds": [
+          250002,
+          250006,
+          250007,
+          250008,
+          250011,
+          250026,
+          250047
+        ],
+        "lost_success_reset_seeds": [
+          250043,
+          250046
+        ],
+        "retained_successes": 29,
+        "paired_resets": 50
+      },
+      "lambda25_final_vs_selected": {
+        "reference": "seed42_lambda25_best",
+        "candidate": "seed42_lambda25_final",
+        "new_successes": 0,
+        "reference_successes_lost": 5,
+        "new_success_reset_seeds": [],
+        "lost_success_reset_seeds": [
+          250013,
+          250014,
+          250039,
+          250040,
+          250043
+        ],
+        "retained_successes": 36,
+        "paired_resets": 50
+      }
+    },
+    {
+      "training_seed": 1042,
+      "lambda25_vs_lambda10_final": {
+        "reference": "seed1042_lambda10_final",
+        "candidate": "seed1042_lambda25_final",
+        "new_successes": 1,
+        "reference_successes_lost": 4,
+        "new_success_reset_seeds": [
+          250014
+        ],
+        "lost_success_reset_seeds": [
+          250003,
+          250007,
+          250039,
+          250043
+        ],
+        "retained_successes": 36,
+        "paired_resets": 50
+      },
+      "lambda10_vs_teacher_final": {
+        "reference": "teacher",
+        "candidate": "seed1042_lambda10_final",
+        "new_successes": 9,
+        "reference_successes_lost": 0,
+        "new_success_reset_seeds": [
+          250002,
+          250003,
+          250006,
+          250007,
+          250008,
+          250011,
+          250013,
+          250039,
+          250047
+        ],
+        "lost_success_reset_seeds": [],
+        "retained_successes": 31,
+        "paired_resets": 50
+      },
+      "lambda10_final_vs_selected": {
+        "reference": "seed1042_lambda10_best",
+        "candidate": "seed1042_lambda10_final",
+        "new_successes": 1,
+        "reference_successes_lost": 6,
+        "new_success_reset_seeds": [
+          250048
+        ],
+        "lost_success_reset_seeds": [
+          250017,
+          250026,
+          250027,
+          250034,
+          250037,
+          250040
+        ],
+        "retained_successes": 39,
+        "paired_resets": 50
+      },
+      "lambda25_vs_teacher_final": {
+        "reference": "teacher",
+        "candidate": "seed1042_lambda25_final",
+        "new_successes": 7,
+        "reference_successes_lost": 1,
+        "new_success_reset_seeds": [
+          250002,
+          250006,
+          250008,
+          250011,
+          250013,
+          250014,
+          250047
+        ],
+        "lost_success_reset_seeds": [
+          250043
+        ],
+        "retained_successes": 30,
+        "paired_resets": 50
+      },
+      "lambda25_final_vs_selected": {
+        "reference": "seed1042_lambda25_best",
+        "candidate": "seed1042_lambda25_final",
+        "new_successes": 6,
+        "reference_successes_lost": 4,
+        "new_success_reset_seeds": [
+          250008,
+          250013,
+          250014,
+          250019,
+          250047,
+          250048
+        ],
+        "lost_success_reset_seeds": [
+          250007,
+          250021,
+          250039,
+          250043
+        ],
+        "retained_successes": 31,
+        "paired_resets": 50
+      }
+    },
+    {
+      "training_seed": 2042,
+      "lambda25_vs_lambda10_final": {
+        "reference": "seed2042_lambda10_final",
+        "candidate": "seed2042_lambda25_final",
+        "new_successes": 6,
+        "reference_successes_lost": 1,
+        "new_success_reset_seeds": [
+          250009,
+          250011,
+          250013,
+          250015,
+          250044,
+          250046
+        ],
+        "lost_success_reset_seeds": [
+          250006
+        ],
+        "retained_successes": 31,
+        "paired_resets": 50
+      },
+      "lambda10_vs_teacher_final": {
+        "reference": "teacher",
+        "candidate": "seed2042_lambda10_final",
+        "new_successes": 6,
+        "reference_successes_lost": 5,
+        "new_success_reset_seeds": [
+          250002,
+          250006,
+          250007,
+          250027,
+          250039,
+          250047
+        ],
+        "lost_success_reset_seeds": [
+          250009,
+          250015,
+          250043,
+          250044,
+          250046
+        ],
+        "retained_successes": 26,
+        "paired_resets": 50
+      },
+      "lambda10_final_vs_selected": {
+        "reference": "seed2042_lambda10_best",
+        "candidate": "seed2042_lambda10_final",
+        "new_successes": 2,
+        "reference_successes_lost": 13,
+        "new_success_reset_seeds": [
+          250027,
+          250048
+        ],
+        "lost_success_reset_seeds": [
+          250003,
+          250008,
+          250009,
+          250011,
+          250012,
+          250015,
+          250026,
+          250034,
+          250037,
+          250040,
+          250043,
+          250044,
+          250046
+        ],
+        "retained_successes": 30,
+        "paired_resets": 50
+      },
+      "lambda25_vs_teacher_final": {
+        "reference": "teacher",
+        "candidate": "seed2042_lambda25_final",
+        "new_successes": 7,
+        "reference_successes_lost": 1,
+        "new_success_reset_seeds": [
+          250002,
+          250007,
+          250011,
+          250013,
+          250027,
+          250039,
+          250047
+        ],
+        "lost_success_reset_seeds": [
+          250043
+        ],
+        "retained_successes": 30,
+        "paired_resets": 50
+      },
+      "lambda25_final_vs_selected": {
+        "reference": "seed2042_lambda25_best",
+        "candidate": "seed2042_lambda25_final",
+        "new_successes": 3,
+        "reference_successes_lost": 3,
+        "new_success_reset_seeds": [
+          250007,
+          250039,
+          250046
+        ],
+        "lost_success_reset_seeds": [
+          250006,
+          250014,
+          250043
+        ],
+        "retained_successes": 34,
+        "paired_resets": 50
+      }
+    }
+  ],
+  "scope": "Same fresh reset pairs within each comparison. Selected policies are secondary and validation-selected. Shared resets are not independent trials across training seeds."
+}

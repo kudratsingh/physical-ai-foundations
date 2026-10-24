@@ -1,0 +1,470 @@
+[
+  {
+    "condition": "seed42_lambda10_final",
+    "selection": "ALL episodes that succeeded at least once and finish with actual 3D distance>0.025m; sorted reset seeds, no favorable-case selection",
+    "cases": [
+      {
+        "reset_seed": 250010,
+        "first_success_step": 12,
+        "final_distance_m": 0.02566015872014591,
+        "final_static": true,
+        "final_max_arm_speed_rad_s": 0.03554190322756767
+      },
+      {
+        "reset_seed": 250012,
+        "first_success_step": 27,
+        "final_distance_m": 0.030145745396665844,
+        "final_static": true,
+        "final_max_arm_speed_rad_s": 0.057766228914260864
+      },
+      {
+        "reset_seed": 250014,
+        "first_success_step": 7,
+        "final_distance_m": 0.23962405069208945,
+        "final_static": false,
+        "final_max_arm_speed_rad_s": 0.5880435705184937
+      },
+      {
+        "reset_seed": 250017,
+        "first_success_step": 13,
+        "final_distance_m": 0.030305484190338468,
+        "final_static": true,
+        "final_max_arm_speed_rad_s": 0.04991014301776886
+      },
+      {
+        "reset_seed": 250037,
+        "first_success_step": 14,
+        "final_distance_m": 0.032016638274750465,
+        "final_static": true,
+        "final_max_arm_speed_rad_s": 0.04523702710866928
+      },
+      {
+        "reset_seed": 250040,
+        "first_success_step": 20,
+        "final_distance_m": 0.026041859645760612,
+        "final_static": true,
+        "final_max_arm_speed_rad_s": 0.06919561326503754
+      },
+      {
+        "reset_seed": 250046,
+        "first_success_step": 15,
+        "final_distance_m": 0.030084240190176238,
+        "final_static": true,
+        "final_max_arm_speed_rad_s": 0.06365975737571716
+      },
+      {
+        "reset_seed": 250048,
+        "first_success_step": 35,
+        "final_distance_m": 0.027891117195125055,
+        "final_static": true,
+        "final_max_arm_speed_rad_s": 0.0860888734459877
+      }
+    ],
+    "plots": [
+      "trajectories_seed42_lambda10_final_01.png"
+    ]
+  },
+  {
+    "condition": "seed42_lambda25_final",
+    "selection": "ALL episodes that succeeded at least once and finish with actual 3D distance>0.025m; sorted reset seeds, no favorable-case selection",
+    "cases": [
+      {
+        "reset_seed": 250003,
+        "first_success_step": 12,
+        "final_distance_m": 0.02863506572723664,
+        "final_static": true,
+        "final_max_arm_speed_rad_s": 0.03672226518392563
+      },
+      {
+        "reset_seed": 250012,
+        "first_success_step": 27,
+        "final_distance_m": 0.029967253320192025,
+        "final_static": true,
+        "final_max_arm_speed_rad_s": 0.06162949651479721
+      },
+      {
+        "reset_seed": 250013,
+        "first_success_step": 17,
+        "final_distance_m": 0.026167536640847065,
+        "final_static": true,
+        "final_max_arm_speed_rad_s": 0.013151503168046474
+      },
+      {
+        "reset_seed": 250014,
+        "first_success_step": 7,
+        "final_distance_m": 0.25611242110290133,
+        "final_static": false,
+        "final_max_arm_speed_rad_s": 0.7470510005950928
+      },
+      {
+        "reset_seed": 250017,
+        "first_success_step": 14,
+        "final_distance_m": 0.029264164214750983,
+        "final_static": true,
+        "final_max_arm_speed_rad_s": 0.032914601266384125
+      },
+      {
+        "reset_seed": 250027,
+        "first_success_step": 10,
+        "final_distance_m": 0.030234267700067725,
+        "final_static": true,
+        "final_max_arm_speed_rad_s": 0.05425167828798294
+      },
+      {
+        "reset_seed": 250034,
+        "first_success_step": 16,
+        "final_distance_m": 0.029340459588369023,
+        "final_static": true,
+        "final_max_arm_speed_rad_s": 0.07378754019737244
+      },
+      {
+        "reset_seed": 250037,
+        "first_success_step": 14,
+        "final_distance_m": 0.034065567628703455,
+        "final_static": true,
+        "final_max_arm_speed_rad_s": 0.03863102197647095
+      },
+      {
+        "reset_seed": 250040,
+        "first_success_step": 21,
+        "final_distance_m": 0.026619581321390456,
+        "final_static": true,
+        "final_max_arm_speed_rad_s": 0.058013610541820526
+      },
+      {
+        "reset_seed": 250046,
+        "first_success_step": 15,
+        "final_distance_m": 0.02978049343428979,
+        "final_static": true,
+        "final_max_arm_speed_rad_s": 0.07072243094444275
+      }
+    ],
+    "plots": [
+      "trajectories_seed42_lambda25_final_01.png"
+    ]
+  },
+  {
+    "condition": "seed1042_lambda10_final",
+    "selection": "ALL episodes that succeeded at least once and finish with actual 3D distance>0.025m; sorted reset seeds, no favorable-case selection",
+    "cases": [
+      {
+        "reset_seed": 250014,
+        "first_success_step": 7,
+        "final_distance_m": 0.22271913095085555,
+        "final_static": false,
+        "final_max_arm_speed_rad_s": 0.7122634053230286
+      },
+      {
+        "reset_seed": 250017,
+        "first_success_step": 13,
+        "final_distance_m": 0.03134599464352825,
+        "final_static": true,
+        "final_max_arm_speed_rad_s": 0.05161363631486893
+      },
+      {
+        "reset_seed": 250026,
+        "first_success_step": 36,
+        "final_distance_m": 0.02964212390145959,
+        "final_static": true,
+        "final_max_arm_speed_rad_s": 0.05699767917394638
+      },
+      {
+        "reset_seed": 250027,
+        "first_success_step": 10,
+        "final_distance_m": 0.026144325329191698,
+        "final_static": true,
+        "final_max_arm_speed_rad_s": 0.03758220002055168
+      },
+      {
+        "reset_seed": 250029,
+        "first_success_step": 21,
+        "final_distance_m": 0.028974929049271146,
+        "final_static": true,
+        "final_max_arm_speed_rad_s": 0.07130200415849686
+      },
+      {
+        "reset_seed": 250034,
+        "first_success_step": 15,
+        "final_distance_m": 0.034025183385315974,
+        "final_static": true,
+        "final_max_arm_speed_rad_s": 0.07946678251028061
+      },
+      {
+        "reset_seed": 250037,
+        "first_success_step": 14,
+        "final_distance_m": 0.02572395318966517,
+        "final_static": true,
+        "final_max_arm_speed_rad_s": 0.036399081349372864
+      },
+      {
+        "reset_seed": 250040,
+        "first_success_step": 19,
+        "final_distance_m": 0.026767091339430907,
+        "final_static": true,
+        "final_max_arm_speed_rad_s": 0.05166984349489212
+      }
+    ],
+    "plots": [
+      "trajectories_seed1042_lambda10_final_01.png"
+    ]
+  },
+  {
+    "condition": "seed1042_lambda25_final",
+    "selection": "ALL episodes that succeeded at least once and finish with actual 3D distance>0.025m; sorted reset seeds, no favorable-case selection",
+    "cases": [
+      {
+        "reset_seed": 250003,
+        "first_success_step": 11,
+        "final_distance_m": 0.029544994307884886,
+        "final_static": true,
+        "final_max_arm_speed_rad_s": 0.037813279777765274
+      },
+      {
+        "reset_seed": 250007,
+        "first_success_step": 18,
+        "final_distance_m": 0.033152657301316626,
+        "final_static": true,
+        "final_max_arm_speed_rad_s": 0.06907154619693756
+      },
+      {
+        "reset_seed": 250012,
+        "first_success_step": 27,
+        "final_distance_m": 0.032224980595094405,
+        "final_static": true,
+        "final_max_arm_speed_rad_s": 0.05760359764099121
+      },
+      {
+        "reset_seed": 250017,
+        "first_success_step": 13,
+        "final_distance_m": 0.03123539356298927,
+        "final_static": true,
+        "final_max_arm_speed_rad_s": 0.050746850669384
+      },
+      {
+        "reset_seed": 250026,
+        "first_success_step": 36,
+        "final_distance_m": 0.026352610035448934,
+        "final_static": true,
+        "final_max_arm_speed_rad_s": 0.051738012582063675
+      },
+      {
+        "reset_seed": 250027,
+        "first_success_step": 10,
+        "final_distance_m": 0.029551692600446128,
+        "final_static": true,
+        "final_max_arm_speed_rad_s": 0.04008447006344795
+      },
+      {
+        "reset_seed": 250034,
+        "first_success_step": 16,
+        "final_distance_m": 0.033575347436062324,
+        "final_static": true,
+        "final_max_arm_speed_rad_s": 0.07300948351621628
+      },
+      {
+        "reset_seed": 250037,
+        "first_success_step": 14,
+        "final_distance_m": 0.027610716194935325,
+        "final_static": true,
+        "final_max_arm_speed_rad_s": 0.03578602150082588
+      },
+      {
+        "reset_seed": 250040,
+        "first_success_step": 20,
+        "final_distance_m": 0.02564683259868118,
+        "final_static": true,
+        "final_max_arm_speed_rad_s": 0.0669623613357544
+      }
+    ],
+    "plots": [
+      "trajectories_seed1042_lambda25_final_01.png"
+    ]
+  },
+  {
+    "condition": "seed2042_lambda10_final",
+    "selection": "ALL episodes that succeeded at least once and finish with actual 3D distance>0.025m; sorted reset seeds, no favorable-case selection",
+    "cases": [
+      {
+        "reset_seed": 250003,
+        "first_success_step": 12,
+        "final_distance_m": 0.0350823146772173,
+        "final_static": true,
+        "final_max_arm_speed_rad_s": 0.04083256050944328
+      },
+      {
+        "reset_seed": 250009,
+        "first_success_step": 11,
+        "final_distance_m": 0.03262783486950407,
+        "final_static": true,
+        "final_max_arm_speed_rad_s": 0.0633629709482193
+      },
+      {
+        "reset_seed": 250011,
+        "first_success_step": 25,
+        "final_distance_m": 0.02581144226501541,
+        "final_static": true,
+        "final_max_arm_speed_rad_s": 0.058353230357170105
+      },
+      {
+        "reset_seed": 250012,
+        "first_success_step": 26,
+        "final_distance_m": 0.02950518872114297,
+        "final_static": true,
+        "final_max_arm_speed_rad_s": 0.07456497848033905
+      },
+      {
+        "reset_seed": 250013,
+        "first_success_step": 19,
+        "final_distance_m": 0.02555159165834528,
+        "final_static": true,
+        "final_max_arm_speed_rad_s": 0.015583865344524384
+      },
+      {
+        "reset_seed": 250014,
+        "first_success_step": 7,
+        "final_distance_m": 0.028329929939346184,
+        "final_static": true,
+        "final_max_arm_speed_rad_s": 0.038027022033929825
+      },
+      {
+        "reset_seed": 250015,
+        "first_success_step": 26,
+        "final_distance_m": 0.02627549789103574,
+        "final_static": true,
+        "final_max_arm_speed_rad_s": 0.062204938381910324
+      },
+      {
+        "reset_seed": 250017,
+        "first_success_step": 13,
+        "final_distance_m": 0.02734083679170036,
+        "final_static": true,
+        "final_max_arm_speed_rad_s": 0.06322930008172989
+      },
+      {
+        "reset_seed": 250029,
+        "first_success_step": 21,
+        "final_distance_m": 0.034502574257519084,
+        "final_static": true,
+        "final_max_arm_speed_rad_s": 0.07389429211616516
+      },
+      {
+        "reset_seed": 250034,
+        "first_success_step": 16,
+        "final_distance_m": 0.0432629940652244,
+        "final_static": true,
+        "final_max_arm_speed_rad_s": 0.06954138725996017
+      },
+      {
+        "reset_seed": 250037,
+        "first_success_step": 14,
+        "final_distance_m": 0.0335051766166451,
+        "final_static": true,
+        "final_max_arm_speed_rad_s": 0.03443675860762596
+      },
+      {
+        "reset_seed": 250040,
+        "first_success_step": 20,
+        "final_distance_m": 0.028511436656514563,
+        "final_static": true,
+        "final_max_arm_speed_rad_s": 0.04559400677680969
+      },
+      {
+        "reset_seed": 250043,
+        "first_success_step": 18,
+        "final_distance_m": 0.028955497243942505,
+        "final_static": true,
+        "final_max_arm_speed_rad_s": 0.06703641265630722
+      },
+      {
+        "reset_seed": 250044,
+        "first_success_step": 22,
+        "final_distance_m": 0.025419677756681996,
+        "final_static": true,
+        "final_max_arm_speed_rad_s": 0.028982605785131454
+      },
+      {
+        "reset_seed": 250046,
+        "first_success_step": 15,
+        "final_distance_m": 0.032012633532939906,
+        "final_static": true,
+        "final_max_arm_speed_rad_s": 0.08261223137378693
+      }
+    ],
+    "plots": [
+      "trajectories_seed2042_lambda10_final_01.png",
+      "trajectories_seed2042_lambda10_final_02.png"
+    ]
+  },
+  {
+    "condition": "seed2042_lambda25_final",
+    "selection": "ALL episodes that succeeded at least once and finish with actual 3D distance>0.025m; sorted reset seeds, no favorable-case selection",
+    "cases": [
+      {
+        "reset_seed": 250003,
+        "first_success_step": 11,
+        "final_distance_m": 0.03422915538475421,
+        "final_static": true,
+        "final_max_arm_speed_rad_s": 0.039509646594524384
+      },
+      {
+        "reset_seed": 250006,
+        "first_success_step": 14,
+        "final_distance_m": 0.025106418009719175,
+        "final_static": true,
+        "final_max_arm_speed_rad_s": 0.07134650647640228
+      },
+      {
+        "reset_seed": 250012,
+        "first_success_step": 28,
+        "final_distance_m": 0.026164733665989953,
+        "final_static": true,
+        "final_max_arm_speed_rad_s": 0.07156341522932053
+      },
+      {
+        "reset_seed": 250014,
+        "first_success_step": 7,
+        "final_distance_m": 0.2734796041247706,
+        "final_static": false,
+        "final_max_arm_speed_rad_s": 0.3936868906021118
+      },
+      {
+        "reset_seed": 250017,
+        "first_success_step": 13,
+        "final_distance_m": 0.027528189434168984,
+        "final_static": true,
+        "final_max_arm_speed_rad_s": 0.05078063905239105
+      },
+      {
+        "reset_seed": 250026,
+        "first_success_step": 39,
+        "final_distance_m": 0.025480866292860165,
+        "final_static": true,
+        "final_max_arm_speed_rad_s": 0.05049837380647659
+      },
+      {
+        "reset_seed": 250034,
+        "first_success_step": 17,
+        "final_distance_m": 0.039804966861546734,
+        "final_static": true,
+        "final_max_arm_speed_rad_s": 0.06264877319335938
+      },
+      {
+        "reset_seed": 250037,
+        "first_success_step": 14,
+        "final_distance_m": 0.03196164168403491,
+        "final_static": true,
+        "final_max_arm_speed_rad_s": 0.03979799896478653
+      },
+      {
+        "reset_seed": 250040,
+        "first_success_step": 22,
+        "final_distance_m": 0.028980478461137518,
+        "final_static": true,
+        "final_max_arm_speed_rad_s": 0.06185358390212059
+      }
+    ],
+    "plots": [
+      "trajectories_seed2042_lambda25_final_01.png"
+    ]
+  }
+]

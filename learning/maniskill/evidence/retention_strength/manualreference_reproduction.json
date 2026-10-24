@@ -1,0 +1,36 @@
+{
+  "scope": "Read-only original PR18 lambda10 reproduction check; no new evaluation or tuning. ZIP container hashes can differ while tensors match.",
+  "all_final_policy_tensors_bitwise_equal": true,
+  "rows": [
+    {
+      "training_seed": 42,
+      "new_final_canonical_fingerprint": "4ea119433f2ae5ab185129e4c4630ec133269f9a915746c58aeb5526e4d3757a",
+      "pr18_final_canonical_fingerprint": "4ea119433f2ae5ab185129e4c4630ec133269f9a915746c58aeb5526e4d3757a",
+      "final_policy_tensors_bitwise_equal": true,
+      "validation_history_exact": true,
+      "selection_metadata_exact": true,
+      "new_final_checkpoint_sha256": "bcc968f28530699f238c5407c1b270320c62bc8e8f8774565f51672a625b9201",
+      "pr18_final_checkpoint_sha256": "f062e3c0fbc75c63f501c24068e2c27b0e2e785f61f1006792b4a7ac67aefebb"
+    },
+    {
+      "training_seed": 1042,
+      "new_final_canonical_fingerprint": "37734e44f1476a27b1b3ba7ac8a5cb2ea65147ea00e8225d675758012757b265",
+      "pr18_final_canonical_fingerprint": "37734e44f1476a27b1b3ba7ac8a5cb2ea65147ea00e8225d675758012757b265",
+      "final_policy_tensors_bitwise_equal": true,
+      "validation_history_exact": true,
+      "selection_metadata_exact": true,
+      "new_final_checkpoint_sha256": "bfbb11e538c90e6af090e4121f900ad9736dd85c7158ad0d5a767f75d55eaa22",
+      "pr18_final_checkpoint_sha256": "e2d0a794915a3eed34111b68666bd00ba614c715e825a5c76e42ea75d22ed4b9"
+    },
+    {
+      "training_seed": 2042,
+      "new_final_canonical_fingerprint": "ed68fb8a812cc1163de91eb5ce22f57668862daf33aa3334eb1db90f72c3ecd9",
+      "pr18_final_canonical_fingerprint": "ed68fb8a812cc1163de91eb5ce22f57668862daf33aa3334eb1db90f72c3ecd9",
+      "final_policy_tensors_bitwise_equal": true,
+      "validation_history_exact": true,
+      "selection_metadata_exact": true,
+      "new_final_checkpoint_sha256": "3ffe23c5c8634bf65266b51fb7d712c40f4f2ce4f2cdacd98fef4d4e6f0ee765",
+      "pr18_final_checkpoint_sha256": "413329b0b2fa80d8422bcccef8d254166e31d1c952305b470f7c5ebcb2163fbb"
+    }
+  ]
+}

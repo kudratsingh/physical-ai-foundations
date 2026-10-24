@@ -1,0 +1,45 @@
+{
+  "rows": [
+    {
+      "training_seed": 42,
+      "lambda10_final": 40,
+      "lambda10_best": 40,
+      "lambda25_final": 36,
+      "lambda25_best": 41,
+      "lambda25_minus_lambda10_final": -4,
+      "lambda10_selected_minus_final": 0,
+      "lambda25_selected_minus_final": 5
+    },
+    {
+      "training_seed": 1042,
+      "lambda10_final": 40,
+      "lambda10_best": 45,
+      "lambda25_final": 37,
+      "lambda25_best": 35,
+      "lambda25_minus_lambda10_final": -3,
+      "lambda10_selected_minus_final": 5,
+      "lambda25_selected_minus_final": -2
+    },
+    {
+      "training_seed": 2042,
+      "lambda10_final": 32,
+      "lambda10_best": 43,
+      "lambda25_final": 37,
+      "lambda25_best": 37,
+      "lambda25_minus_lambda10_final": 5,
+      "lambda10_selected_minus_final": 11,
+      "lambda25_selected_minus_final": 0
+    }
+  ],
+  "target_training_seed": 2042,
+  "target_gain_at_least_five": true,
+  "each_other_seed_loses_at_most_two": false,
+  "mean_signed_collapse_not_worse": true,
+  "mean_signed_selected_minus_final": {
+    "lambda10": 5.333333333333333,
+    "lambda25": 1
+  },
+  "promising_rule_met": false,
+  "rule": "lambda25 improves predeclared seed 2042 by at least5/50 versus lambda10, loses at most2/50 in EACH other training seed, and mean signed(selected-final)collapse is no larger.",
+  "scope": "Descriptive fixed-strength rule, not significance. Same 50 fresh reset seeds across 3 training seeds; target 2042 was chosen from PR18 before this study."
+}

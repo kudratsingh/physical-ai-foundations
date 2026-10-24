@@ -1,0 +1,570 @@
+{
+  "all_six_final_budgets_verified_before_evaluation": true,
+  "all_three_first_performance_rollout_summaries_match": true,
+  "teacher_sha256": "dc62b7c1ab5c26463d5a439c3d273cdb295a37920791da16985bba9f39bc6323",
+  "teacher_fingerprint": "5d0069ea8c9b15093858f1b11b85ed88f0a0c1caa305526ec012681e3bcac160",
+  "protocol_sha256": "f3cd694f70bdc44bf62d7e28d94f384630e4c151725a7d04939521a769b3bb43",
+  "coefficients": {
+    "lambda10": 10.0,
+    "lambda25": 25.0
+  },
+  "actual_checkpoints": {
+    "42": {
+      "lambda10": {
+        "initial": {
+          "sha256": "848b7d9473ac43973c978a6d0680c3dd69753c3bc40e6a41345221bb61b1108e",
+          "recipe": {
+            "num_timesteps": 0,
+            "seed": 42,
+            "coefficient": 10.0,
+            "teacher_fingerprint": "5d0069ea8c9b15093858f1b11b85ed88f0a0c1caa305526ec012681e3bcac160",
+            "teacher_frozen": true,
+            "optimizer_empty": true,
+            "policy_class": "BoundedCriticPolicy",
+            "critic_bound": 100
+          }
+        },
+        "final": {
+          "sha256": "bcc968f28530699f238c5407c1b270320c62bc8e8f8774565f51672a625b9201",
+          "recipe": {
+            "num_timesteps": 262144,
+            "seed": 42,
+            "coefficient": 10.0,
+            "teacher_fingerprint": "5d0069ea8c9b15093858f1b11b85ed88f0a0c1caa305526ec012681e3bcac160",
+            "teacher_frozen": true,
+            "optimizer_empty": false,
+            "policy_class": "BoundedCriticPolicy",
+            "critic_bound": 100
+          }
+        },
+        "best": {
+          "sha256": "f000f8ac5a5317927545ccc8856e59a34ee7a4355b1491763038539971d06966",
+          "recipe": {
+            "num_timesteps": 262144,
+            "seed": 42,
+            "coefficient": 10.0,
+            "teacher_fingerprint": "5d0069ea8c9b15093858f1b11b85ed88f0a0c1caa305526ec012681e3bcac160",
+            "teacher_frozen": true,
+            "optimizer_empty": false,
+            "policy_class": "BoundedCriticPolicy",
+            "critic_bound": 100
+          }
+        }
+      },
+      "lambda25": {
+        "initial": {
+          "sha256": "e11fe60fc8ebfeb10b753d4900e0ba724cbf96da5b6b3da71613d1b6328f4fd8",
+          "recipe": {
+            "num_timesteps": 0,
+            "seed": 42,
+            "coefficient": 25.0,
+            "teacher_fingerprint": "5d0069ea8c9b15093858f1b11b85ed88f0a0c1caa305526ec012681e3bcac160",
+            "teacher_frozen": true,
+            "optimizer_empty": true,
+            "policy_class": "BoundedCriticPolicy",
+            "critic_bound": 100
+          }
+        },
+        "final": {
+          "sha256": "f5b314892de79cb93a263ee824fe22bb7453a09d308e379518cd1697cea99b0a",
+          "recipe": {
+            "num_timesteps": 262144,
+            "seed": 42,
+            "coefficient": 25.0,
+            "teacher_fingerprint": "5d0069ea8c9b15093858f1b11b85ed88f0a0c1caa305526ec012681e3bcac160",
+            "teacher_frozen": true,
+            "optimizer_empty": false,
+            "policy_class": "BoundedCriticPolicy",
+            "critic_bound": 100
+          }
+        },
+        "best": {
+          "sha256": "49c29b9c25002955865637e93cdf1f58b09b7bc1afa0afd24690e4a9e8ea0b4a",
+          "recipe": {
+            "num_timesteps": 229376,
+            "seed": 42,
+            "coefficient": 25.0,
+            "teacher_fingerprint": "5d0069ea8c9b15093858f1b11b85ed88f0a0c1caa305526ec012681e3bcac160",
+            "teacher_frozen": true,
+            "optimizer_empty": false,
+            "policy_class": "BoundedCriticPolicy",
+            "critic_bound": 100
+          }
+        }
+      }
+    },
+    "1042": {
+      "lambda10": {
+        "initial": {
+          "sha256": "4043c5a1c0a86f04cdeb6073ce8d4a9ec58533186efd5113a04eeaff0d27a1be",
+          "recipe": {
+            "num_timesteps": 0,
+            "seed": 1042,
+            "coefficient": 10.0,
+            "teacher_fingerprint": "5d0069ea8c9b15093858f1b11b85ed88f0a0c1caa305526ec012681e3bcac160",
+            "teacher_frozen": true,
+            "optimizer_empty": true,
+            "policy_class": "BoundedCriticPolicy",
+            "critic_bound": 100
+          }
+        },
+        "final": {
+          "sha256": "bfbb11e538c90e6af090e4121f900ad9736dd85c7158ad0d5a767f75d55eaa22",
+          "recipe": {
+            "num_timesteps": 262144,
+            "seed": 1042,
+            "coefficient": 10.0,
+            "teacher_fingerprint": "5d0069ea8c9b15093858f1b11b85ed88f0a0c1caa305526ec012681e3bcac160",
+            "teacher_frozen": true,
+            "optimizer_empty": false,
+            "policy_class": "BoundedCriticPolicy",
+            "critic_bound": 100
+          }
+        },
+        "best": {
+          "sha256": "be33a8c6528d79b852b4737e76d01dfe7c2a1630c06f21ef5b0926cd129dcb4d",
+          "recipe": {
+            "num_timesteps": 196608,
+            "seed": 1042,
+            "coefficient": 10.0,
+            "teacher_fingerprint": "5d0069ea8c9b15093858f1b11b85ed88f0a0c1caa305526ec012681e3bcac160",
+            "teacher_frozen": true,
+            "optimizer_empty": false,
+            "policy_class": "BoundedCriticPolicy",
+            "critic_bound": 100
+          }
+        }
+      },
+      "lambda25": {
+        "initial": {
+          "sha256": "2c6697bf0612bae5a0f071e5e8f6c63864bc6d0157143f883b0908e769068e2c",
+          "recipe": {
+            "num_timesteps": 0,
+            "seed": 1042,
+            "coefficient": 25.0,
+            "teacher_fingerprint": "5d0069ea8c9b15093858f1b11b85ed88f0a0c1caa305526ec012681e3bcac160",
+            "teacher_frozen": true,
+            "optimizer_empty": true,
+            "policy_class": "BoundedCriticPolicy",
+            "critic_bound": 100
+          }
+        },
+        "final": {
+          "sha256": "6605d76649a0326a0ed024492d5491c665c60acd793275016eabbd7aa68b5bb4",
+          "recipe": {
+            "num_timesteps": 262144,
+            "seed": 1042,
+            "coefficient": 25.0,
+            "teacher_fingerprint": "5d0069ea8c9b15093858f1b11b85ed88f0a0c1caa305526ec012681e3bcac160",
+            "teacher_frozen": true,
+            "optimizer_empty": false,
+            "policy_class": "BoundedCriticPolicy",
+            "critic_bound": 100
+          }
+        },
+        "best": {
+          "sha256": "09523a4e9e2a159d67a1b666c60f4e1de91245cdc7177525c4f55bacb4195e1f",
+          "recipe": {
+            "num_timesteps": 32768,
+            "seed": 1042,
+            "coefficient": 25.0,
+            "teacher_fingerprint": "5d0069ea8c9b15093858f1b11b85ed88f0a0c1caa305526ec012681e3bcac160",
+            "teacher_frozen": true,
+            "optimizer_empty": false,
+            "policy_class": "BoundedCriticPolicy",
+            "critic_bound": 100
+          }
+        }
+      }
+    },
+    "2042": {
+      "lambda10": {
+        "initial": {
+          "sha256": "a6b4ad78860e1792edbdb9cd98529dfb7ad63bef2ac8dbe453cf99b075112731",
+          "recipe": {
+            "num_timesteps": 0,
+            "seed": 2042,
+            "coefficient": 10.0,
+            "teacher_fingerprint": "5d0069ea8c9b15093858f1b11b85ed88f0a0c1caa305526ec012681e3bcac160",
+            "teacher_frozen": true,
+            "optimizer_empty": true,
+            "policy_class": "BoundedCriticPolicy",
+            "critic_bound": 100
+          }
+        },
+        "final": {
+          "sha256": "3ffe23c5c8634bf65266b51fb7d712c40f4f2ce4f2cdacd98fef4d4e6f0ee765",
+          "recipe": {
+            "num_timesteps": 262144,
+            "seed": 2042,
+            "coefficient": 10.0,
+            "teacher_fingerprint": "5d0069ea8c9b15093858f1b11b85ed88f0a0c1caa305526ec012681e3bcac160",
+            "teacher_frozen": true,
+            "optimizer_empty": false,
+            "policy_class": "BoundedCriticPolicy",
+            "critic_bound": 100
+          }
+        },
+        "best": {
+          "sha256": "5ce9d9009090df05215727fb90aaef7ef0475062bf42d59b2ad779732f0e956d",
+          "recipe": {
+            "num_timesteps": 196608,
+            "seed": 2042,
+            "coefficient": 10.0,
+            "teacher_fingerprint": "5d0069ea8c9b15093858f1b11b85ed88f0a0c1caa305526ec012681e3bcac160",
+            "teacher_frozen": true,
+            "optimizer_empty": false,
+            "policy_class": "BoundedCriticPolicy",
+            "critic_bound": 100
+          }
+        }
+      },
+      "lambda25": {
+        "initial": {
+          "sha256": "2f9a61b2ce37ca05248e858b2717d37f843459c637e3315ca51bc027cdc8fbd5",
+          "recipe": {
+            "num_timesteps": 0,
+            "seed": 2042,
+            "coefficient": 25.0,
+            "teacher_fingerprint": "5d0069ea8c9b15093858f1b11b85ed88f0a0c1caa305526ec012681e3bcac160",
+            "teacher_frozen": true,
+            "optimizer_empty": true,
+            "policy_class": "BoundedCriticPolicy",
+            "critic_bound": 100
+          }
+        },
+        "final": {
+          "sha256": "1a857c06a19d4fdf932c49d9861bd7c8520519d00cb726d345a305386cdd30a4",
+          "recipe": {
+            "num_timesteps": 262144,
+            "seed": 2042,
+            "coefficient": 25.0,
+            "teacher_fingerprint": "5d0069ea8c9b15093858f1b11b85ed88f0a0c1caa305526ec012681e3bcac160",
+            "teacher_frozen": true,
+            "optimizer_empty": false,
+            "policy_class": "BoundedCriticPolicy",
+            "critic_bound": 100
+          }
+        },
+        "best": {
+          "sha256": "82f2bc1698095d19022b09efa1d865dfbd223b097ebcd623fe5661fdd8956870",
+          "recipe": {
+            "num_timesteps": 32768,
+            "seed": 2042,
+            "coefficient": 25.0,
+            "teacher_fingerprint": "5d0069ea8c9b15093858f1b11b85ed88f0a0c1caa305526ec012681e3bcac160",
+            "teacher_frozen": true,
+            "optimizer_empty": false,
+            "policy_class": "BoundedCriticPolicy",
+            "critic_bound": 100
+          }
+        }
+      }
+    }
+  },
+  "first_update_summaries": {
+    "42": {
+      "lambda10": {
+        "timesteps": 1024,
+        "values": {
+          "count": 1024,
+          "min": -1.2421953678131104,
+          "median": -0.2891894429922104,
+          "max": 0.6193758845329285,
+          "mean": -0.2769255466055256
+        },
+        "returns": {
+          "count": 1024,
+          "min": -0.9557597637176514,
+          "median": 8.297969818115234,
+          "max": 14.796908378601074,
+          "mean": 7.940671105701767
+        },
+        "advantages": {
+          "count": 1024,
+          "min": -0.2154783010482788,
+          "median": 8.681655406951904,
+          "max": 15.166756629943848,
+          "mean": 8.217596637587121
+        },
+        "buffer_rewards_after_bootstrap": {
+          "count": 1024,
+          "min": -0.9557597637176514,
+          "median": 0.5498964786529541,
+          "max": 1.0,
+          "mean": 0.621264942601556
+        },
+        "raw": {
+          "rewards": {
+            "count": 1024,
+            "min": 0.05567433685064316,
+            "median": 0.5500119924545288,
+            "max": 1.0,
+            "mean": 0.6272814192343503
+          },
+          "timeout_count": 20,
+          "termination_count": 0,
+          "terminal_values": {
+            "count": 20,
+            "min": -1.1163303852081299,
+            "median": -0.33718523383140564,
+            "max": 0.3706653416156769,
+            "mean": -0.31115514859557153
+          }
+        }
+      },
+      "lambda25": {
+        "timesteps": 1024,
+        "values": {
+          "count": 1024,
+          "min": -1.2421953678131104,
+          "median": -0.2891894429922104,
+          "max": 0.6193758845329285,
+          "mean": -0.2769255466055256
+        },
+        "returns": {
+          "count": 1024,
+          "min": -0.9557597637176514,
+          "median": 8.297969818115234,
+          "max": 14.796908378601074,
+          "mean": 7.940671105701767
+        },
+        "advantages": {
+          "count": 1024,
+          "min": -0.2154783010482788,
+          "median": 8.681655406951904,
+          "max": 15.166756629943848,
+          "mean": 8.217596637587121
+        },
+        "buffer_rewards_after_bootstrap": {
+          "count": 1024,
+          "min": -0.9557597637176514,
+          "median": 0.5498964786529541,
+          "max": 1.0,
+          "mean": 0.621264942601556
+        },
+        "raw": {
+          "rewards": {
+            "count": 1024,
+            "min": 0.05567433685064316,
+            "median": 0.5500119924545288,
+            "max": 1.0,
+            "mean": 0.6272814192343503
+          },
+          "timeout_count": 20,
+          "termination_count": 0,
+          "terminal_values": {
+            "count": 20,
+            "min": -1.1163303852081299,
+            "median": -0.33718523383140564,
+            "max": 0.3706653416156769,
+            "mean": -0.31115514859557153
+          }
+        }
+      }
+    },
+    "1042": {
+      "lambda10": {
+        "timesteps": 1024,
+        "values": {
+          "count": 1024,
+          "min": -0.34997621178627014,
+          "median": 0.09979910776019096,
+          "max": 1.2078173160552979,
+          "mean": 0.15956117810333126
+        },
+        "returns": {
+          "count": 1024,
+          "min": 0.23086991906166077,
+          "median": 9.176561832427979,
+          "max": 15.537267684936523,
+          "mean": 8.704406701697735
+        },
+        "advantages": {
+          "count": 1024,
+          "min": -0.2994995415210724,
+          "median": 8.982738018035889,
+          "max": 15.030281066894531,
+          "mean": 8.5448455389851
+        },
+        "buffer_rewards_after_bootstrap": {
+          "count": 1024,
+          "min": 0.05065256357192993,
+          "median": 0.5597053468227386,
+          "max": 1.1603811979293823,
+          "mean": 0.663527784494363
+        },
+        "raw": {
+          "rewards": {
+            "count": 1024,
+            "min": 0.05065256357192993,
+            "median": 0.5593810975551605,
+            "max": 1.0,
+            "mean": 0.6613139357978071
+          },
+          "timeout_count": 20,
+          "termination_count": 0,
+          "terminal_values": {
+            "count": 20,
+            "min": -0.2088329941034317,
+            "median": 0.032567933201789856,
+            "max": 0.591373085975647,
+            "mean": 0.11449399255216122
+          }
+        }
+      },
+      "lambda25": {
+        "timesteps": 1024,
+        "values": {
+          "count": 1024,
+          "min": -0.34997621178627014,
+          "median": 0.09979910776019096,
+          "max": 1.2078173160552979,
+          "mean": 0.15956117810333126
+        },
+        "returns": {
+          "count": 1024,
+          "min": 0.23086991906166077,
+          "median": 9.176561832427979,
+          "max": 15.537267684936523,
+          "mean": 8.704406701697735
+        },
+        "advantages": {
+          "count": 1024,
+          "min": -0.2994995415210724,
+          "median": 8.982738018035889,
+          "max": 15.030281066894531,
+          "mean": 8.5448455389851
+        },
+        "buffer_rewards_after_bootstrap": {
+          "count": 1024,
+          "min": 0.05065256357192993,
+          "median": 0.5597053468227386,
+          "max": 1.1603811979293823,
+          "mean": 0.663527784494363
+        },
+        "raw": {
+          "rewards": {
+            "count": 1024,
+            "min": 0.05065256357192993,
+            "median": 0.5593810975551605,
+            "max": 1.0,
+            "mean": 0.6613139357978071
+          },
+          "timeout_count": 20,
+          "termination_count": 0,
+          "terminal_values": {
+            "count": 20,
+            "min": -0.2088329941034317,
+            "median": 0.032567933201789856,
+            "max": 0.591373085975647,
+            "mean": 0.11449399255216122
+          }
+        }
+      }
+    },
+    "2042": {
+      "lambda10": {
+        "timesteps": 1024,
+        "values": {
+          "count": 1024,
+          "min": -1.2766084671020508,
+          "median": 0.16175607591867447,
+          "max": 1.5658342838287354,
+          "mean": 0.23264327769018678
+        },
+        "returns": {
+          "count": 1024,
+          "min": -0.3256499171257019,
+          "median": 9.821067810058594,
+          "max": 15.538741111755371,
+          "mean": 8.953585129100247
+        },
+        "advantages": {
+          "count": 1024,
+          "min": -0.012199029326438904,
+          "median": 9.541706562042236,
+          "max": 15.563932418823242,
+          "mean": 8.720941855513956
+        },
+        "buffer_rewards_after_bootstrap": {
+          "count": 1024,
+          "min": -0.3256499171257019,
+          "median": 0.5637012422084808,
+          "max": 1.923079013824463,
+          "mean": 0.6727794274229382
+        },
+        "raw": {
+          "rewards": {
+            "count": 1024,
+            "min": 0.048526037484407425,
+            "median": 0.5630999505519867,
+            "max": 1.0,
+            "mean": 0.6689610008506861
+          },
+          "timeout_count": 20,
+          "termination_count": 0,
+          "terminal_values": {
+            "count": 20,
+            "min": -0.4925157427787781,
+            "median": 0.1397271305322647,
+            "max": 0.9522644877433777,
+            "mean": 0.1974782155826688
+          }
+        }
+      },
+      "lambda25": {
+        "timesteps": 1024,
+        "values": {
+          "count": 1024,
+          "min": -1.2766084671020508,
+          "median": 0.16175607591867447,
+          "max": 1.5658342838287354,
+          "mean": 0.23264327769018678
+        },
+        "returns": {
+          "count": 1024,
+          "min": -0.3256499171257019,
+          "median": 9.821067810058594,
+          "max": 15.538741111755371,
+          "mean": 8.953585129100247
+        },
+        "advantages": {
+          "count": 1024,
+          "min": -0.012199029326438904,
+          "median": 9.541706562042236,
+          "max": 15.563932418823242,
+          "mean": 8.720941855513956
+        },
+        "buffer_rewards_after_bootstrap": {
+          "count": 1024,
+          "min": -0.3256499171257019,
+          "median": 0.5637012422084808,
+          "max": 1.923079013824463,
+          "mean": 0.6727794274229382
+        },
+        "raw": {
+          "rewards": {
+            "count": 1024,
+            "min": 0.048526037484407425,
+            "median": 0.5630999505519867,
+            "max": 1.0,
+            "mean": 0.6689610008506861
+          },
+          "timeout_count": 20,
+          "termination_count": 0,
+          "terminal_values": {
+            "count": 20,
+            "min": -0.4925157427787781,
+            "median": 0.1397271305322647,
+            "max": 0.9522644877433777,
+            "mean": 0.1974782155826688
+          }
+        }
+      }
+    }
+  },
+  "reference_pr18_selected_manifest_sha256": "c43985b2b2b60f3debf355e69739b943898095277f5365f97730f4651700a072",
+  "reference_used_for_evaluation": false,
+  "comparison_source_sha256": "559a20778d8233e02979e64fce4d7bb91d8bd3e4d1608528ab6c5385e0e29282"
+}

@@ -1,0 +1,100 @@
+[
+  {
+    "condition": "teacher",
+    "seed": 250000,
+    "file": "video_teacher_seed250000.mp4",
+    "sha256": "e1c92dbf55c95102f3f3f643ecd2ef839333b47fb5ce830346d80f9275d6655c",
+    "all_episode_and_holding_records_match": true
+  },
+  {
+    "condition": "teacher",
+    "seed": 250001,
+    "file": "video_teacher_seed250001.mp4",
+    "sha256": "37c2d0b8bd78aef28eb56cf2fb9071175c6e970cfec1fbe69a6175932f5eb443",
+    "all_episode_and_holding_records_match": true
+  },
+  {
+    "condition": "seed42_lambda10_final",
+    "seed": 250000,
+    "file": "seed42/video_lambda10_final_seed250000.mp4",
+    "sha256": "ab4794bb0e340ec4b1315f59954c9ef1a0aef95cb2b8d657d6dee0ccae6da6fb",
+    "all_episode_and_holding_records_match": true
+  },
+  {
+    "condition": "seed42_lambda10_final",
+    "seed": 250001,
+    "file": "seed42/video_lambda10_final_seed250001.mp4",
+    "sha256": "775aefbe645050377629ebd78e6b7603a8b519e31e7d5c2398ddab4b03bf1af3",
+    "all_episode_and_holding_records_match": true
+  },
+  {
+    "condition": "seed42_lambda25_final",
+    "seed": 250000,
+    "file": "seed42/video_lambda25_final_seed250000.mp4",
+    "sha256": "43d7f3d2889737a3d8978806921f093ed62afc3d617ed74f6d66986eaded70ef",
+    "all_episode_and_holding_records_match": true
+  },
+  {
+    "condition": "seed42_lambda25_final",
+    "seed": 250001,
+    "file": "seed42/video_lambda25_final_seed250001.mp4",
+    "sha256": "3564af6a141ed8024a663bba050d06cc17f07acc5b2fabef37d592d4b7998cf9",
+    "all_episode_and_holding_records_match": true
+  },
+  {
+    "condition": "seed1042_lambda10_final",
+    "seed": 250000,
+    "file": "seed1042/video_lambda10_final_seed250000.mp4",
+    "sha256": "ad7b5a846a6d91560cc55a68df3b749fc28c825f6f4d941e1e5019fcec054344",
+    "all_episode_and_holding_records_match": true
+  },
+  {
+    "condition": "seed1042_lambda10_final",
+    "seed": 250001,
+    "file": "seed1042/video_lambda10_final_seed250001.mp4",
+    "sha256": "00c32714f26938f1c6458c32ef854ec7acb40fb425406f2cf08cea82bb139fa8",
+    "all_episode_and_holding_records_match": true
+  },
+  {
+    "condition": "seed1042_lambda25_final",
+    "seed": 250000,
+    "file": "seed1042/video_lambda25_final_seed250000.mp4",
+    "sha256": "b8b11ae3652bdd2e1bc1fa17426ffc21e2ba45f2f7385527655a52deffccf27e",
+    "all_episode_and_holding_records_match": true
+  },
+  {
+    "condition": "seed1042_lambda25_final",
+    "seed": 250001,
+    "file": "seed1042/video_lambda25_final_seed250001.mp4",
+    "sha256": "a6154a1efb50ddcf4bcff2fab277eb33f43ee71c04bf43286a8cd8fe96cdefd2",
+    "all_episode_and_holding_records_match": true
+  },
+  {
+    "condition": "seed2042_lambda10_final",
+    "seed": 250000,
+    "file": "seed2042/video_lambda10_final_seed250000.mp4",
+    "sha256": "346d02b559faed1b37dcf63f0bdca34b563b6b4add3edd536c1b03ba012476d2",
+    "all_episode_and_holding_records_match": true
+  },
+  {
+    "condition": "seed2042_lambda10_final",
+    "seed": 250001,
+    "file": "seed2042/video_lambda10_final_seed250001.mp4",
+    "sha256": "43729e62f6b4c9bd865d1cd5b03fc4704bdf3261fd714084bbe391b1d83ca7d6",
+    "all_episode_and_holding_records_match": true
+  },
+  {
+    "condition": "seed2042_lambda25_final",
+    "seed": 250000,
+    "file": "seed2042/video_lambda25_final_seed250000.mp4",
+    "sha256": "d7bc4408b23c5f61c3884a972d682c06feda6d883394c58d901fc189a15370c2",
+    "all_episode_and_holding_records_match": true
+  },
+  {
+    "condition": "seed2042_lambda25_final",
+    "seed": 250001,
+    "file": "seed2042/video_lambda25_final_seed250001.mp4",
+    "sha256": "43eee68e24344af667bdbd2062d27436bba89e63775b1826489b6ec597188c9d",
+    "all_episode_and_holding_records_match": true
+  }
+]

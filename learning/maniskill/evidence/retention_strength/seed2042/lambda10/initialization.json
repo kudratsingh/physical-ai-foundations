@@ -1,0 +1,9 @@
+{
+  "canonical_fingerprint": "8cd927003eeba1a579067e95a3963b7e7a5f41a7106bc7f5cf50b08ac2e4f551",
+  "rng_fingerprint": "b23809a1bd3bea5139ab2f424496c14e77238c2201b349e01320afa5804dd422",
+  "teacher_fingerprint": "5d0069ea8c9b15093858f1b11b85ed88f0a0c1caa305526ec012681e3bcac160",
+  "optimizer_empty": true,
+  "checkpoint_sha256": "a6b4ad78860e1792edbdb9cd98529dfb7ad63bef2ac8dbe453cf99b075112731",
+  "coefficient": 10.0,
+  "protocol_sha256": "f3cd694f70bdc44bf62d7e28d94f384630e4c151725a7d04939521a769b3bb43"
+}
