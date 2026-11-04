@@ -1,12 +1,9 @@
-# Physical AI Foundations
+# Physical AI Foundations — Robotics & Robot Learning
 
 [![Main tests](https://github.com/kudratsingh/physical-ai-foundations/actions/workflows/tests.yml/badge.svg?branch=main)](https://github.com/kudratsingh/physical-ai-foundations/actions/workflows/tests.yml)
 [![Public documentation](https://github.com/kudratsingh/physical-ai-foundations/actions/workflows/pages.yml/badge.svg?branch=main)](https://github.com/kudratsingh/physical-ai-foundations/actions/workflows/pages.yml)
 
-Reproducible robotics labs and measured manipulation-learning experiments:
-**MuJoCo, ROS 2, ManiSkill, behavior cloning, and PPO policy retention**.
-The project connects physical models and feedback control to learning systems
-that must place an object and remain successful through a complete rollout.
+A **physical AI and robot-learning laboratory** connecting **SE(3) geometry, rigid-body kinematics, Jacobian-based control and MuJoCo dynamics** with **ROS 2 distributed control** and **ManiSkill manipulation learning**. Behavior cloning, PPO, critic-stability diagnostics and frozen-teacher retention ablations turn control and learning theory into reproducible experiments, with native rollout videos, trajectory evidence and declared evaluation protocols.
 
 **[Explore the public reports →](https://kudratsingh.github.io/physical-ai-foundations/)** ·
 [Current state](docs/CURRENT_STATE.md) · [Experiment ledger](docs/EXPERIMENTS.md) ·
